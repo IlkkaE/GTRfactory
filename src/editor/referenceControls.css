@@ -1,0 +1,75 @@
+.reference-controls {
+  border: 1px solid #3a555e;
+  border-radius: 6px;
+  background: #17282f;
+  padding: 8px 10px;
+  font-size: 12px;
+}
+.reference-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.reference-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 250px;
+  color: #cfe5e1;
+}
+.reference-controls p {
+  margin: 5px 0 0;
+  color: #9bb8b5;
+}
+.reference-panel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.reference-panel label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.reference-panel input[type='range'] {
+  width: 86px;
+}
+.reference-check {
+  color: #dcece9;
+}
+.reference-fields {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.reference-fields label {
+  gap: 3px;
+}
+.reference-fields input {
+  width: 78px;
+  background: #0e1b20;
+  color: inherit;
+  border: 1px solid #46636c;
+  border-radius: 3px;
+  padding: 5px;
+}
+.reference-fields span {
+  color: #9bb8b5;
+}
+.body-path.with-reference {
+  fill: #254148aa;
+}
+.reference-layer {
+  pointer-events: none;
+}
+.reference-project {
+  fill: #e6b45c44;
+  stroke: #ffd88d;
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+}
+.reference-raster {
+  pointer-events: none;
+}

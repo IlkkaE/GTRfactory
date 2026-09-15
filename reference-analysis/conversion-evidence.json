@@ -1,0 +1,260 @@
+[
+  {
+    "source": "Ibanez - RG HT HH AANJ.cdr",
+    "output": "reference-analysis\\converted\\rg-ht-hh-aanj.svg",
+    "command": [
+      "inkscape.com",
+      "CDR\\Ibanez - RG HT HH AANJ.cdr",
+      "--export-type=svg",
+      "--export-filename=reference-analysis\\converted\\rg-ht-hh-aanj.svg"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "svg": {
+      "root": {
+        "version": "1.1",
+        "width": "51.1811in",
+        "height": "51.1811in",
+        "viewBox": "0 0 3685.0394 3685.0394",
+        "id": "svg1337",
+        "{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}docname": "Ibanez - RG HT HH AANJ.cdr"
+      },
+      "counts": {
+        "svg": 1,
+        "defs": 1,
+        "namedview": 1,
+        "path": 1320,
+        "g": 164,
+        "text": 7,
+        "tspan": 23
+      },
+      "texts": [
+        "RG HT HH AANJ\nFULL SCALE",
+        "BODY: basswood (mahogany, alder, ash) \nw/\na\nll access neck joint\nNECK: 5pc maple /w walnut \nbolt on\nSCALE LENGTH: 648 mm (25.5 in)\nNUT WIDTH: 42 mm\nF\nRET\nBOARD: \nrosewood (maple, ebony) \nw/dot inlay,\n24 frets\nBRIDGE: Gotoh Hard Tail\nTUNERS: Gotoh",
+        "SPECIFICATIONS",
+        "PLAN FRONT",
+        "SIDE ELEVATION",
+        "R 2.5",
+        "12.0"
+      ],
+      "paths_with_close_command": 877
+    },
+    "render_returncode": 0
+  },
+  {
+    "source": "Ibanez - RGR FR HS.cdr",
+    "output": "reference-analysis\\converted\\rgr-fr-hs.svg",
+    "command": [
+      "inkscape.com",
+      "CDR\\Ibanez - RGR FR HS.cdr",
+      "--export-type=svg",
+      "--export-filename=reference-analysis\\converted\\rgr-fr-hs.svg"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "svg": {
+      "root": {
+        "version": "1.1",
+        "width": "51.1811in",
+        "height": "51.1811in",
+        "viewBox": "0 0 3685.0394 3685.0394",
+        "id": "svg1890",
+        "{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}docname": "Ibanez - RGR FR HS.cdr"
+      },
+      "counts": {
+        "svg": 1,
+        "defs": 1,
+        "namedview": 1,
+        "path": 1875,
+        "g": 137,
+        "text": 7,
+        "tspan": 21
+      },
+      "texts": [
+        "RGR FR HS CLEAN\nFULL SCALE",
+        "BODY: basswood (mahogany, alder, ash) w/\na\nll access neck joint\nNECK: 5pc maple /w walnut \nbolt on\nSCALE LENGTH: 648 mm (25.5 in)\nNUT WIDTH: 42 mm\nF\nRET\nBOARD: \nrosewood (maple, ebony) w/dot inlays,\n24 frets\nBRIDGE: Floyd Rose Original\nTUNERS: Gotoh",
+        "SPECIFICATIONS",
+        "PLAN FRONT",
+        "SIDE ELEVATION",
+        "R 2.5",
+        "12.0"
+      ],
+      "paths_with_close_command": 922
+    },
+    "render_returncode": 0
+  },
+  {
+    "source": "Ibanez - Talman HT 22 HSH BoltOn 25.5.cdr",
+    "output": "reference-analysis\\converted\\talman.svg",
+    "command": [
+      "inkscape.com",
+      "CDR\\Ibanez - Talman HT 22 HSH BoltOn 25.5.cdr",
+      "--export-type=svg",
+      "--export-filename=reference-analysis\\converted\\talman.svg"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "svg": {
+      "root": {
+        "version": "1.1",
+        "width": "51.1811in",
+        "height": "51.1811in",
+        "viewBox": "0 0 3685.0394 3685.0394",
+        "id": "svg1507",
+        "{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}docname": "Ibanez - Talman HT 22 HSH BoltOn 25.5.cdr"
+      },
+      "counts": {
+        "svg": 1,
+        "defs": 1,
+        "namedview": 1,
+        "g": 161,
+        "path": 1490,
+        "text": 7,
+        "tspan": 23
+      },
+      "texts": [
+        "Talman HT 22 HSH BoltOn 25.5\nFULL SCALE",
+        "BODY: basswood (mahogany, alder, ash) \nw/\na\nll access neck joint\nNECK: 3pc maple \nbolt on\nSCALE LENGTH: 648 mm (25.5 in)\nNUT WIDTH: 42 mm\nF\nRET\nBOARD: \nrosewood (maple, ebony) \nw/dot inlays,\n22 frets\nBRIDGE: Gotoh Hard Tail\nTUNERS: Gotoh",
+        "SPECIFICATIONS",
+        "PLAN FRONT",
+        "SIDE ELEVATION",
+        "R 2.5",
+        "12.0"
+      ],
+      "paths_with_close_command": 801
+    },
+    "render_returncode": 0
+  },
+  {
+    "source": "Ibanez - Iceman ToM 22 SetIn 24.75.cdr",
+    "output": "reference-analysis\\converted\\iceman.svg",
+    "command": [
+      "inkscape.com",
+      "CDR\\Ibanez - Iceman ToM 22 SetIn 24.75.cdr",
+      "--export-type=svg",
+      "--export-filename=reference-analysis\\converted\\iceman.svg"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "svg": {
+      "root": {
+        "version": "1.1",
+        "width": "51.1811in",
+        "height": "51.1811in",
+        "viewBox": "0 0 3685.0394 3685.0394",
+        "id": "svg1468",
+        "{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}docname": "Ibanez - Iceman ToM 22 SetIn 24.75.cdr"
+      },
+      "counts": {
+        "svg": 1,
+        "defs": 1,
+        "namedview": 1,
+        "g": 110,
+        "path": 1451,
+        "text": 10,
+        "tspan": 26
+      },
+      "texts": [
+        "12.0",
+        "Iceman HT 22 SetIn 24.75\nFULL SCALE",
+        "BODY: mahogany\nNECK: mahogany\nset in\nSCALE LENGTH: 628.6 mm (24.75 in)\nNUT WIDTH: 42 mm\nF\nRET\nB\nOARD: rosewood\n w/pearl/abalone inlays,\n22\n frets\nBRIDGE: Tune-O-Matic w/\nStop Tailpiece\nTUNERS: Grover",
+        "SPECIFICATIONS",
+        "PLAN FRONT",
+        "SIDE ELEVATION",
+        "12th fret",
+        "1st fret",
+        "R 4.0",
+        "1"
+      ],
+      "paths_with_close_command": 1023
+    },
+    "render_returncode": 0
+  },
+  {
+    "source": "Custom - V HT 22 HH SetIn 24.75.cdr",
+    "output": "reference-analysis\\converted\\custom-v.svg",
+    "command": [
+      "inkscape.com",
+      "CDR\\Custom - V HT 22 HH SetIn 24.75.cdr",
+      "--export-type=svg",
+      "--export-filename=reference-analysis\\converted\\custom-v.svg"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "svg": {
+      "root": {
+        "version": "1.1",
+        "width": "51.1811in",
+        "height": "51.1811in",
+        "viewBox": "0 0 3685.0394 3685.0394",
+        "id": "svg1503",
+        "{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}docname": "Custom - V HT 22 HH SetIn 24.75.cdr"
+      },
+      "counts": {
+        "svg": 1,
+        "defs": 1,
+        "namedview": 1,
+        "g": 116,
+        "path": 1485,
+        "text": 10,
+        "tspan": 27
+      },
+      "texts": [
+        "12.0",
+        "RR\nV HT 22 HH BoltOn 24.75\nFULL SCALE",
+        "BODY: basswood w/maple top\nNECK: 3p\nc maple \nset in\nSCALE LENGTH: 628.6 mm (24.75 in)\nNUT WIDTH: 42 mm\nF\nRET\nB\nOARD: rosewood\n w/pearl/abalone inlays,\n22\n frets\nBRIDGE: Tune-O-Matic w/\nStop Tailpiece\nTUNERS: Grover",
+        "SPECIFICATIONS",
+        "PLAN FRONT",
+        "SIDE ELEVATION",
+        "12th fret",
+        "1st fret",
+        "R 4.0",
+        "1"
+      ],
+      "paths_with_close_command": 1053
+    },
+    "render_returncode": 0
+  },
+  {
+    "source": "Ibanez - RGD 8 HT 24 HH BoltOn 27.cdr",
+    "output": "reference-analysis\\converted\\rgd-8.svg",
+    "command": [
+      "inkscape.com",
+      "CDR\\Ibanez - RGD 8 HT 24 HH BoltOn 27.cdr",
+      "--export-type=svg",
+      "--export-filename=reference-analysis\\converted\\rgd-8.svg"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "svg": {
+      "root": {
+        "version": "1.1",
+        "width": "51.1811in",
+        "height": "51.1811in",
+        "viewBox": "0 0 3685.0394 3685.0394",
+        "id": "svg3809",
+        "{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}docname": "Ibanez - RGD 8 HT 24 HH BoltOn 27.cdr"
+      },
+      "counts": {
+        "svg": 1,
+        "defs": 1,
+        "namedview": 1,
+        "g": 181,
+        "path": 3792,
+        "text": 7,
+        "tspan": 23
+      },
+      "texts": [
+        "RGD8 HT 24 HH\nBoltOn 27\nFULL SCALE",
+        "BODY: basswood w/\na\nll access neck joint\nNECK: 5pc maple /w wenge \nbolt on\nSCALE LENGTH: 685.8 mm (27 in)\nNUT WIDTH: 54 mm\nF\nRET\nBOARD: \nrosewood (maple) w/dots inlay,\n24 frets\nBRIDGE: Hipshot 8\nTUNERS: Gotoh",
+        "SPECIFICATIONS",
+        "PLAN FRONT",
+        "SIDE ELEVATION",
+        "R 2.5",
+        "12.0"
+      ],
+      "paths_with_close_command": 891
+    },
+    "render_returncode": 0
+  }
+]

@@ -1,0 +1,68 @@
+<div id="headstock-straightness-lab">
+  <div class="viz-controls">
+    <label class="form-label">Kielet<select class="form-select" data-control="strings"><option>6</option><option>7</option><option>8</option></select></label>
+    <label class="form-label">Kielijako<select class="form-select" data-control="spacing"><option value="fixed-total">Sama kokonaisväli</option><option value="fixed-gap">Sama viereisten väli</option></select></label>
+    <label class="form-label">Kaula<select class="form-select" data-control="neck"><option value="equal">25,5″ tasamensuuri</option><option value="multiscale">Moniskaala + kaari</option><option value="invalid">Liian pieni lapa · testi</option></select></label>
+    <label class="form-label">Tangentti<select class="form-select" data-control="branch"><option value="1">Haara A (+)</option><option value="-1">Haara B (−)</option></select></label>
+    <label class="form-label">Sijoittelu<select class="form-select" data-control="layout"><option value="solution">Paras löydetty</option><option value="baseline">Lähtöehdotus</option></select></label>
+    <label class="form-label">Tarkasteltava kieli<select class="form-select" data-control="selected"></select></label>
+  </div>
+  <div class="hl-metrics tabular-nums" aria-live="polite" data-metrics></div>
+  <svg class="hl-diagram" role="img" aria-label="Lapa, satulan kontaktit, ideaalijatkeet ja kielet viritinpylväiden tangenttipisteisiin"></svg>
+  <div class="hl-legend text-small"><span><i class="hl-ideal"></i>Ideaalijatke</span><span><i class="hl-actual"></i>Todellinen kieli</span><span>● Pylväs Ø6</span><span>○ Reikä Ø10</span><span>◌ Aluslevy Ø14,5 mm</span><span class="hl-original-key">Harmaa: lähdemuoto</span></div>
+  <div class="hl-detail tabular-nums text-small" data-detail></div>
+  <div class="text-small" aria-live="polite" data-status></div>
+  <div class="text-small" data-error role="alert"></div>
+  <div class="text-small">Koko M6-koneiston sopivuus ja käämintäpuoli: todentamatta.</div>
+</div>
+<style>
+#headstock-straightness-lab {width:100%;color:var(--foreground)}
+#headstock-straightness-lab .hl-metrics {margin-top:12px;display:flex;flex-wrap:wrap;gap:4px 20px}
+#headstock-straightness-lab .hl-diagram {display:block;width:100%;overflow:hidden}
+#headstock-straightness-lab .hl-diagram text {fill:var(--foreground);font-size:12px}
+#headstock-straightness-lab .hl-legend {display:flex;flex-wrap:wrap;gap:4px 14px;margin:4px 0 8px}
+#headstock-straightness-lab .hl-legend span {display:inline-flex;align-items:center;gap:5px}
+#headstock-straightness-lab .hl-legend i {display:inline-block;width:20px;height:0;border-top:2px solid var(--viz-series-1)}
+#headstock-straightness-lab .hl-legend .hl-ideal {border-color:var(--muted-foreground);border-top-style:dashed}
+#headstock-straightness-lab .hl-original-key {color:var(--muted-foreground)}
+#headstock-straightness-lab .hl-detail {margin-bottom:4px}
+#headstock-straightness-lab [data-error] {color:var(--destructive)}
+</style>
+<script type="application/json" id="headstock-lab-data">__HEADSTOCK_LAB_DATA__</script>
+<script>
+(() => {
+const root=document.getElementById('headstock-straightness-lab'),data=JSON.parse(document.getElementById('headstock-lab-data').textContent),svg=root.querySelector('svg'),ns='http://www.w3.org/2000/svg';
+const control=name=>root.querySelector('[data-control="'+name+'"]'),str=control('strings'),spacing=control('spacing'),neck=control('neck'),branch=control('branch'),layout=control('layout'),selected=control('selected');
+const fmt=(v,d=3)=>Number(v).toLocaleString('fi-FI',{minimumFractionDigits:d,maximumFractionDigits:d});
+const element=(tag,attrs,text)=>{const e=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;svg.append(e);return e;};
+let lastWidth=0,queued=false;
+function draw(){
+ const invalid=neck.value==='invalid',p=data.cases.find(c=>c.N===Number(str.value)&&c.spacing===spacing.value&&c.neck===neck.value)||data.cases[0];
+ for(const c of [str,spacing,branch,layout])c.disabled=invalid;
+ const l=p.layouts.find(x=>x.branch===Number(branch.value)),r=invalid?data.negativeCase.result:l[layout.value],N=r.strings.length;
+ const previous=Number(selected.value)||0;if(selected.options.length!==N){selected.replaceChildren();for(let i=0;i<N;i++){const o=document.createElement('option');o.value=i;o.textContent=(i+1)+(i===0?' · basso':i===N-1?' · diskantti':'');selected.append(o);}selected.value=Math.min(previous,N-1);}
+ const idx=Number(selected.value),q=r.strings[idx],worst=r.strings.reduce((a,b)=>b.angleDeg>a.angleDeg?b:a,r.strings[0]);
+ root.querySelector('[data-metrics]').innerHTML='<span>Valittu kieli '+(idx+1)+': <strong>'+fmt(q.angleDeg,6)+'°</strong></span><span>Suurin poikkeama: <strong>'+fmt(worst.angleDeg,6)+'°</strong> · kieli '+(worst.index+1)+'</span>';
+ root.querySelector('[data-detail]').textContent='Lyhin pylväsväli '+fmt(r.minPitchMm,2)+' mm · Uloimpien kielten väli satulalla '+fmt(p.params.stringSpanNut,2)+' mm · Reunan kulma '+fmt(p.transform.edgeAngleDeg,2)+'°';
+ root.querySelector('[data-status]').textContent=r.valid?'Pylväät, reiät ja aluslevyt: geometriatarkistus läpäisty.':'Sijoittelu ei läpäise geometriatarkistusta.';
+ root.querySelector('[data-error]').textContent=r.errors.join(' · ');
+ const width=Math.max(280,root.getBoundingClientRect().width),polygon=invalid?data.negativeCase.polygon:p.polygon;
+ const all=[...polygon,...p.originalPoints,...r.strings.flatMap(s=>[s.S,s.C,s.T].filter(Boolean))],minX=Math.min(-25,...all.map(a=>a.x)),maxX=Math.max(...all.map(a=>a.x))+11,minY=Math.min(...all.map(a=>a.y))-14,maxY=Math.max(...all.map(a=>a.y))+15;
+ const scale=(width-32)/(maxX-minX),height=Math.max(180,(maxY-minY)*scale+42),extra=(height-42-(maxY-minY)*scale)/2;
+ const x=a=>16+(a.x-minX)*scale,y=a=>16+extra+(a.y-minY)*scale;
+ svg.setAttribute('viewBox','0 0 '+width+' '+height);svg.setAttribute('height',height);svg.replaceChildren();
+ element('title',{},N+' kieltä, valittu kieli '+(idx+1)+', poikkeama '+fmt(q.angleDeg,6)+' astetta. '+(r.valid?'Geometriatarkistus läpäisty.':'Virheellinen sijoittelu.'));
+ const polyline=(pts,attrs={})=>element('polyline',{points:pts.map(a=>x(a)+','+y(a)).join(' '),fill:'none',stroke:'var(--foreground)','stroke-width':1,...attrs});
+ const line=(a,b,attrs={})=>polyline([a,b],attrs);
+ if(!invalid)polyline(p.originalPoints,{stroke:'var(--muted-foreground)','stroke-dasharray':'2 5',opacity:.55});
+ polyline([...polygon,polygon[0]],{'stroke-width':1.5,stroke:invalid?'var(--destructive)':'var(--foreground)'});
+ polyline(p.nutCurve,{'stroke-width':2});
+ for(const s of r.strings){const dx=s.S.x-s.B.x,dy=s.S.y-s.B.y,L=Math.hypot(dx,dy),u={x:dx/L,y:dy/L};line({x:s.S.x-u.x*20,y:s.S.y-u.y*20},s.S,{stroke:'var(--muted-foreground)'});const len=Math.max(15,(s.T?s.T.x:s.C.x)-s.S.x+11)/u.x;line(s.S,{x:s.S.x+u.x*len,y:s.S.y+u.y*len},{stroke:'var(--muted-foreground)','stroke-dasharray':'5 4',opacity:s.index===idx?1:.55});}
+ for(const s of r.strings){for(const [radius,attrs] of [[7.25,{'stroke-dasharray':'3 3',stroke:'var(--muted-foreground)'}],[5,{stroke:'var(--muted-foreground)'}],[3,{stroke:'var(--foreground)',fill:'var(--secondary)'}]])element('circle',{cx:x(s.C),cy:y(s.C),r:radius*scale,fill:'none','stroke-width':1,...attrs});if(s.T)line(s.S,s.T,{stroke:'var(--viz-series-1)','stroke-width':s.index===idx?2.5:1.2,opacity:s.index===idx?1:.65});element('circle',{cx:x(s.S),cy:y(s.S),r:s.index===idx?3:2,fill:'var(--viz-series-1)'});if(s.T&&s.index===idx)element('circle',{cx:x(s.T),cy:y(s.T),r:3,fill:'var(--viz-series-1)'});element('text',{x:x(s.C),y:y(s.C)-7.25*scale-5,'text-anchor':'middle'},s.index+1);}
+ const barY=height-14,barX=width-16-50*scale;element('line',{x1:barX,y1:barY,x2:barX+50*scale,y2:barY,stroke:'var(--foreground)'});for(const X of [barX,barX+50*scale])element('line',{x1:X,y1:barY-3,x2:X,y2:barY+3,stroke:'var(--foreground)'});element('text',{x:barX+25*scale,y:barY-7,'text-anchor':'middle'},'50 mm');
+}
+for(const c of root.querySelectorAll('select'))c.addEventListener('change',draw);
+new ResizeObserver(entries=>{const w=entries[0].contentRect.width;if(Math.abs(w-lastWidth)<.5)return;lastWidth=w;if(!queued){queued=true;requestAnimationFrame(()=>{queued=false;draw();});}}).observe(root);
+draw();
+})();
+</script>

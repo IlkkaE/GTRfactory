@@ -1,0 +1,31 @@
+{
+  "sourceSha256": "fb17661b8225ab328c97eb418be9a40b9831e849cf91d0a72c2614dbf8aedc01",
+  "pdfUnitToMm": 0.35277777777777775,
+  "postDiameterMm": 6.000044444444438,
+  "buttonWidthMm": 18.485908333333334,
+  "backBoundsMm": {
+    "xMin": -10.699750000000003,
+    "xMax": 11.949994444444442,
+    "yMin": -7.249936111111136,
+    "yMax": 7.249936111111076
+  },
+  "mountBoundsMm": {
+    "xMin": -10.700102777777772,
+    "xMax": 11.949994444444451,
+    "yMin": -6.750050000000015,
+    "yMax": 6.750049999999955
+  },
+  "buttonBoundsMm": {
+    "xMin": -2.4927277777777683,
+    "xMax": 15.992827777777778,
+    "yMin": -31.928505555555592,
+    "yMax": -16.3498388888889
+  },
+  "checkedVectorPoints": {
+    "back": 284,
+    "mount": 282,
+    "button": 175
+  },
+  "conservativeEnvelopeContainsAllSelectedVectorPoints": true,
+  "limits": "Regions describe this source revision only; annotations were excluded by region. This checks nominal PDF geometry, not manufacturing tolerances or a production sample."
+}

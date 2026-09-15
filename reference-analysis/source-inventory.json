@@ -1,0 +1,4783 @@
+{
+  "inspected_utc": "2026-09-06T16:02:01.553898+00:00",
+  "files": [
+    {
+      "file": "Custom - Arondite C.cdr",
+      "bytes": 298690,
+      "sha256": "61923b2544d462356b942d9a857591bc620a3db38c54edcd3d3f094c0d923277",
+      "crc_error": null,
+      "uncompressed_bytes": 4655504,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1515",
+        "Curve": "1466",
+        "Ellipse": "38",
+        "Bitmap": "0",
+        "Text": "11"
+      },
+      "nodes": "9665",
+      "text": [
+        "12th fret",
+        "13.0",
+        "R 4.0",
+        "1.5",
+        "1st fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/maple top\n                    NECK: mahogany set in\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: \n                    rosewood w/pearl inlays,\n                    2\n                    2 frets\n                    BRIDGE: Tune-O-Matic string through body\n                    TUNERS: Grover",
+        "Arondite C\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Arondite D.cdr",
+      "bytes": 280213,
+      "sha256": "f228768e2c8d9316bd36940d42c7540cf75263a647df9d2ec6ec50a535d58c5d",
+      "crc_error": null,
+      "uncompressed_bytes": 4220765,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1542",
+        "Curve": "1513",
+        "Ellipse": "18",
+        "Bitmap": "0",
+        "Text": "11"
+      },
+      "nodes": "10046",
+      "text": [
+        "12th fret",
+        "13.0",
+        "R 4.0",
+        "1.5",
+        "1st fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/maple top\n                    NECK: mahogany set in\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: \n                    rosewood w/pearl inlays,\n                    2\n                    2 frets\n                    BRIDGE: Tune-O-Matic string through body\n                    TUNERS: Grover",
+        "Arondite D\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Arondite X.cdr",
+      "bytes": 305337,
+      "sha256": "d0d2aa1c245d4bc45544136ecf202b03cfb014ddb53b5f6a8b17a8654820b1a0",
+      "crc_error": null,
+      "uncompressed_bytes": 4648693,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1520",
+        "Curve": "1491",
+        "Ellipse": "18",
+        "Bitmap": "0",
+        "Text": "11"
+      },
+      "nodes": "10098",
+      "text": [
+        "12th fret",
+        "13.0",
+        "R 4.0",
+        "1.5",
+        "1st fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/maple top\n                    NECK: mahogany set in\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: \n                    rosewood w/sharktooth inlays,\n                    2\n                    2 frets\n                    BRIDGE: Tune-O-Matic string through body\n                    TUNERS: Grover",
+        "Arondite X\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Darkstone.cdr",
+      "bytes": 302189,
+      "sha256": "aba99d405caa66ef2fc4dcbde925c311aff2ff549bba8c508d53a337bd041352",
+      "crc_error": null,
+      "uncompressed_bytes": 4622600,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1539",
+        "Curve": "1517",
+        "Ellipse": "12",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "9904",
+      "text": [
+        "1",
+        "13.0",
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: sapele\n                    NECK: sapele set in\n                    SCALE LENGTH: 628.6 mm (24.75 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/abalone block inlays,\n                    22\n                     frets\n                    BRIDGE: Tune-O-Matic w/Stop Tailpiece\n                    TUNERS: Grover",
+        "Darkstone\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Falchion 7 FR 24 HH NT 25.5.cdr",
+      "bytes": 313021,
+      "sha256": "5593c71845bc62fa492f69693e0d016f2a85bf2b39df174caefd11db34a397ee",
+      "crc_error": null,
+      "uncompressed_bytes": 4802684,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1616",
+        "Curve": "1573",
+        "Ellipse": "35",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "11193",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: 5pc maple /w walnut thru body\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood, 24 frets\n                    BRIDGE: Floyd Rose 7 Original\n                    TUNERS: Gotoh",
+        "Falchion\n                     7\n                     FR 24 HH NT 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Falchion FR 24 HH BoltOn 25.5.cdr",
+      "bytes": 300783,
+      "sha256": "7e0d54ca7c230e505040e33d045a0fe3af026988399cff0d3c7a446f4f982ddc",
+      "crc_error": null,
+      "uncompressed_bytes": 4515874,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1512",
+        "Curve": "1455",
+        "Ellipse": "48",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "10403",
+      "text": [
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: 5pc maple /w walnut \n                    bolt\n                    -\n                    on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: \n                    rosewood, 24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "Falchion_FR_24_HH_BoltOn_25.5\n                    FULL SCALE",
+        "R 2.5",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Falchion FR 24 HH NT 25.5.cdr",
+      "bytes": 258784,
+      "sha256": "341383f976ab824011785620903f00e0cfc4ec8315a3d1e9b558d009fd88dc3b",
+      "crc_error": null,
+      "uncompressed_bytes": 3840523,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1441",
+        "Curve": "1393",
+        "Ellipse": "40",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "10400",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: 5pc maple /w walnut thru body\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood,24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "Falchion FR 24 HH NT 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - FR FR HH.cdr",
+      "bytes": 297505,
+      "sha256": "70b3b9f89d752a18379804fb49600455230a3d53c0b670a7b32b68c8d397e31c",
+      "crc_error": null,
+      "uncompressed_bytes": 4776829,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1635",
+        "Curve": "1578",
+        "Ellipse": "48",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "10575",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony),\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "FR FR HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - FR HT HH.cdr",
+      "bytes": 263858,
+      "sha256": "cc7eb68b97df976543136ec68fb0dc65f099bdc6e49869f14e306307ac3488ec",
+      "crc_error": null,
+      "uncompressed_bytes": 4018399,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1284",
+        "Curve": "1221",
+        "Ellipse": "56",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "7832",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) \n                    w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) \n                    w/dot inlay,\n                    24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "FR HT HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Glaive 7 HT.cdr",
+      "bytes": 317409,
+      "sha256": "8fcf20595c43cf329be6f7b1b0059e909a7d657087ae566ed2e8f59db7df6f88",
+      "crc_error": null,
+      "uncompressed_bytes": 4990841,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1677",
+        "Curve": "1629",
+        "Ellipse": "40",
+        "Bitmap": "0",
+        "Text": "8"
+      },
+      "nodes": "10928",
+      "text": [
+        "12.0",
+        "1",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    FRETB\n                    OARD: \n                    rosewood (maple, ebony),\n                    24 frets\n                    BRIDGE: Tuno-o-Matic 7 string through body\n                    TUNERS: Gotoh",
+        "Glaive 7 HT\n                    FULL SCALE",
+        "R 2.5"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Glaive FR.cdr",
+      "bytes": 261291,
+      "sha256": "175dc16bf2563bca81dd80a1973980bfee83df6d852aaf6bc82ea4dd49e57ac6",
+      "crc_error": null,
+      "uncompressed_bytes": 4023599,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1500",
+        "Curve": "1443",
+        "Ellipse": "48",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "10262",
+      "text": [
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: \n                    rosewood (maple, ebony),\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "Glaive FR\n                    FULL SCALE",
+        "R 2.5",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Glaive HT.cdr",
+      "bytes": 252530,
+      "sha256": "b8b88737b81007fcfd7b421b79978f98ee09468ffc435fc9cdd9c616795f1315",
+      "crc_error": null,
+      "uncompressed_bytes": 3869227,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 мм",
+      "objects": {
+        "Total": "1395",
+        "Curve": "1351",
+        "Ellipse": "36",
+        "Bitmap": "0",
+        "Text": "8"
+      },
+      "nodes": "9295",
+      "text": [
+        "12.0",
+        "1",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: \n                    rosewood (maple, ebony),\n                    24 frets\n                    BRIDGE: Tuno-o-Matic string through body\n                    TUNERS: Gotoh",
+        "Glaive HT\n                    FULL SCALE",
+        "R 2.5"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Glaive MTM.cdr",
+      "bytes": 252240,
+      "sha256": "88886f38c96e4051358e9a35dc1670ae281c692b1539eb7d67bce3e8b3faed77",
+      "crc_error": null,
+      "uncompressed_bytes": 4131159,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1588",
+        "Curve": "1545",
+        "Ellipse": "36",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "6874",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood,\n                    24 frets\n                    BRIDGE: Schaller 456\n                    TUNERS: Gotoh",
+        "Glaive MTM\n                    FULL SCALE",
+        "R 2.5"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Glaive NT MTM.cdr",
+      "bytes": 257785,
+      "sha256": "ee73604e9428d6e5bee5e07b63072758a205011b6fe9231f9770e124d1a2567b",
+      "crc_error": null,
+      "uncompressed_bytes": 4350072,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1455",
+        "Curve": "1420",
+        "Ellipse": "28",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "6455",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany \n                    NECK: 5pc maple /w walnut thru body\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood,\n                    24 frets\n                    BRIDGE: Schaller 456\n                    TUNERS: Gotoh",
+        "Glaive NT MTM\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Halberd FR 24 HH BoltOn 25.5.cdr",
+      "bytes": 280557,
+      "sha256": "05fbef5c06e062d044dc41956d7ff5b7ba78ace261c0a3a609e69f3a45502886",
+      "crc_error": null,
+      "uncompressed_bytes": 4185920,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1581",
+        "Curve": "1523",
+        "Ellipse": "50",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "10492",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/al\n                    l access neck joint\n                    NECK: 3pc maple b\n                    olt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: \n                    rosewood, 24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "H\n                    alberd \n                    FR\n                     24 HH BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Halberd ToM 24 HH BoltOn 25.5.cdr",
+      "bytes": 291195,
+      "sha256": "f26c83c70bbf5a2549ae0c16e5beb92ecfe9663c1f60fb3b7d2199c3876d0ac0",
+      "crc_error": null,
+      "uncompressed_bytes": 4278507,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1410",
+        "Curve": "1365",
+        "Ellipse": "38",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "9238",
+      "text": [
+        "12.0",
+        "1",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/a\n                    ll access neck joint\n                    NECK: 3pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: \n                    rosewood, 24 frets\n                    BRIDGE: Tuno-o-Matic w/Stop Tailpiece\n                    TUNERS: Gotoh",
+        "Halberd ToM 24 HH BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Halberd ToM 24 HH NT 25.5.cdr",
+      "bytes": 247627,
+      "sha256": "48ea3e94b239d5c8aa53a5f808d1fca434fd51cd75afc19a6cc3f2b258457db4",
+      "crc_error": null,
+      "uncompressed_bytes": 3519550,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1289",
+        "Curve": "1251",
+        "Ellipse": "31",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "8950",
+      "text": [
+        "12.0",
+        "1",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut thru body\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: \n                    rosewood, 24 frets\n                    BRIDGE: Tuno-o-Matic w/Stop Tailpiece\n                    TUNERS: Gotoh",
+        "Halberd ToM 24 HH \n                    NT\n                     25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Infinity 8 HT 24 HH NT 27.cdr",
+      "bytes": 338292,
+      "sha256": "f3a1cd0f5f0cbc26c04e489a7fdc85a673ae80dbcdc2617b88e5c7532df74c2d",
+      "crc_error": null,
+      "uncompressed_bytes": 6412247,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2310",
+        "Curve": "2265",
+        "Ellipse": "36",
+        "Bitmap": "0",
+        "Text": "9"
+      },
+      "nodes": "10795",
+      "text": [
+        "at 1\n                    s\n                    t",
+        "at 12th",
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: 5pc maple/walnut thru body\n                    SCALE LENGTH: 685.8 mm (27 in)\n                    NUT WIDTH: 54 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple) w/offset perloid inlays, 24 frets\n                    BRIDGE: Hipshot 8\n                    TUNERS: Gotoh",
+        "Infinity8 HT 24 HH NT 27\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - RVX ToM 24 HH BoltOn 25.5.cdr",
+      "bytes": 251385,
+      "sha256": "ae272a10fad764f43a185d50618bf1391145fbcffae4389e633cc49b96ab4e07",
+      "crc_error": null,
+      "uncompressed_bytes": 3739433,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1384",
+        "Curve": "1317",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "9340",
+      "text": [
+        "12.0",
+        "1",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/a\n                    ll access neck joint\n                    NECK: 3pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: \n                    rosewood, 24 frets\n                    BRIDGE: Tuno-o-Matic w/Stop Tailpiece\n                    TUNERS: Gotoh",
+        "RVX\n                     ToM 24 HH BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Star Destroyer FR.cdr",
+      "bytes": 294117,
+      "sha256": "8eb3ce67ef13b73f1874aba08a984cb27ef22628aa928950140a882a5aad6e17",
+      "crc_error": null,
+      "uncompressed_bytes": 4849804,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1642",
+        "Curve": "1577",
+        "Ellipse": "57",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "10530",
+      "text": [
+        "R 4.0",
+        "PLAN FRONT",
+        "SIDE ELEVATION",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) \n                    NECK: 1pc maple b\n                    olt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) \n                    w/pearl dot inlays,\n                    22 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "Star Destroyer\n                     II FR\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Turbot FR HH Ballback.cdr",
+      "bytes": 319465,
+      "sha256": "d39ecad2a963b08b99d8560dc178be7e31f69b4761725ac40b3a44810422a684",
+      "crc_error": null,
+      "uncompressed_bytes": 4921242,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1689",
+        "Curve": "1625",
+        "Ellipse": "56",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "11614",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/dot inlays,\n                    22 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "Turbot FR HH Ballback\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Turbot FR HH.cdr",
+      "bytes": 307250,
+      "sha256": "35f413a8cf078ceea8d0f835dab8d597528274c3d3b20599a787765e52b3bf43",
+      "crc_error": null,
+      "uncompressed_bytes": 4711072,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1634",
+        "Curve": "1570",
+        "Ellipse": "56",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "10807",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/dot inlays,\n                    22 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "Turbot FR HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - V HT 22 HH SetIn 24.75.cdr",
+      "bytes": 297251,
+      "sha256": "d42da0e1055aeeb815b1c0ef7bd1863371418bb0c147f1bd00ce9e957179ef01",
+      "crc_error": null,
+      "uncompressed_bytes": 4534955,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1495",
+        "Curve": "1461",
+        "Ellipse": "24",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "9666",
+      "text": [
+        "1",
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/maple top\n                    NECK: 3pc maple set in\n                    SCALE LENGTH: 628.6 mm (24.75 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/pearl/abalone inlays,\n                    22\n                     frets\n                    BRIDGE: Tune-O-Matic w/Stop Tailpiece\n                    TUNERS: Grover",
+        "RR\n                    V HT 22 HH BoltOn 24.75\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - V HT 22 HHH SetIn 24.75.cdr",
+      "bytes": 298152,
+      "sha256": "24be2e72305b92d8664c6c60e460e1644892ce2f2ff9f31c66a2797872f169e7",
+      "crc_error": null,
+      "uncompressed_bytes": 4649923,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1511",
+        "Curve": "1457",
+        "Ellipse": "44",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "9728",
+      "text": [
+        "1",
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood \n                    NECK: 3pc maple set in\n                    SCALE LENGTH: 628.6 mm (24.75 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/pearl dot inlays,\n                    22\n                     frets\n                    BRIDGE: Tune-O-Matic w/Stop Tailpiece\n                    TUNERS: Grover",
+        "RR\n                    V HT 22 H\n                    H\n                    H BoltOn 24.75\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - V2 FR 22 HH SetIn 25.5.cdr",
+      "bytes": 355404,
+      "sha256": "004d62cd1a444d09cb0470b640eb646df834c252daf8f58894e1aff8fac9c0dd",
+      "crc_error": null,
+      "uncompressed_bytes": 5868659,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2066",
+        "Curve": "2004",
+        "Ellipse": "48",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "13806",
+      "text": [
+        "0",
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/maple top\n                    NECK: 3pc maple set in\n                    SCALE LENGTH: 628.6 mm (24.75 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/pearl/abalone inlays,\n                    22\n                     frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Grover",
+        "RR\n                    V\n                    2\n                     \n                    FR\n                     22 HH \n                    SetIn\n                     24.75\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - V2 TR 22 HH BoltOn 25.5.cdr",
+      "bytes": 285771,
+      "sha256": "5d3bcd29d32daaf3af49fa9930e4a2e858a595feebfe1c0d8c1d6e974d2a8a5e",
+      "crc_error": null,
+      "uncompressed_bytes": 4384647,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1448",
+        "Curve": "1396",
+        "Ellipse": "46",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "10830",
+      "text": [
+        "R 4.0",
+        "PLAN FRONT",
+        "SIDE ELEVATION",
+        "SPECIFICATIONS",
+        "BODY: basswood\n                    NECK & FRETBOARD: 1pc maple b\n                    olt on\n                    ,\n                    w/black dot inlays, 22 frets\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    BRIDGE: Vintage Tremolo\n                    TUNERS: Gotoh",
+        "RRV2 TR 22 HH BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - VBlade FR 24 HH NT 25.5.cdr",
+      "bytes": 224749,
+      "sha256": "daaf368eb1d1a807f73d779583ac1ff7a590112dc458a30cb7fa12a67ec7cdd8",
+      "crc_error": null,
+      "uncompressed_bytes": 3231159,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "983",
+        "Curve": "948",
+        "Ellipse": "28",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "6699",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany \n                    NECK: 5pc maple /w walnut thru body\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood,\n                    24 frets\n                    BRIDGE: Hipshot\n                    TUNERS: Gotoh",
+        "Vblade FR\n                     \n                    24\n                     \n                    HH\n                     \n                    NT\n                     \n                    25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Voyager FR 22 HSS BoltOn 25.5.cdr",
+      "bytes": 307982,
+      "sha256": "72631f181ebf69beae9a733dd1d78d2b1701da814525e369f401175e2c13a457",
+      "crc_error": null,
+      "uncompressed_bytes": 5359780,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2112",
+        "Curve": "2035",
+        "Ellipse": "68",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11595",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany, w/a\n                    ll access neck joint\n                    NECK: 1pc maple (rosewood) \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood  w/dot inlays,\n                    22 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "Voyager FR 22 HSS BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - WRB FR 22 HSS BoltOn 25.5.cdr",
+      "bytes": 313041,
+      "sha256": "a4658486be936f975ad3f8471b191cc4d986528808a5a5d529c9f8d8a1e69472",
+      "crc_error": null,
+      "uncompressed_bytes": 5565388,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2178",
+        "Curve": "2113",
+        "Ellipse": "56",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "12103",
+      "text": [
+        "R 2.5",
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/dot inlays,\n                    22 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "WRB FR 22 HSS BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Xiphox 7 FR 24 HH NT 25.5.cdr",
+      "bytes": 274580,
+      "sha256": "d70f9e7858e3d689d1a967b17627734e75873ab66e24cc37739882d78e13f586",
+      "crc_error": null,
+      "uncompressed_bytes": 4271807,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1610",
+        "Curve": "1565",
+        "Ellipse": "37",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "10934",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: 5pc maple /w walnut thru body\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood, 24 frets\n                    BRIDGE: Floyd Rose 7 Original\n                    TUNERS: Gotoh",
+        "Xiphox7\n                     FR 24 HH NT 25.525.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Xiphox FR 24 HH NT 25.5.cdr",
+      "bytes": 276807,
+      "sha256": "7907ae247b6f259c7b0a5656b6048d13ad844b7011323ff7fbf7344d9540a39c",
+      "crc_error": null,
+      "uncompressed_bytes": 4312379,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1436",
+        "Curve": "1386",
+        "Ellipse": "42",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "10145",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: 5pc maple /w walnut thru body\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood,24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "Xiphox\n                     FR 24 HH NT 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - Xiphox HT 27 HS NT 25.5.cdr",
+      "bytes": 224525,
+      "sha256": "15580c0197d67e0a0aeb7a5a7d3b5973f54d6022578999d792c36c79bff237df",
+      "crc_error": null,
+      "uncompressed_bytes": 3332388,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1208",
+        "Curve": "1172",
+        "Ellipse": "30",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "7043",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: 5pc maple /w walnut thru body\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood,24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "Xiphox\n                     \n                    HT\n                     2\n                    7\n                     HH NT 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Custom - XV500 FR 22 HH BoltOn 25.5.cdr",
+      "bytes": 279599,
+      "sha256": "3b45fabdd43a724c3329b5ce6215990f0b8c1e05e4b8984a83a89e3f401e42ac",
+      "crc_error": null,
+      "uncompressed_bytes": 4281915,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1621",
+        "Curve": "1556",
+        "Ellipse": "56",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "10990",
+      "text": [
+        "R 2.5",
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/dot inlays,\n                    22 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "Xv500\n                     FR 22 H\n                    H\n                     BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - 540P FR HH.cdr",
+      "bytes": 314732,
+      "sha256": "d0502880dd516559d24f3f16e44644bf48eea895c5303f2219ea2726b7321dfe",
+      "crc_error": null,
+      "uncompressed_bytes": 4913141,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1688",
+        "Curve": "1643",
+        "Ellipse": "36",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11300",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood /w C\n                    utaway Heel\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/ sharktooth inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "540P FR HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - 540P FR HS.cdr",
+      "bytes": 320192,
+      "sha256": "503d5770b240a7981a5992c5c717ec5ebdd0a2d226d63aabc6350c8070d9a077",
+      "crc_error": null,
+      "uncompressed_bytes": 5324087,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1883",
+        "Curve": "1838",
+        "Ellipse": "36",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11491",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood /w C\n                    utaway Heel\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/ sharktooth inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "540P FR HS\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - AR C.cdr",
+      "bytes": 327425,
+      "sha256": "40d0b2607fb9d42f75aa21cba398e64e0b1bce04820e5a26ebaa32d9aebe89b1",
+      "crc_error": null,
+      "uncompressed_bytes": 4651300,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1540",
+        "Curve": "1518",
+        "Ellipse": "12",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "10337",
+      "text": [
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "3.5",
+        "13.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/maple arched top\n                    NECK: mahogany set in\n                    SCALE LENGTH: 628.6 mm (24.75 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/abalone block inlays,\n                    22\n                     frets\n                    BRIDGE: Tune-O-Matic w/Stop Tailpiece\n                    TUNERS: Grover",
+        "ARC\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - AR T 7 AT.cdr",
+      "bytes": 311888,
+      "sha256": "a99c2dfcf670be675163d31144099101be105c1fe2a1430e1f4e641db04242c8",
+      "crc_error": null,
+      "uncompressed_bytes": 4518414,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1501",
+        "Curve": "1476",
+        "Ellipse": "14",
+        "Bitmap": "0",
+        "Text": "11"
+      },
+      "nodes": "9886",
+      "text": [
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "3.5",
+        "13.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/maple arched top \n                    NECK: mahogany set in\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    FRETB\n                    OARD: rosewood\n                    , \n                    2\n                    4 frets\n                    BRIDGE: Tune-O-Matic 7 w/Stop Tailpiece\n                    TUNERS: Grover",
+        "ART 7 AT\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - AR T AT.cdr",
+      "bytes": 325309,
+      "sha256": "743be040e87997dfbb2f9251e4f84b3615c1d1aae311e9ae8772f4999814c799",
+      "crc_error": null,
+      "uncompressed_bytes": 4643301,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1545",
+        "Curve": "1523",
+        "Ellipse": "12",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "10341",
+      "text": [
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "3.5",
+        "13.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/maple arched top\n                    NECK: mahogany set in\n                    SCALE LENGTH: 628.6 mm (24.75 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/abalone block inlays,\n                    22\n                     frets\n                    BRIDGE: Tune-O-Matic w/Stop Tailpiece\n                    TUNERS: Grover",
+        "ART AT\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - AR T.cdr",
+      "bytes": 300707,
+      "sha256": "0415f9b5663e0b8e7fcb99b1a4577e26b926d952a3a1115bbe447549615f6737",
+      "crc_error": null,
+      "uncompressed_bytes": 4577627,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1517",
+        "Curve": "1475",
+        "Ellipse": "32",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "9679",
+      "text": [
+        "0",
+        "13.0",
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/maple top\n                    NECK: mahogany set in\n                    SCALE LENGTH: 628.6 mm (24.75 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/abalone dot inlays,\n                    22\n                     frets\n                    BRIDGE: Tune-O-Matic w/Stop Tailpiece\n                    TUNERS: Grover",
+        "ART\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - AR X.cdr",
+      "bytes": 325663,
+      "sha256": "c358227b7802e0b83372c31548682f650eb9ca753341f731ed7c39bb838f33ef",
+      "crc_error": null,
+      "uncompressed_bytes": 4675913,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1552",
+        "Curve": "1530",
+        "Ellipse": "12",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "10571",
+      "text": [
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "3.5",
+        "13.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/maple arched top\n                    NECK: mahogany set in\n                    SCALE LENGTH: 628.6 mm (24.75 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/abalone inlays,\n                    22\n                     frets\n                    BRIDGE: Tune-O-Matic w/Stop Tailpiece\n                    TUNERS: Grover",
+        "ARX\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Artfield.cdr",
+      "bytes": 321849,
+      "sha256": "031c8e4fb846bfbc899db4d0dd04c23753cc14f7ce5ca26882ec42acba9a7627",
+      "crc_error": null,
+      "uncompressed_bytes": 5263421,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1878",
+        "Curve": "1806",
+        "Ellipse": "64",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "10949",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: bubinga w/a\n                    ll access neck joint\n                    NECK: 5pc mahogany/maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/dot inlays,\n                    30 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Grover",
+        "Artfield\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Axstar FR 22 HSS BoltOn 25.5.cdr",
+      "bytes": 343068,
+      "sha256": "2f424b04ad004689d36092c253bdfd15a325b2cf7b3c3bdfcab8cca5badb16fa",
+      "crc_error": null,
+      "uncompressed_bytes": 5969175,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2133",
+        "Curve": "2069",
+        "Ellipse": "57",
+        "Bitmap": "0",
+        "Text": "5"
+      },
+      "nodes": "11514",
+      "text": [
+        "PLAN FRONT",
+        "SIDE ELEVATION",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) \n                    NECK: 1pc maple b\n                    olt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) \n                    w/pearl dot inlays,\n                    22 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "Axstar FR 22 HSS BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Destroyer 7 FR 24 AANJ.cdr",
+      "bytes": 304259,
+      "sha256": "f09340b84ff872eb94fa79fdbf686a287f469c5b9b9a10a727291fb19bfaa96d",
+      "crc_error": null,
+      "uncompressed_bytes": 4801351,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1857",
+        "Curve": "1794",
+        "Ellipse": "54",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11949",
+      "text": [
+        "R 4.0",
+        "PLAN FRONT",
+        "12.0",
+        "SIDE ELEVATION",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/al\n                    l access neck joint\n                    NECK: 5pc maple /w walnut b\n                    olt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    FRETB\n                    OARD: \n                    rosewood (maple, ebony) w/abalon/pearl inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original 7\n                    TUNERS: Gotoh",
+        "Destroyer7 FR 24 HH AANJ\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Destroyer 8 HT 24 NT 29.4.cdr",
+      "bytes": 257081,
+      "sha256": "6fd9b6086962087211a488e804c63b59d112bca1a6194959d1bf35a6b49512fa",
+      "crc_error": null,
+      "uncompressed_bytes": 3831829,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1172",
+        "Curve": "1141",
+        "Ellipse": "24",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "7673",
+      "text": [
+        "PLAN FRONT",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "SPECIFICATIONS",
+        "BODY: sapele\n                    NECK: 5pc maple /w bubinga thru body\n                    SCALE LENGTH: 746.8 mm (29.4 in)\n                    NUT WIDTH: 54 mm\n                    FRETB\n                    OARD: \n                    rosewood, 24 frets\n                    BRIDGE: Hipshot 8\n                    TUNERS: Hipshot",
+        "Destroyer\n                     8 HT 24 NT 29.4\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Destroyer FR 24 AANJ.cdr",
+      "bytes": 282774,
+      "sha256": "2702633d68d25df2ea2aaf7436b525fa638bfe5d2e87efca559dd0f1ff04c554",
+      "crc_error": null,
+      "uncompressed_bytes": 4453796,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1719",
+        "Curve": "1662",
+        "Ellipse": "48",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11094",
+      "text": [
+        "R 4.0",
+        "PLAN FRONT",
+        "12.0",
+        "SIDE ELEVATION",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/pearl/abalone inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "Destroyer FR 24 HH AANJ\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Destroyer HT.cdr",
+      "bytes": 291924,
+      "sha256": "a46323b85faf5246b21c4baaceef16da0d3855adf4372bc7372877735635da93",
+      "crc_error": null,
+      "uncompressed_bytes": 4521627,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1494",
+        "Curve": "1460",
+        "Ellipse": "24",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "10043",
+      "text": [
+        "1",
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: mahogany set in\n                    SCALE LENGTH: 628.6 mm (24.75 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/pearl/abalone inlays,\n                    22\n                     frets\n                    BRIDGE: Tune-O-Matic w/Stop Tailpiece\n                    TUNERS: Grover",
+        "Destroyer HT\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Destroyerman ToM 22 SetIn 24.75.cdr",
+      "bytes": 269310,
+      "sha256": "e4615c69a5bfc4c6993927a24e43935586d73b1e03fa5cf75518bc339a78e3c7",
+      "crc_error": null,
+      "uncompressed_bytes": 4042021,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1492",
+        "Curve": "1458",
+        "Ellipse": "24",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "10039",
+      "text": [
+        "1",
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: mahogany set in\n                    SCALE LENGTH: 628.6 mm (24.75 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/pearl/abalone inlays,\n                    22\n                     frets\n                    BRIDGE: Tune-O-Matic w/Stop Tailpiece\n                    TUNERS: Grover",
+        "Destroyerman ToM 22 SetIn 24.75\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Fireman FR 24 SSS BoltOn 25.5.cdr",
+      "bytes": 312684,
+      "sha256": "8fa5897008d83c837b131398ccc713de15062c30c835aaf631b81c3368f1ecdf",
+      "crc_error": null,
+      "uncompressed_bytes": 5763938,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2252",
+        "Curve": "2167",
+        "Ellipse": "68",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "11708",
+      "text": [
+        "0",
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany (korina)\n                    NECK: 3pc mahogany/maple (korina/bubinga)\n                    bolt-on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/pearl dot inlays,\n                    2\n                    4 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Grover",
+        "Fireman_FR_24_SSS_BoltOn_25.5\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Fireman ToM 22 HH SetIn 24.75.cdr",
+      "bytes": 304072,
+      "sha256": "0f2259280121e1671bb83fa679883466179c1c798d8f3c9c1e61de74194b2390",
+      "crc_error": null,
+      "uncompressed_bytes": 4553204,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1500",
+        "Curve": "1441",
+        "Ellipse": "44",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "10260",
+      "text": [
+        "1",
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany (korina)\n                    NECK: 3pc mahogany/maple (korina/bubinga)\n                    set-in\n                    SCALE LENGTH: 628.6 mm (24.75 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/pearl dot inlays,\n                    22\n                     frets\n                    BRIDGE: Tune-O-Matic w/Stop Tailpiece\n                    TUNERS: Grover",
+        "Fireman ToM 22 HH SetIn 24.75\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Fireman ToM 22 SSS SetIn 24.75.cdr",
+      "bytes": 311631,
+      "sha256": "d043d792b596573c8c8f03c20ca0ec0cd5ba2d6f7db02f5d8450707a7f60baa5",
+      "crc_error": null,
+      "uncompressed_bytes": 5536286,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2153",
+        "Curve": "2094",
+        "Ellipse": "44",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "11558",
+      "text": [
+        "1",
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany (korina)\n                    NECK: 3pc mahogany/maple (korina/bubinga)\n                    set-in\n                    SCALE LENGTH: 628.6 mm (24.75 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/pearl dot inlays,\n                    22\n                     frets\n                    BRIDGE: Tune-O-Matic w/Stop Tailpiece\n                    TUNERS: Grover",
+        "Fireman ToM 22 SSS SetIn 24.75\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Iceman 7 HT 24 SetIn 25.5.cdr",
+      "bytes": 251595,
+      "sha256": "d4dd296f993974f161fddf482776fc7c1895c58b4d82f5abf7c9ce278c0dff85",
+      "crc_error": null,
+      "uncompressed_bytes": 3419104,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1230",
+        "Curve": "1194",
+        "Ellipse": "28",
+        "Bitmap": "0",
+        "Text": "8"
+      },
+      "nodes": "7916",
+      "text": [
+        "1",
+        "R 4.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: mahogany set in\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    FRETB\n                    OARD: rosewood\n                     w/pearl block inlays,\n                    2\n                    4 frets\n                    BRIDGE: Hipshot 7\n                    TUNERS: Grover",
+        "Iceman 7 HT 24 SetIn 25.5\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Iceman 7 ToM 24 BoltOn 26.225.cdr",
+      "bytes": 334904,
+      "sha256": "646f75d639883b0d79a54f15c82deb58ea32a9b06a0da40189136fcbf9cbb574",
+      "crc_error": null,
+      "uncompressed_bytes": 5088743,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1776",
+        "Curve": "1729",
+        "Ellipse": "40",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11229",
+      "text": [
+        "1",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: swamp ash w/flamed maple top\n                    NECK: 5pcs wenge/maple bolt-on\n                    SCALE LENGTH: 666 mm (26.225 in)\n                    NUT WIDTH: 48 mm\n                    FRETB\n                    OARD: \n                    ebony w/pearl block inlays,\n                    2\n                    4 frets\n                    BRIDGE: Tune-O-Matic 7 w/Stop Tailpiece\n                    TUNERS: Gotoh",
+        "Iceman 7 ToM 24 BoltOn 26.225\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Iceman 8 HT 24 HSS BoltOn 27.cdr",
+      "bytes": 365681,
+      "sha256": "95f543e08fd6bebe7c2aff7faca350b272c42409b914e6a25c9c65da97a56ed1",
+      "crc_error": null,
+      "uncompressed_bytes": 6764921,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2479",
+        "Curve": "2404",
+        "Ellipse": "68",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11836",
+      "text": [
+        "R 4.0",
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w wenge \n                    bolt on\n                    SCALE LENGTH: 685.8 mm (27 in)\n                    NUT WIDTH: 54 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple) w/dots inlay,\n                    24 frets\n                    BRIDGE: Hipshot 8\n                    TUNERS: Gotoh",
+        "Iceman 8 HT 24 HSS BoltOn 27\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Iceman 8 HT 24 NT 29.4.cdr",
+      "bytes": 256611,
+      "sha256": "a2dfed2df1c27017b87668aa6376aabdfb7a17ac38f02296a89b600bcf875710",
+      "crc_error": null,
+      "uncompressed_bytes": 3830410,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1172",
+        "Curve": "1141",
+        "Ellipse": "24",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "7777",
+      "text": [
+        "PLAN FRONT",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "SPECIFICATIONS",
+        "BODY: swamp ash\n                    NECK: 5pc maple /w bubinga thru body\n                    SCALE LENGTH: 746.8 mm (29.4 in)\n                    NUT WIDTH: 54 mm\n                    FRETB\n                    OARD: \n                    rosewood, 24 frets\n                    BRIDGE: Hipshot 8\n                    TUNERS: Hipshot",
+        "Iceman 8 HT 24 NT 29.4\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Iceman DMM ToM 22 SetIn 24.75.cdr",
+      "bytes": 286941,
+      "sha256": "7fef909dacfbabbd19471154e27ec84271911d97545fb98b40ef1dac33655a56",
+      "crc_error": null,
+      "uncompressed_bytes": 4472973,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1450",
+        "Curve": "1396",
+        "Ellipse": "44",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "10311",
+      "text": [
+        "1",
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: mahogany set in\n                    SCALE LENGTH: 628.6 mm (24.75 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/pearl dot inlays,\n                    22\n                     frets\n                    BRIDGE: Tune-O-Matic w/Stop custom plate\n                    TUNERS: Grover",
+        "Iceman DMM HT 22 SetIn 24.75\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Iceman FR 24 NT 25.5.cdr",
+      "bytes": 262649,
+      "sha256": "a83c413136df97dd2bddc44a093e4ee78d6c1516127f7a2ba20aefd7f17b6b9f",
+      "crc_error": null,
+      "uncompressed_bytes": 3985728,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1484",
+        "Curve": "1435",
+        "Ellipse": "40",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "10680",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany /w quilt maple top\n                    NECK: 5pc maple /w walnut thru body\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/pearl/abalone inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "Iceman FR 24 NT 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Iceman HT 24 SetIn 25.5.cdr",
+      "bytes": 264545,
+      "sha256": "d102bafbaf96c0b194a591b5b34e751fd01b9ad6d3eca2ec93a80733e08d33d5",
+      "crc_error": null,
+      "uncompressed_bytes": 3746293,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1140",
+        "Curve": "1106",
+        "Ellipse": "24",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "7296",
+      "text": [
+        "1",
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: mahogany set in\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/pearl block inlays,\n                    2\n                    4 frets\n                    BRIDGE: Hipshot\n                    TUNERS: Grover",
+        "Iceman HT 24 SetIn 25.5\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Iceman ToM 22 SetIn 24.75.cdr",
+      "bytes": 301655,
+      "sha256": "b93c89d4e8d66410e15e1188307f51b21e38fc9d5ea9f770e15dfe0c4c472899",
+      "crc_error": null,
+      "uncompressed_bytes": 4482933,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1461",
+        "Curve": "1427",
+        "Ellipse": "24",
+        "Bitmap": "0",
+        "Text": "10"
+      },
+      "nodes": "9844",
+      "text": [
+        "1",
+        "R 4.0",
+        "1st fret",
+        "12th fret",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: mahogany set in\n                    SCALE LENGTH: 628.6 mm (24.75 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: rosewood\n                     w/pearl/abalone inlays,\n                    22\n                     frets\n                    BRIDGE: Tune-O-Matic w/Stop Tailpiece\n                    TUNERS: Grover",
+        "Iceman HT 22 SetIn 24.75\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Maxxas FR H 29 BoltOn 25.5.cdr",
+      "bytes": 291801,
+      "sha256": "4e791bfb1cd4e9dae8d8b28e2a0a2c05b95ffdce40c9ca5d7e9480411b9a2c58",
+      "crc_error": null,
+      "uncompressed_bytes": 4446647,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1525",
+        "Curve": "1443",
+        "Ellipse": "74",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "10422",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/dot inlays,\n                    29 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "Maxxas FR H 29 BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Maxxas FR HH 22 BoltOn 25.5.cdr",
+      "bytes": 303443,
+      "sha256": "50cc437265eeca4143858bf1e3e1e742d46ebf8b232895583664aa11cccd46b7",
+      "crc_error": null,
+      "uncompressed_bytes": 4714792,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1620",
+        "Curve": "1544",
+        "Ellipse": "68",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "10882",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/dot inlays,\n                    22 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "Maxxas FR HH 22 BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Maxxas ToM H 29 BoltOn 25.5.cdr",
+      "bytes": 283643,
+      "sha256": "035bb6f01c3feccf93c6ccd65a59f1eae7f0a02fe476ba4f41e7303f8f5cb2fe",
+      "crc_error": null,
+      "uncompressed_bytes": 4256907,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1397",
+        "Curve": "1328",
+        "Ellipse": "62",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "9411",
+      "text": [
+        "2.0",
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/dot inlays,\n                    29 frets\n                    BRIDGE: Tuno-o-Matic w/Stop Tailpiece\n                    TUNERS: Gotoh",
+        "Maxxas ToM H 29 BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Radius FR HH.cdr",
+      "bytes": 285867,
+      "sha256": "f0830fcac081dd46554a013c0f17976000b77530671bc63d38d9c472bffd659b",
+      "crc_error": null,
+      "uncompressed_bytes": 4332033,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1652",
+        "Curve": "1588",
+        "Ellipse": "56",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "10905",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/dot inlays,\n                    22 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RADIUS FR HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Radius FR HSS.cdr",
+      "bytes": 319539,
+      "sha256": "76c5b3d417a0584054b997cfd5b8099a12cb7c28b0bb70a12c839ecd563569bd",
+      "crc_error": null,
+      "uncompressed_bytes": 5497686,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2157",
+        "Curve": "2093",
+        "Ellipse": "56",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "11886",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/dot inlays,\n                    22 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RADIUS FR HSS\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Radius JS 7 FR HH.cdr",
+      "bytes": 333884,
+      "sha256": "548e96f0a37be9c4b5a1ee735ee1160c4b5c0a7afd5880f669b38df0892182e5",
+      "crc_error": null,
+      "uncompressed_bytes": 5293277,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1856",
+        "Curve": "1786",
+        "Ellipse": "63",
+        "Bitmap": "0",
+        "Text": "5"
+      },
+      "nodes": "11596",
+      "text": [
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany)\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/pearl dots inlay, \n                    22 frets\n                    BRIDGE: Floyd Rose Original 7\n                    TUNERS: Gotoh",
+        "JS7 FR HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Radius JS FR 24.cdr",
+      "bytes": 290363,
+      "sha256": "08ea8c95d5c44e136278576523d914003f379e21b0c0933cb4d2ac146ddee757",
+      "crc_error": null,
+      "uncompressed_bytes": 4699711,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1824",
+        "Curve": "1756",
+        "Ellipse": "61",
+        "Bitmap": "0",
+        "Text": "5"
+      },
+      "nodes": "10641",
+      "text": [
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany)\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/pearl dot inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "JS FR 24\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Radius JS FR HH.cdr",
+      "bytes": 308252,
+      "sha256": "87157b497e98bca773561f3849cb811a4f2ed8a4aa3b5a517424161221fd2a85",
+      "crc_error": null,
+      "uncompressed_bytes": 4731625,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1618",
+        "Curve": "1554",
+        "Ellipse": "57",
+        "Bitmap": "0",
+        "Text": "5"
+      },
+      "nodes": "10388",
+      "text": [
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany)\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/pearl dot inlays,\n                    22 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "JS FR HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Radius JS FX HH.cdr",
+      "bytes": 290599,
+      "sha256": "29d1c690a594d54161565ee36a5c313ea1eecd1179e1569511a2058898218697",
+      "crc_error": null,
+      "uncompressed_bytes": 4832558,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1698",
+        "Curve": "1648",
+        "Ellipse": "45",
+        "Bitmap": "0",
+        "Text": "5"
+      },
+      "nodes": "6970",
+      "text": [
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany)\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/pearl dot inlays,\n                    22 frets\n                    BRIDGE: Schaller 456\n                    TUNERS: Gotoh",
+        "JS FX HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Radius JS HT HH.cdr",
+      "bytes": 263142,
+      "sha256": "0337c513fc7023d4e6d2fc656982972788fef953f7dbb344b87649a4b2f195ba",
+      "crc_error": null,
+      "uncompressed_bytes": 3889690,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1232",
+        "Curve": "1182",
+        "Ellipse": "45",
+        "Bitmap": "0",
+        "Text": "5"
+      },
+      "nodes": "7359",
+      "text": [
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany)\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/pearl dot inlays,\n                    22 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "JS HT HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Radius JS HT P90.cdr",
+      "bytes": 242174,
+      "sha256": "6d335fd7dd58f8a8062927915884efe4cc1894810c72fdfbf8c10253b3389f3c",
+      "crc_error": null,
+      "uncompressed_bytes": 3481480,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1066",
+        "Curve": "1012",
+        "Ellipse": "49",
+        "Bitmap": "0",
+        "Text": "5"
+      },
+      "nodes": "6531",
+      "text": [
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany)\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/pearl dot inlays,\n                    22 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "JS HT P90\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG 7 FR HH.cdr",
+      "bytes": 307631,
+      "sha256": "5be6b43f59c438831ac824a1d8a50e5ec81bb3df400501d7ff71a0c946daa336",
+      "crc_error": null,
+      "uncompressed_bytes": 4917331,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1923",
+        "Curve": "1836",
+        "Ellipse": "78",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11909",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/dots inlay,\n                    24 frets\n                    BRIDGE: Floyd Rose Original 7\n                    TUNERS: Gotoh",
+        "RG7 FR HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG 7 FR HSH BARITONE.cdr",
+      "bytes": 360442,
+      "sha256": "2282498ca226821b629f1a37a7494f90556930f5cd30de95bcadf4d90c1ea82d",
+      "crc_error": null,
+      "uncompressed_bytes": 6136558,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2231",
+        "Curve": "2144",
+        "Ellipse": "78",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "12682",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 3pc maple /w bubinga \n                    bolt on\n                    SCALE LENGTH: 686 mm (27 in)\n                    NUT WIDTH: 48 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/offset dot inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original 7\n                    TUNERS: Gotoh",
+        "RG7 FR HSH BARITONE\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG 7 FR JEM AANJ.cdr",
+      "bytes": 369756,
+      "sha256": "2860e08f8aa1e10c8e36e551ccf9ce456650145bcfbe4a6a6df14a6ac3fe9154",
+      "crc_error": null,
+      "uncompressed_bytes": 6020826,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2432",
+        "Curve": "2369",
+        "Ellipse": "54",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "14729",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w wenge \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) \n                    w/tree of life inlay, \n                    24 frets (21-24 scalloped)\n                    BRIDGE: Floyd Rose Original 7\n                    TUNERS: Gotoh",
+        "RG7 FR JEM\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG 7 FR UV AANJ.cdr",
+      "bytes": 352468,
+      "sha256": "401981959a9f9508ecc6e56989a1f510dcff0e8c57b13d3b9525e298c8b19e81",
+      "crc_error": null,
+      "uncompressed_bytes": 5925269,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2367",
+        "Curve": "2304",
+        "Ellipse": "54",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "14083",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/d\n                    isappearing pyramid\n                     inlay, \n                    24 frets\n                    BRIDGE: Floyd Rose Original 7\n                    TUNERS: Gotoh",
+        "RG7 FR UV AANJ\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG 7 FR UV MC.cdr",
+      "bytes": 379446,
+      "sha256": "91eb62767c719ddf2e0dc451a0279f6d708dffb0983fb5da146da63bf68fddc4",
+      "crc_error": null,
+      "uncompressed_bytes": 6374230,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2348",
+        "Curve": "2297",
+        "Ellipse": "42",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "14144",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood /w C\n                    utaway Heel\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/d\n                    isappearing pyramid\n                     inlay, \n                    24 frets\n                    BRIDGE: Floyd Rose Original 7\n                    TUNERS: Gotoh",
+        "RG7 FR UV MC\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG 7 FR UV.cdr",
+      "bytes": 369682,
+      "sha256": "8239b587dfdfe79555064576d0342312f3e9f0ab21efb50973369873e3c59e15",
+      "crc_error": null,
+      "uncompressed_bytes": 6305762,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2313",
+        "Curve": "2238",
+        "Ellipse": "66",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "13857",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood /w C\n                    utaway Heel\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/dot inlay, \n                    24 frets\n                    BRIDGE: Floyd Rose Original 7\n                    TUNERS: Gotoh",
+        "RG7 FR UV\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG 7 HT HH ToM.cdr",
+      "bytes": 304908,
+      "sha256": "09d4706e2395610bba4f9edab6ee32f0dae0dabdc1dbca9e420e1277b527d543",
+      "crc_error": null,
+      "uncompressed_bytes": 4812543,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1627",
+        "Curve": "1580",
+        "Ellipse": "40",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "9741",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood\n                    24 frets\n                    BRIDGE: Tuno-o-Matic 7 string through body\n                    TUNERS: Gotoh",
+        "RG7 HT HH ToM\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG 7 HT HH.cdr",
+      "bytes": 271279,
+      "sha256": "d2b7e6b460dcd1a54813a8ba6ea30270f2674def87d4ef3aa4c0c97cbc128804",
+      "crc_error": null,
+      "uncompressed_bytes": 4081359,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1318",
+        "Curve": "1247",
+        "Ellipse": "64",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "7744",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/dots inlay,\n                    24 frets\n                    BRIDGE: Gotoh Hardtail 7\n                    TUNERS: Gotoh",
+        "RG7 HT HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG 7 HT HSH BARITONE.cdr",
+      "bytes": 243358,
+      "sha256": "f80fd61eb64d8cc243b936f37f9a8bed01b710294a5af00de42471c4747dcd69",
+      "crc_error": null,
+      "uncompressed_bytes": 3542603,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1303",
+        "Curve": "1232",
+        "Ellipse": "64",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "7536",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 3pc maple /w bubinga \n                    bolt on\n                    SCALE LENGTH: 686 mm (27 in)\n                    NUT WIDTH: 48 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) \n                    w/dot inlays,\n                    24 frets\n                    BRIDGE: Gotoh Hardtail 7\n                    TUNERS: Gotoh",
+        "RG7 HT HH BARITONE\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG 8 HT 24 HH BoltOn 27.cdr",
+      "bytes": 274150,
+      "sha256": "d0dbf52a8e8a61422f9a3cc504f0aa3b28fd77fa6c6e0ec5f4cb18cda18ac3c4",
+      "crc_error": null,
+      "uncompressed_bytes": 4093243,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1340",
+        "Curve": "1265",
+        "Ellipse": "68",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "7571",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w wenge \n                    bolt on\n                    SCALE LENGTH: 685.8 mm (27 in)\n                    NUT WIDTH: 54 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple) w/dots inlay,\n                    24 frets\n                    BRIDGE: Hipshot 8\n                    TUNERS: Gotoh",
+        "RG8 HT HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG 8 M8M HT 24 HH BoltOn 29.4.cdr",
+      "bytes": 282826,
+      "sha256": "a505e3e818033a7437f7360064e2bd91a20add6be0665d5a038f95176894120d",
+      "crc_error": null,
+      "uncompressed_bytes": 4255098,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1382",
+        "Curve": "1339",
+        "Ellipse": "36",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "8095",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: ash w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 746.8 mm (29.4 in)\n                    NUT WIDTH: 54 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood, 24 frets\n                    BRIDGE: Hipshot 8\n                    TUNERS: Hipshot",
+        "RG8 M8M\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG 8 P HT 24 HH BoltOn 27.cdr",
+      "bytes": 357832,
+      "sha256": "02a3aad8943f3f36fef1d5932bf430e39b5bca96380cf4e1098ddfa3c342abef",
+      "crc_error": null,
+      "uncompressed_bytes": 6748832,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2478",
+        "Curve": "2403",
+        "Ellipse": "68",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11467",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w wenge \n                    bolt on\n                    SCALE LENGTH: 685.8 mm (27 in)\n                    NUT WIDTH: 54 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple) w/dots inlay,\n                    24 frets\n                    BRIDGE: Hipshot 8\n                    TUNERS: Gotoh",
+        "RG8P HT HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG 8 TAM HT 24 HSH BoltOn 27.cdr",
+      "bytes": 381543,
+      "sha256": "57be68570eb2d52b4c6989534d2a27bde13e23d28418617688318b8b4dba994c",
+      "crc_error": null,
+      "uncompressed_bytes": 7294590,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2925",
+        "Curve": "2874",
+        "Ellipse": "44",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "13913",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/ quilted maple top\n                    w/a\n                    ll access neck joint\n                    NECK: 5pc wenge /w bubinga \n                    bolt on\n                    SCALE LENGTH: 685.8 mm (27 in)\n                    NUT WIDTH: 54 mm\n                    F\n                    RET\n                    BOARD: \n                    wenge w/pearl block inlay,\n                    24 frets\n                    BRIDGE: Hipshot 8\n                    TUNERS: Gotoh",
+        "RG8 TAM\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG 8 UVMC FR 24 HSH BoltOn 27.cdr",
+      "bytes": 452615,
+      "sha256": "e59397150787fbf66c0255a835203aa2c7e29b013d83ca555262d18bfe7379ff",
+      "crc_error": null,
+      "uncompressed_bytes": 8814995,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "3616",
+        "Curve": "3547",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "18395",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/cu\n                    taway \n                    h\n                    eel\n                    w/a\n                    ll access neck joint\n                    NECK: 5pc maple w/bubinga \n                    bolt on\n                    SCALE LENGTH: 685.8 mm (27 in)\n                    NUT WIDTH: 54 mm\n                    FRETB\n                    OARD: \n                    rosewood w/d\n                    isappearing pyramid\n                     inlay, 24 frets\n                    BRIDGE: Floyd Rose Original 8\n                    TUNERS: Gotoh",
+        "RG8UVMC FR 24 HSH BoltOn 27\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG 9 HT 24 HH BoltOn 28.cdr",
+      "bytes": 252106,
+      "sha256": "9c82210923bb065bb8e05db7b4944e1c12c91752aed25bfc345e94e843e0ab04",
+      "crc_error": null,
+      "uncompressed_bytes": 3452840,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1266",
+        "Curve": "1229",
+        "Ellipse": "30",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "7434",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/maple top \n                    w/a\n                    ll access neck joint\n                    NECK: 5pc maple w/walnut \n                    bolt on\n                    SCALE LENGTH: 711 mm (28 in)\n                    NUT WIDTH: 63.5 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood, 24 frets\n                    BRIDGE: Hipshot 9\n                    TUNERS: Gotoh",
+        "RG9 HT 24 HH BoltOn \n                    2\n                    8\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG FR 30FRETS.cdr",
+      "bytes": 349489,
+      "sha256": "0a3fccbf6f48614f78c73d7c0e0443023a7f5da840b0946bd72279f26b658f7e",
+      "crc_error": null,
+      "uncompressed_bytes": 5803969,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2092",
+        "Curve": "2004",
+        "Ellipse": "79",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "12475",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony)\n                    w/dot inlays,\n                    30 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG FR 30 FRETS\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG FR HH AANJ.cdr",
+      "bytes": 317233,
+      "sha256": "3ec9548acba381c1071d538e0202cd64452203b4cb96bcbd4bc3df4a88c6c8be",
+      "crc_error": null,
+      "uncompressed_bytes": 5026310,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1751",
+        "Curve": "1670",
+        "Ellipse": "72",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11773",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/offset dots inlay,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG FR HH AANJ\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG FR HH CLEAN.cdr",
+      "bytes": 302307,
+      "sha256": "1be8e6761860363b74567bf194c26056d09aecb6b452c76df453975c28d8194d",
+      "crc_error": null,
+      "uncompressed_bytes": 4855742,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1676",
+        "Curve": "1595",
+        "Ellipse": "72",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "10718",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/offset dots inlay,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG FR HH CLEAN\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG FR HH.cdr",
+      "bytes": 312827,
+      "sha256": "5f5c23aa6b355cca5c130cba4f770973ef8de2602fd62a2e46b9a754bc1d9fc4",
+      "crc_error": null,
+      "uncompressed_bytes": 4971588,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1725",
+        "Curve": "1656",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11735",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash)\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/dot inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG FR HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG FR HSH AANJ.cdr",
+      "bytes": 347989,
+      "sha256": "4b38fc919d01e5f8464df461e65d9d68e32cf58074998bb5ae8a2c159e066d8c",
+      "crc_error": null,
+      "uncompressed_bytes": 5746107,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2054",
+        "Curve": "1997",
+        "Ellipse": "48",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "12856",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/wenge  sharktooth inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG FR HSH AANJ\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG FR HSH BARITONE.cdr",
+      "bytes": 302122,
+      "sha256": "c7c7a35acb3444a899c61eeb2f3d93a65bc0158f0d285767e94b8ad49c6b9917",
+      "crc_error": null,
+      "uncompressed_bytes": 5010891,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1958",
+        "Curve": "1877",
+        "Ellipse": "72",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11117",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 3pc maple /w bubinga b\n                    olt on\n                    SCALE LENGTH: 686 mm (27 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w//offset dot inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG FR HSH BARITONE\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG FR HSH CLEAN.cdr",
+      "bytes": 334435,
+      "sha256": "e982ddf1d1562c0cc9e8cda232d3ce7afeb5159858d22e9f0269d00699a84f08",
+      "crc_error": null,
+      "uncompressed_bytes": 5570951,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1979",
+        "Curve": "1922",
+        "Ellipse": "48",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11716",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/wenge  sharktooth inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG FR HSH CLEAN\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG FR HSH.cdr",
+      "bytes": 339579,
+      "sha256": "ffe96ca8120ea839f848bfd4345f0a228dd33d6c8b2a07ae5e9d87e7162d78a8",
+      "crc_error": null,
+      "uncompressed_bytes": 5687754,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2033",
+        "Curve": "1964",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "12579",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash)\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/dot inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG FR HSH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG FR HSS AANJ.cdr",
+      "bytes": 353103,
+      "sha256": "fbf0236646142601a0b8967532f7ccd62b65818f79a89b6621ad0bbc622dc4d2",
+      "crc_error": null,
+      "uncompressed_bytes": 6217541,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2265",
+        "Curve": "2184",
+        "Ellipse": "72",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "12912",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/dot inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG FR HSS AANJ\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG FR HSS Clean.cdr",
+      "bytes": 340320,
+      "sha256": "ff9fdbfbf586d9caaf35bb6cce50a9070f0f0bf3d102e43aeac28eeb21a54844",
+      "crc_error": null,
+      "uncompressed_bytes": 6035915,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2186",
+        "Curve": "2105",
+        "Ellipse": "72",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11748",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/dot inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG FR HSS CLEAN\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG FR HSS.cdr",
+      "bytes": 350284,
+      "sha256": "802a74161dc8e633461beebfb4d477431484668f82cff9baef89733f71680b82",
+      "crc_error": null,
+      "uncompressed_bytes": 6167540,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2242",
+        "Curve": "2173",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "12888",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash)\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/dot inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG FR HSS\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG FR JEM 777.cdr",
+      "bytes": 348562,
+      "sha256": "4fcf794ed77fa021f86266fab044e39f5b73f622f5179457be59109a10701a68",
+      "crc_error": null,
+      "uncompressed_bytes": 5759001,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2078",
+        "Curve": "2033",
+        "Ellipse": "36",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "12694",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood /w \n                    Cutaway Heel\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    maple w/ \n                    disappearing pyramid\n                     inlay, \n                    24 frets (21-24 scalloped)\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG JEM 777\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG FR JEM AANJ.cdr",
+      "bytes": 338709,
+      "sha256": "6b78d6ea208f24cf73155af60d721ef371ad25278d9bcd09e526af92a96aceb8",
+      "crc_error": null,
+      "uncompressed_bytes": 5384819,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2163",
+        "Curve": "2106",
+        "Ellipse": "48",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "13398",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood /w \n                    all access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/ tree of life inlay, \n                    24 frets (21-24 scalloped)\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG JEM AANJ\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG FR JEM RootBeer.cdr",
+      "bytes": 341386,
+      "sha256": "6ac57d44ab0b5f4162df6db2f57208369f44142c8f5df41aca18ee5ea7fbe54b",
+      "crc_error": null,
+      "uncompressed_bytes": 5688793,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2052",
+        "Curve": "1983",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "12584",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood /w \n                    Cutaway Heel\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/dot inlays, \n                    24 frets (21-24 scalloped)\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG JEM Root Beer\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG FR JEM.cdr",
+      "bytes": 366183,
+      "sha256": "547afff1e330907403949498584312ca50e62e4f55b1bf89054f1c6554745953",
+      "crc_error": null,
+      "uncompressed_bytes": 5839808,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2136",
+        "Curve": "2091",
+        "Ellipse": "36",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "13322",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood /w \n                    Cutaway Heel\n                    NECK: 1pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/ tree of life inlay, \n                    24 frets (21-24 scalloped)\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG FR JEM\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG HT HH AANJ.cdr",
+      "bytes": 269126,
+      "sha256": "20bf1b672d2bbb39bdb4a0ea336d691c83b8ec1382f2ec741fffcd6c476f027f",
+      "crc_error": null,
+      "uncompressed_bytes": 4128223,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1327",
+        "Curve": "1260",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "8427",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) \n                    w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) \n                    w/dot inlay,\n                    24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "RG HT HH AANJ\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG HT HH AANJ.svg",
+      "bytes": 523990,
+      "sha256": "a880575871d244e24715a87ce9f6389300864dec11e6f6f7d56a3dd25c855086",
+      "svg": {
+        "root": {
+          "version": "1.1",
+          "width": "4492.7236",
+          "height": "4294.561",
+          "id": "svg2",
+          "{http://www.inkscape.org/namespaces/inkscape}version": "0.91 r13725",
+          "viewBox": "0 0 4492.7236 4294.561",
+          "{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}docname": "RG_HT_HH_AANJ.svg"
+        },
+        "counts": {
+          "svg": 1,
+          "metadata": 1,
+          "RDF": 1,
+          "Work": 1,
+          "format": 1,
+          "type": 1,
+          "title": 1,
+          "defs": 1,
+          "namedview": 1,
+          "path": 1320,
+          "g": 164,
+          "text": 7,
+          "tspan": 7
+        },
+        "texts": [
+          "RG HT HH AANJ",
+          "BODY: basswood (mahogany, alder, ash)",
+          "SPECIFICATIONS",
+          "PLAN FRONT",
+          "SIDE ELEVATION",
+          "R 2.5",
+          "12.0"
+        ],
+        "paths_with_close_command": 877
+      }
+    },
+    {
+      "file": "Ibanez - RG HT HH CLEAN.cdr",
+      "bytes": 257458,
+      "sha256": "a58b4a0a6e950ab9f61f7969a295a57c5c350116267758ff3b75e91d78aaf965",
+      "crc_error": null,
+      "uncompressed_bytes": 3961762,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1255",
+        "Curve": "1188",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "7385",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) \n                    w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) \n                    w/dot inlay,\n                    24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "RG HT HH CLEAN\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG HT HH.cdr",
+      "bytes": 265127,
+      "sha256": "86d4d6def9308a5723433f1eb4623cb4ad928abd44d4c5ff0676cdca3736702d",
+      "crc_error": null,
+      "uncompressed_bytes": 4019694,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1285",
+        "Curve": "1230",
+        "Ellipse": "48",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "8262",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash)\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) \n                    w/dot inlay,\n                    24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "RG HT HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG HT HSH AANJ.cdr",
+      "bytes": 294578,
+      "sha256": "4eb37bb46775e85dc455cc486d2edf35952bc1e0d7a3ec906f7efdd75242c5a7",
+      "crc_error": null,
+      "uncompressed_bytes": 4851854,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1634",
+        "Curve": "1567",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "9255",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) \n                    w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) \n                    w/dot inlays,\n                    24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "RG HT HSH AANJ\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG HT HSH CLEAN.cdr",
+      "bytes": 283440,
+      "sha256": "b9899d32b28244311f8015e7df3e764fccdf3eb076e5ea9d3a9cd5d29cd0ed0c",
+      "crc_error": null,
+      "uncompressed_bytes": 4677234,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1557",
+        "Curve": "1490",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "8115",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) \n                    w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) \n                    w/dot inlays,\n                    24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "RG HT HSH CLEAN\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG HT HSH.cdr",
+      "bytes": 291825,
+      "sha256": "a42602b0d7cad145f1845adc9f23ebee0ba80c3b56305a4f0e4449c7037318fd",
+      "crc_error": null,
+      "uncompressed_bytes": 4770430,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1611",
+        "Curve": "1556",
+        "Ellipse": "48",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "9226",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash)\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/dot inlays,\n                    24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "RG HT HSH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG HT HSS AANJ.cdr",
+      "bytes": 304513,
+      "sha256": "7ca702b225eb304f65c8d6ecdd28aed94501bbc449902771b6b8fc2ccc6fd4a1",
+      "crc_error": null,
+      "uncompressed_bytes": 5308985,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1837",
+        "Curve": "1770",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "9511",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash)\n                    w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/dot inlays,\n                    24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "RG HT HSS AANJ\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG HT HSS CLEAN.cdr",
+      "bytes": 293443,
+      "sha256": "533066cc62a6ec4ae810f8b83b699cd2bc3e9a10ce14233bf44e92ede8a1c2bb",
+      "crc_error": null,
+      "uncompressed_bytes": 5143342,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1764",
+        "Curve": "1697",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "8399",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash)\n                    w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/dot inlays,\n                    24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "RG HT HSS CLEAN\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG HT HSS.cdr",
+      "bytes": 302882,
+      "sha256": "02297313115051cb5612f7d66bf4a26cb05978b6d001901167327afb08d29565",
+      "crc_error": null,
+      "uncompressed_bytes": 5253783,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1820",
+        "Curve": "1765",
+        "Ellipse": "48",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "9535",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash)\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/dot inlays,\n                    24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "RG HT HSS\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG HT JEM AANJ.cdr",
+      "bytes": 318579,
+      "sha256": "649a4c200feb1f091a0e9fac92c01d850edc327086034e56765f3883c15c79ad",
+      "crc_error": null,
+      "uncompressed_bytes": 4955818,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1718",
+        "Curve": "1675",
+        "Ellipse": "36",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "9845",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/ tree of life inlay, \n                    24 frets (21-24 scalloped)\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "RG HT JEM AANJ\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG JPM.cdr",
+      "bytes": 323378,
+      "sha256": "2e9cee779b968ce2a1cff9a3c16c7a41390a4d16452c3b0c26bb04a9d93a1afc",
+      "crc_error": null,
+      "uncompressed_bytes": 4922777,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1728",
+        "Curve": "1647",
+        "Ellipse": "72",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11102",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood  w/a\n                    ll access neck joint\n                    NECK: 1pc maple b\n                    olt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/offset dots inlay,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG JPM\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG MTM.cdr",
+      "bytes": 251896,
+      "sha256": "c27d6c71022d3791713618e6bdd11fa688025affd9a04f8f126ba074679cb038",
+      "crc_error": null,
+      "uncompressed_bytes": 4198265,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1628",
+        "Curve": "1585",
+        "Ellipse": "36",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "6460",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood,\n                    24 frets\n                    BRIDGE: Schaller 456\n                    TUNERS: Gotoh",
+        "RG MTM\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG PGM FR HSH AANJ.cdr",
+      "bytes": 335065,
+      "sha256": "b56dec1afeb5c014148f5fde890e31965be49ee36d7ae66f30b2ee81d97ffffe",
+      "crc_error": null,
+      "uncompressed_bytes": 5551113,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1966",
+        "Curve": "1909",
+        "Ellipse": "48",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11396",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/a\n                    ll access neck joint\n                    NECK: 1pc maple  \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) \n                    w/ sharktooth inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RG PGM FR AANJ\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG PGM HT HHH AANJ.cdr",
+      "bytes": 280752,
+      "sha256": "8c964d287723698d8c8ca1a7282bc6b0e311fe38c4068b1673470b0093b16212",
+      "crc_error": null,
+      "uncompressed_bytes": 4284174,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1374",
+        "Curve": "1331",
+        "Ellipse": "36",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "8131",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/al\n                    l access neck joint\n                    NECK: 1pc maple  b\n                    olt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: \n                    rosewood (maple, ebony) \n                    w/ sharktooth inlays,\n                    24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "RG PGM HT HHH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG PGM HT HSH AANJ.cdr",
+      "bytes": 258066,
+      "sha256": "5090fa520a78eed13b32e0a3524f067de99301ac9811d67dac415c4560e9dc20",
+      "crc_error": null,
+      "uncompressed_bytes": 4149791,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1548",
+        "Curve": "1481",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "8037",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/al\n                    l access neck joint\n                    NECK: 1pc maple  b\n                    olt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: \n                    rosewood (maple, ebony) \n                    w/dot inlays,\n                    24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "RG PGM HT AANJ\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RG PGM TR HSH AANJ.cdr",
+      "bytes": 313198,
+      "sha256": "5ef07b2972b4f63e56f553b9047e2a8e586c1b2f481aa01ae2c47be681c400b9",
+      "crc_error": null,
+      "uncompressed_bytes": 5137136,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1775",
+        "Curve": "1708",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11279",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: alder w/al\n                    l access neck joint\n                    NECK: 1pc maple  b\n                    olt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: \n                    rosewood (maple, ebony) \n                    w/dot inlays,\n                    24 frets\n                    BRIDGE: Gotoh Vintage Tremolo\n                    TUNERS: Gotoh",
+        "RG PGM TR HSH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGA 7 FR HH.cdr",
+      "bytes": 327958,
+      "sha256": "8554375ee29e53f3735d89a8cfc8ba474ea78119c1c2b7c820e313dd2f5d91fe",
+      "crc_error": null,
+      "uncompressed_bytes": 5327039,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1875",
+        "Curve": "1788",
+        "Ellipse": "78",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11252",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/arched maple top \n                    w/al\n                    l access neck joint\n                    NECK: 5pc maple /w walnut b\n                    olt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    FRETB\n                    OARD: \n                    rosewood w/ dots inlay,\n                    24 frets\n                    BRIDGE: Floyd Rose Original 7\n                    TUNERS: Gotoh",
+        "RGA7 FR HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGA 7 HT HH.cdr",
+      "bytes": 243667,
+      "sha256": "dc27ada0d35f82103564226514e20f7b0eeff75fa1fb77ecfb878d285a95d63e",
+      "crc_error": null,
+      "uncompressed_bytes": 3561072,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1309",
+        "Curve": "1238",
+        "Ellipse": "64",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "7412",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/arched maple top \n                    w/all\n                     access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    FRETBO\n                    ARD: \n                    rosewood w/ dots inlay,\n                    24 frets\n                    BRIDGE: Gotoh Hardtail 7\n                    TUNERS: Gotoh",
+        "RGA7 HT HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGA 8 HT 24 HH BoltOn 27.cdr",
+      "bytes": 254253,
+      "sha256": "7d0a078d0ecb6c8ca6af3d7abed55437da8d39f2d0150607e075327ced4bbd64",
+      "crc_error": null,
+      "uncompressed_bytes": 3620508,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1352",
+        "Curve": "1277",
+        "Ellipse": "68",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "7603",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/arched maple top \n                    w/all\n                     access neck joint\n                    NECK: 5pc maple /w wenge \n                    bolt on\n                    SCALE LENGTH: 685.8 mm (27 in)\n                    NUT WIDTH: 54 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple) w/dots inlay,\n                    24 frets\n                    BRIDGE: Hipshot 8\n                    TUNERS: Gotoh",
+        "RGA8 HT HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGA FR HH.cdr",
+      "bytes": 291795,
+      "sha256": "2f98226c3a6f9339b1024fe1c0e19d76086edb907f41ae0a4aa6b97b06177397",
+      "crc_error": null,
+      "uncompressed_bytes": 4579774,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1549",
+        "Curve": "1468",
+        "Ellipse": "72",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "9923",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/arched maple top \n                    w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/ dots inlay,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RGA FR HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGA HT HH.cdr",
+      "bytes": 249040,
+      "sha256": "5881d125f97a345cb0b4ec130811d7640b541705d8b2f8744ae20d95a6e4b11e",
+      "crc_error": null,
+      "uncompressed_bytes": 3738161,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1167",
+        "Curve": "1100",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "6930",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/arched maple top \n                    w/al\n                    l access neck joint\n                    NECK: 5pc maple /w walnut b\n                    olt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    FRETB\n                    OARD: \n                    rosewood w/ dots inlay,\n                    24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "RGA HT HH\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGD 7 FR 24 HH BoltOn 26.5.cdr",
+      "bytes": 510493,
+      "sha256": "b2e4301527b8ff8a58c71dcf24ad14d8c408af8999bf273d97f383a66b73d152",
+      "crc_error": null,
+      "uncompressed_bytes": 11074989,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "4405",
+        "Curve": "4310",
+        "Ellipse": "86",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "17293",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w wenge \n                    bolt on\n                    SCALE LENGTH: 672 mm (26.5 in)\n                    NUT WIDTH: 48 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple) w/dots inlay,\n                    24 frets\n                    BRIDGE: Floyd Rose Original 7\n                    TUNERS: Gotoh",
+        "RGD\n                    7\n                     \n                    FR\n                     24 HH BoltOn 2\n                    6.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGD 7 HT 24 HH BoltOn 26.5.cdr",
+      "bytes": 409557,
+      "sha256": "d643fe44a93a256df821faa930411eb6df418c275693ff38d6eb1be858c5b262",
+      "crc_error": null,
+      "uncompressed_bytes": 8983643,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "3686",
+        "Curve": "3607",
+        "Ellipse": "72",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "12707",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w wenge \n                    bolt on\n                    SCALE LENGTH: 672 mm (26.5 in)\n                    NUT WIDTH: 48 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple) w/dots inlay,\n                    24 frets\n                    BRIDGE: Hipshot 7\n                    TUNERS: Gotoh",
+        "RGD\n                    7\n                     HT 24 HH BoltOn 2\n                    6.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGD 7 ToM 24 HH NT 27.cdr",
+      "bytes": 525778,
+      "sha256": "64d340ccb81a933a567c67f719c04035fa18eba658830508da2cbe7ad9a1f530",
+      "crc_error": null,
+      "uncompressed_bytes": 11096845,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "4406",
+        "Curve": "4363",
+        "Ellipse": "36",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "19290",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: swamp ash \n                    NECK: 5pc maple/wenge thru body\n                    SCALE LENGTH: 686 mm (27 in)\n                    NUT WIDTH: 48 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood w/offset tesseract inlay, 24 frets\n                    BRIDGE: Tuno-o-Matic 7 string through body\n                    TUNERS: Sperzel Trim Lok",
+        "RGD\n                    7\n                     \n                    ToM\n                     24 HH \n                    NT 27\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGD 8 HT 24 HH BoltOn 27.cdr",
+      "bytes": 457080,
+      "sha256": "58e1ddcc9e767ed551795d298b7f547828c8808909d56bec161ab7b50e6a6cbf",
+      "crc_error": null,
+      "uncompressed_bytes": 9725470,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "3799",
+        "Curve": "3716",
+        "Ellipse": "76",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "14558",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w wenge \n                    bolt on\n                    SCALE LENGTH: 685.8 mm (27 in)\n                    NUT WIDTH: 54 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple) w/dots inlay,\n                    24 frets\n                    BRIDGE: Hipshot 8\n                    TUNERS: Gotoh",
+        "RGD8 HT 24 HH BoltOn 27\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGD 8 HT 24 HH NT 28.cdr",
+      "bytes": 279474,
+      "sha256": "e2e1af84b1f46d1b6004e5da8cee1c542dec3c6c4095a6f0960c50daef0cdd45",
+      "crc_error": null,
+      "uncompressed_bytes": 3927483,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1297",
+        "Curve": "1226",
+        "Ellipse": "64",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "7713",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood \n                    NECK: 5pc maple/walnut thru body\n                    SCALE LENGTH: 711 mm (28 in)\n                    NUT WIDTH: 54 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple) w/offset dot inlays, 24 frets\n                    BRIDGE: Hipshot 8\n                    TUNERS: Gotoh",
+        "RGD8 HT 24 HH \n                    NT 28\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGD 8 TAM HT 24 HH BoltOn 27.cdr",
+      "bytes": 493103,
+      "sha256": "0856733cf4c0e42a1acd31251ee5f97a5aacf29693ae0499a3bbf4e4613b6e09",
+      "crc_error": null,
+      "uncompressed_bytes": 10394870,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "4334",
+        "Curve": "4327",
+        "Ellipse": "0",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "16865",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/ quilted maple top\n                    w/all access neck joint\n                    NECK: 5pc wenge /w bubinga bolt on\n                    SCALE LENGTH: 685.8 mm (27 in)\n                    NUT WIDTH: 54 mm\n                    FRETBOARD: wenge w/pearl block inlay,\n                    24 frets\n                    BRIDGE: Hipshot 8\n                    TUNERS: Gotoh",
+        "RGD8 TAM\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGD FR 24 HH BoltOn 26.5.cdr",
+      "bytes": 308468,
+      "sha256": "7a54b92477e5b9975322cdf48e54a40935084feec2f7239b1135906ef64bbc71",
+      "crc_error": null,
+      "uncompressed_bytes": 4741708,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1883",
+        "Curve": "1818",
+        "Ellipse": "56",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11224",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/a\n                    ll access neck joint\n                    NECK: 5pc maple w/walnut \n                    bolt on\n                    SCALE LENGTH: 672 mm (26.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple) w/V inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RGD \n                    FR\n                     24 HH BoltOn 2\n                    6.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGD HT 24 HH BoltOn 26.5.cdr",
+      "bytes": 262235,
+      "sha256": "3fac9ad58cf8af452a7fb053dba4f0647dc6ba90fc5f785b68ae18b475bb704e",
+      "crc_error": null,
+      "uncompressed_bytes": 3813364,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1454",
+        "Curve": "1403",
+        "Ellipse": "44",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "7839",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood w/a\n                    ll access neck joint\n                    NECK: 5pc maple w/walnut \n                    bolt on\n                    SCALE LENGTH: 672 mm (26.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple) w/V inlays,\n                    24 frets\n                    BRIDGE: Hipshot\n                    TUNERS: Gotoh",
+        "RGD HT 24 HH BoltOn 2\n                    6.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGJC FR 24 HSH BoltOn 25.5.cdr",
+      "bytes": 362458,
+      "sha256": "4e23807e841f8dc79911fb123adbf4dab476b984cf60a8f6141251fa32295755",
+      "crc_error": null,
+      "uncompressed_bytes": 5713937,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2090",
+        "Curve": "1982",
+        "Ellipse": "99",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11596",
+      "text": [
+        "SPECIFICATIONS",
+        "BODY: mahogany (basswood, alder, ash) w/maple top, w/a\n                    ll access neck joint\n                    NECK: 5pc maple/walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/vine inlay, w/flamed maple binding, 24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "RGJC FR 24 HSH BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGR FR HS.cdr",
+      "bytes": 314293,
+      "sha256": "ea4e9e8a95bf2f94c872c20f9b1647714f0c3ba7c9217895c0022645bd3d51ef",
+      "crc_error": null,
+      "uncompressed_bytes": 5333023,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1882",
+        "Curve": "1801",
+        "Ellipse": "72",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "10997",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/dot inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RGR FR HS CLEAN\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGR FR HS.pdf",
+      "bytes": 99562,
+      "sha256": "01726f2127e7b958807af398ba14f93096df6b5e83b01705c53c2fe3147615b2",
+      "pages": [
+        {
+          "width_mm": 1047.7776468416664,
+          "height_mm": 944.005514336111,
+          "text": "RGR FR HS CLEAN\nBODY: basswood (mahogany, alder, ash) w/all access neck joint\nSPECIFICATIONS\nPLAN FRONT\nSIDE ELEVATION\nR 2.5\n12.0"
+        }
+      ],
+      "graphics": [
+        {
+          "curves": 942,
+          "lines": 873,
+          "rectangles": 51,
+          "images": 0
+        }
+      ]
+    },
+    {
+      "file": "Ibanez - RGT 8 M8M HT 24 HH NT 29.4.cdr",
+      "bytes": 254917,
+      "sha256": "49ca4ae40dff9115b1118332adee5aadb0c7e155428c678daebf636fc46ae248",
+      "crc_error": null,
+      "uncompressed_bytes": 3785575,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1166",
+        "Curve": "1135",
+        "Ellipse": "24",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "7336",
+      "text": [
+        "PLAN FRONT",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "SPECIFICATIONS",
+        "BODY: alder\n                    NECK: 5pc maple /w walnut thru body\n                    SCALE LENGTH: 746.8 mm (29.4 in)\n                    NUT WIDTH: 54 mm\n                    FRETB\n                    OARD: \n                    rosewood, 24 frets\n                    BRIDGE: Hipshot 8\n                    TUNERS: Hipshot",
+        "RGT8 M8M\n                    FULL SCALE",
+        "12.0"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGT FR.cdr",
+      "bytes": 285578,
+      "sha256": "f96dc171895182b52d4a61c680906e8f764bb8fe9cd00cff1d20688bb62617f9",
+      "crc_error": null,
+      "uncompressed_bytes": 4503412,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1535",
+        "Curve": "1462",
+        "Ellipse": "64",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "10509",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany \n                    NECK: 5pc maple /w walnut thru body\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/offset dots inlay,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "RGT FR\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGT HT.cdr",
+      "bytes": 214274,
+      "sha256": "af7e8d06bafc0461ed1e524a8fa65b284040438d03ab9f4a6f001946f4523626",
+      "crc_error": null,
+      "uncompressed_bytes": 3049081,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1078",
+        "Curve": "1023",
+        "Ellipse": "48",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "6965",
+      "text": [
+        "PLAN FRONT",
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "SPECIFICATIONS",
+        "BODY: mahogany\n                    NECK: 5pc maple /w walnut thru body\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/offset dots inlay,\n                    24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "RGT HT\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - RGT MTM.cdr",
+      "bytes": 230150,
+      "sha256": "b19ddf05706171d450e4c043407fddf0b33f2ad4afad8b1b960e50baa3c67b67",
+      "crc_error": null,
+      "uncompressed_bytes": 3830670,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1458",
+        "Curve": "1423",
+        "Ellipse": "28",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "6058",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany \n                    NECK: 5pc maple /w walnut thru body\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood,\n                    24 frets\n                    BRIDGE: Schaller 456\n                    TUNERS: Gotoh",
+        "RGT MTM\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - S 7 FR 24 HH BoltOn 25.5.cdr",
+      "bytes": 317438,
+      "sha256": "a34bb3d6721975a4ccff6a367bda5ed0ba0cdecac45006a173be701f19d449dc",
+      "crc_error": null,
+      "uncompressed_bytes": 5050677,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1762",
+        "Curve": "1676",
+        "Ellipse": "78",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "11418",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/poplar (maple, bubinga) w/al\n                    l access neck joint\n                    NECK: 5pc maple /w walnut b\n                    olt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/dots inlay,\n                    24 frets\n                    BRIDGE: Floyd Rose Original 7\n                    TUNERS: Gotoh",
+        "S7\n                     FR 24 HH BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - S 7 HT 24 HH BoltOn 25.5.cdr",
+      "bytes": 276106,
+      "sha256": "a7dae8fe5a3fdde5baafaba426f1ea01092a02a760dc16c09bf3b7efb0f6a236",
+      "crc_error": null,
+      "uncompressed_bytes": 4201453,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1387",
+        "Curve": "1317",
+        "Ellipse": "64",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "8143",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 48 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/dots inlay,\n                    24 frets\n                    BRIDGE: Gotoh Hardtail 7\n                    TUNERS: Gotoh",
+        "S7 HT \n                    24 HH BoltOn\n                     \n                    25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - S 8 HT 24 HH BoltOn 27.cdr",
+      "bytes": 332951,
+      "sha256": "18b233bc7ce160f2b0aa115c2c2bf19a51f40a9c2fd82c1bdc121b0b4d4c8c52",
+      "crc_error": null,
+      "uncompressed_bytes": 6297270,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2500",
+        "Curve": "2426",
+        "Ellipse": "68",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "11619",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w wenge \n                    bolt on\n                    SCALE LENGTH: 685.8 mm (27 in)\n                    NUT WIDTH: 54 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple) w/dots inlay,\n                    24 frets\n                    BRIDGE: Hipshot 8\n                    TUNERS: Gotoh",
+        "S8 HT 2\n                    4 HH BoltOn\n                     \n                    2\n                    7\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - S FR 24 HSH BoltOn 25.5.cdr",
+      "bytes": 334461,
+      "sha256": "d255a4c929f4f3fdc4108c1f93a0c670c058ec68851ed1b15ad8d9f7995faf75",
+      "crc_error": null,
+      "uncompressed_bytes": 5570632,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1995",
+        "Curve": "1939",
+        "Ellipse": "48",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "11712",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/poplar (maple, bubinga) w/a\n                    ll access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) w/wenge  sharktooth inlays,\n                    24 frets\n                    BRIDGE: Floyd Rose Original\n                    TUNERS: Gotoh",
+        "S FR 24 HSH BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - S HT 24 HSH BoltOn 25.5.cdr",
+      "bytes": 280453,
+      "sha256": "80aa106e31f2264211b2974a1d9cc688631cb4aa9a10233701f5fb1959a46cb4",
+      "crc_error": null,
+      "uncompressed_bytes": 4658099,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1574",
+        "Curve": "1508",
+        "Ellipse": "60",
+        "Bitmap": "0",
+        "Text": "6"
+      },
+      "nodes": "8152",
+      "text": [
+        "12.0",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: mahogany w/poplar (maple, bubinga) w/al\n                    l access neck joint\n                    NECK: 5pc maple /w walnut \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) \n                    w/dot inlays,\n                    24 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "S\n                     \n                    HT\n                     24 HSH BoltOn25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Talman 8 HT 24 HH BoltOn 27.cdr",
+      "bytes": 321617,
+      "sha256": "53f75d2b21ba3ac6f92bbb69f627a386b36e6e383cff69a945593cd4d38f3a49",
+      "crc_error": null,
+      "uncompressed_bytes": 6102821,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "2413",
+        "Curve": "2338",
+        "Ellipse": "68",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "11300",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: alder\n                    NECK: 5pc maple /w wenge \n                    bolt on\n                    SCALE LENGTH: 685.8 mm (27 in)\n                    NUT WIDTH: 54 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple) w/dots inlay,\n                    24 frets\n                    BRIDGE: Hipshot 8\n                    TUNERS: Gotoh",
+        "Talman8 HT 24 HSH BoltOn 27\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Talman HT 22 HSH BoltOn 25.5.cdr",
+      "bytes": 272236,
+      "sha256": "e596811ee15b6439cc8b89836cf72641ec88e199889eb7d4df4f17969af18703",
+      "crc_error": null,
+      "uncompressed_bytes": 4524862,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1497",
+        "Curve": "1434",
+        "Ellipse": "56",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "7785",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) \n                    w/a\n                    ll access neck joint\n                    NECK: 3pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) \n                    w/dot inlays,\n                    22 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "Talman HT 22 HSH BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    },
+    {
+      "file": "Ibanez - Talman R HT 22 HSH BoltOn 25.5.cdr",
+      "bytes": 248451,
+      "sha256": "d123ce7849c623e8800829a977eab095654ef5b82e1c203d4966f00466680474",
+      "crc_error": null,
+      "uncompressed_bytes": 4037048,
+      "ProductName": "CorelDRAW X6",
+      "CoreVersion": "1600",
+      "NumPages": "1",
+      "NumLayers": "1",
+      "PageDimensions": "1300 x 1300 mm",
+      "objects": {
+        "Total": "1498",
+        "Curve": "1435",
+        "Ellipse": "56",
+        "Bitmap": "0",
+        "Text": "7"
+      },
+      "nodes": "7787",
+      "text": [
+        "12.0",
+        "R 2.5",
+        "SIDE ELEVATION",
+        "PLAN FRONT",
+        "SPECIFICATIONS",
+        "BODY: basswood (mahogany, alder, ash) \n                    w/a\n                    ll access neck joint\n                    NECK: 3pc maple \n                    bolt on\n                    SCALE LENGTH: 648 mm (25.5 in)\n                    NUT WIDTH: 42 mm\n                    F\n                    RET\n                    BOARD: \n                    rosewood (maple, ebony) \n                    w/dot inlays,\n                    22 frets\n                    BRIDGE: Gotoh Hard Tail\n                    TUNERS: Gotoh",
+        "TalmanV HT 22 HSH BoltOn 25.5\n                    FULL SCALE"
+      ],
+      "preview_entries": [
+        "metadata/thumbnails/thumbnail.bmp",
+        "metadata/thumbnails/page1.bmp"
+      ]
+    }
+  ]
+}

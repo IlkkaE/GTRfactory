@@ -1,0 +1,13 @@
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+tmp/
+CDR/
+reference-analysis/converted/
+reference-analysis/rendered/
+reference-analysis/**/*.png
+reference-analysis/**/*.svg
+*.log
+.DS_Store

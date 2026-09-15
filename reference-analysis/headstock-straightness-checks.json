@@ -1,0 +1,72 @@
+{
+  "date": "2026-09-09",
+  "scope": "Analytic measurement references, not headstock layout or hardware-fit validation",
+  "method": "Angle between actual incoming direction and selected circle tangent; independent closed-form expected angles",
+  "cases": [
+    {
+      "name": "zero-kink tangent",
+      "nut": {
+        "x": 0,
+        "y": 0
+      },
+      "postCenter": {
+        "x": 100,
+        "y": 3
+      },
+      "postRadiusMm": 3,
+      "tangentPoint": {
+        "x": 100,
+        "y": 4.440892098500626e-16
+      },
+      "deflectionDeg": 2.5444437451708134e-16,
+      "incorrectCentreOnlyAngleDeg": 1.7183580016554572,
+      "result": "PASS"
+    },
+    {
+      "name": "post centre on ideal line is not zero kink",
+      "nut": {
+        "x": 0,
+        "y": 0
+      },
+      "postCenter": {
+        "x": 100,
+        "y": 0
+      },
+      "postRadiusMm": 3,
+      "tangentPoint": {
+        "x": 99.91,
+        "y": -2.9986496961132354
+      },
+      "deflectionDeg": 1.719131320877811,
+      "incorrectCentreOnlyAngleDeg": 0,
+      "result": "PASS"
+    },
+    {
+      "name": "two-millimetre transverse shift from zero kink",
+      "nut": {
+        "x": 0,
+        "y": 0
+      },
+      "postCenter": {
+        "x": 100,
+        "y": 5
+      },
+      "postRadiusMm": 3,
+      "tangentPoint": {
+        "x": 100.05997002697093,
+        "y": 2.000599460581313
+      },
+      "deflectionDeg": 1.145419441234685,
+      "incorrectCentreOnlyAngleDeg": 2.8624052261117474,
+      "result": "PASS"
+    }
+  ],
+  "defaultNeckOuterStringDirectionVsCenterlineDeg": 0.6178717090388561,
+  "notVerified": [
+    "tuner placement in lapamalli.svg",
+    "full hardware clearances",
+    "optimizer quality",
+    "production UI",
+    "manufacturing"
+  ]
+}

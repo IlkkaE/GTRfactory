@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import {flattenOutline,parseOutline,sub,mul,add} from './geometry.mjs';
+import {SOURCE} from './scenarios.mjs';
+const result=JSON.parse(fs.readFileSync('reference-analysis/headstock-lab-results.json','utf8'));
+const outline=parseOutline(fs.readFileSync(SOURCE,'utf8')),O=mul(add(outline[0].start,outline.at(-1).end),.5),originalPoints=flattenOutline(outline).map(p=>sub(p,O));
+const data={cases:result.cases.map(p=>({id:p.id,N:p.N,spacing:p.spacing,neck:p.neck,params:p.params,transform:p.transform,polygon:p.polygon,nutCurve:p.nutCurve,originalPoints,layouts:p.layouts.map(l=>({branch:l.branch,baseline:l.baseline,solution:l.solution}))})),negativeCase:result.negativeCase};
+const template=fs.readFileSync('scripts/headstock-lab/visualization.fragment.html','utf8');
+if(template.split('__HEADSTOCK_LAB_DATA__').length!==2)throw new Error('Yksikäsitteinen datapaikka puuttuu');
+const fragment=template.replace('__HEADSTOCK_LAB_DATA__',JSON.stringify(data).replaceAll('<','\\u003c'));
+if(Buffer.byteLength(fragment)>=1e6)throw new Error('Fragmentti ylittää 1 MB');
+const destination=process.argv[2];if(!destination)throw new Error('Anna sallittu absoluuttinen visualisointipolku');fs.writeFileSync(destination,fragment);
+console.log(JSON.stringify({destination,bytes:Buffer.byteLength(fragment)}));

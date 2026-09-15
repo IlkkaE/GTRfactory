@@ -1,0 +1,4546 @@
+{
+  "version": 1,
+  "method": "exact rational left-null witness with rational sqrt enclosures",
+  "inputInterpretation": "each stored JSON coordinate parsed as IEEE-754 binary64, then exact Fraction",
+  "sqrtAbsoluteIntervalWidthMm": "1e-80",
+  "scope": "specific stored contacts, no finite headstock bound; no continuous-range theorem",
+  "row": "C_i = C0 + i*v, all C0/v coordinates free; radius=3mm, same sigma for all strings",
+  "sources": {
+    "src/neck/fretfactoryGeometry.ts": "09eba78a3283820da8a97e13d153858cadfdd19bb754b2dabdc4415e19469cf3",
+    "src/neck/vendor/core.ts": "5b0a2075c5bdd7ffaadab07db59bdeb71ff002cc86c970bde037bc9d29451620",
+    "src/neck/vendor/curved.ts": "a204d4883d20e7be8da8ffb069072ad65b2c6200c0e040a22b348eea58ff0da9",
+    "src/neck/vendor/pchip.ts": "1bd5efb8f82f56c6d42c901d73cb53420009398b11b19e9d9cecedb823bcb731",
+    "src/neck/vendor/naming.ts": "81cd914f11731c531fd5a388959651031a73b59f6b14acd0af6a82bf81742819"
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5"
+  },
+  "inputSha256": "afaff5b83ea358cddbafdd44e5e6fc2164a9f4a9bf82615a81608684f3fe5069",
+  "results": [
+    {
+      "id": "6-current-default",
+      "N": 6,
+      "group": "current-default",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6751229565025578,
+          1.0334226265453361,
+          0.3549658512339873,
+          1.574918237958951e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1491.1586855369226,
+          -4.826051367964676,
+          -0.0064703839880643965,
+          0.7304205469229513
+        ],
+        "maxDistanceResidualMm": 6.677369768226527e-10,
+        "l2DistanceResidualMm": 1.1777709990128822e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-3",
+          "8",
+          "-6",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-302748729651324422058734755822887624259874735704955485146394099797861007353/50000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-151374364825662211029367377911443812129937367852477742573197049898930503663/25000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 5.193460485535419e-10
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "6-current-default",
+      "N": 6,
+      "group": "current-default",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6751229565025578,
+          1.0334226265453361,
+          0.3549658512339873,
+          1.574918237958951e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1301.4596632651621,
+          -0.8714762429932315,
+          0.006470383988122966,
+          1.5485904974602123
+        ],
+        "maxDistanceResidualMm": 6.677378650010724e-10,
+        "l2DistanceResidualMm": 1.177767432243908e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-3",
+          "8",
+          "-6",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "151374364825662211029367377911443812129937367852477742573197049898930503663/25000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "302748729651324422058734755822887624259874735704955485146394099797861007353/50000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 5.193460485535419e-10
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "6-reference-equal",
+      "N": 6,
+      "group": "reference",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6751212901537278,
+          1.0334244471835317,
+          0.3549684144217922,
+          1.4362512894085444e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1165.0461234399045,
+          -4.761268677264173,
+          -0.008105202965810295,
+          0.7045074702582785
+        ],
+        "maxDistanceResidualMm": 1.6441674688394414e-09,
+        "l2DistanceResidualMm": 2.900028523235475e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-3",
+          "8",
+          "-6",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-11647931350650122565782159137171604536030996918693629323372422228197310197/781250000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-745467606441607844210058184778982690305983802796392276695835022604627852581/50000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.278786679443854e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "6-reference-equal",
+      "N": 6,
+      "group": "reference",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6751212901537278,
+          1.0334244471835317,
+          0.3549684144217922,
+          1.4362512894085444e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1013.5986539759676,
+          -0.8066766641147549,
+          0.008105202965693403,
+          1.5226706662932903
+        ],
+        "maxDistanceResidualMm": 1.64417190973154e-09,
+        "l2DistanceResidualMm": 2.900027159346584e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-3",
+          "8",
+          "-6",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "745467606441607844210058184778982690305983802796392276695835022604627852581/50000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "11647931350650122565782159137171604536030996918693629323372422228197310197/781250000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.278786679443854e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-6.5-10-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730843809269644,
+          1.0374555590678625,
+          0.35280960482592155,
+          1.8823355771390782e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1081.9060501220763,
+          -4.9613891995528085,
+          -0.008105038173414932,
+          0.6537963987549099
+        ],
+        "maxDistanceResidualMm": 3.835992856693338e-09,
+        "l2DistanceResidualMm": 6.800562327657128e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-496940317025586590439262173556293178234236817629141046790876555822691621393/10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-2484701585127932952196310867781465891171184088145705233954382779113458106917/50000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 2.3974800172076777e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-6.5-10-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730843809269644,
+          1.0374555590678625,
+          0.35280960482592155,
+          1.8823355771390782e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          953.7449645495337,
+          -1.038246968346066,
+          0.008105038173383866,
+          1.346082323878047
+        ],
+        "maxDistanceResidualMm": 3.835994633050177e-09,
+        "l2DistanceResidualMm": 6.800564260104876e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "2484701585127932952196310867781465891171184088145705233954382779113458106917/50000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "496940317025586590439262173556293178234236817629141046790876555822691621393/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 2.3974800172076777e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-6.5-10.5-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730824239515356,
+          1.03745781099732,
+          0.35281226320112996,
+          6.029757419126087e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          946.6767721243302,
+          -4.961343516192591,
+          -0.009262702695133691,
+          0.6537811701945629
+        ],
+        "maxDistanceResidualMm": 6.543539043946112e-09,
+        "l2DistanceResidualMm": 1.1600592228334403e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-4238526041381623060407851794009538512840313293486773557917216171037799591213/50000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-847705208276324612081570358801907702568062658697354711583443234207559918233/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 4.08966610285268e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-6.5-10.5-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730824239515356,
+          1.03745781099732,
+          0.35281226320112996,
+          6.029757419126087e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          834.5238762307941,
+          -1.0381812942728816,
+          0.009262702695092917,
+          1.3460604332939337
+        ],
+        "maxDistanceResidualMm": 6.543521280377718e-09,
+        "l2DistanceResidualMm": 1.1600592228100571e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "847705208276324612081570358801907702568062658697354711583443234207559918233/10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "4238526041381623060407851794009538512840313293486773557917216171037799591213/50000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 4.08966610285268e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-6.5-11-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730802062099173,
+          1.0374603630431254,
+          0.3528152756089312,
+          8.062413544684588e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          841.4995083732867,
+          -4.961291746864029,
+          -0.010420288011478531,
+          0.6537639126267839
+        ],
+        "maxDistanceResidualMm": 1.048052666874355e-08,
+        "l2DistanceResidualMm": 1.858032513591354e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-1697204459911156017708214572428029842739216200608865174185885796958958435493/12500000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-1697204459911156017708214572428029842739216200608865174185885796958958435481/12500000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 6.550257214936056e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-6.5-11-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730802062099173,
+          1.0374603630431254,
+          0.3528152756089312,
+          8.062413544684588e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          741.7960113345488,
+          -1.038106869693395,
+          0.010420288011454367,
+          1.346035626225689
+        ],
+        "maxDistanceResidualMm": 1.0480531997814069e-08,
+        "l2DistanceResidualMm": 1.858032484948857e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "1697204459911156017708214572428029842739216200608865174185885796958958435481/12500000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "1697204459911156017708214572428029842739216200608865174185885796958958435493/12500000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 6.550257214936056e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7-10-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730860770819989,
+          1.037453607301373,
+          0.35280730062136895,
+          2.0673547545363627e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1353.556397349217,
+          -5.192187744671547,
+          -0.006947304336549527,
+          0.7307292476322045
+        ],
+        "maxDistanceResidualMm": 2.070713378543587e-09,
+        "l2DistanceResidualMm": 3.6710137778093474e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-268250550567162995397268609680435404078084574456465013949071906588099241181/10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-1341252752835814976986343048402177020390422872282325069745359532940496205857/50000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.2941902196636665e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7-10-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730860770819989,
+          1.037453607301373,
+          0.35280730062136895,
+          2.0673547545363627e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1204.0489356210408,
+          -1.2690628393452574,
+          0.006947304336658252,
+          1.4230209470400632
+        ],
+        "maxDistanceResidualMm": 2.0707151549004266e-09,
+        "l2DistanceResidualMm": 3.6710134916670727e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "1341252752835814976986343048402177020390422872282325069745359532940496205857/50000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "268250550567162995397268609680435404078084574456465013949071906588099241181/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.2941902196636665e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7-10.5-equal",
+      "N": 7,
+      "group": "reference",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730843809269644,
+          1.0374555590678625,
+          0.35280960482592155,
+          1.8823355771390782e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1160.200319917138,
+          -5.192144436779689,
+          -0.008105038173337268,
+          0.7307148111638696
+        ],
+        "maxDistanceResidualMm": 3.835991080336498e-09,
+        "l2DistanceResidualMm": 6.8005642241822315e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-496940317025586590439262173556293178234236817629141046790876555822691621393/10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-2484701585127932952196310867781465891171184088145705233954382779113458106917/50000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 2.3974800172076777e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7-10.5-equal",
+      "N": 7,
+      "group": "reference",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730843809269644,
+          1.0374555590678625,
+          0.35280960482592155,
+          1.8823355771390782e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1032.0392343445958,
+          -1.2690022055729477,
+          0.008105038173414932,
+          1.4230007362870067
+        ],
+        "maxDistanceResidualMm": 3.8359964094070165e-09,
+        "l2DistanceResidualMm": 6.800564796868603e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "2484701585127932952196310867781465891171184088145705233954382779113458106917/50000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "496940317025586590439262173556293178234236817629141046790876555822691621393/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 2.3974800172076777e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7-11-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730824239515356,
+          1.03745781099732,
+          0.35281226320112996,
+          6.029757419126087e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1015.184489368758,
+          -5.192094470441263,
+          -0.009262702695133691,
+          0.7306981549441204
+        ],
+        "maxDistanceResidualMm": 6.543540820302951e-09,
+        "l2DistanceResidualMm": 1.160059280099759e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-4238526041381623060407851794009538512840313293486773557917216171037799591213/50000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-847705208276324612081570358801907702568062658697354711583443234207559918233/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 4.08966610285268e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7-11-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730824239515356,
+          1.03745781099732,
+          0.35281226320112996,
+          6.029757419126087e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          903.0315934752218,
+          -1.268932248521555,
+          0.009262702695160874,
+          1.4229774180434909
+        ],
+        "maxDistanceResidualMm": 6.543519504020878e-09,
+        "l2DistanceResidualMm": 1.1600591727420159e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "847705208276324612081570358801907702568062658697354711583443234207559918233/10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "4238526041381623060407851794009538512840313293486773557917216171037799591213/50000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 4.08966610285268e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7.5-10-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730875123696507,
+          1.0374519557382533,
+          0.3528053507071655,
+          8.479478117974381e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1733.868255913688,
+          -5.4229864832500505,
+          -0.00578951107896813,
+          0.8076621607980107
+        ],
+        "maxDistanceResidualMm": 9.98664262397142e-10,
+        "l2DistanceResidualMm": 1.7704558240738166e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-80856619677662815360165939432197656562786736642348534696164470006598236697/6250000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-80856619677662815360165939432197656562786736642348534696164470006598236691/6250000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 6.241640464314023e-10
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7.5-10-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730875123696507,
+          1.0374519557382533,
+          0.3528053507071655,
+          8.479478117974381e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1554.4733194172939,
+          -1.4998762387163533,
+          0.00578951107896813,
+          1.4999587465241198
+        ],
+        "maxDistanceResidualMm": 9.986749205381784e-10,
+        "l2DistanceResidualMm": 1.7704566829050252e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "80856619677662815360165939432197656562786736642348534696164470006598236691/6250000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "80856619677662815360165939432197656562786736642348534696164470006598236697/6250000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 6.241640464314023e-10
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7.5-10.5-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730860770819989,
+          1.037453607301373,
+          0.35280730062136895,
+          2.0673547545363627e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1444.8994449552974,
+          -5.422946694100717,
+          -0.0069473043365676475,
+          0.8076488974419285
+        ],
+        "maxDistanceResidualMm": 2.070716931257266e-09,
+        "l2DistanceResidualMm": 3.6710156743330305e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-268250550567162995397268609680435404078084574456465013949071906588099241181/10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-1341252752835814976986343048402177020390422872282325069745359532940496205857/50000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.2941902196636665e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7.5-10.5-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730860770819989,
+          1.037453607301373,
+          0.35280730062136895,
+          2.0673547545363627e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1295.3919832271213,
+          -1.4998217887744276,
+          0.006947304336712615,
+          1.499940596849787
+        ],
+        "maxDistanceResidualMm": 2.0707116021867478e-09,
+        "l2DistanceResidualMm": 3.671013956929387e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "1341252752835814976986343048402177020390422872282325069745359532940496205857/50000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "268250550567162995397268609680435404078084574456465013949071906588099241181/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.2941902196636665e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7.5-11-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730843809269644,
+          1.0374555590678625,
+          0.35280960482592155,
+          1.8823355771390782e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1238.4945897121997,
+          -5.4228996740065645,
+          -0.008105038173445997,
+          0.80763322357283
+        ],
+        "maxDistanceResidualMm": 3.835992856693338e-09,
+        "l2DistanceResidualMm": 6.800562936077043e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-496940317025586590439262173556293178234236817629141046790876555822691621393/10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-2484701585127932952196310867781465891171184088145705233954382779113458106917/50000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 2.3974800172076777e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7.5-11-equal",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6730843809269644,
+          1.0374555590678625,
+          0.35280960482592155,
+          1.8823355771390782e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1110.3335041396576,
+          -1.4997574427998275,
+          0.0081050381733994,
+          1.4999191486959667
+        ],
+        "maxDistanceResidualMm": 3.8359964094070165e-09,
+        "l2DistanceResidualMm": 6.800563866425624e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-6",
+          "15",
+          "-10",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "2484701585127932952196310867781465891171184088145705233954382779113458106917/50000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "496940317025586590439262173556293178234236817629141046790876555822691621393/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 2.3974800172076777e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-6.5-10-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6715934893882798,
+          1.0405684044617534,
+          0.3507030109232555,
+          5.230914587349151e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1077.99866398019,
+          -5.3622647297295,
+          -0.008104848047719774,
+          0.67493277822745
+        ],
+        "maxDistanceResidualMm": 7.123031053879458e-09,
+        "l2DistanceResidualMm": 1.359973683007233e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-31055709676731963875030285009989306487825475604534524435237261948106853043/250000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-248445677413855711000242280079914451902603804836276195481898095584854824341/2000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 3.835464101928532e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-6.5-10-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6715934893882798,
+          1.0405684044617534,
+          0.3507030109232555,
+          5.230914587349151e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          966.912263534238,
+          -1.4621773544889018,
+          0.008104848047719774,
+          1.2749078172635218
+        ],
+        "maxDistanceResidualMm": 7.123032830236298e-09,
+        "l2DistanceResidualMm": 1.359973633813568e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "248445677413855711000242280079914451902603804836276195481898095584854824341/2000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "31055709676731963875030285009989306487825475604534524435237261948106853043/250000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 3.835464101928532e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-6.5-10.5-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.671590891813071,
+          1.0405714919349855,
+          0.3507062311675952,
+          1.6573834233185939e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          943.2597596783464,
+          -5.362192727475529,
+          -0.009262418923794325,
+          0.6749122049583884
+        ],
+        "maxDistanceResidualMm": 1.2150122685739007e-08,
+        "l2DistanceResidualMm": 2.3198084582788152e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-2118990315649113577945775269859475628982035578899809939087159839959873461971/10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-529747578912278394486443817464868907245508894724952484771789959989968365489/2500000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 6.542343100806571e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-6.5-10.5-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.671590891813071,
+          1.0405714919349855,
+          0.3507062311675952,
+          1.6573834233185939e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          846.0452014907329,
+          -1.4620786074525265,
+          0.00926241892365072,
+          1.2748796050210542
+        ],
+        "maxDistanceResidualMm": 1.2150135120236882e-08,
+        "l2DistanceResidualMm": 2.3198083128476664e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "529747578912278394486443817464868907245508894724952484771789959989968365489/2500000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "2118990315649113577945775269859475628982035578899809939087159839959873461971/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 6.542343100806571e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-6.5-11-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6715879481858207,
+          1.0405749907976225,
+          0.35070988010953286,
+          8.766089358474253e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          838.4641285034616,
+          -5.3621111358291875,
+          -0.010419884020524694,
+          0.6748888913196678
+        ],
+        "maxDistanceResidualMm": 1.945952909920834e-08,
+        "l2DistanceResidualMm": 3.715436554616937e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-1357542461715735581439673213356163126417056849956164798523904858674947093173/4000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-1357542461715735581439673213356163126417056849956164798523904858674947093167/4000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.047813598899129e-08
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-6.5-11-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6715879481858207,
+          1.0405749907976225,
+          0.35070988010953286,
+          8.766089358474253e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          752.0371274619496,
+          -1.4619667066052502,
+          0.010419884020533204,
+          1.2748476350901727
+        ],
+        "maxDistanceResidualMm": 1.9459518441067303e-08,
+        "l2DistanceResidualMm": 3.7154362428400915e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "1357542461715735581439673213356163126417056849956164798523904858674947093167/4000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "1357542461715735581439673213356163126417056849956164798523904858674947093173/4000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.047813598899129e-08
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7-10-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6715957408150943,
+          1.040565728468456,
+          0.35070021959751824,
+          1.7102204545883588e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1349.410950939293,
+          -5.624811372928658,
+          -0.006947184595803942,
+          0.7499461056359095
+        ],
+        "maxDistanceResidualMm": 3.845249452183452e-09,
+        "l2DistanceResidualMm": 7.341476346798001e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-1341155656759735785896878032000247326068852157776451288336087340971395452683/20000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-1341155656759735785896878032000247326068852157776451288336087340971395452653/20000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 2.070504482675988e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7-10-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6715957408150943,
+          1.040565728468456,
+          0.35070021959751824,
+          1.7102204545883588e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1219.8262801904687,
+          -1.724747177538386,
+          0.006947184595727358,
+          1.3499277659261089
+        ],
+        "maxDistanceResidualMm": 3.845233464971898e-09,
+        "l2DistanceResidualMm": 7.341475789676846e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "1341155656759735785896878032000247326068852157776451288336087340971395452653/20000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "1341155656759735785896878032000247326068852157776451288336087340971395452683/20000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 2.070504482675988e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7-10.5-equal",
+      "N": 8,
+      "group": "reference",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6715934893882798,
+          1.0405684044617534,
+          0.3507030109232555,
+          5.230914587349151e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1156.6490842692067,
+          -5.624743271430205,
+          -0.00810484804778542,
+          0.7499266472847955
+        ],
+        "maxDistanceResidualMm": 7.123034606593137e-09,
+        "l2DistanceResidualMm": 1.3599737183731061e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-1242228387069278718498780854311586183755524127386395679842186364403140701487/10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-38819637095914959953086901697237068242360128980824864995068323887598146921/312500000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 3.835464101928533e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7-10.5-equal",
+      "N": 8,
+      "group": "reference",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6715934893882798,
+          1.0405684044617534,
+          0.3507030109232555,
+          5.230914587349151e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1045.5626838232545,
+          -1.7246558961896077,
+          0.008104848047719774,
+          1.3499016863208668
+        ],
+        "maxDistanceResidualMm": 7.123031053879458e-09,
+        "l2DistanceResidualMm": 1.3599737476571517e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "38819637095914959953086901697237068242360128980824864995068323887598146921/312500000000000000000000000000000000000000000000000000000000000000000000000000",
+          "1242228387069278718498780854311586183755524127386395679842186364403140701487/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 3.835464101928533e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7-11-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.671590891813071,
+          1.0405714919349855,
+          0.3507062311675952,
+          1.6573834233185939e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1012.0791812617728,
+          -5.6246647018958384,
+          -0.009262418923842193,
+          0.7499041976499057
+        ],
+        "maxDistanceResidualMm": 1.2150122685739007e-08,
+        "l2DistanceResidualMm": 2.3198083535456232e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-4237980631298227713644629931730922928804422091021228071366255909061009526543/20000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-4237980631298227713644629931730922928804422091021228071366255909061009526513/20000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 6.542343100806572e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7-11-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.671590891813071,
+          1.0405714919349855,
+          0.3507062311675952,
+          1.6573834233185939e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          914.8646230741589,
+          -1.7245505818728353,
+          0.009262418923689014,
+          1.3498715977125715
+        ],
+        "maxDistanceResidualMm": 1.2150131567523204e-08,
+        "l2DistanceResidualMm": 2.3198082776208923e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "4237980631298227713644629931730922928804422091021228071366255909061009526513/20000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "4237980631298227713644629931730922928804422091021228071366255909061009526543/20000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 6.542343100806572e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7.5-10-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6715976460099833,
+          1.040563464033575,
+          0.35069785738200787,
+          1.7839239537765874e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1729.3897704163114,
+          -5.887358053901957,
+          -0.00578944177893493,
+          0.8249594435306281
+        ],
+        "maxDistanceResidualMm": 1.8545449620432919e-09,
+        "l2DistanceResidualMm": 3.5407267001143633e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-646820436878247874326322423766631719055806423759728918191036708846064851897/20000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-646820436878247874326322423766631719055806423759728918191036708846064851867/20000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 9.985955309055032e-10
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7.5-10-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6715976460099833,
+          1.040563464033575,
+          0.35069785738200787,
+          1.7839239537765874e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1573.9045441020285,
+          -1.9873134729847537,
+          0.005789441778996195,
+          1.4249467070084325
+        ],
+        "maxDistanceResidualMm": 1.854541409329613e-09,
+        "l2DistanceResidualMm": 3.540724857216242e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "646820436878247874326322423766631719055806423759728918191036708846064851867/20000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "646820436878247874326322423766631719055806423759728918191036708846064851897/20000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 9.985955309055032e-10
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7.5-10.5-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6715957408150943,
+          1.040565728468456,
+          0.35070021959751824,
+          1.7102204545883588e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1441.1694234796419,
+          -5.887295606873914,
+          -0.006947184595752887,
+          0.8249416010488384
+        ],
+        "maxDistanceResidualMm": 3.845251228540292e-09,
+        "l2DistanceResidualMm": 7.3414774828989336e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-83822228547483475585587863533996509360343423097399660974077307198330257039/1250000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-670577828379867804684702908271972074882747384779197287792618457586642056297/10000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 2.0705044826759875e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7.5-10.5-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6715957408150943,
+          1.040565728468456,
+          0.35070021959751824,
+          1.7102204545883588e-16
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1311.5847527308176,
+          -1.987231411483638,
+          0.006947184595727358,
+          1.4249232613390377
+        ],
+        "maxDistanceResidualMm": 3.8452370176855766e-09,
+        "l2DistanceResidualMm": 7.341476986296097e-09,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "670577828379867804684702908271972074882747384779197287792618457586642056297/10000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "83822228547483475585587863533996509360343423097399660974077307198330257039/1250000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 2.0705044826759875e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7.5-11-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6715934893882798,
+          1.0405684044617534,
+          0.3507030109232555,
+          5.230914587349151e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1235.299504558223,
+          -5.887221813130909,
+          -0.008104848047697892,
+          0.8249205163421403
+        ],
+        "maxDistanceResidualMm": 7.123038159306816e-09,
+        "l2DistanceResidualMm": 1.3599736373851325e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-31055709676731963875030285009989306487825475604534524435237261948106853043/250000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-248445677413855711000242280079914451902603804836276195481898095584854824341/2000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 3.835464101928532e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7.5-11-equal",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 3,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6715934893882798,
+          1.0405684044617534,
+          0.3507030109232555,
+          5.230914587349151e-17
+        ],
+        "numericRank": 3,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          1124.2131041122707,
+          -1.9871344378903149,
+          0.008104848047741656,
+          1.424895555378212
+        ],
+        "maxDistanceResidualMm": 7.1230275011657795e-09,
+        "l2DistanceResidualMm": 1.3599736459037819e-08,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "-10",
+          "24",
+          "-15",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "248445677413855711000242280079914451902603804836276195481898095584854824341/2000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "31055709676731963875030285009989306487825475604534524435237261948106853043/250000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 3.835464101928532e-09
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "6-reference-multiscale",
+      "N": 6,
+      "group": "reference",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6798010295730252,
+          1.0273443443928005,
+          0.350473085670228,
+          0.0008457602014540867
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.0858959587705,
+          -23.409366594837692,
+          -0.008357866661687785,
+          8.163746510120884
+        ],
+        "maxDistanceResidualMm": 3.359524551882487e-07,
+        "l2DistanceResidualMm": 5.882610174341865e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "3614025169017311850801530810649/713527348666644941970391052792",
+          "-25965152648320764805491383135715/1427054697333289883940782105584",
+          "8274903461518083617373638359745/356763674333322470985195526396",
+          "-15790865895383290858668198389595/1427054697333289883940782105584",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "45928127148081641422925231749102855987204563840106605311080273498439820872978728949945478996669654448569033/8919091858333061774629888159900000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "183712508592326565691700926996411423948818255360426421244321093993759283491977548852850774214468016278294511/35676367433332247098519552639600000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.331443472228471e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "6-reference-multiscale",
+      "N": 6,
+      "group": "reference",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6798010295730252,
+          1.0273443443928005,
+          0.350473085670228,
+          0.0008457602014540867
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.23399943525806,
+          -17.41078468117561,
+          0.008357866662151704,
+          8.164314000284444
+        ],
+        "maxDistanceResidualMm": 3.3595244008921554e-07,
+        "l2DistanceResidualMm": 5.882610188906529e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "3614025169017311850801530810649/713527348666644941970391052792",
+          "-25965152648320764805491383135715/1427054697333289883940782105584",
+          "8274903461518083617373638359745/356763674333322470985195526396",
+          "-15790865895383290858668198389595/1427054697333289883940782105584",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-183712508670384023539453564593091530501756382966893299449858890014267095991977548852850774214468016278294511/35676367433332247098519552639600000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-45928127167596005884863391148272882625439095741723324862464722503566773997978728949945478996669654448569033/8919091858333061774629888159900000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.3314434727941868e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-6.5-10-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776877535375365,
+          1.0315031312107317,
+          0.3483739291843276,
+          0.0008351031696262145
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.07444975852368,
+          -25.991075869159587,
+          -0.008356985025531788,
+          7.663691805827475
+        ],
+        "maxDistanceResidualMm": 5.679226369181833e-07,
+        "l2DistanceResidualMm": 9.745041385879867e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "6971243544922622480447389001022098127653184850547932857446081853981372549550842789355217613/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "6971243544922622480447389001022098127653184850547932857446081853981372549553104192165497481/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.1563301738000639e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-6.5-10-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776877535375365,
+          1.0315031312107317,
+          0.3483739291843276,
+          0.0008351031696262145
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.25139741868605,
+          -19.993105662050098,
+          0.008356985023841986,
+          7.664368704575749
+        ],
+        "maxDistanceResidualMm": 5.67922629812756e-07,
+        "l2DistanceResidualMm": 9.74504132113448e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-6971243520657186078988992824854800019313875158165120357446081853981372549553104192165497481/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-6971243520657186078988992824854800019313875158165120357446081853981372549550842789355217613/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.156330169775121e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-6.5-10.5-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776852834258198,
+          1.0315061647723571,
+          0.3483768425341916,
+          0.0008351041598203713
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.0618204828549,
+          -26.48963546324053,
+          -0.009550594886866076,
+          7.829878290704316
+        ],
+        "maxDistanceResidualMm": 7.430934445551429e-07,
+        "l2DistanceResidualMm": 1.2752574595375884e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "9127679127777463576632785130343114631037064161084944700871286596432813228090440388668725829/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "9127679127777463576632785130343114631037064161084944700871286596432813228092701791479005697/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.5140043540406276e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-6.5-10.5-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776852834258198,
+          1.0315061647723571,
+          0.3483768425341916,
+          0.0008351041598203713
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.2640266946926,
+          -20.49228628671941,
+          0.009550594887523843,
+          7.830762292615662
+        ],
+        "maxDistanceResidualMm": 7.430934338970019e-07,
+        "l2DistanceResidualMm": 1.2752574578674636e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-9127679100045536260680332357580488221506424512647444700871286596432813228092701791479005697/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-9127679100045536260680332357580488221506424512647444700871286596432813228090440388668725829/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.5140043494407442e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-6.5-11-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776824842337603,
+          1.0315096024975199,
+          0.3483801438799525,
+          0.0008351052811889136
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.04919514214785,
+          -26.988153750039444,
+          -0.010744106727231927,
+          7.996051000066184
+        ],
+        "maxDistanceResidualMm": 9.423663414054317e-07,
+        "l2DistanceResidualMm": 1.6174910128873962e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "1158431769694930718050148736365975495964894588407372330008577663461253542764170242530539481/69777866879150000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "5792158848474653590250743681829877479824472942036861650042888317306267713821981914057837339/348889334395750000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.9214616892580212e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-6.5-11-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776824842337603,
+          1.0315096024975199,
+          0.3483801438799525,
+          0.0008351052811889136
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.2766520350971,
+          -20.991508218659458,
+          0.010744106725642206,
+          7.997169656166779
+        ],
+        "maxDistanceResidualMm": 9.423663325236475e-07,
+        "l2DistanceResidualMm": 1.6174910147544975e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-5792158832875444475027488997150900124463488139790767900042888317306267713821981914057837339/348889334395750000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-1158431766575088895005497799430180024892697627958153580008577663461253542764170242530539481/69777866879150000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.921461684083218e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7-10-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776898944803054,
+          1.0315005019156231,
+          0.3483714039794446,
+          0.0008351023108877434
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.08708247859082,
+          -26.99247493646416,
+          -0.0071632893781814954,
+          7.99749153506532
+        ],
+        "maxDistanceResidualMm": 4.1660717542413295e-07,
+        "l2DistanceResidualMm": 7.147746681299233e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "2555408820730829809019722492574815851815135236969313020625703896655502929226227229420459773/348889334395750000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "2555408820730829809019722492574815851815135236969313020625703896655502929227357930825599707/348889334395750000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 8.477468528940937e-08
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7-10-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776898944803054,
+          1.0315005019156231,
+          0.3483714039794446,
+          0.0008351023108877434
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.2387646987178,
+          -20.99396637600263,
+          0.0071632893769373865,
+          7.9979889024236055
+        ],
+        "maxDistanceResidualMm": 4.166071647659919e-07,
+        "l2DistanceResidualMm": 7.147746612529049e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-2555408810331357065537552702788830948241145368805250520625703896655502929227357930825599707/348889334395750000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-2555408810331357065537552702788830948241145368805250520625703896655502929226227229420459773/348889334395750000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 8.477468494441095e-08
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7-10.5-multiscale",
+      "N": 7,
+      "group": "reference",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776877535375365,
+          1.0315031312107317,
+          0.3483739291843276,
+          0.0008351031696262145
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.0744497585379,
+          -27.491075869159815,
+          -0.008356985025415585,
+          8.163691805827549
+        ],
+        "maxDistanceResidualMm": 5.679226262600423e-07,
+        "l2DistanceResidualMm": 9.745041352388233e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "6971243544922622480447389001022098127653184850547932857446081853981372549550842789355217613/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "6971243544922622480447389001022098127653184850547932857446081853981372549553104192165497481/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.1563301738000639e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7-10.5-multiscale",
+      "N": 7,
+      "group": "reference",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776877535375365,
+          1.0315031312107317,
+          0.3483739291843276,
+          0.0008351031696262145
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.25139741868563,
+          -21.493105662050088,
+          0.008356985024004785,
+          8.164368704575747
+        ],
+        "maxDistanceResidualMm": 5.67922619154615e-07,
+        "l2DistanceResidualMm": 9.74504131832216e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-6971243520657186078988992824854800019313875158165120357446081853981372549553104192165497481/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-6971243520657186078988992824854800019313875158165120357446081853981372549550842789355217613/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.156330169775121e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7-11-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776852834258198,
+          1.0315061647723571,
+          0.3483768425341916,
+          0.0008351041598203713
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.06182048283878,
+          -27.989635463240237,
+          -0.009550594886940794,
+          8.32987829070422
+        ],
+        "maxDistanceResidualMm": 7.430934534369271e-07,
+        "l2DistanceResidualMm": 1.2752574603882203e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "9127679127777463576632785130343114631037064161084944700871286596432813228090440388668725829/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "9127679127777463576632785130343114631037064161084944700871286596432813228092701791479005697/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.5140043540406276e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7-11-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776852834258198,
+          1.0315061647723571,
+          0.3483768425341916,
+          0.0008351041598203713
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.26402669470306,
+          -21.992286286719594,
+          0.009550594887622365,
+          8.330762292615724
+        ],
+        "maxDistanceResidualMm": 7.430934338970019e-07,
+        "l2DistanceResidualMm": 1.2752574543412627e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-9127679100045536260680332357580488221506424512647444700871286596432813228092701791479005697/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-9127679100045536260680332357580488221506424512647444700871286596432813228090440388668725829/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.5140043494407442e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7.5-10-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776917061773142,
+          1.0314982769763061,
+          0.348369267048789,
+          0.000835101583849157
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.0997181516824,
+          -27.993832637981324,
+          -0.005969520188860095,
+          8.331277469424206
+        ],
+        "maxDistanceResidualMm": 2.8893316894595955e-07,
+        "l2DistanceResidualMm": 4.956734093715849e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "3542766085171487733763409205594174440440035175528020973752283126477413443302788903304535451/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "3542766085171487733763409205594174440440035175528020973752283126477413443305050306114815319/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 5.876541827603075e-08
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7.5-10-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776917061773142,
+          1.0314982769763061,
+          0.348369267048789,
+          0.000835101583849157
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.22612902631167,
+          -21.994868455748623,
+          0.005969520191320474,
+          8.331622895152446
+        ],
+        "maxDistanceResidualMm": 2.889331938149553e-07,
+        "l2DistanceResidualMm": 4.956734124616705e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-3542766067839033161293126222617532934483385395254583473752283126477413443305050306114815319/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-3542766067839033161293126222617532934483385395254583473752283126477413443302788903304535451/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 5.876541798852971e-08
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7.5-10.5-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776898944803054,
+          1.0315005019156231,
+          0.3483714039794446,
+          0.0008351023108877434
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.08708247854273,
+          -28.492474936463513,
+          -0.007163289378525476,
+          8.497491535065105
+        ],
+        "maxDistanceResidualMm": 4.166071789768466e-07,
+        "l2DistanceResidualMm": 7.147746685767022e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "2555408820730829809019722492574815851815135236969313020625703896655502929226227229420459773/348889334395750000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "2555408820730829809019722492574815851815135236969313020625703896655502929227357930825599707/348889334395750000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 8.477468528940937e-08
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7.5-10.5-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776898944803054,
+          1.0315005019156231,
+          0.3483714039794446,
+          0.0008351023108877434
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.2387646986699,
+          -22.493966376001982,
+          0.007163289376662571,
+          8.497988902423389
+        ],
+        "maxDistanceResidualMm": 4.1660717542413295e-07,
+        "l2DistanceResidualMm": 7.147746646334828e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-2555408810331357065537552702788830948241145368805250520625703896655502929227357930825599707/348889334395750000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-2555408810331357065537552702788830948241145368805250520625703896655502929226227229420459773/348889334395750000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 8.477468494441095e-08
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7.5-11-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776877535375365,
+          1.0315031312107317,
+          0.3483739291843276,
+          0.0008351031696262145
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.0744497585072,
+          -28.991075869159328,
+          -0.00835698502563932,
+          8.663691805827387
+        ],
+        "maxDistanceResidualMm": 5.679226244836855e-07,
+        "l2DistanceResidualMm": 9.745041351145716e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "6971243544922622480447389001022098127653184850547932857446081853981372549550842789355217613/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "6971243544922622480447389001022098127653184850547932857446081853981372549553104192165497481/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.1563301738000639e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "7-7.5-11-multiscale",
+      "N": 7,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6776877535375365,
+          1.0315031312107317,
+          0.3483739291843276,
+          0.0008351031696262145
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.25139741862398,
+          -22.99310566204913,
+          0.00835698502345643,
+          8.664368704575427
+        ],
+        "maxDistanceResidualMm": 5.679226262600423e-07,
+        "l2DistanceResidualMm": 9.74504132458677e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "85755661375118/6977786687915",
+          "-299133704252844/6977786687915",
+          "361933784444079/6977786687915",
+          "-89747009670939839514150474847/4026171063037121792074466204",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-6971243520657186078988992824854800019313875158165120357446081853981372549553104192165497481/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-6971243520657186078988992824854800019313875158165120357446081853981372549550842789355217613/697778668791500000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.156330169775121e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-6.5-10-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.676139549115942,
+          1.0347033014323057,
+          0.34633021320768054,
+          0.0008205571393806286
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.05914005797715,
+          -29.82272757141841,
+          -0.008357470901530698,
+          7.663636277656327
+        ],
+        "maxDistanceResidualMm": 8.247319076559734e-07,
+        "l2DistanceResidualMm": 1.4481626925743438e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "8439446522512271960193291842328/349579938267700449313270306477",
+          "-28814300843405915643501876274570/349579938267700449313270306477",
+          "33708797729935277563396021825152/349579938267700449313270306477",
+          "-13683955062488255048838834853563/349579938267700449313270306477",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "57170589291494328001551669868873686483875850254163720389825345213286290674335688448925795390591851347701581/3495799382677004493132703064770000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "3573161830718395500096979366804605405242240640885232524364084075830393167147574204559673638549464021014513/218487461417312780820793941548125000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.0123112919582774e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-6.5-10-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.676139549115942,
+          1.0347033014323057,
+          0.34633021320768054,
+          0.0008205571393806286
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.2652502355657,
+          -23.825484214997836,
+          0.008357470901284117,
+          7.664424232748324
+        ],
+        "maxDistanceResidualMm": 8.247318596943387e-07,
+        "l2DistanceResidualMm": 1.4481626937018715e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "8439446522512271960193291842328/349579938267700449313270306477",
+          "-28814300843405915643501876274570/349579938267700449313270306477",
+          "33708797729935277563396021825152/349579938267700449313270306477",
+          "-13683955062488255048838834853563/349579938267700449313270306477",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-3573161820370827810253324063213961233150838898521418259828180145166330667147574204559673638549464021014513/218487461417312780820793941548125000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-57170589125933244964053185011423379730413422376342692157250882322661290674335688448925795390591851347701581/3495799382677004493132703064770000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.0123112890267114e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-6.5-10.5-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.676136280799475,
+          1.0347074006557822,
+          0.3463337839464576,
+          0.0008205566313471338
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.04443390003334,
+          -30.404321081662278,
+          -0.009551064269960153,
+          7.829805798958294
+        ],
+        "maxDistanceResidualMm": 1.0796668039603219e-06,
+        "l2DistanceResidualMm": 1.8963262911684504e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "8439446522512271960193291842328/349579938267700449313270306477",
+          "-28814300843405915643501876274570/349579938267700449313270306477",
+          "33708797729935277563396021825152/349579938267700449313270306477",
+          "-13683955062488255048838834853563/349579938267700449313270306477",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "749291751989700153082234691297576161113371118246623411498838854712536920642739911022109159789897323111402989/34957993826770044931327030647700000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "749291751989700153082234691297576161113371118246623411498838854712536920642994899262398988051893052996709259/34957993826770044931327030647700000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.3267357731773314e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-6.5-10.5-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.676136280799475,
+          1.0347074006557822,
+          0.3463337839464576,
+          0.0008205566313471338
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.27995639367788,
+          -24.407920959959792,
+          0.009551064270694751,
+          7.8308347843623025
+        ],
+        "maxDistanceResidualMm": 1.0796667737622556e-06,
+        "l2DistanceResidualMm": 1.8963262841665788e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "8439446522512271960193291842328/349579938267700449313270306477",
+          "-28814300843405915643501876274570/349579938267700449313270306477",
+          "33708797729935277563396021825152/349579938267700449313270306477",
+          "-13683955062488255048838834853563/349579938267700449313270306477",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-749291750097573489796537721498144083930943371071525945983702135962536920642994899262398988051893052996709259/34957993826770044931327030647700000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-749291750097573489796537721498144083930943371071525945983702135962536920642739911022109159789897323111402989/34957993826770044931327030647700000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.3267357698270313e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-6.5-11-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6761325771804354,
+          1.0347120458753125,
+          0.34633783004857976,
+          0.0008205560544776838
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.02973413672674,
+          -30.985858556292413,
+          -0.010744525283499333,
+          7.995959302666525
+        ],
+        "maxDistanceResidualMm": 1.3699894783059108e-06,
+        "l2DistanceResidualMm": 2.4069912624484276e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "8439446522512271960193291842328/349579938267700449313270306477",
+          "-28814300843405915643501876274570/349579938267700449313270306477",
+          "33708797729935277563396021825152/349579938267700449313270306477",
+          "-13683955062488255048838834853563/349579938267700449313270306477",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "190402673314991857926897831978470898058315194262524823760904394258015539987589938908560313646996682844904861/6991598765354008986265406129540000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "38080534662998371585379566395694179611663038852504964752180878851603107997528187311323655859879165764393223/1398319753070801797253081225908000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.6856505705701857e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-6.5-11-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6761325771804354,
+          1.0347120458753125,
+          0.34633783004857976,
+          0.0008205560544776838
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.29465615651822,
+          -24.990413740521504,
+          0.010744525281594365,
+          7.997261353566018
+        ],
+        "maxDistanceResidualMm": 1.369989497845836e-06,
+        "l2DistanceResidualMm": 2.4069912619131544e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "8439446522512271960193291842328/349579938267700449313270306477",
+          "-28814300843405915643501876274570/349579938267700449313270306477",
+          "33708797729935277563396021825152/349579938267700449313270306477",
+          "-13683955062488255048838834853563/349579938267700449313270306477",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-38080534577852671737523202754719736138453790229625578803999726507853107997528187311323655859879165764393223/1398319753070801797253081225908000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-190402672889263358687616013773598680692268951148127894019998632539265539987589938908560313646996682844904861/6991598765354008986265406129540000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.685650566801176e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7-10-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6761423819734236,
+          1.034699748392418,
+          0.34632711807536104,
+          0.0008205575789409956
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.07385181351378,
+          -30.991077966034393,
+          -0.007163761693438871,
+          7.997450721867031
+        ],
+        "maxDistanceResidualMm": 6.047230574068863e-07,
+        "l2DistanceResidualMm": 1.0615922591641735e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "187543256055846785891440670040/7768443072613261657285728637",
+          "-640317796520163929311514184682/7768443072613261657285728637",
+          "749084393998561820996962458048/7768443072613261657285728637",
+          "-304087890277500486072401040555/7768443072613261657285728637",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "9306084581780815644804333040203995480779500428462449211041523833604133931684019308060675381963221429576219/776844307261326165728572863700000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "1861216916356163128960866608040799096155900085692489842208304766720826786337937142680089888163002048364421/155368861452265233145714572740000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 7.415284029261826e-08
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7-10-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6761423819734236,
+          1.034699748392418,
+          0.34632711807536104,
+          0.0008205575789409956
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.25053848035273,
+          -24.99310356518462,
+          0.0071637616942840255,
+          7.998029715624122
+        ],
+        "maxDistanceResidualMm": 6.047230627359568e-07,
+        "l2DistanceResidualMm": 1.0615922645569729e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "187543256055846785891440670040/7768443072613261657285728637",
+          "-640317796520163929311514184682/7768443072613261657285728637",
+          "749084393998561820996962458048/7768443072613261657285728637",
+          "-304087890277500486072401040555/7768443072613261657285728637",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-1861216915147189688999802736084294380338327071045721272262015704220826786337937142680089888163002048364421/155368861452265233145714572740000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-9306084575735948444999013680421471901691635355228606361310078521104133931684019308060675381963221429576219/776844307261326165728572863700000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 7.415284024445149e-08
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7-10.5-multiscale",
+      "N": 8,
+      "group": "reference",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.676139549115942,
+          1.0347033014323057,
+          0.3463302132076804,
+          0.0008205571393806401
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.05914005800116,
+          -31.57272757141886,
+          -0.00835747090157816,
+          8.163636277656456
+        ],
+        "maxDistanceResidualMm": 8.247319076559734e-07,
+        "l2DistanceResidualMm": 1.4481626885440956e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "187543256055846785891440670040/7768443072613261657285728637",
+          "-640317796520163929311514184682/7768443072613261657285728637",
+          "749084393998561820996962458048/7768443072613261657285728637",
+          "-304087890277500486072401040555/7768443072613261657285728637",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "508183015329879817236407427732918848723881917926817423194596904840205285268430476057010210735966811436343/31073772290453046629142914548000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "73436851926283210583295871059670353861832647099251072715982211682110590356742360154711152180641382070257/4490429521741769744095796900000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.0123112907739747e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7-10.5-multiscale",
+      "N": 8,
+      "group": "reference",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.676139549115942,
+          1.0347033014323057,
+          0.3463302132076804,
+          0.0008205571393806401
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.26525023561916,
+          -25.57548421499881,
+          0.008357470901432849,
+          8.164424232748605
+        ],
+        "maxDistanceResidualMm": 8.247318596943387e-07,
+        "l2DistanceResidualMm": 1.4481626975004614e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "187543256055846785891440670040/7768443072613261657285728637",
+          "-640317796520163929311514184682/7768443072613261657285728637",
+          "749084393998561820996962458048/7768443072613261657285728637",
+          "-304087890277500486072401040555/7768443072613261657285728637",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-12704575376194650364470646440243360375827872029397618921844903089755132131716428306765029327250959098154461/776844307261326165728572863700000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-508183015047786014578825857609734415033114881175904756873796123590205285268430476057010210735966811436343/31073772290453046629142914548000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.012311290212038e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7-11-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.676136280799475,
+          1.0347074006557822,
+          0.3463337839464576,
+          0.0008205566313471338
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.04443390006807,
+          -32.15432108166301,
+          -0.009551064269815147,
+          8.3298057989585
+        ],
+        "maxDistanceResidualMm": 1.0796667897494672e-06,
+        "l2DistanceResidualMm": 1.8963262950256009e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "187543256055846785891440670040/7768443072613261657285728637",
+          "-640317796520163929311514184682/7768443072613261657285728637",
+          "749084393998561820996962458048/7768443072613261657285728637",
+          "-304087890277500486072401040555/7768443072613261657285728637",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "8325463902504154959481483704481004865776569509977066028107908401516076874565986497628918261029356290536547/388422153630663082864286431850000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "832546390250415495948148370448100486577656950997706602810790840151607687456881970029880529045525069665949/38842215363066308286428643185000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.3267357718239514e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7-11-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.676136280799475,
+          1.0347074006557822,
+          0.3463337839464576,
+          0.0008205566313471338
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.2799563936883,
+          -26.157920959960013,
+          0.009551064270767852,
+          8.330834784362366
+        ],
+        "maxDistanceResidualMm": 1.0796667631041146e-06,
+        "l2DistanceResidualMm": 1.8963262845451104e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "187543256055846785891440670040/7768443072613261657285728637",
+          "-640317796520163929311514184682/7768443072613261657285728637",
+          "749084393998561820996962458048/7768443072613261657285728637",
+          "-304087890277500486072401040555/7768443072613261657285728637",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-832546389847424349294460413129265581305132612782117079495361152651607687456881970029880529045525069665949/38842215363066308286428643185000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-8325463898474243492944604131292655813051326127821170794953611526516076874565986497628918261029356290536547/388422153630663082864286431850000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.3267357711817495e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7.5-10-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6761447792363093,
+          1.0346967416987196,
+          0.34632449876028926,
+          0.0008205579503435118
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.08856836736342,
+          -32.15937221387313,
+          -0.005969953178716479,
+          8.331249116935743
+        ],
+        "maxDistanceResidualMm": 4.1923986415781656e-07,
+        "l2DistanceResidualMm": 7.358275577614891e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "8439446522512271960193291842328/349579938267700449313270306477",
+          "-28814300843405915643501876274570/349579938267700449313270306477",
+          "33708797729935277563396021825152/349579938267700449313270306477",
+          "-13683955062488255048838834853563/349579938267700449313270306477",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "290077558598794130450439769053146273351064761584183418846922148393144781011361757526276035537323049664573489/34957993826770044931327030647700000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "290077558598794130450439769053146273351064761584183418846922148393144781011616745766565863799318779549879759/34957993826770044931327030647700000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 5.136511032003096e-08
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7.5-10-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6761447792363093,
+          1.0346967416987196,
+          0.34632449876028926,
+          0.0008205579503435118
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.23582192557592,
+          -26.160779062130697,
+          0.005969953175061328,
+          8.331651247636762
+        ],
+        "maxDistanceResidualMm": 4.1923991389580806e-07,
+        "l2DistanceResidualMm": 7.358275564208788e-07,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "8439446522512271960193291842328/349579938267700449313270306477",
+          "-28814300843405915643501876274570/349579938267700449313270306477",
+          "33708797729935277563396021825152/349579938267700449313270306477",
+          "-13683955062488255048838834853563/349579938267700449313270306477",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-290077557416214965896879162928501225112047419599747502899961699174394781011616745766565863799318779549879759/34957993826770044931327030647700000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-290077557416214965896879162928501225112047419599747502899961699174394781011361757526276035537323049664573489/34957993826770044931327030647700000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 5.136511011062727e-08
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7.5-10.5-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6761423819734236,
+          1.034699748392418,
+          0.34632711807536104,
+          0.0008205575789409956
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.0738518135615,
+          -32.74107796603514,
+          -0.007163761693193823,
+          8.497450721867246
+        ],
+        "maxDistanceResidualMm": 6.047230574068863e-07,
+        "l2DistanceResidualMm": 1.0615922575929005e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "8439446522512271960193291842328/349579938267700449313270306477",
+          "-28814300843405915643501876274570/349579938267700449313270306477",
+          "33708797729935277563396021825152/349579938267700449313270306477",
+          "-13683955062488255048838834853563/349579938267700449313270306477",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "209386903376727536084572643461065557600510279777104502423424274516248006776673443232011065852431969303262149/17478996913385022465663515323850000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "52346725844181884021143160865266389400127569944276125605856068629062001694200234338038994995857458561478821/4369749228346255616415878830962500000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 7.415284039413782e-08
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7.5-10.5-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.6761423819734236,
+          1.034699748392418,
+          0.34632711807536104,
+          0.0008205575789409956
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.2505384803755,
+          -26.74310356518497,
+          0.007163761694374456,
+          8.498029715624224
+        ],
+        "maxDistanceResidualMm": 6.047230591832431e-07,
+        "l2DistanceResidualMm": 1.061592266963682e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "8439446522512271960193291842328/349579938267700449313270306477",
+          "-28814300843405915643501876274570/349579938267700449313270306477",
+          "33708797729935277563396021825152/349579938267700449313270306477",
+          "-13683955062488255048838834853563/349579938267700449313270306477",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-52346725666795009338109069946569632164274968646610738213812001246249501694200234338038994995857458561478821/4369749228346255616415878830962500000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-209386902667180037352436279786278528657099874586442952855248004984998006776673443232011065852431969303262149/17478996913385022465663515323850000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 7.415284014285676e-08
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7.5-11-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": -1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.676139549115942,
+          1.0347033014323057,
+          0.34633021320768054,
+          0.0008205571393806286
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.05914005796262,
+          -33.322727571418156,
+          -0.008357470901634275,
+          8.663636277656254
+        ],
+        "maxDistanceResidualMm": 8.247319183141144e-07,
+        "l2DistanceResidualMm": 1.4481626942462358e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "8439446522512271960193291842328/349579938267700449313270306477",
+          "-28814300843405915643501876274570/349579938267700449313270306477",
+          "33708797729935277563396021825152/349579938267700449313270306477",
+          "-13683955062488255048838834853563/349579938267700449313270306477",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "57170589291494328001551669868873686483875850254163720389825345213286290674335688448925795390591851347701581/3495799382677004493132703064770000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "3573161830718395500096979366804605405242240640885232524364084075830393167147574204559673638549464021014513/218487461417312780820793941548125000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.0123112919582774e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "8-7.5-11-multiscale",
+      "N": 8,
+      "group": "boundary-grid",
+      "sigma": 1,
+      "exactRationalRank": 4,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.676139549115942,
+          1.0347033014323057,
+          0.34633021320768054,
+          0.0008205571393806286
+        ],
+        "numericRank": 4,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          -218.26525023555124,
+          -27.325484214997566,
+          0.00835747090118838,
+          8.664424232748248
+        ],
+        "maxDistanceResidualMm": 8.247318596943387e-07,
+        "l2DistanceResidualMm": 1.4481626921041354e-06,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "8439446522512271960193291842328/349579938267700449313270306477",
+          "-28814300843405915643501876274570/349579938267700449313270306477",
+          "33708797729935277563396021825152/349579938267700449313270306477",
+          "-13683955062488255048838834853563/349579938267700449313270306477",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "-3573161820370827810253324063213961233150838898521418259828180145166330667147574204559673638549464021014513/218487461417312780820793941548125000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "-57170589125933244964053185011423379730413422376342692157250882322661290674335688448925795390591851347701581/3495799382677004493132703064770000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 1.0123112890267114e-07
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "oracle-parallel-6",
+      "N": 6,
+      "group": "positive-control",
+      "sigma": -1,
+      "exactRationalRank": 2,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.351193111233465,
+          0.4174651795721764,
+          7.29304373935867e-17,
+          -0.0
+        ],
+        "numericRank": 2,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          0.0,
+          -3.0000000000000107,
+          -9.304659733513796e-15,
+          7.0000000000000036
+        ],
+        "maxDistanceResidualMm": 1.0658141036401503e-14,
+        "l2DistanceResidualMm": 1.5485919901226005e-14,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "0",
+          "0"
+        ],
+        "excludesZero": false,
+        "maxResidualLowerBoundMm": 0.0
+      },
+      "physicalChecks": {
+        "C0": [
+          40.0,
+          -3.0
+        ],
+        "v": [
+          25.0,
+          7.0
+        ],
+        "centers": [
+          [
+            40.0,
+            -3.0
+          ],
+          [
+            65.0,
+            4.0
+          ],
+          [
+            90.0,
+            11.0
+          ],
+          [
+            115.0,
+            18.0
+          ],
+          [
+            140.0,
+            25.0
+          ],
+          [
+            165.0,
+            32.0
+          ]
+        ],
+        "contacts": [
+          [
+            40.0,
+            0.0
+          ],
+          [
+            65.0,
+            7.0
+          ],
+          [
+            90.0,
+            14.0
+          ],
+          [
+            115.0,
+            21.0
+          ],
+          [
+            140.0,
+            28.0
+          ],
+          [
+            165.0,
+            35.0
+          ]
+        ],
+        "pitchMm": 25.96150997149434,
+        "centerToEdgeMm": 10,
+        "edge": [
+          [
+            18.04442035051666,
+            1.2370416867423977
+          ],
+          [
+            181.56298113908392,
+            47.022238707541234
+          ]
+        ],
+        "endMarginMm": 20,
+        "minForwardMm": 40.0,
+        "minOtherPostClearanceMm": 7.0,
+        "stringsCross": false,
+        "equalPitch": true,
+        "straightRow": true,
+        "constantEdgeDistance": true,
+        "postAndWasherFit": true,
+        "fullM6FitStatus": "unverified"
+      },
+      "status": "EXACT_PHYSICAL_SOLUTION"
+    },
+    {
+      "id": "oracle-parallel-6",
+      "N": 6,
+      "group": "positive-control",
+      "sigma": 1,
+      "exactRationalRank": 2,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.351193111233465,
+          0.4174651795721764,
+          7.29304373935867e-17,
+          -0.0
+        ],
+        "numericRank": 2,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          0.0,
+          2.9999999999999893,
+          -6.99710450985352e-15,
+          7.0000000000000036
+        ],
+        "maxDistanceResidualMm": 1.0658141036401503e-14,
+        "l2DistanceResidualMm": 1.5485919901226005e-14,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "0",
+          "0"
+        ],
+        "excludesZero": false,
+        "maxResidualLowerBoundMm": 0.0
+      },
+      "physicalChecks": {
+        "C0": [
+          40.0,
+          3.0
+        ],
+        "v": [
+          25.0,
+          7.0
+        ],
+        "centers": [
+          [
+            40.0,
+            3.0
+          ],
+          [
+            65.0,
+            10.0
+          ],
+          [
+            90.0,
+            17.0
+          ],
+          [
+            115.0,
+            24.0
+          ],
+          [
+            140.0,
+            31.0
+          ],
+          [
+            165.0,
+            38.0
+          ]
+        ],
+        "contacts": [
+          [
+            40.0,
+            0.0
+          ],
+          [
+            65.0,
+            7.0
+          ],
+          [
+            90.0,
+            14.0
+          ],
+          [
+            115.0,
+            21.0
+          ],
+          [
+            140.0,
+            28.0
+          ],
+          [
+            165.0,
+            35.0
+          ]
+        ],
+        "pitchMm": 25.96150997149434,
+        "centerToEdgeMm": 10,
+        "edge": [
+          [
+            18.04442035051666,
+            7.237041686742398
+          ],
+          [
+            181.56298113908392,
+            53.022238707541234
+          ]
+        ],
+        "endMarginMm": 20,
+        "minForwardMm": 40.0,
+        "minOtherPostClearanceMm": 1.0,
+        "stringsCross": false,
+        "equalPitch": true,
+        "straightRow": true,
+        "constantEdgeDistance": true,
+        "postAndWasherFit": true,
+        "fullM6FitStatus": "unverified"
+      },
+      "status": "EXACT_PHYSICAL_SOLUTION"
+    },
+    {
+      "id": "oracle-parallel-7",
+      "N": 7,
+      "group": "positive-control",
+      "sigma": -1,
+      "exactRationalRank": 2,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.353532524299968,
+          0.40981667323591925,
+          0.0,
+          -0.0
+        ],
+        "numericRank": 2,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          0.0,
+          -3.000000000000005,
+          0.0,
+          7.0000000000000036
+        ],
+        "maxDistanceResidualMm": 1.4210854715202004e-14,
+        "l2DistanceResidualMm": 2.4428943382792786e-14,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "0",
+          "0"
+        ],
+        "excludesZero": false,
+        "maxResidualLowerBoundMm": 0.0
+      },
+      "physicalChecks": {
+        "C0": [
+          40.0,
+          -3.0
+        ],
+        "v": [
+          25.0,
+          7.0
+        ],
+        "centers": [
+          [
+            40.0,
+            -3.0
+          ],
+          [
+            65.0,
+            4.0
+          ],
+          [
+            90.0,
+            11.0
+          ],
+          [
+            115.0,
+            18.0
+          ],
+          [
+            140.0,
+            25.0
+          ],
+          [
+            165.0,
+            32.0
+          ],
+          [
+            190.0,
+            39.0
+          ]
+        ],
+        "contacts": [
+          [
+            40.0,
+            0.0
+          ],
+          [
+            65.0,
+            7.0
+          ],
+          [
+            90.0,
+            14.0
+          ],
+          [
+            115.0,
+            21.0
+          ],
+          [
+            140.0,
+            28.0
+          ],
+          [
+            165.0,
+            35.0
+          ],
+          [
+            190.0,
+            42.0
+          ]
+        ],
+        "pitchMm": 25.96150997149434,
+        "centerToEdgeMm": 10,
+        "edge": [
+          [
+            18.04442035051666,
+            1.2370416867423977
+          ],
+          [
+            206.56298113908392,
+            54.022238707541234
+          ]
+        ],
+        "endMarginMm": 20,
+        "minForwardMm": 40.0,
+        "minOtherPostClearanceMm": 7.0,
+        "stringsCross": false,
+        "equalPitch": true,
+        "straightRow": true,
+        "constantEdgeDistance": true,
+        "postAndWasherFit": true,
+        "fullM6FitStatus": "unverified"
+      },
+      "status": "EXACT_PHYSICAL_SOLUTION"
+    },
+    {
+      "id": "oracle-parallel-7",
+      "N": 7,
+      "group": "positive-control",
+      "sigma": 1,
+      "exactRationalRank": 2,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.353532524299968,
+          0.40981667323591925,
+          0.0,
+          -0.0
+        ],
+        "numericRank": 2,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          0.0,
+          3.0000000000000004,
+          0.0,
+          7.000000000000002
+        ],
+        "maxDistanceResidualMm": 1.4210854715202004e-14,
+        "l2DistanceResidualMm": 1.9219368326501753e-14,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "0",
+          "0"
+        ],
+        "excludesZero": false,
+        "maxResidualLowerBoundMm": 0.0
+      },
+      "physicalChecks": {
+        "C0": [
+          40.0,
+          3.0
+        ],
+        "v": [
+          25.0,
+          7.0
+        ],
+        "centers": [
+          [
+            40.0,
+            3.0
+          ],
+          [
+            65.0,
+            10.0
+          ],
+          [
+            90.0,
+            17.0
+          ],
+          [
+            115.0,
+            24.0
+          ],
+          [
+            140.0,
+            31.0
+          ],
+          [
+            165.0,
+            38.0
+          ],
+          [
+            190.0,
+            45.0
+          ]
+        ],
+        "contacts": [
+          [
+            40.0,
+            0.0
+          ],
+          [
+            65.0,
+            7.0
+          ],
+          [
+            90.0,
+            14.0
+          ],
+          [
+            115.0,
+            21.0
+          ],
+          [
+            140.0,
+            28.0
+          ],
+          [
+            165.0,
+            35.0
+          ],
+          [
+            190.0,
+            42.0
+          ]
+        ],
+        "pitchMm": 25.96150997149434,
+        "centerToEdgeMm": 10,
+        "edge": [
+          [
+            18.04442035051666,
+            7.237041686742398
+          ],
+          [
+            206.56298113908392,
+            60.022238707541234
+          ]
+        ],
+        "endMarginMm": 20,
+        "minForwardMm": 40.0,
+        "minOtherPostClearanceMm": 1.0,
+        "stringsCross": false,
+        "equalPitch": true,
+        "straightRow": true,
+        "constantEdgeDistance": true,
+        "postAndWasherFit": true,
+        "fullM6FitStatus": "unverified"
+      },
+      "status": "EXACT_PHYSICAL_SOLUTION"
+    },
+    {
+      "id": "oracle-parallel-8",
+      "N": 8,
+      "group": "positive-control",
+      "sigma": -1,
+      "exactRationalRank": 2,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.3552343068761485,
+          0.40415340338283007,
+          0.0,
+          -0.0
+        ],
+        "numericRank": 2,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          0.0,
+          -3.000000000000001,
+          0.0,
+          7.000000000000002
+        ],
+        "maxDistanceResidualMm": 1.4210854715202004e-14,
+        "l2DistanceResidualMm": 1.949951169430988e-14,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "0",
+          "0"
+        ],
+        "excludesZero": false,
+        "maxResidualLowerBoundMm": 0.0
+      },
+      "physicalChecks": {
+        "C0": [
+          40.0,
+          -3.0
+        ],
+        "v": [
+          25.0,
+          7.0
+        ],
+        "centers": [
+          [
+            40.0,
+            -3.0
+          ],
+          [
+            65.0,
+            4.0
+          ],
+          [
+            90.0,
+            11.0
+          ],
+          [
+            115.0,
+            18.0
+          ],
+          [
+            140.0,
+            25.0
+          ],
+          [
+            165.0,
+            32.0
+          ],
+          [
+            190.0,
+            39.0
+          ],
+          [
+            215.0,
+            46.0
+          ]
+        ],
+        "contacts": [
+          [
+            40.0,
+            0.0
+          ],
+          [
+            65.0,
+            7.0
+          ],
+          [
+            90.0,
+            14.0
+          ],
+          [
+            115.0,
+            21.0
+          ],
+          [
+            140.0,
+            28.0
+          ],
+          [
+            165.0,
+            35.0
+          ],
+          [
+            190.0,
+            42.0
+          ],
+          [
+            215.0,
+            49.0
+          ]
+        ],
+        "pitchMm": 25.96150997149434,
+        "centerToEdgeMm": 10,
+        "edge": [
+          [
+            18.04442035051666,
+            1.2370416867423977
+          ],
+          [
+            231.56298113908392,
+            61.022238707541234
+          ]
+        ],
+        "endMarginMm": 20,
+        "minForwardMm": 40.0,
+        "minOtherPostClearanceMm": 7.0,
+        "stringsCross": false,
+        "equalPitch": true,
+        "straightRow": true,
+        "constantEdgeDistance": true,
+        "postAndWasherFit": true,
+        "fullM6FitStatus": "unverified"
+      },
+      "status": "EXACT_PHYSICAL_SOLUTION"
+    },
+    {
+      "id": "oracle-parallel-8",
+      "N": 8,
+      "group": "positive-control",
+      "sigma": 1,
+      "exactRationalRank": 2,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.3552343068761485,
+          0.40415340338283007,
+          0.0,
+          -0.0
+        ],
+        "numericRank": 2,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          0.0,
+          3.0000000000000053,
+          0.0,
+          7.000000000000002
+        ],
+        "maxDistanceResidualMm": 1.4210854715202004e-14,
+        "l2DistanceResidualMm": 3.241547046942845e-14,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "0",
+          "0"
+        ],
+        "excludesZero": false,
+        "maxResidualLowerBoundMm": 0.0
+      },
+      "physicalChecks": {
+        "C0": [
+          40.0,
+          3.0
+        ],
+        "v": [
+          25.0,
+          7.0
+        ],
+        "centers": [
+          [
+            40.0,
+            3.0
+          ],
+          [
+            65.0,
+            10.0
+          ],
+          [
+            90.0,
+            17.0
+          ],
+          [
+            115.0,
+            24.0
+          ],
+          [
+            140.0,
+            31.0
+          ],
+          [
+            165.0,
+            38.0
+          ],
+          [
+            190.0,
+            45.0
+          ],
+          [
+            215.0,
+            52.0
+          ]
+        ],
+        "contacts": [
+          [
+            40.0,
+            0.0
+          ],
+          [
+            65.0,
+            7.0
+          ],
+          [
+            90.0,
+            14.0
+          ],
+          [
+            115.0,
+            21.0
+          ],
+          [
+            140.0,
+            28.0
+          ],
+          [
+            165.0,
+            35.0
+          ],
+          [
+            190.0,
+            42.0
+          ],
+          [
+            215.0,
+            49.0
+          ]
+        ],
+        "pitchMm": 25.96150997149434,
+        "centerToEdgeMm": 10,
+        "edge": [
+          [
+            18.04442035051666,
+            7.237041686742398
+          ],
+          [
+            231.56298113908392,
+            67.02223870754123
+          ]
+        ],
+        "endMarginMm": 20,
+        "minForwardMm": 40.0,
+        "minOtherPostClearanceMm": 1.0,
+        "stringsCross": false,
+        "equalPitch": true,
+        "straightRow": true,
+        "constantEdgeDistance": true,
+        "postAndWasherFit": true,
+        "fullM6FitStatus": "unverified"
+      },
+      "status": "EXACT_PHYSICAL_SOLUTION"
+    },
+    {
+      "id": "oracle-uneven-parallel",
+      "N": 6,
+      "group": "negative-control",
+      "sigma": -1,
+      "exactRationalRank": 2,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.351193111233465,
+          0.4174651795721764,
+          7.29304373935867e-17,
+          -0.0
+        ],
+        "numericRank": 2,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          0.0,
+          -2.9404761904762,
+          -9.273450093925878e-15,
+          6.992857142857147
+        ],
+        "maxDistanceResidualMm": 0.2047619047619058,
+        "l2DistanceResidualMm": 0.2262531241562786,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "150",
+          "150"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 0.0625
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    },
+    {
+      "id": "oracle-uneven-parallel",
+      "N": 6,
+      "group": "negative-control",
+      "sigma": 1,
+      "exactRationalRank": 2,
+      "diagnostic": {
+        "scaledSingularValues": [
+          1.351193111233465,
+          0.4174651795721764,
+          7.29304373935867e-17,
+          -0.0
+        ],
+        "numericRank": 2,
+        "rankRelativeThreshold": 1e-12,
+        "C0AndV": [
+          0.0,
+          3.0595238095237987,
+          -6.965894870265604e-15,
+          6.992857142857148
+        ],
+        "maxDistanceResidualMm": 0.2047619047619058,
+        "l2DistanceResidualMm": 0.22625312415627932,
+        "status": "diagnostic approximation only; not a feasible layout"
+      },
+      "certificate": {
+        "w": [
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        "wTimesAExactlyZero": true,
+        "wTimesBInterval": [
+          "150",
+          "150"
+        ],
+        "excludesZero": true,
+        "maxResidualLowerBoundMm": 0.0625
+      },
+      "physicalChecks": "not reached",
+      "status": "EXACT_LINEAR_INFEASIBLE_CERTIFIED"
+    }
+  ]
+}

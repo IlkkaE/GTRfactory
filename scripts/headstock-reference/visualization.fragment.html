@@ -1,0 +1,124 @@
+<div id="seven-string-headstock-fit">
+  <div class="viz-controls">
+    <label class="form-label">Reikien sijoitus
+      <select class="form-select" data-mode>
+        <option value="normalized">Tasavälinen vertailurivi</option>
+        <option value="straight">Suora kieliveto · vaihteleva jako</option>
+      </select>
+    </label>
+    <label class="form-label">Kielen kosketuspuoli
+      <select class="form-select" data-branch>
+        <option value="1">A · pienempi kulma vertailurivillä</option>
+        <option value="-1">B · vastakkainen puoli</option>
+      </select>
+    </label>
+    <label class="form-label">Tarkasteltava kieli
+      <select class="form-select" data-string>
+        <option value="0">1 · basson puoleinen</option>
+        <option value="1">2</option><option value="2">3</option><option value="3">4</option>
+        <option value="4">5</option><option value="5">6</option>
+        <option value="6" selected>7 · diskantin puoleinen</option>
+      </select>
+    </label>
+  </div>
+  <div class="text-small">7 kieltä · mensuuri 647,7 mm · satulajako 7 mm · tallajako 10,5 mm</div>
+  <svg data-overview class="sf-diagram" role="img" aria-label="Kielilinjat tallalta satulan kautta lapaan"></svg>
+  <div class="sf-legend text-small">
+    <span><i class="sf-actual"></i>Kieli pylväälle</span>
+    <span><i class="sf-ideal"></i>Suora jatke satulalta</span>
+    <span><i class="sf-hole"></i>Ø10 reikä / Ø6 pylväs</span>
+  </div>
+  <svg data-detail class="sf-diagram" role="img" aria-label="Lapa, satula, viritinpylväät ja kielten suunnat"></svg>
+  <div class="sf-metrics tabular-nums" data-metrics aria-live="polite"></div>
+  <div class="text-small tabular-nums" data-selected></div>
+  <div class="text-small">Reunaetäisyys 13,00 mm · M6-koneiston kokonais­sopivuus todentamatta</div>
+</div>
+<style>
+#seven-string-headstock-fit {width:100%;color:var(--foreground)}
+#seven-string-headstock-fit .sf-diagram {display:block;width:100%;overflow:hidden}
+#seven-string-headstock-fit .sf-diagram text {fill:var(--foreground);font-size:12px}
+#seven-string-headstock-fit .sf-legend {display:flex;flex-wrap:wrap;gap:4px 16px;margin:8px 0}
+#seven-string-headstock-fit .sf-legend span {display:inline-flex;align-items:center;gap:6px}
+#seven-string-headstock-fit .sf-legend i {display:inline-block;width:20px;height:0;border-top:2px solid var(--viz-series-1)}
+#seven-string-headstock-fit .sf-legend .sf-ideal {border-top:1px dashed var(--muted-foreground)}
+#seven-string-headstock-fit .sf-legend .sf-hole {border-color:var(--foreground)}
+#seven-string-headstock-fit .sf-metrics {display:flex;flex-wrap:wrap;gap:4px 18px;margin:10px 0 4px}
+</style>
+<script type="application/json" id="seven-string-headstock-fit-data">__SEVEN_STRING_FIT_DATA__</script>
+<script>
+(() => {
+  const root=document.getElementById('seven-string-headstock-fit');
+  const c=JSON.parse(document.getElementById('seven-string-headstock-fit-data').textContent);
+  const overview=root.querySelector('[data-overview]'),detail=root.querySelector('[data-detail]'),ns='http://www.w3.org/2000/svg';
+  const fmt=(n,d=2)=>new Intl.NumberFormat('fi-FI',{minimumFractionDigits:d,maximumFractionDigits:d}).format(n);
+  const node=(svg,tag,attrs,text)=>{const el=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,String(v));if(text!==undefined)el.textContent=text;svg.appendChild(el);return el;};
+  let measuredWidth=-1,pending=false;
+  function draw(){
+    const width=Math.floor(root.getBoundingClientRect().width);if(width<=0)return;measuredWidth=width;
+    const mode=root.querySelector('[data-mode]').value,branch=Number(root.querySelector('[data-branch]').value),selected=Number(root.querySelector('[data-string]').value);
+    const r=c.layouts.find(r=>r.mode===mode&&r.branch===branch);
+    const bounds=points=>({x0:Math.min(...points.map(p=>p.x)),x1:Math.max(...points.map(p=>p.x)),y0:Math.min(...points.map(p=>p.y)),y1:Math.max(...points.map(p=>p.y))});
+    function render(svg,isDetail){
+      svg.replaceChildren();
+      const bb=bounds(isDetail?[...c.polygon,...r.strings.map(s=>s.C),{x:-12,y:0}]:[...c.polygon,...c.bridge]);
+      const marginX=isDetail?28:14,top=26,bottom=isDetail?30:18;
+      const scale=(width-2*marginX)/(bb.x1-bb.x0),height=Math.ceil((bb.y1-bb.y0)*scale+top+bottom);
+      svg.setAttribute('viewBox',`0 0 ${width} ${height}`);svg.setAttribute('height',height);
+      const P=q=>({x:marginX+(q.x-bb.x0)*scale,y:top+(q.y-bb.y0)*scale});
+      const line=(a,b,attrs={})=>{const p=P(a),q=P(b);return node(svg,'line',{x1:p.x,y1:p.y,x2:q.x,y2:q.y,stroke:'var(--muted-foreground)','stroke-width':1,...attrs});};
+      const label=(q,text,attrs={})=>{const p=P(q);return node(svg,'text',{x:p.x,y:p.y,...attrs},text);};
+      const circle=(q,radius,attrs={})=>{const p=P(q);return node(svg,'circle',{cx:p.x,cy:p.y,r:radius*scale,fill:'none',stroke:'var(--foreground)','stroke-width':1,...attrs});};
+      node(svg,'title',{},isDetail?'Satulan sivuttaiskulma ja viritinpylväät':'Kielilinjat tallalta lapaan');
+      const origin=P({x:0,y:0});
+      node(svg,'path',{d:c.path,transform:`translate(${origin.x} ${origin.y}) scale(${scale})`,fill:'none',stroke:'var(--foreground)','stroke-width':1.3,'vector-effect':'non-scaling-stroke'});
+      line(c.nut[0],c.nut.at(-1),{stroke:'var(--foreground)','stroke-width':1.5});
+      if(!isDetail){
+        line(c.bridge[1],c.bridge.at(-2),{stroke:'var(--foreground)','stroke-width':2});
+        label(c.bridge[1],'Tallan kontaktit',{dy:-7,'text-anchor':'start'});
+        label(c.nut[0],'Satula',{dx:-5,dy:-7,'text-anchor':'end'});
+      } else {
+        label(c.nut[0],'Satula',{dy:-9,'text-anchor':'middle'});
+        for(const s of r.strings){
+          const dx=s.S.x-s.B.x,dy=s.S.y-s.B.y,xEnd=bb.x1;
+          const start={x:-10,y:s.S.y+dy/dx*(-10-s.S.x)},end={x:xEnd,y:s.S.y+dy/dx*(xEnd-s.S.x)};
+          line(start,end,{'stroke-dasharray':'4 4',opacity:s.index===selected?1:.4});
+        }
+      }
+      for(const s of r.strings){
+        if(!isDetail)line(s.B,s.S,{stroke:'var(--viz-series-1)',opacity:s.index===selected?1:.4,'stroke-width':s.index===selected?1.8:1});
+        line(s.S,s.T,{stroke:'var(--viz-series-1)',opacity:s.index===selected?1:.55,'stroke-width':s.index===selected?2.5:1.2});
+        circle(s.C,5,{stroke:'var(--muted-foreground)'});circle(s.C,3,{stroke:'var(--foreground)'});
+        if(isDetail){
+          label(s.C,String(s.index+1),{dy:-5*scale-5,'text-anchor':'middle'});
+          if(mode==='straight'){
+            const p=P(c.normalization.centers[s.index]);
+            node(svg,'path',{d:`M${p.x-3},${p.y-3} l6,6 M${p.x-3},${p.y+3} l6,-6`,fill:'none',stroke:'var(--muted-foreground)','stroke-width':1});
+          }
+          if(s.index===selected){
+            const t=P(s.T);node(svg,'circle',{cx:t.x,cy:t.y,r:3,fill:'var(--viz-series-1)'});
+            const hit=circle(s.C,0,{r:Math.max(13,5*scale),fill:'transparent',stroke:'none','data-tooltip':`Kieli ${s.index+1}: ${fmt(s.angleDeg,3)}° · siirtymä ${fmt(s.rowShiftMm)} mm`});
+            hit.setAttribute('aria-label',`Kieli ${s.index+1}`);
+          }
+        }
+      }
+      if(isDetail){
+        const bar=20*scale,y=height-10,x=marginX;
+        node(svg,'path',{d:`M${x},${y-3} v6 M${x},${y} h${bar} M${x+bar},${y-3} v6`,stroke:'var(--foreground)',fill:'none'});
+        node(svg,'text',{x:x+bar+7,y:y+4},'20 mm');
+        if(mode==='straight'&&width>480)node(svg,'text',{x:width-marginX,y:y+4,'text-anchor':'end'},'× Tasavälisen rivin keskipiste');
+      }
+    }
+    render(overview,false);render(detail,true);
+    const angle=r.objective[0]<1e-9?'0,000':fmt(r.objective[0],3);
+    const pitch=mode==='normalized'?`${fmt(c.normalization.pitchMm)} mm`:`${fmt(r.pitchRangeMm[0])}–${fmt(r.pitchRangeMm[1])} mm`;
+    const metrics=root.querySelector('[data-metrics]');metrics.replaceChildren();
+    for(const value of [`Suurin kulma ${angle}°`,`Reikäjako ${pitch}`]){const span=document.createElement('span');span.textContent=value;metrics.appendChild(span);}
+    const s=r.strings[selected];
+    root.querySelector('[data-selected]').textContent=`Kieli ${selected+1}: kulma ${fmt(s.angleDeg,3)}° · siirtymä tasavälisestä rivistä ${fmt(s.rowShiftMm)} mm`;
+  }
+  function schedule(){if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;draw();});}
+  root.querySelectorAll('select').forEach(select=>select.addEventListener('change',schedule));
+  new ResizeObserver(()=>{if(Math.floor(root.getBoundingClientRect().width)!==measuredWidth)schedule();}).observe(root);
+  schedule();
+})();
+</script>

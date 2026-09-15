@@ -1,0 +1,9 @@
+src/neck/vendor/
+src/**/*.json
+tests/**/*.json
+reference-analysis/
+public/
+tmp/
+dist/
+*.gtrfactory
+scripts/headstock-*/

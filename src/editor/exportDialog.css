@@ -1,0 +1,135 @@
+.export-dialog {
+  width: min(1180px, calc(100vw - 24px));
+  max-width: none;
+  padding: 0;
+  max-height: calc(100dvh - 24px);
+  color: var(--text, #ddd);
+}
+.export-dialog > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #454545;
+}
+.export-dialog h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+.export-dialog header p {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+}
+.export-dialog .export-grid {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 20px;
+  padding: 16px 20px;
+  max-height: calc(100dvh - 210px);
+  overflow: auto;
+}
+.export-dialog .export-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.export-dialog fieldset {
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 10px;
+  min-width: 0;
+  margin: 0;
+}
+.export-dialog legend {
+  padding: 0 5px;
+}
+.export-dialog label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 7px 0;
+  font-size: 0.85rem;
+}
+.export-dialog input[type='checkbox'] {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+.export-dialog select {
+  min-width: 0;
+  max-width: 180px;
+  margin-left: auto;
+}
+.export-dialog input[type='number'] {
+  width: 70px;
+  margin-left: auto;
+}
+.export-dialog .export-formats {
+  display: flex;
+  gap: 6px;
+}
+.export-dialog button[aria-pressed='true'] {
+  outline: 2px solid #81b9e8;
+}
+.export-dialog .export-preview-section {
+  min-width: 0;
+  display: block;
+}
+.export-dialog .export-preview {
+  background: #fff;
+  height: 440px;
+  min-height: 220px;
+  border: 1px solid #aaa;
+  padding: 8px;
+}
+.export-dialog .export-preview svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.export-dialog .export-pages {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.export-dialog .export-page-tile {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  font-size: 0.75rem;
+  border: 1px solid #666;
+}
+.export-dialog .export-error {
+  color: #ffaca4;
+  padding: 12px;
+  border: 1px solid currentColor;
+}
+.export-dialog .export-hint {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+.export-dialog > footer {
+  padding: 12px 20px;
+  border-top: 1px solid #555;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+@media (max-width: 700px) {
+  .export-dialog .export-grid {
+    grid-template-columns: 1fr;
+    padding: 12px;
+    gap: 12px;
+  }
+  .export-dialog .export-preview {
+    height: 300px;
+  }
+  .export-dialog > header {
+    padding: 12px;
+  }
+  .export-dialog > footer {
+    padding: 10px;
+  }
+}

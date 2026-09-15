@@ -1,0 +1,28 @@
+{
+  "method": "Inkscape 1.4.3 query-all, corresponding exterior body paths, CSS96, supplied SVG convert-dpi-method=none; visual bounding boxes include stroke",
+  "supplied_svg": {
+    "id": "path602",
+    "x_px": 528.375,
+    "y_px": 100.0,
+    "width_px": 1566.69,
+    "height_px": 1074.96
+  },
+  "cdr_converted_svg": {
+    "id": "path290",
+    "x_px": 590.871,
+    "y_px": 214.409,
+    "width_px": 1706.47,
+    "height_px": 1170.87
+  },
+  "width_ratio": 0.9180882171969036,
+  "height_ratio": 0.9180865510261601,
+  "supplied_mm": [
+    414.5200625,
+    284.4165
+  ],
+  "cdr_converted_mm": [
+    451.5035208333333,
+    309.79268749999994
+  ],
+  "interpretation": "This comparison shows a difference between two supplied representations, not independent validation against a physical guitar."
+}

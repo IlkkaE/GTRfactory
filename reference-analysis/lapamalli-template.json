@@ -1,0 +1,58 @@
+{
+  "sourcePath": "approved-source/lapamalli.svg",
+  "sourcePageMm": {
+    "width": 210,
+    "height": 110
+  },
+  "unit": "1 SVG unit = 1 mm",
+  "nodeCount": 9,
+  "segmentCount": 8,
+  "closed": false,
+  "attachmentStart": {
+    "x": 13.784561,
+    "y": 30.012828
+  },
+  "attachmentEnd": {
+    "x": 13.733860999999969,
+    "y": 72.69311200000001
+  },
+  "attachmentWidthMm": 42.68031411330822,
+  "attachmentXDifferenceMm": -0.050700000000031054,
+  "tunerEdge": {
+    "kind": "L",
+    "start": {
+      "x": 39.290571,
+      "y": 13.025617999999998
+    },
+    "control": [],
+    "end": {
+      "x": 186.37963,
+      "y": 59.596412
+    },
+    "lengthMm": 154.2855473830777,
+    "angleDeg": 17.568636081036427
+  },
+  "otherStraightEdges": [
+    {
+      "kind": "L",
+      "start": {
+        "x": 191.13338,
+        "y": 74.871739
+      },
+      "control": [],
+      "end": {
+        "x": 199.45953999999998,
+        "y": 85.78963200000001
+      },
+      "lengthMm": 13.73045257466224,
+      "angleDeg": 52.670276595645284
+    }
+  ],
+  "boundsMm": {
+    "x": 13.73386001586914,
+    "y": 13.025619506835938,
+    "width": 186.44676208496094,
+    "height": 79.11581420898438
+  },
+  "openOutlineLengthMm": 414.210693359375
+}
