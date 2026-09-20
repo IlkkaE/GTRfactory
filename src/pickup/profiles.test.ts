@@ -6,6 +6,9 @@ import {
   firstPickupPosition,
   pickupPlacementError,
   pickupProfile,
+  pickupDefaults,
+  pickupGeometry,
+  anisotropicArcErrorBound,
   polygonContains,
   polygonFits,
   polygonsOverlap,
@@ -23,6 +26,7 @@ const cavity = (id: string, y: number, profileId = 'sh12-humbucker') => ({
   centerYmm: y,
   profileId,
   profileVersion: 1,
+  ...pickupDefaults(pickupProfile(profileId, 1)!),
 })
 const move = (points: Point[], y: number) => points.map((p) => ({ x: p.x, y: p.y + y }))
 function pointToSegment(p: Point, a: Point, b: Point) {
@@ -32,6 +36,73 @@ function pointToSegment(p: Point, a: Point, b: Point) {
   return Math.hypot(p.x - a.x - t * ux, p.y - a.y - t * uy)
 }
 describe('pickup profiles and full outline placement', () => {
+  it('keeps every default profile geometry and turns anisotropic circular corners into cubics', () => {
+    for (const profile of PICKUP_PROFILES) {
+      const c = cavity('default-' + profile.id, 100, profile.id)
+      const geometry = pickupGeometry(c)!
+      expect(geometry.defaults.angleDeg).toBe(profile.rotationDeg)
+      expect(geometry.segments).toHaveLength(profile.segments.length)
+      geometry.segments.forEach((actual, index) => {
+        const expected = profile.segments[index]
+        expect(actual.type).toBe(expected.type)
+        expect(actual.from.x).toBeCloseTo(expected.from.x, 9)
+        expect(actual.from.y).toBeCloseTo(expected.from.y + 100, 9)
+        expect(actual.to.x).toBeCloseTo(expected.to.x, 9)
+        expect(actual.to.y).toBeCloseTo(expected.to.y + 100, 9)
+        if (actual.type === 'circularArc' && expected.type === 'circularArc') {
+          expect(actual.center.x).toBeCloseTo(expected.center.x, 9)
+          expect(actual.center.y).toBeCloseTo(expected.center.y + 100, 9)
+          expect(actual.radiusMm).toBeCloseTo(expected.radiusMm, 9)
+        }
+      })
+    }
+    const c = cavity('scaled', 100)
+    c.widthMm *= 1.5
+    const geometry = pickupGeometry(c)!
+    expect(geometry.segments.some((s) => s.type === 'cubicBezier')).toBe(true)
+    expect(geometry.segments.some((s) => s.type === 'circularArc')).toBe(false)
+    expect(geometry.bounds.maxX - geometry.bounds.minX).toBeCloseTo(c.widthMm, 2)
+  })
+  it('uses one transformed contour for rotation and rejects out-of-range dimensions', () => {
+    const c = cavity('turned', 100)
+    c.angleDeg = 37
+    c.widthMm *= 1.2
+    c.lengthMm *= 0.8
+    const g = pickupGeometry(c)!
+    expect(g.path).toContain('M')
+    expect(g.bounds.maxX - g.bounds.minX).not.toBeCloseTo(c.widthMm, 2)
+    c.widthMm = 1001
+    expect(pickupGeometry(c)).toBeNull()
+  })
+  it('rotates local geometry around the centerline and scales its local axes', () => {
+    const profile = pickupProfile('sh12-humbucker', 1)!
+    const original = profile.segments[0].from
+    const turned = cavity('turned', 100)
+    turned.angleDeg = 90
+    const rotated = pickupGeometry(turned)!.segments[0].from
+    expect(rotated.x).toBeCloseTo(-original.y, 9)
+    expect(rotated.y).toBeCloseTo(100 + original.x, 9)
+    const scaled = cavity('scaled-known', 100)
+    scaled.widthMm *= 2
+    scaled.lengthMm *= 0.5
+    const mapped = pickupGeometry(scaled)!.segments[0].from
+    expect(mapped.x).toBeCloseTo(original.x * 2, 9)
+    expect(mapped.y).toBeCloseTo(100 + original.y * 0.5, 9)
+  })
+  it('proves the five-degree affine ellipse cubic stays inside the 0.01 mm geometry budget', () => {
+    const radii = PICKUP_PROFILES.flatMap((profile) =>
+      profile.segments
+        .filter((segment) => segment.type === 'circularArc')
+        .map((segment) => segment.radiusMm),
+    )
+    const minimumDefault = Math.min(
+      ...PICKUP_PROFILES.flatMap((profile) => {
+        const d = pickupDefaults(profile)
+        return [d.widthMm, d.lengthMm]
+      }),
+    )
+    expect(anisotropicArcErrorBound(Math.max(...radii), 1000 / minimumDefault)).toBeLessThan(0.01)
+  })
   it('retains physical dimensions and all twelve SH12 R3 corners', () => {
     const sh = pickupProfile('sh12-humbucker', 1)!
     expect(sh.path.match(/ A 3 3 /g) || []).toHaveLength(12)

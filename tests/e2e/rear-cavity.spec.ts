@@ -90,7 +90,7 @@ test('rear cavity cancel, view selection cleanup and v9 roundtrip preserve the o
   await settle(page)
   expect(await outer.getAttribute('d')).toBe(original)
   const doc = await download(page, info.outputPath('cavity.gtrfactory'))
-  expect(doc.version).toBe(11)
+  expect(doc.version).toBe(12)
   await activateView(page, 'front')
   expect(await page.locator('.large [data-electronics-cavity]').count()).toBe(0)
   await activateView(page, 'back')

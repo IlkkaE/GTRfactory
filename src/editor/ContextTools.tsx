@@ -3,7 +3,7 @@ import { PickupProfileMenu } from './PickupMenu'
 import { NumericCoordinate } from './NumericCoordinate'
 import { canSplitSegmentAt } from './segmentSelection'
 import { isProtectedAnchor, isProtectedSegment, useAppStore } from '../store'
-import { pickupDistanceToBridge, pickupProfile } from '../pickup/profiles'
+import { isPickupCustomized, pickupDistanceToBridge, pickupProfile } from '../pickup/profiles'
 import { rearElectronicsCavityGeometry } from '../electronicsCavity'
 import { HeadstockTools } from './HeadstockTools'
 
@@ -76,6 +76,90 @@ function PickupDistance({ id, mm }: { id: string; mm: number | null }) {
       </label>
       {error && <span className="field-error">{error}</span>}
     </div>
+  )
+}
+
+function PickupTransformField({
+  id,
+  field,
+  value,
+  label,
+  unit = 'mm',
+}: {
+  id: string
+  field: 'angleDeg' | 'widthMm' | 'lengthMm'
+  value: number
+  label: string
+  unit?: 'mm' | 'deg'
+}) {
+  const s = useAppStore(),
+    [text, setText] = useState(''),
+    [error, setError] = useState<string | null>(null),
+    edited = useRef(false)
+  const display = (n: number) =>
+    (unit === 'deg' ? n : s.unit === 'mm' ? n : n / 25.4)
+      .toFixed(unit === 'deg' ? 1 : s.unit === 'mm' ? 1 : 3)
+      .replace('.', ',')
+  useEffect(() => {
+    setText(display(value))
+    setError(null)
+    edited.current = false
+  }, [id, field, value, s.unit, s.revision])
+  const apply = () => {
+    if (!edited.current) return
+    const raw = text.trim().replace(',', '.')
+    const next = Number(raw) * (unit === 'mm' && s.unit === 'in' ? 25.4 : 1)
+    if (!raw || !/^[-+]?\d+(?:\.\d*)?$|^[-+]?\.\d+$/.test(raw) || !Number.isFinite(next)) {
+      setError('Enter a valid number.')
+      return
+    }
+    if (field === 'angleDeg' && (next < -180 || next > 180)) {
+      setError('Angle must be between -180 and 180 degrees.')
+      return
+    }
+    if (field !== 'angleDeg' && (next < 1 || next > 1000)) {
+      setError('Dimensions must be between 1 and 1000 mm.')
+      return
+    }
+    edited.current = false
+    if (Math.abs(next - value) > 1e-8) {
+      s.setPickupTransform(id, { [field]: next })
+      const actual = useAppStore.getState().document.pickupCavities.find((p) => p.id === id)
+      setText(display(actual?.[field] ?? value))
+      setError(useAppStore.getState().message)
+    } else setError(null)
+  }
+  return (
+    <label>
+      {label}{' '}
+      <input
+        aria-label={`Pickup-cavity ${label.toLowerCase()}`}
+        inputMode="decimal"
+        value={text}
+        disabled={!!s.drag || !!s.neckDraft}
+        onChange={(e) => {
+          setText(e.target.value)
+          edited.current = true
+        }}
+        onBlur={apply}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault()
+            e.stopPropagation()
+            apply()
+          }
+          if (e.key === 'Escape') {
+            e.preventDefault()
+            e.stopPropagation()
+            setText(display(value))
+            setError(null)
+            edited.current = false
+          }
+        }}
+      />{' '}
+      {unit === 'deg' ? 'deg' : s.unit}
+      {error && <span className="field-error">{error}</span>}
+    </label>
   )
 }
 export function ContextTools({ onSelectFit }: { onSelectFit: () => void }) {
@@ -154,7 +238,31 @@ export function ContextTools({ onSelectFit }: { onSelectFit: () => void }) {
           </>
         ) : pickup && pickupModel ? (
           <>
-            <span className="context-label">{pickupModel.name}</span>
+            <span className="context-label">
+              {pickupModel.name}
+              {isPickupCustomized(pickup) ? ' (custom)' : ''}
+            </span>
+            <div className="coordinates">
+              <PickupTransformField
+                id={pickup.id}
+                field="angleDeg"
+                value={pickup.angleDeg}
+                label="Angle"
+                unit="deg"
+              />
+              <PickupTransformField
+                id={pickup.id}
+                field="widthMm"
+                value={pickup.widthMm}
+                label="Width"
+              />
+              <PickupTransformField
+                id={pickup.id}
+                field="lengthMm"
+                value={pickup.lengthMm}
+                label="Length"
+              />
+            </div>
             <PickupDistance id={pickup.id} mm={pickupDistance} />
             <div className="context-actions">
               <PickupProfileMenu

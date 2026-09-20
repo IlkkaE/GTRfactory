@@ -3,7 +3,12 @@ import { createStarterDocument } from './model/project'
 import { parseProject, serializeProject } from './file/projectFile'
 import { useAppStore } from './store'
 import { segmentPoint } from './editor/segmentSelection'
-import { firstPickupPosition, pickupPlacementError } from './pickup/profiles'
+import {
+  firstPickupPosition,
+  pickupDefaults,
+  pickupPlacementError,
+  pickupProfile,
+} from './pickup/profiles'
 describe('editor store transactions', () => {
   beforeEach(() => useAppStore.getState().replace(createStarterDocument()))
   it('commits a free-node drag and restores dirty after undo', () => {
@@ -64,7 +69,7 @@ describe('editor store transactions', () => {
       before = structuredClone(st.document.body.outline.nodes.find((n) => n.id === datum)!)
     st.createNeck()
     const after = useAppStore.getState().document
-    expect(after.version).toBe(11)
+    expect(after.version).toBe(12)
     expect(after.neck?.end.radiusMm, useAppStore.getState().message ?? 'ei virhettä').toBe(6)
     expect(after.body.outline.nodes.find((n) => n.id === datum)?.x).toBe(before.x)
     expect(parseProject(serializeProject(after))).toEqual(after)
@@ -387,6 +392,7 @@ describe('body outline reset', () => {
         profileId: 'sh12-humbucker',
         profileVersion: 1,
         centerYmm: centerYmm!,
+        ...pickupDefaults(pickupProfile('sh12-humbucker', 1)!),
       },
     ]
     expect(parseProject(serializeProject(expanded))).toEqual(expanded)

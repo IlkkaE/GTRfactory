@@ -17,7 +17,12 @@ import {
 } from '../model/project'
 import { calculateNeck, validateNeckParams } from '../neck/fretfactoryGeometry'
 import { automaticPocket, physicalFretboard, physicalHeel } from '../neck/automaticPocket'
-import { pickupPlacementError, pickupProfile } from '../pickup/profiles'
+import {
+  pickupDefaults,
+  pickupPlacementError,
+  pickupProfile,
+  validPickupTransform,
+} from '../pickup/profiles'
 import {
   HEADSTOCK_TEMPLATE_IDS,
   validateHeadstock,
@@ -385,8 +390,10 @@ export function parseProject(text: string): ProjectDocument {
   const d = object(raw)
   if (d.format !== 'gtrfactory-project')
     throw new Error('The file format, unit, or coordinate system is invalid.')
-  if (d.version !== 10 && d.version !== 11)
-    throw new Error('This project version is not supported. The supported versions are 10 and 11.')
+  if (d.version !== 10 && d.version !== 11 && d.version !== 12)
+    throw new Error(
+      'This project version is not supported. The supported versions are 10, 11 and 12.',
+    )
   const importedVersion = d.version
   const handedness: Handedness =
     importedVersion === 10
@@ -398,7 +405,7 @@ export function parseProject(text: string): ProjectDocument {
       : d.handedness === 'right' || d.handedness === 'left'
         ? (d.handedness as Handedness)
         : (() => {
-            throw new Error('Version 11 projects require handedness right or left.')
+            throw new Error(`Version ${importedVersion} projects require handedness right or left.`)
           })()
   if (
     d.format !== 'gtrfactory-project' ||
@@ -506,12 +513,50 @@ export function parseProject(text: string): ProjectDocument {
     const profileVersion = p.profileVersion as number
     if (!pickupProfile(p.profileId, profileVersion))
       throw new Error('The pickup-cavity profile or version is unknown.')
+    const profile = pickupProfile(p.profileId, profileVersion)!
+    const hasTransform =
+      Object.hasOwn(p, 'angleDeg') || Object.hasOwn(p, 'widthMm') || Object.hasOwn(p, 'lengthMm')
+    if (importedVersion !== 12 && hasTransform)
+      throw new Error('Older project versions cannot contain pickup-cavity transform values.')
+    const transform =
+      importedVersion === 12
+        ? (() => {
+            if (
+              !Object.hasOwn(p, 'angleDeg') ||
+              !Object.hasOwn(p, 'widthMm') ||
+              !Object.hasOwn(p, 'lengthMm')
+            )
+              throw new Error('Version 12 pickup cavities require angle and dimensions.')
+            const next = {
+              angleDeg: p.angleDeg as number,
+              widthMm: p.widthMm as number,
+              lengthMm: p.lengthMm as number,
+            }
+            if (
+              !validPickupTransform({
+                id: p.id as string,
+                profileId: p.profileId as string,
+                profileVersion,
+                centerYmm: p.centerYmm as number,
+                ...next,
+              })
+            )
+              throw new Error('The pickup-cavity transform values are invalid.')
+            return next
+          })()
+        : pickupDefaults(profile)
     pickupIds.add(p.id)
-    return { id: p.id, profileId: p.profileId, profileVersion, centerYmm: p.centerYmm }
+    return {
+      id: p.id,
+      profileId: p.profileId,
+      profileVersion,
+      centerYmm: p.centerYmm,
+      ...transform,
+    }
   })
   const result: ProjectDocument = {
     format: 'gtrfactory-project',
-    version: 11,
+    version: 12,
     handedness,
     units: 'mm',
     name: d.name,

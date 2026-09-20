@@ -112,7 +112,7 @@ test('model-specific tip edits survive switching and a real v9 download/reopen',
   await choose(page, 'three-three-3')
   await expect(lap(page)).toHaveAttribute('d', shapes['three-three-3'])
   const saved = await save(page, info.outputPath('three-models-v9.gtrfactory'))
-  expect(saved.version).toBe(11)
+  expect(saved.version).toBe(12)
   expect(saved.neck.headstock.version).toBe(3)
   expect(Object.keys(saved.neck.headstock.variants)).toEqual([
     'inline',
@@ -137,7 +137,7 @@ test('model-specific tip edits survive switching and a real v9 download/reopen',
     buffer: Buffer.from(JSON.stringify(saved)),
   })
   await expect(
-    page.locator('.notice').filter({ hasText: 'supported versions are 10 and 11' }),
+    page.locator('.notice').filter({ hasText: 'supported versions are 10, 11 and 12' }),
   ).toBeVisible()
   await expect(lap(page)).toHaveAttribute('d', before!)
 })

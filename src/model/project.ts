@@ -19,7 +19,7 @@ export interface OutlineNode {
 }
 export interface ProjectDocument {
   format: 'gtrfactory-project'
-  version: 11
+  version: 12
   handedness: Handedness
   units: 'mm'
   name: string
@@ -48,6 +48,11 @@ export interface PickupCavity {
   profileId: string
   profileVersion: number
   centerYmm: number
+  /** Absolute rotation in the canonical right-handed coordinate system. */
+  angleDeg: number
+  /** Local outer bounds before rotation. */
+  widthMm: number
+  lengthMm: number
 }
 export interface NeckJointBoundary {
   anchorIds: string[]
@@ -126,7 +131,7 @@ export const starterBodyOutline = (): OutlineNode[] =>
 export function createStarterDocument(): ProjectDocument {
   return {
     format: 'gtrfactory-project',
-    version: 11,
+    version: 12,
     handedness: 'right',
     units: 'mm',
     name: '',

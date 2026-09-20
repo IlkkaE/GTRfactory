@@ -4,10 +4,7 @@ import { readFile } from 'node:fs/promises'
 const errors = new WeakMap<Page, string[]>()
 const cavities = (page: Page) => page.locator('.large [data-pickup-id]')
 const distance = (page: Page) => page.getByLabel('Pickup-cavity distance to bridge')
-const y = async (page: Page) =>
-  Number(
-    (await cavities(page).first().getAttribute('transform'))!.match(/translate\(0 ([^)]+)/)![1],
-  )
+const y = async (page: Page) => Number(await cavities(page).first().getAttribute('data-center-y'))
 async function download(page: Page, path: string) {
   const pending = page.waitForEvent('download')
   await fileAction(page, 'Download project file')
@@ -131,6 +128,47 @@ test('distance keeps untouched precision, accepts comma mm and inches once, and 
   await expect(page.getByTestId('save-state')).toHaveText('Saved')
 })
 
+test('angle and local dimensions commit once, restore on escape, and survive project round-trip', async ({
+  page,
+}, info) => {
+  await cavities(page).click()
+  const angle = page.getByLabel('Pickup-cavity angle')
+  const width = page.getByLabel('Pickup-cavity width')
+  const length = page.getByLabel('Pickup-cavity length')
+  const contextLabel = page.locator('[data-context="pickup"] .context-label')
+  await expect(contextLabel).toHaveText('Humbucker (SH-12)')
+  await expect(angle).toHaveValue('0,0')
+  await angle.fill('24,5')
+  await angle.press('Enter')
+  await expect(angle).toHaveValue('24,5')
+  await expect(contextLabel).toHaveText('Humbucker (SH-12) (custom)')
+  await page.getByRole('button', { name: 'Undo', exact: true }).click()
+  await expect(contextLabel).toHaveText('Humbucker (SH-12)')
+  await page.getByRole('button', { name: 'Redo', exact: true }).click()
+  await expect(contextLabel).toHaveText('Humbucker (SH-12) (custom)')
+  await width.fill('90')
+  await width.press('Enter')
+  await length.fill('44')
+  await length.press('Enter')
+  const saved = await download(page, info.outputPath('pickup-transform.gtrfactory'))
+  expect(saved.pickupCavities[0]).toMatchObject({ angleDeg: 24.5, widthMm: 90, lengthMm: 44 })
+  await page.getByRole('button', { name: 'Undo', exact: true }).click()
+  await expect(length).not.toHaveValue('44')
+  await page.getByRole('button', { name: 'Redo', exact: true }).click()
+  await expect(length).toHaveValue('44,0')
+  await angle.fill('200')
+  await angle.press('Enter')
+  await expect(page.getByText('Angle must be between -180 and 180 degrees.')).toBeVisible()
+  await angle.press('Escape')
+  await expect(angle).toHaveValue('24,5')
+  await load(page, saved)
+  await cavities(page).click()
+  await expect(angle).toHaveValue('24,5')
+  await page.getByRole('button', { name: 'Change profile' }).click()
+  await page.getByRole('menuitem', { name: /SSL/ }).click()
+  await expect(contextLabel).toHaveText('Strat single-coil (SSL-1)')
+})
+
 test('model popup is visible, keyboard-contained and dismissible, then changes a model at the same center', async ({
   page,
 }, info) => {
@@ -169,13 +207,13 @@ test('model popup is visible, keyboard-contained and dismissible, then changes a
   await expect(cavities(page)).toHaveAttribute('aria-label', /SH-12/)
 })
 
-test('real v9 download and reopen retain profiles, empty stays empty and unsupported data cannot replace work', async ({
+test('real v12 download and reopen retain profiles, empty stays empty and unsupported data cannot replace work', async ({
   page,
 }, info) => {
   await page.getByRole('button', { name: '+ Pickup cavity' }).click()
   await page.getByRole('menuitem', { name: /SSL/ }).click()
   const saved = await download(page, info.outputPath('pickup-v5.gtrfactory'))
-  expect(saved.version).toBe(11)
+  expect(saved.version).toBe(12)
   expect(saved.pickupCavities).toHaveLength(2)
   await load(page, saved)
   await expect(cavities(page)).toHaveCount(2)
@@ -204,7 +242,7 @@ test('real v9 download and reopen retain profiles, empty stays empty and unsuppo
     mimeType: 'application/json',
     buffer: Buffer.from(JSON.stringify(unsupported)),
   })
-  await expect(page.getByRole('status')).toContainText('supported versions are 10 and 11')
+  await expect(page.getByRole('status')).toContainText('supported versions are 10, 11 and 12')
   await expect(cavities(page)).toHaveCount(0)
 })
 

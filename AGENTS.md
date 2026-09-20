@@ -1,5 +1,9 @@
 # GTRfactory
 
+## Nykyinen v12-pickup-toteutus — 20.9.2026
+
+Paikallinen nykytila käyttää projektiformaattia v12. Mikrofonikoloissa ovat pakolliset `angleDeg`, `widthMm` ja `lengthMm`; kulma on −180…180° ja paikalliset leveys- ja pituusmitat 1–1000 mm. Keskipiste pysyy rungon keskiviivalla, mitat tarkoittavat koko profiilin ulkomittoja ennen kiertoa, ja affiinisesti skaalattu profiili merkitään custom-muodoksi. Editorin törmäystarkistus, SVG/DXF/PDF-vienti ja valinnainen mittataulukko käyttävät samaa transformoitua geometriaa. Oikeakätinen v10 sekä molempien kätisyyksien v11 muunnetaan v12:ksi profiilin oletuskulmalla ja -mitoilla vanha geometria säilyttäen; v10:n vasenkätinen tai muu kätisyysarvo sekä v12:n puuttuvat, virheelliset tai vanhoihin versioihin kuulumattomat uudet kentät hylätään atomisesti. Toteutus on paikallisesti riippumattoman QA:n mukaan VERIFIED. Julkinen snapshot, deployment ja niiden julkinen varmennus ovat vielä avoinna. Alla olevat aiemmat v11-merkinnät ovat historiallisia varmennuslokeja, ellei nykytilaa ole erikseen päivitetty.
+
 Projektin juuri on repositorion juuri; päähaara on `main`. Manifestin engines-raja on Node `>=24.15.0 <25` ja npm `>=12.0.1 <13`; käytä Node 24.15.0:tä ja npm 12.0.1:tä (`.nvmrc`).
 
 ## Komennot
@@ -18,6 +22,8 @@ Elektroniikkapoteron kierros 11.9.2026: yksikkö-/integraatiotestit 180/180 PASS
 Historiallinen 12.9.2026 cavity-profile replacement korvaa saman `potero-v1` / version 1 -profiilin suoraan Desktopin `potero.svg`-lähteellä myös olemassa olevissa v9-dokumenteissa. Tallennettu keskipiste ja vaaka-/pystymitat säilyvät; uuden lähdeprofiilin outer-bounds ovat 176.06686788504933 × 81.36283544639431 mm. Lähdesivu 237 × 123 mm ei ole geometriamitta. Tämä on kyseisen kierroksen annotaatio; yllä oleva 11.9.2026-loki säilyy historiallisena.
 
 ## Rajat ja dokumentointi
+
+Nykyisen v12-toteutuksen osalta tämän tiedoston ja README:n aiemmat v11-viittaukset ovat historiallisia. Vain v12 kirjoitetaan; oikeakätinen v10 sekä molempien kätisyyksien v11 luetaan v12:ksi yllä kuvatuilla säännöillä. Pickupien uudet kentät ovat pakollisia ja niiden yhteinen transformoitu geometria on nykyinen editorin, törmäystarkistusten ja vientien lähde.
 
 `FEATURE_BRIEF.md` omistaa tuote- ja vaihekohtaisen rajauksen sekä varmennusnäytön. `README.md` kuvaa vain toteutunutta nykytilaa. Yhteisen runko- ja kaulaeditorin toteutunut käyttö, v11-projektiformaatti (oikeakätinen v10 luetaan v11:ksi) ja neljän headstock-mallin valinta, yhdeksän nimettyä pickup-suunnitteluprofiilia, 22-nauhaisen oletuskaulan kohdistus 17. nauhasta ja erilliset päätyvarat kuvataan siellä. Vain v11-projektit tallennetaan. Oikeakätinen v10 luetaan muistiin v11:nä; v10:n vasenkätinen tai muu kätisyysarvo sekä puuttuva/virheellinen v11-arvo hylätään atomisesti. V1–v9 hylätään ennen nykyisen työn korvaamista eikä yleistä migraatiota luvata. Sapluunageometria muodostaa etu- ja takarungon sekä automaattisen suljetun taskukontuurin millimetreinä; etu/taka säilyttävät lähteen tarkat viiva- ja Bézier-kontrollit, taka peilaa kanonisen geometrian ja tasku käyttää De Casteljau -katkaisua sekä ympyräkaaria. Taskun oletusleikkaus on taskun pääty + 20 mm eikä kameran rajaus; keskiviiva ja alkuperäiset kaulaliittymän suukäyrät ovat erillisiä viitteitä. Virheellinen tai tukematon topologia palauttaa diagnostiikan ja säilyttää editorin muokattavana. Yleinen CAD/SVG-tuonti, hybridipiirto ja muiden 2D-hardware-kolojen jatkokehitys säilyvät FEATURE BRIEFissä. PDF-, DXF- ja SVG-vienti on toteutettu; sen varmennuksen rajat säilyvät FEATURE BRIEFissä. Z-akseli, jyrsintäsyvyydet ja 3D on rajattu pysyvästi pois. Älä kuvaa suunniteltuja 2D-koloja tai valmistusvientejä valmiina.
 

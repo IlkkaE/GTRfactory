@@ -22,7 +22,7 @@ import { referenceTransform, sourceBounds, type ReferenceOverlay } from '../file
 import type { ProjectDocument } from '../model/project'
 import { starterBodyOutline } from '../model/project'
 import { rearElectronicsCavityGeometry } from '../electronicsCavity'
-import { pickupProfile } from '../pickup/profiles'
+import { pickupGeometry } from '../pickup/profiles'
 import { prepareCanvasGeometry } from './canvasGeometry'
 import {
   canSplitHeadstockSegment,
@@ -387,17 +387,17 @@ export function EditorCanvas({
                   )}
                   {view === 'front' &&
                     doc.pickupCavities.map((c) => {
-                      const profile = pickupProfile(c.profileId, c.profileVersion)
-                      return profile ? (
+                      const geometry = pickupGeometry(c)
+                      return geometry ? (
                         <path
                           key={c.id}
                           data-pickup-id={c.id}
+                          data-center-y={c.centerYmm}
                           className={`pickup-cavity ${s.selectedPickupId === c.id ? 'selected' : ''}`}
-                          d={profile.path}
-                          transform={`translate(0 ${c.centerYmm})`}
+                          d={geometry.path}
                           tabIndex={!small ? 0 : undefined}
                           role={!small ? 'button' : undefined}
-                          aria-label={`${profile.name}, pickup cavity`}
+                          aria-label={`${geometry.profile.name}, pickup cavity`}
                           onPointerDown={(e) => interactions.pickup.onPointerDown(e, c.id)}
                           onKeyDown={(e) => interactions.pickup.onKeyboardSelect(e, c.id)}
                         />

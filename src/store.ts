@@ -22,13 +22,19 @@ import {
   type NeckDocument,
   type NeckParams,
   type NeckPocketParams,
+  type PickupCavity,
   type ProjectDocument,
   type Unit,
 } from './model/project'
 import { DEFAULT_NECK, validateNeckParams } from './neck/fretfactoryGeometry'
 import { bassParams, bassPreset, isBassTemplate } from './headstock/bass'
 import { DEFAULT_NECK_END, deriveNeckDocument, type NeckChange } from './neck/neckDocument'
-import { firstPickupPosition, pickupPlacementError, pickupProfile } from './pickup/profiles'
+import {
+  firstPickupPosition,
+  pickupDefaults,
+  pickupPlacementError,
+  pickupProfile,
+} from './pickup/profiles'
 import {
   activeHeadstockNodes,
   canSplitHeadstockSegment,
@@ -127,6 +133,10 @@ export interface EditorState {
   changePickupProfile: (id: string, profileId: string, profileVersion: number) => void
   deletePickup: (id: string) => void
   setPickupCenter: (id: string, centerYmm: number) => void
+  setPickupTransform: (
+    id: string,
+    change: Partial<Pick<PickupCavity, 'angleDeg' | 'widthMm' | 'lengthMm'>>,
+  ) => void
   previewMove: (dx: number, dy: number) => void
   previewHandle: (id: string, side: 'inHandle' | 'outHandle', dx: number, dy: number) => void
   previewHeadstockMove: (dx: number, dy: number) => void
@@ -288,6 +298,7 @@ function defaultProject() {
         profileId: 'sh12-humbucker',
         profileVersion: 1,
         centerYmm: y,
+        ...pickupDefaults(pickupProfile('sh12-humbucker', 1)!),
       },
     ]
   return d
@@ -542,7 +553,14 @@ export const useAppStore = create<EditorState>()((set) => {
             const y = firstPickupPosition(d, profileId, profileVersion)
             if (y === null)
               throw new Error('No valid location for the pickup cavity can be found in the body.')
-            d.pickupCavities.push({ id, profileId, profileVersion, centerYmm: y })
+            const profile = pickupProfile(profileId, profileVersion)!
+            d.pickupCavities.push({
+              id,
+              profileId,
+              profileVersion,
+              centerYmm: y,
+              ...pickupDefaults(profile),
+            })
           })
         return result.document
           ? {
@@ -569,6 +587,7 @@ export const useAppStore = create<EditorState>()((set) => {
           const old = { ...c }
           c.profileId = profileId
           c.profileVersion = profileVersion
+          Object.assign(c, pickupDefaults(pickupProfile(profileId, profileVersion)!))
           const error = pickupPlacementError(d, c, c.id)
           if (error) {
             Object.assign(c, old)
@@ -594,6 +613,22 @@ export const useAppStore = create<EditorState>()((set) => {
               c.centerYmm = centerYmm
               const error = pickupPlacementError(d, c, c.id)
               if (error) throw new Error(error)
+            }),
+      ),
+    setPickupTransform: (id, change) =>
+      set((s) =>
+        s.drag || s.neckDraft
+          ? { message: 'Accept or cancel the unfinished change before changing the pickup cavity.' }
+          : changeNodes(s, (d) => {
+              const c = d.pickupCavities.find((p) => p.id === id)
+              if (!c) throw new Error('The selected pickup cavity cannot be found.')
+              const old = { ...c }
+              Object.assign(c, change)
+              const error = pickupPlacementError(d, c, c.id)
+              if (error) {
+                Object.assign(c, old)
+                throw new Error(error)
+              }
             }),
       ),
     previewHeadstockMove: (dx, dy) =>

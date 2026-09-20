@@ -37,7 +37,7 @@ describe('English interface and unchanged user content', () => {
     const loaded = parseProject(serializeProject(document))
     expect(loaded).toEqual(document)
     expect(loaded.name).toBe('Äänen ystävä — oma kitara')
-    expect(loaded.version).toBe(11)
+    expect(loaded.version).toBe(12)
     expect(loaded.body.rearElectronicsCavity?.profileId).toBe('potero-v1')
   })
 
@@ -47,7 +47,9 @@ describe('English interface and unchanged user content', () => {
     ).toThrow('The FretFactory URL is missing a valid strings value.')
     expect(() => parseProject('{')).toThrow('not valid GTRfactory JSON')
     const document = { ...createStarterDocument(), version: 8 }
-    expect(() => parseProject(JSON.stringify(document))).toThrow('supported versions are 10 and 11')
+    expect(() => parseProject(JSON.stringify(document))).toThrow(
+      'supported versions are 10, 11 and 12',
+    )
   })
 
   it('translates template display names without changing canonical IDs', () => {

@@ -15,7 +15,7 @@ import { arcData, at, arcCubics, segmentBounds } from './math'
 import { svgExport } from './svg'
 import { dxfExport } from './dxf'
 import { pdfExport } from './pdf'
-import { PICKUP_PROFILES, firstPickupPosition } from '../pickup/profiles'
+import { PICKUP_PROFILES, firstPickupPosition, pickupDefaults } from '../pickup/profiles'
 import { pocketTemplateGeometry } from '../templates/templateGeometry'
 const doc = () => deriveNeckDocument(createStarterDocument(), { kind: 'fresh' })!
 const options = (parts: ExportPart[], extra: Partial<ExportOptions> = {}): ExportOptions => ({
@@ -46,6 +46,33 @@ const manualPocket = (document = createStarterDocument()) => {
   return document
 }
 describe('manufacturing exports', () => {
+  it('uses the transformed pickup route and lists custom dimensions in front measurements', () => {
+    const source = doc(),
+      profile = PICKUP_PROFILES[0],
+      pos = firstPickupPosition(source, profile.id)!
+    source.pickupCavities = [
+      {
+        id: 'custom',
+        profileId: profile.id,
+        profileVersion: 1,
+        centerYmm: pos,
+        ...pickupDefaults(profile),
+        angleDeg: 25,
+        widthMm: 90,
+        lengthMm: 44,
+      },
+    ]
+    const drawing = buildExportDrawing(
+      source,
+      options(['front'], { includePickups: true, includeMeasurements: true }),
+    )
+    const pickup = drawing.paths.find((p) => p.role === 'ROUTE_PICKUP')!
+    expect(pickup.segments.some((s) => s.type === 'cubicBezier')).toBe(true)
+    expect(pickup.name).toContain('custom')
+    expect(drawing.measurements.map((r) => r.label)).toEqual(
+      expect.arrayContaining(['Width', 'Length', 'Angle', 'Distance to bridge']),
+    )
+  })
   for (const part of [
     'front',
     'back',
@@ -271,6 +298,7 @@ describe('manufacturing exports', () => {
           profileId: profile.id,
           profileVersion: profile.version,
           centerYmm: pos,
+          ...pickupDefaults(profile),
         },
       ]
     const variants: [string, ExportOptions][] = [

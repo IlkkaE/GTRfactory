@@ -14,6 +14,7 @@ const CONTACT = 0.03,
   EPS = 1e-8
 export type PickupRouteSegment =
   | { type: 'line'; from: Point; to: Point }
+  | { type: 'cubicBezier'; from: Point; control1: Point; control2: Point; to: Point }
   | {
       type: 'circularArc'
       from: Point
@@ -251,7 +252,7 @@ export const PICKUP_PROFILES: readonly PickupProfile[] = [
   ),
   profile(
     'stl1b-tele-bridge',
-    'Tele bridge (STL-1b, 17°)',
+    'Tele bridge (STL-1b)',
     convexOutset(hull('stl1b', 17), 3),
     'STL-1b: clearance + 3 mm. Derived from the Gotoh Ti/BS-TC1S drawing at 17°; bridge-plate fit not verified.',
     sd + 'wp-content/uploads/2019/08/Tele-Lead-Flat-STL-1b.pdf',
@@ -317,8 +318,228 @@ export const PICKUP_PROFILES: readonly PickupProfile[] = [
 ]
 export const pickupProfile = (id: string, version: number) =>
   PICKUP_PROFILES.find((p) => p.id === id && p.version === version)
-export const pickupPath = (c: PickupCavity) =>
-  pickupProfile(c.profileId, c.profileVersion)?.path ?? ''
+
+export const PICKUP_MIN_DIMENSION_MM = 1
+export const PICKUP_MAX_DIMENSION_MM = 1000
+export const PICKUP_MIN_ANGLE_DEG = -180
+export const PICKUP_MAX_ANGLE_DEG = 180
+const PICKUP_MAX_SEGMENTS = 20000
+
+/**
+ * Maximum radial error of one five-degree circular cubic after anisotropic scaling.
+ * For h=2.5°, b=-sin(h)(1-cos(h))/(2(1+cos(h))) and max u²=1/3,
+ * |B|²-1 = b²u²(1-u²)², so e=r*scale*(sqrt(1+4b²/27)-1).
+ */
+export const anisotropicArcErrorBound = (radiusMm: number, scale: number) => {
+  const h = Math.PI / 72,
+    b = (-Math.sin(h) * (1 - Math.cos(h))) / (2 * (1 + Math.cos(h)))
+  return radiusMm * scale * (Math.sqrt(1 + (4 * b * b) / 27) - 1)
+}
+
+export function pickupDefaults(profile: PickupProfile) {
+  const local = localSegments(profile)
+  const points: Point[] = []
+  for (const s of local) {
+    points.push(s.from, s.to)
+    if (s.type === 'circularArc') {
+      const a = Math.atan2(s.from.y - s.center.y, s.from.x - s.center.x)
+      let b = Math.atan2(s.to.y - s.center.y, s.to.x - s.center.x)
+      if (s.sweep) while (b < a - EPS) b += 2 * Math.PI
+      else while (b > a + EPS) b -= 2 * Math.PI
+      for (const q of [0, Math.PI / 2, Math.PI, (3 * Math.PI) / 2]) {
+        const t = s.sweep
+          ? q + Math.ceil((a - q) / (2 * Math.PI)) * 2 * Math.PI
+          : q + Math.floor((a - q) / (2 * Math.PI)) * 2 * Math.PI
+        if ((s.sweep && t >= a - EPS && t <= b + EPS) || (!s.sweep && t <= a + EPS && t >= b - EPS))
+          points.push({
+            x: s.center.x + s.radiusMm * Math.cos(t),
+            y: s.center.y + s.radiusMm * Math.sin(t),
+          })
+      }
+    }
+  }
+  const b = extent(points)
+  return { angleDeg: profile.rotationDeg, widthMm: b.maxX - b.minX, lengthMm: b.maxY - b.minY }
+}
+
+export function validPickupTransform(c: PickupCavity) {
+  return (
+    validNumber(c.centerYmm) &&
+    validNumber(c.angleDeg) &&
+    c.angleDeg >= PICKUP_MIN_ANGLE_DEG &&
+    c.angleDeg <= PICKUP_MAX_ANGLE_DEG &&
+    validNumber(c.widthMm) &&
+    c.widthMm >= PICKUP_MIN_DIMENSION_MM &&
+    c.widthMm <= PICKUP_MAX_DIMENSION_MM &&
+    validNumber(c.lengthMm) &&
+    c.lengthMm >= PICKUP_MIN_DIMENSION_MM &&
+    c.lengthMm <= PICKUP_MAX_DIMENSION_MM
+  )
+}
+
+const arcCubic = (
+  center: Point,
+  radius: number,
+  a: number,
+  b: number,
+): Extract<PickupRouteSegment, { type: 'cubicBezier' }> => {
+  const k = (4 / 3) * Math.tan((b - a) / 4)
+  const point = (t: number) => ({
+    x: center.x + radius * Math.cos(t),
+    y: center.y + radius * Math.sin(t),
+  })
+  const from = point(a),
+    to = point(b)
+  return {
+    type: 'cubicBezier',
+    from,
+    control1: { x: from.x - radius * Math.sin(a) * k, y: from.y + radius * Math.cos(a) * k },
+    control2: { x: to.x + radius * Math.sin(b) * k, y: to.y - radius * Math.cos(b) * k },
+    to,
+  }
+}
+
+const mapPoint = (
+  p: Point,
+  scaleX: number,
+  scaleY: number,
+  angleDeg: number,
+  centerYmm: number,
+) => {
+  const scaled = { x: p.x * scaleX, y: p.y * scaleY }
+  const rotated = rotate(scaled, angleDeg)
+  return { x: rotated.x, y: rotated.y + centerYmm }
+}
+
+function localSegments(profile: PickupProfile): PickupRouteSegment[] {
+  const turnBack = (p: Point) => rotate(p, -profile.rotationDeg)
+  return profile.segments.map((s) =>
+    s.type === 'line'
+      ? { type: 'line' as const, from: turnBack(s.from), to: turnBack(s.to) }
+      : s.type === 'cubicBezier'
+        ? {
+            type: 'cubicBezier' as const,
+            from: turnBack(s.from),
+            control1: turnBack(s.control1),
+            control2: turnBack(s.control2),
+            to: turnBack(s.to),
+          }
+        : { ...s, from: turnBack(s.from), to: turnBack(s.to), center: turnBack(s.center) },
+  )
+}
+
+/** Shared final-space pickup geometry for canvas, collision checks and exports. */
+export function pickupGeometry(c: PickupCavity) {
+  const profile = pickupProfile(c.profileId, c.profileVersion)
+  if (!profile || !validPickupTransform(c)) return null
+  const defaults = pickupDefaults(profile)
+  const sx = c.widthMm / defaults.widthMm,
+    sy = c.lengthMm / defaults.lengthMm
+  const segments: PickupRouteSegment[] = []
+  const map = (p: Point) => mapPoint(p, sx, sy, c.angleDeg, c.centerYmm)
+  for (const source of localSegments(profile)) {
+    if (source.type === 'line')
+      segments.push({ type: 'line', from: map(source.from), to: map(source.to) })
+    else if (source.type === 'cubicBezier') {
+      segments.push({
+        type: 'cubicBezier',
+        from: map(source.from),
+        control1: map(source.control1),
+        control2: map(source.control2),
+        to: map(source.to),
+      })
+    } else {
+      const uniform = Math.abs(sx - sy) <= 1e-12
+      if (uniform) {
+        segments.push({
+          ...source,
+          from: map(source.from),
+          to: map(source.to),
+          center: map(source.center),
+          radiusMm: source.radiusMm * sx,
+        })
+      } else {
+        let a = Math.atan2(source.from.y - source.center.y, source.from.x - source.center.x)
+        let b = Math.atan2(source.to.y - source.center.y, source.to.x - source.center.x)
+        if (source.sweep) while (b < a - EPS) b += 2 * Math.PI
+        else while (b > a + EPS) b -= 2 * Math.PI
+        // Five-degree circular pieces bound the transformed ellipse approximation below 0.01 mm
+        // at the 1000 mm technical size limit; each piece is then affine-transformed.
+        const count = Math.max(1, Math.ceil(Math.abs(b - a) / (Math.PI / 36)))
+        if (anisotropicArcErrorBound(source.radiusMm, Math.max(sx, sy)) >= PICKUP_TOLERANCE_MM)
+          throw new Error('The pickup shape exceeds the geometric error limit.')
+        if (segments.length + count > PICKUP_MAX_SEGMENTS)
+          throw new Error('The pickup shape is too complex.')
+        for (let i = 0; i < count; i++) {
+          const q = arcCubic(
+            source.center,
+            source.radiusMm,
+            a + ((b - a) * i) / count,
+            a + ((b - a) * (i + 1)) / count,
+          )
+          segments.push({
+            type: 'cubicBezier',
+            from: map(q.from),
+            control1: map(q.control1),
+            control2: map(q.control2),
+            to: map(q.to),
+          })
+        }
+      }
+    }
+  }
+  const samples: Point[] = []
+  for (const s of segments) {
+    if (!samples.length) samples.push(s.from)
+    if (s.type === 'line') samples.push(s.to)
+    else if (s.type === 'circularArc') {
+      const a = Math.atan2(s.from.y - s.center.y, s.from.x - s.center.x)
+      let b = Math.atan2(s.to.y - s.center.y, s.to.x - s.center.x)
+      if (s.sweep) while (b < a - EPS) b += 2 * Math.PI
+      else while (b > a + EPS) b -= 2 * Math.PI
+      const n = Math.max(
+        1,
+        Math.ceil(
+          Math.abs(b - a) / (2 * Math.acos(Math.max(-1, 1 - PICKUP_TOLERANCE_MM / s.radiusMm))),
+        ),
+      )
+      for (let i = 1; i <= n; i++)
+        samples.push(
+          i === n
+            ? s.to
+            : {
+                x: s.center.x + s.radiusMm * Math.cos(a + ((b - a) * i) / n),
+                y: s.center.y + s.radiusMm * Math.sin(a + ((b - a) * i) / n),
+              },
+        )
+    } else {
+      const cubic = s as Extract<PickupRouteSegment, { type: 'cubicBezier' }>
+      flattenCubic(cubic.from, cubic.control1, cubic.control2, cubic.to, samples)
+    }
+  }
+  if (samples.length > PICKUP_MAX_SEGMENTS) throw new Error('The pickup shape is too complex.')
+  const path =
+    segments.reduce((d, s, i) => {
+      const start = i ? '' : `M ${pair(s.from)}`
+      if (s.type === 'line') return `${d}${start} L ${pair(s.to)}`
+      if (s.type === 'cubicBezier')
+        return `${d}${start} C ${pair(s.control1)} ${pair(s.control2)} ${pair(s.to)}`
+      return `${d}${start} A ${s.radiusMm} ${s.radiusMm} 0 ${s.largeArc} ${s.sweep} ${pair(s.to)}`
+    }, '') + ' Z'
+  return { profile, segments, samples, path, bounds: extent(samples), defaults }
+}
+
+export const isPickupCustomized = (c: PickupCavity) => {
+  const geometry = pickupGeometry(c)
+  return (
+    !!geometry &&
+    (c.angleDeg !== geometry.defaults.angleDeg ||
+      c.widthMm !== geometry.defaults.widthMm ||
+      c.lengthMm !== geometry.defaults.lengthMm)
+  )
+}
+
+export const pickupPath = (c: PickupCavity) => pickupGeometry(c)?.path ?? ''
 function flattenCubic(a: Point, b: Point, c: Point, d: Point, out: Point[], depth = 0) {
   if (Math.max(distance(b, a, d), distance(c, a, d)) <= PICKUP_TOLERANCE_MM) {
     out.push(d)
@@ -482,10 +703,10 @@ function context(d: ProjectDocument) {
     heelEnd: heel?.leftCorner.y ?? null,
     fretboardEnd: fretboard?.leftCorner.y ?? null,
     pockets: [heel, pocket].filter((p): p is NeckPocketGeometry => !!p).map(pocketPolygon),
-    others: d.pickupCavities.map((c) => ({
-      id: c.id,
-      points: translate(pickupProfile(c.profileId, c.profileVersion)!.samples, c.centerYmm),
-    })),
+    others: d.pickupCavities.flatMap((c) => {
+      const geometry = pickupGeometry(c)
+      return geometry ? [{ id: c.id, points: geometry.samples }] : []
+    }),
   }
 }
 type Context = ReturnType<typeof context>
@@ -530,11 +751,10 @@ export function pickupPlacementError(
   c: PickupCavity,
   ignoreId?: string,
 ): string | null {
-  const p = pickupProfile(c.profileId, c.profileVersion)
-  if (!p) return 'The pickup-cavity profile or version is unknown.'
-  if (!validNumber(c.centerYmm)) return 'The pickup-cavity location is invalid.'
   try {
-    return placementError(context(d), p.samples, c.centerYmm, ignoreId)
+    const geometry = pickupGeometry(c)
+    if (!geometry) return 'The pickup-cavity geometry is invalid.'
+    return placementError(context(d), geometry.samples, 0, ignoreId)
   } catch (e) {
     return (e as Error).message
   }
@@ -570,25 +790,35 @@ export function firstPickupPosition(
   const p = pickupProfile(profileId, profileVersion)
   if (!p) return null
   try {
+    const defaults = pickupDefaults(p)
+    const draft: PickupCavity = {
+      id: '__new__',
+      profileId,
+      profileVersion,
+      centerYmm: 0,
+      ...defaults,
+    }
+    const geometry = pickupGeometry(draft)
+    if (!geometry) return null
     const ctx = context(d),
-      b = extent(p.samples)
+      b = extent(geometry.samples)
     if (ctx.fretboardEnd === null || !ctx.bridge.length) return null
     const low = Math.max(ctx.bounds.minY, ctx.fretboardEnd) - b.minY + 2 * CONTACT
-    const bridgeContacts = contactOffsets(p.samples, ctx.bridge, false)
+    const bridgeContacts = contactOffsets(geometry.samples, ctx.bridge, false)
     const high = Math.min(ctx.bounds.maxY - b.maxY, ...bridgeContacts) - 2 * CONTACT
     if (!(high > low)) return null
     if (preferredDistanceMm !== undefined) {
       const by = bridgeCenterY(d)
-      if (by !== null && !placementError(ctx, p.samples, by - preferredDistanceMm))
+      if (by !== null && !placementError(ctx, geometry.samples, by - preferredDistanceMm))
         return by - preferredDistanceMm
     }
     const events = [
       low,
       high,
-      ...contactOffsets(p.samples, ctx.body).filter((y) => y > low && y < high),
+      ...contactOffsets(geometry.samples, ctx.body).filter((y) => y > low && y < high),
     ]
     for (const o of ctx.others) {
-      const ys = contactOffsets(p.samples, o.points)
+      const ys = contactOffsets(geometry.samples, o.points)
       if (ys.length) events.push(Math.min(...ys) - 2 * CONTACT, Math.max(...ys) + 2 * CONTACT)
     }
     const sorted = [...new Set(events.filter((y) => y >= low && y <= high))].sort((a, b) => a - b)
@@ -598,13 +828,13 @@ export function firstPickupPosition(
       const a = sorted[i],
         b = sorted[i + 1],
         mid = (a + b) / 2,
-        valid = b - a > 2 * CONTACT && !placementError(ctx, p.samples, mid)
+        valid = b - a > 2 * CONTACT && !placementError(ctx, geometry.samples, mid)
       if (valid) {
-        if (runStart === null || placementError(ctx, p.samples, a)) runStart = a
+        if (runStart === null || placementError(ctx, geometry.samples, a)) runStart = a
         const length = b - runStart
         if (!best || length > best.length) {
           const y = (runStart + b) / 2
-          if (!placementError(ctx, p.samples, y)) best = { y, length }
+          if (!placementError(ctx, geometry.samples, y)) best = { y, length }
         }
       } else runStart = null
     }

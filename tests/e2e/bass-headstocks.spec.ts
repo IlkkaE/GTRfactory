@@ -75,7 +75,7 @@ for (const [id, count, min, max] of [['bass-4-inline', 4, 42, 44.5]] as const) {
     await field(page, 'Nut width').fill(String(max))
     await page.getByRole('button', { name: 'Accept', exact: true }).click()
     const saved = await save(page, info.outputPath(id + '.gtrfactory'))
-    expect(saved.version).toBe(11)
+    expect(saved.version).toBe(12)
     expect(saved.neck.params.strings).toBe(count)
     expect(saved.neck.end.radiusMm).toBeCloseTo(5, 9)
     await page.getByTestId('project-file').setInputFiles(info.outputPath(id + '.gtrfactory'))

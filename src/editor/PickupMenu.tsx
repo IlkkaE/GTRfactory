@@ -1,6 +1,6 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { PICKUP_PROFILES } from '../pickup/profiles'
+import { PICKUP_PROFILES, pickupDefaults } from '../pickup/profiles'
 import { useAppStore } from '../store'
 
 const useMenuLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect
@@ -113,32 +113,37 @@ export function PickupProfileMenu({
               }
             }}
           >
-            {PICKUP_PROFILES.map((p) => (
-              <button
-                key={p.id + p.version}
-                role="menuitem"
-                disabled={p.id === current}
-                title={p.source}
-                data-string-count={p.stringCount}
-                onClick={() => {
-                  onChoose(p.id, p.version)
-                  close(true)
-                }}
-              >
-                <svg
-                  aria-hidden="true"
-                  viewBox={`${-p.widthMm / 2} ${-p.lengthMm / 2} ${p.widthMm} ${p.lengthMm}`}
+            {PICKUP_PROFILES.map((p) => {
+              const defaults = pickupDefaults(p)
+              return (
+                <button
+                  key={p.id + p.version}
+                  role="menuitem"
+                  disabled={p.id === current}
+                  title={p.source}
+                  data-string-count={p.stringCount}
+                  onClick={() => {
+                    onChoose(p.id, p.version)
+                    close(true)
+                  }}
                 >
-                  <path d={p.path} />
-                </svg>
-                <span>
-                  {p.name}
-                  <small>
-                    {p.stringCount} strings · {p.widthMm.toFixed(1)} × {p.lengthMm.toFixed(1)} mm
-                  </small>
-                </span>
-              </button>
-            ))}
+                  <svg
+                    aria-hidden="true"
+                    viewBox={`${-p.widthMm / 2} ${-p.lengthMm / 2} ${p.widthMm} ${p.lengthMm}`}
+                  >
+                    <path d={p.path} />
+                  </svg>
+                  <span>
+                    {p.name}
+                    <small>
+                      {p.stringCount} strings · {defaults.widthMm.toFixed(1)} ×{' '}
+                      {defaults.lengthMm.toFixed(1)} mm
+                      {defaults.angleDeg ? ` · ${defaults.angleDeg}°` : ''}
+                    </small>
+                  </span>
+                </button>
+              )
+            })}
           </div>,
           document.body,
         )}

@@ -3375,3 +3375,74 @@ Näyttö on paikallinen: ei fyysistä tulostusta/valmistusta, ulkoisen CAD-ohjel
 ## Yhteisjulkaisu 14.9.2026
 
 Käyttäjä valtuutti uusimman paikallisen version nettiin julkaisun. FretFactoryn Pages-ajo34837173194 julkaisi commit8dfe215 onnistuneesti; https://www.fretfactory.fi/gtrfactory/ varmistettiin desktop/mobile-selaimella. Täysi tuore yksikköajo246/246PASS (tmp/release-20260914/unit.log), build/type/formatPASS. Julkinen manifesti+6artifactSHA, linkki/reload, kätisyys/Undo sekä SVG/DXF/PDF-latauksetPASS. Ei erillistä GTR-lähderepositoriota tai Git-historiaa julkaistu. Fyysinen valmistus, natiivi Save As ja aiemmat rajatut porttitestit eivät muutu tällä näytöllä varmennetuiksi. Yhteisjulkaisun tarkka ledger on FretFactoryn docs/shared-release.md.
+# Mikrofonikolon kulma ja mitat — TOTEUTETTU, QA VERIFIED (20.9.2026)
+
+## Tavoite
+
+Valitun mikrofonikolon kontekstityökaluihin lisätään yksi absoluuttinen kulmaparametri sekä paikalliset leveys- ja pituusmitat. Muutettu kontuuri näkyy, törmäystarkistetaan ja viedään SVG-, DXF- ja PDF-piirustuksiin yhtenäisenä geometriana.
+
+## Ei-tavoitteet
+
+Ei Z-akselia, uutta vedettävää kiertokahvaa, vapaata X-siirtoa, uusia mikrofoniprofiileja tai valmistuskelpoisuuden lupausta.
+
+## Käyttäjän vahvistamat päätökset
+
+Käyttäjä pyysi 20.9.2026 kulmasäädön yhdellä parametrilla sekä kolon leveyden ja pituuden muokkaamisen ja valtuutti toteutuksen sekä julkaisun, jos varmennuksessa ei löydy estävää ongelmaa. Keskipiste säilyy keskilinjalla. Tekniset rajat ovat 1–1000 mm ja −180…180°.
+
+## Sallitut paikalliset oletukset
+
+Kulma on kanonisen oikeakätisen geometrian absoluuttinen kulma. Leveys ja pituus ovat kolon paikalliset ulkomitat ennen kiertoa. Kokonainen profiili, mukaan lukien korvat ja pyöristykset, skaalautuu affiinisesti. Muokattu profiili merkitään viennissä custom-muotoiseksi.
+
+## Käyttäytymispolut
+
+Valittu etunäkymän mikrofonikolo näyttää Angle-, Width- ja Length-kentät nykyisessä mm/in-yksikössä. Enter tai blur tekee yhden undo-askeleen, Escape palauttaa kentän ja pilkku hyväksytään desimaalierottimeksi. Virheellinen arvo tai kontuurin törmäys hylätään atomisesti. Profiilin vaihto palauttaa uuden profiilin oletuskulman ja -mitat, säilyttää keskipisteen ja hylkää virheellisen sijoituksen. Kaikki editori-, collision- ja vientipolut käyttävät samaa lopullista geometriaa; vasenkätisyys peilaa sen kerran viennissä.
+
+## Muutettavat vastuualueet tai tiedostot
+
+`model/project`, `file/projectFile`, `pickup/profiles`, `store`, `editor/ContextTools`, `editor/EditorCanvas`, `export/geometry` ja niitä koskevat testit.
+
+## Säilytettävät rajat
+
+Yhdeksän profiilia, 64 kolon raja, olemassa olevat body-, kaula-, tasku-, tallalinja- ja keskinäiset törmäyssäännöt, kätisyys, bass5-hylkäys ja neck snapshot -validointi säilyvät.
+
+## Tietomalli- ja rajapintamuutokset
+
+Projektiformaatti nostetaan v12:een. PickupCavity tallentaa pakollisina `angleDeg`, `widthMm` ja `lengthMm`. V10/V11 luetaan v12:ksi profiilin oletuksilla; vanhan version uudet kentät hylätään. V12 vaatii kaikki uudet kentät. V1–V9 säilyvät hylättyinä.
+
+## Toteutusjärjestys
+
+Yhteinen transformoitu pickup-geometria, store/parser, editori, viennit ja mittataulukko, testit ja varmennus.
+
+## Hyväksymiskriteerit
+
+Oletusprofiilit, myös Tele 17°, säilyttävät geometriansa; kulma ja mitat vaikuttavat samaan kontuuriin kaikissa kuluttajissa. Epätasainen skaalaus muuttaa ympyräkaaret rajoitetun virheen (<0,01 mm) kuutio-Béziereiksi, tasainen skaalaus säilyttää ympyräkaaret. V12 round-trip ja v10/v11 migraatio toimivat; virheellinen data ei korvaa nykyistä dokumenttia. Mittataulukossa näkyvät profiili/custom, mitat, kulma ja tallan etäisyys, kun etu/yleiskuva, mikrofonit ja mittataulukko ovat mukana.
+
+## Testit ja muut varmennustasot
+
+Yksikkö-, store-, parser-, export- ja Edge E2E-testit kattavat kulman, mitat, collisionin, undo/redo:n, migrationin, RH/LH-viennit ja ellipsin virherajan. Ajetaan typecheck, test:run, format:check, test:port-conflict, build ja relevantti E2E; julkaisu edellyttää lisäksi riippumatonta QA:ta, artefaktitarkistusta ja release checkiä. Fyysistä jyrsintää ei varmenneta.
+
+## Dokumentaatiovaikutukset
+
+README:n ja AGENTS.md:n nykytilaväitteet on synkronoitu tämän toteutuksen ja QA-ledgerin perusteella. Julkinen snapshot ja verkko-osoitteen varmennus ovat vielä erillisiä avoimia vaiheita.
+
+## Riskit ja ratkaisematta jääneet asiat
+
+Käyttäjän poikkeava mittamuoto voi tehdä nimetystä profiilista epätyypillisen; ohjelma ei lupaa osasopivuutta. Julkaisu ja fyysinen valmistus ovat erillisiä varmennustasoja.
+
+## Toteutusvaltuutuksen tila
+
+Toteutus tehty käyttäjän 20.9.2026 pyynnön perusteella. Riippumaton QA on VERIFIED. Julkaisulupa on voimassa, mutta julkinen snapshot, GitHub Pages -ajo ja julkinen artefaktivarmennus ovat vielä tekemättä.
+
+## VERIFICATION LEDGER
+
+| Tarkistus tai kriteeri | Komento tai menetelmä | Tulos | Todistettava asia | Ajankohta ja voimassaolo |
+|---|---|---|---|---|
+| Full browser regression | `node tmp/pickup-shape/run-playwright.mjs qa-full-e2e test --workers=1 --reporter=line` | PASS, 136/136, exit 0 | Desktop- ja iPhone 13 -simulaation pickup-, tallennus-, avaus- ja historiapolut toimivat | 20.9.2026; voimassa muuttamattomalle lähteelle |
+| Pickup UI ja virhetilat | Edge desktop/mobile, `qa-browser.mjs` | PASS | Angle, Width, Length, profiilin vaihto, poisto, bridge-etäisyys ja virhenäkymä säilyvät ilman overflow- tai selainvirheitä | 20.9.2026; voimassa muuttamattomalle lähteelle |
+| Kohdennetut pickup-polut | `node tmp/pickup-shape/run-playwright.mjs qa-pickup-e2e test tests/e2e/pickups.spec.ts --workers=1 --reporter=line` | PASS, 16/16, exit 0 | Yksiköt, desimaalipilkku, Escape, undo/redo, profiilin reset, v12:n avaus sekä collision/neck-polut toimivat | 20.9.2026; voimassa muuttamattomalle lähteelle |
+| Yksikkö- ja integraatiotestit | `npm run test:run` | PASS, 253/253; lisäksi kohdennettu korjausajo 45/45 | Store, parseri, geometria, editorisopimukset ja viennit kattavat v12-mallin | 20.9.2026; lopullinen lähde |
+| Riippumaton geometriakoe | `npx vitest run --config tmp/pickup-shape/qa-artifact-vitest.config.ts` | PASS, 6/6 | Yhdeksän oletusprofiilia säilyy, 37° affine-muunnos, kuutioiksi muunnos, RH/LH-peilaus ja v10/v11→v12-säännöt täsmäävät | 20.9.2026; lopullinen lähde |
+| Todelliset vientiartifaktit | Selaimesta ladatut SVG/DXF/PDF:t ja `audit-artifacts.py` | PASS, 6/6 | Mukautettu, käännetty geometria ja mittatiedot ovat samoissa fyysisissä koordinaateissa kaikissa vientimuodoissa | 20.9.2026; paikalliset artefaktit |
+| Tyyppi, muotoilu, portit ja build | `npm run typecheck`, `npm run format:check`, `npm run test:port-conflict`, `npm run build` | PASS | Lähde ja tuotantobuildi ovat teknisesti kelvolliset | 20.9.2026; lopullinen build `index-D_11UJ9t.js`, PDF `pdf-DaPDyrUh.js` |
+
+QA-ledgerin mukaan alkuperäinen full E2E oli 136/136 ennen viimeistä editorin custom-label-korjausta; korjauksen jälkeen kohdennettu pickup-ajo oli 16/16. Näitä ei yhdistetä yhdeksi väitteeksi samasta buildistä. Fyysinen valmistus, natiivi Save As, ulkoinen CAD-tuonti, fyysinen mobiililaite ja julkinen deployment ovat avoimia varmennustasoja. Katso `tmp/pickup-shape/qa-ledger.md` yksityiskohtaisista lokeista ja artefaktitiedoista.

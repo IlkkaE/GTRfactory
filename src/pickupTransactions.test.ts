@@ -21,7 +21,7 @@ describe('pickup document and editor transactions', () => {
     const unsupported = structuredClone(initial) as any
     unsupported.version = 5
     expect(() => parseProject(JSON.stringify(unsupported))).toThrow(
-      'supported versions are 10 and 11',
+      'supported versions are 10, 11 and 12',
     )
     expect(state().document).toEqual(initial)
     expect(
@@ -117,6 +117,34 @@ describe('pickup document and editor transactions', () => {
     state().setPickupCenter(id, bridgeCenterY(state().document)!)
     expect(state().message).toBeTruthy()
     unchanged(before)
+  })
+  it('changes angle and local dimensions atomically, supports one undo, guards drafts, and resets on profile change', () => {
+    const id = state().document.pickupCavities[0].id
+    const before = state()
+    state().setPickupTransform(id, { angleDeg: 18, widthMm: 90, lengthMm: 44 })
+    expect(state().document.pickupCavities[0]).toMatchObject({
+      angleDeg: 18,
+      widthMm: 90,
+      lengthMm: 44,
+    })
+    expect(state().history).toHaveLength(1)
+    state().undo()
+    expect(state().document).toEqual(before.document)
+    state().redo()
+    const changed = state()
+    state().setPickupTransform(id, { angleDeg: 18, widthMm: 90, lengthMm: 44 })
+    unchanged(changed)
+    state().setPickupTransform(id, { widthMm: 1001 })
+    expect(state().message).toBeTruthy()
+    unchanged(changed)
+    state().changePickupProfile(id, 'ssl1-strat', 1)
+    expect(state().document.pickupCavities[0].angleDeg).toBe(0)
+    expect(state().document.pickupCavities[0].widthMm).not.toBe(90)
+    state().startNeckDraft()
+    const guarded = state()
+    state().setPickupTransform(id, { angleDeg: 5 })
+    unchanged(guarded)
+    state().cancelNeckDraft()
   })
   it('keeps selection clean, cancels preview, and commits a drag as exactly one undo', () => {
     const before = state(),

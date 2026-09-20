@@ -23,7 +23,7 @@ describe('bass headstock presets', () => {
     expect(state().message).toBeNull()
     let d = state().document,
       g = headstockGeometry(d)
-    expect(d.version).toBe(11)
+    expect(d.version).toBe(12)
     expect(d.neck!.params.strings).toBe(4)
     expect(d.neck!.params.frets).toBe(21)
     expect(d.neck!.physicalProfile).toEqual({ nutWidthMm: 44.5, widthAt12thMm: 57.6 })

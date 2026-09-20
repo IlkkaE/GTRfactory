@@ -329,7 +329,7 @@ test('automatic neck pocket preserves its fixed centre and a free body segment t
   const destination = info.outputPath('neck-v4.gtrfactory')
   await (await pending).saveAs(destination)
   const saved = parseProject(await readFile(destination, 'utf8'))
-  expect(saved.version).toBe(11)
+  expect(saved.version).toBe(12)
   expect(saved.neck?.end.radiusMm).toBe(8)
   expect(saved.body.outline.nodes.find((n) => n.id === 'starter-02')?.outgoing).toBe('line')
   await fileAction(page, 'New')

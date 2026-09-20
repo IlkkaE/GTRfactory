@@ -80,7 +80,7 @@ test('default neck and direct keyboard selection share three labelled views', as
   await settle(page)
   expect((await page.locator('.large .body-path').getAttribute('d'))!.match(/ A /g)).toHaveLength(2)
   const saved = await download(page, info.outputPath('default.gtrfactory'))
-  expect(saved.version).toBe(11)
+  expect(saved.version).toBe(12)
   expect(saved.neck.params).toMatchObject({
     frets: 22,
     strings: 6,

@@ -9,7 +9,12 @@ import { pchipToBezierSegments } from '../neck/vendor/pchip'
 import { headstockGeometry, headstockFit, tunerHoles } from '../headstock/template'
 import { bassDerivedLayout, isBassTemplate } from '../headstock/bass'
 import type { ProjectDocument } from '../model/project'
-import { pickupProfile, pickupPlacementError } from '../pickup/profiles'
+import {
+  isPickupCustomized,
+  pickupDistanceToBridge,
+  pickupGeometry,
+  pickupPlacementError,
+} from '../pickup/profiles'
 import {
   backTemplateGeometry,
   frontTemplateGeometry,
@@ -177,26 +182,41 @@ function headstockContour(document: ProjectDocument): ExportPath | null {
 }
 function pickupSegments(document: ProjectDocument): ExportPath[] {
   return document.pickupCavities.flatMap((c) => {
-    const profile = pickupProfile(c.profileId, c.profileVersion)
-    if (!profile) return []
-    const segments: ExportSegment[] = profile.segments.map((s) =>
+    const geometry = pickupGeometry(c)
+    if (!geometry) return []
+    const segments: ExportSegment[] = geometry.segments.map((s) =>
       s.type === 'line'
         ? {
             type: 'line',
-            from: { x: s.from.x, y: s.from.y + c.centerYmm },
-            to: { x: s.to.x, y: s.to.y + c.centerYmm },
+            from: s.from,
+            to: s.to,
           }
-        : {
-            type: 'circularArc',
-            from: { x: s.from.x, y: s.from.y + c.centerYmm },
-            to: { x: s.to.x, y: s.to.y + c.centerYmm },
-            center: { x: s.center.x, y: s.center.y + c.centerYmm },
-            radiusMm: s.radiusMm,
-            sweep: s.sweep,
-            largeArc: s.largeArc,
-          },
+        : s.type === 'cubicBezier'
+          ? {
+              type: 'cubicBezier',
+              from: s.from,
+              control1: s.control1,
+              control2: s.control2,
+              to: s.to,
+            }
+          : {
+              type: 'circularArc',
+              from: s.from,
+              to: s.to,
+              center: s.center,
+              radiusMm: s.radiusMm,
+              sweep: s.sweep,
+              largeArc: s.largeArc,
+            },
     )
-    return [path('ROUTE_PICKUP', segments, true, profile.name)]
+    return [
+      path(
+        'ROUTE_PICKUP',
+        segments,
+        true,
+        geometry.profile.name + (isPickupCustomized(c) ? ' (custom)' : ''),
+      ),
+    ]
   })
 }
 
@@ -366,7 +386,11 @@ function makePart(document: ProjectDocument, id: ExportPart, o: ExportOptions): 
   }
   return { id, name: PART_NAMES[id], paths, circles, bounds: boundsOf(paths, circles) }
 }
-function measurements(document: ProjectDocument, ids: ExportPart[]): Measurement[] {
+function measurements(
+  document: ProjectDocument,
+  ids: ExportPart[],
+  includePickups: boolean,
+): Measurement[] {
   const rows: Measurement[] = []
   const add = (group: string, label: string, value: number, count = false, unit?: 'deg') => {
     if (Number.isFinite(value)) rows.push({ group, label, value, count, unit })
@@ -379,6 +403,19 @@ function measurements(document: ProjectDocument, ids: ExportPart[]): Measurement
       const b = boundsOf([path('CUT_OUTER', g.cut.segments.map(fromTemplate))])
       add('Body', 'Length', b.height)
       add('Body', 'Maximum width', b.width)
+    }
+  }
+  if (includePickups && has('front') && document.pickupCavities.length) {
+    for (const c of document.pickupCavities) {
+      const g = pickupGeometry(c)
+      if (!g) continue
+      const custom = isPickupCustomized(c)
+      const group = custom ? `Pickup: ${g.profile.name} (custom)` : `Pickup: ${g.profile.name}`
+      add(group, 'Width', c.widthMm)
+      add(group, 'Length', c.lengthMm)
+      add(group, 'Angle', c.angleDeg, false, 'deg')
+      const distance = pickupDistanceToBridge(document, c)
+      if (distance !== null) add(group, 'Distance to bridge', distance)
     }
   }
   const n = document.neck
@@ -481,7 +518,11 @@ export function buildExportDrawing(
       : canonicalParts
   let rows: Measurement[] = []
   if (options.includeMeasurements) {
-    rows = measurements(document, options.allMeasurements ? order : options.parts)
+    rows = measurements(
+      document,
+      options.allMeasurements ? order : options.parts,
+      options.includePickups,
+    )
     rows.unshift({
       group: 'Instrument',
       label: 'Handedness',

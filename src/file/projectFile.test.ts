@@ -20,14 +20,14 @@ describe('project file', () => {
     const unsupported = structuredClone(current) as any
     unsupported.version = 5
     expect(() => parseProject(JSON.stringify(unsupported))).toThrow(
-      'supported versions are 10 and 11',
+      'supported versions are 10, 11 and 12',
     )
     const equal = structuredClone(current)
     equal.neck = null
     const withNeck = structuredClone(createStarterDocument())
     expect(() => parseProject(JSON.stringify(equal))).not.toThrow()
     const state = parseProject(serializeProject(withNeck))
-    expect(state.version).toBe(11)
+    expect(state.version).toBe(12)
   })
   it('accepts and removes an inactive legacy bass-5 variant, but rejects active or foreign variants', () => {
     const current = createStarterDocument()
@@ -43,6 +43,11 @@ describe('project file', () => {
     )
     legacy.version = 10
     delete legacy.handedness
+    for (const cavity of legacy.pickupCavities) {
+      delete cavity.angleDeg
+      delete cavity.widthMm
+      delete cavity.lengthMm
+    }
     const loaded = parseProject(JSON.stringify(legacy))
     expect(Object.keys(loaded.neck!.headstock.variants)).toEqual([
       'inline',
@@ -191,10 +196,36 @@ it('reads v10 as right-handed, requires v11 handedness, and rejects v10 left', (
   const v10 = JSON.parse(serializeProject(current))
   v10.version = 10
   delete v10.handedness
-  expect(parseProject(JSON.stringify(v10))).toMatchObject({ version: 11, handedness: 'right' })
+  for (const cavity of v10.pickupCavities) {
+    delete cavity.angleDeg
+    delete cavity.widthMm
+    delete cavity.lengthMm
+  }
+  expect(parseProject(JSON.stringify(v10))).toMatchObject({ version: 12, handedness: 'right' })
   v10.handedness = 'left'
   expect(() => parseProject(JSON.stringify(v10))).toThrow('cannot declare left-handedness')
   const v11 = JSON.parse(serializeProject(current))
   delete v11.handedness
   expect(() => parseProject(JSON.stringify(v11))).toThrow('require handedness')
+})
+
+it('migrates v10/v11 pickup defaults and rejects transform fields in old versions atomically', () => {
+  useAppStore.getState().newProject()
+  const current = JSON.parse(serializeProject(useAppStore.getState().document))
+  const old = structuredClone(current)
+  old.version = 11
+  for (const cavity of old.pickupCavities) {
+    delete cavity.angleDeg
+    delete cavity.widthMm
+    delete cavity.lengthMm
+  }
+  const migrated = parseProject(JSON.stringify(old))
+  expect(migrated.version).toBe(12)
+  expect(migrated.pickupCavities[0]).toMatchObject({ angleDeg: 0 })
+  const invalid = structuredClone(old)
+  invalid.pickupCavities[0].widthMm = 45
+  expect(() => parseProject(JSON.stringify(invalid))).toThrow('Older project versions')
+  const v12 = structuredClone(current)
+  delete v12.pickupCavities[0].angleDeg
+  expect(() => parseProject(JSON.stringify(v12))).toThrow('require angle and dimensions')
 })
