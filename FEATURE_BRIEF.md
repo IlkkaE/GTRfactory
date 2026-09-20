@@ -3423,7 +3423,7 @@ Yksikkö-, store-, parser-, export- ja Edge E2E-testit kattavat kulman, mitat, c
 
 ## Dokumentaatiovaikutukset
 
-README:n ja AGENTS.md:n nykytilaväitteet on synkronoitu tämän toteutuksen ja QA-ledgerin perusteella. Julkinen snapshot ja verkko-osoitteen varmennus ovat vielä erillisiä avoimia vaiheita.
+README:n ja AGENTS.md:n nykytilaväitteet on synkronoitu tämän toteutuksen ja QA-ledgerin perusteella. Julkinen snapshot ja verkko-osoitteen varmennus valmistuivat alla olevan julkaisukuittauksen mukaisesti.
 
 ## Riskit ja ratkaisematta jääneet asiat
 
@@ -3431,7 +3431,7 @@ Käyttäjän poikkeava mittamuoto voi tehdä nimetystä profiilista epätyypilli
 
 ## Toteutusvaltuutuksen tila
 
-Toteutus tehty käyttäjän 20.9.2026 pyynnön perusteella. Riippumaton QA on VERIFIED. Julkaisulupa on voimassa, mutta julkinen snapshot, GitHub Pages -ajo ja julkinen artefaktivarmennus ovat vielä tekemättä.
+Toteutus tehty käyttäjän 20.9.2026 pyynnön perusteella. Riippumaton QA on VERIFIED. Julkaisulupa käytettiin alla dokumentoituun yhteisjulkaisuun; GitHub Pages ja julkinen varmennus valmistuivat.
 
 ## VERIFICATION LEDGER
 
@@ -3445,4 +3445,22 @@ Toteutus tehty käyttäjän 20.9.2026 pyynnön perusteella. Riippumaton QA on VE
 | Todelliset vientiartifaktit | Selaimesta ladatut SVG/DXF/PDF:t ja `audit-artifacts.py` | PASS, 6/6 | Mukautettu, käännetty geometria ja mittatiedot ovat samoissa fyysisissä koordinaateissa kaikissa vientimuodoissa | 20.9.2026; paikalliset artefaktit |
 | Tyyppi, muotoilu, portit ja build | `npm run typecheck`, `npm run format:check`, `npm run test:port-conflict`, `npm run build` | PASS | Lähde ja tuotantobuildi ovat teknisesti kelvolliset | 20.9.2026; lopullinen build `index-D_11UJ9t.js`, PDF `pdf-DaPDyrUh.js` |
 
-QA-ledgerin mukaan alkuperäinen full E2E oli 136/136 ennen viimeistä editorin custom-label-korjausta; korjauksen jälkeen kohdennettu pickup-ajo oli 16/16. Näitä ei yhdistetä yhdeksi väitteeksi samasta buildistä. Fyysinen valmistus, natiivi Save As, ulkoinen CAD-tuonti, fyysinen mobiililaite ja julkinen deployment ovat avoimia varmennustasoja. Katso `tmp/pickup-shape/qa-ledger.md` yksityiskohtaisista lokeista ja artefaktitiedoista.
+QA-ledgerin mukaan alkuperäinen full E2E oli 136/136 ennen viimeistä editorin custom-label-korjausta; korjauksen jälkeen kohdennettu pickup-ajo oli 16/16. Näitä ei yhdistetä yhdeksi väitteeksi samasta buildistä. Fyysinen valmistus, natiivi Save As, ulkoinen CAD-tuonti ja fyysinen mobiililaite ovat avoimia varmennustasoja. Julkisen deploymentin näyttö on alla. Katso `tmp/pickup-shape/qa-ledger.md` yksityiskohtaisista lokeista ja artefaktitiedoista.
+
+
+## Mikrofonisäädöt ja etusivun otsikko — julkaisu 20.9.2026
+
+Käyttäjä valtuutti mikrofonikolojen julkaisun ja saman julkaisun yhteydessä etusivun paikallisen tekstikorjauksen commitin, pushin ja Pages-varmennuksen. Otsikko on **Design your guitar**; **from fretboard to wiring.** on poistettu. FretFactoryn muut keskeneräiset output/PNG-tiedostot jätettiin koskematta.
+
+| Tarkistus | Menetelmä ja lähtötila | Tulos ja voimassaolo |
+|---|---|---|
+| Julkaisukatselmus | Riippumaton release_check ennen commitia/pushia ja puhtaan snapshotin jälkeen | READY WITH WARNINGS; ainoastaan vanha juuren favicon.ico-404, ei toiminnallista estettä |
+| GTR-lähde | Commit `8199cfd4b203feb850ba4079142b15e598d70c17`, main-push | PASS; puhdas lähde, v12-pickup-muutos |
+| Puhtaan lähteen snapshot | Source SHA256 `1e96983f735ca07dbc17dc69baab2683818305e8edfc819a1c14ee4f9049c8dd`, kuuden tiedoston hash-pariteetti selainkokeen ehdokkaaseen | PASS; vain manifestin aika, commit ja sourceDirty muuttuivat. SourceDirty=false; tmp/pickup-shape/final-parity.json |
+| Yhteissivuston tarkistukset | 63/63 test:run, 11/11 test:release ja build/postbuild; metadatarefreshin jälkeen 11/11 test:release | PASS; site-*-final.log ja site-contract-clean.log; riippuvuudet ennallaan, tuotantoaudit 0 haavoittuvuutta |
+| Paikallinen tuotantopaketti | Edge desktop ja iPhone13-kokoinen Chromium-simulaatio, landinglinkki/reload, otsikko ja ladattu JS, 8 astetta / 80 x 30 mm LH-kolo, v12-projekti ja SVG/DXF/PDF | PASS; site-local-browser/results.json ja kuusi todellista vientiä; kuvat tarkistettu |
+| Pages-julkaisu | FretFactory main `1ca3a56f39815417c5a97c2423f8a93560b9a905`; [ajo 35527525349](https://github.com/IlkkaE/fretfactory/actions/runs/35527525349) | SUCCESS, build ja deploy; pages-result.json, valmistui 20.9.2026 17:58:44 UTC |
+| Julkiset tiedostot | HTTPS-manifesti ja kaikki kuusi hashia verrattu paikalliseen lopulliseen snapshotiin | PASS; live-http.json; GTR JS index-BC1xoxdp.js, PDF pdf-DHfM0kVn.js |
+| Julkinen selain | https://www.fretfactory.fi/ -> /gtrfactory/, tuore Edge desktop/mobile; täsmällinen otsikko, vanha fraasi puuttuu linkitetyistä skripteistä, reload, säädöt, v12-save ja kuusi SVG/DXF/PDF-latausta | PASS, ei sovellusvirheitä; live-browser/results.json ja ladatut artefaktit. Vanhasta favicon.ico404:stä kirjattu erillinen varoitus. |
+
+Paikallinen riippumaton geometria- ja artefaktiauditointi yllä sekä julkisen paketin tavutason vastaavuus säilyttävät geometriavarmennuksen. Julkiset lataukset tarkistettiin myös erikseen rakenteellisesti (v12-arvot, SVG-rooli/custom, DXF-rooli/SPLINE, luettava PDF). Tämä ei ole fyysisen paperimittakaavan, valmistuksen, ulkoisen CAD-tuonnin, natiivin Save As -dialogin tai fyysisen mobiililaitteen koe. Julkaisukuittauksen myöhempi dokumentaatiocommit ei muuta 8199cfd-lähteestä rakennettuja sovellustiedostoja.
