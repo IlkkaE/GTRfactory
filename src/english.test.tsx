@@ -37,7 +37,7 @@ describe('English interface and unchanged user content', () => {
     const loaded = parseProject(serializeProject(document))
     expect(loaded).toEqual(document)
     expect(loaded.name).toBe('Äänen ystävä — oma kitara')
-    expect(loaded.version).toBe(12)
+    expect(loaded.version).toBe(13)
     expect(loaded.body.rearElectronicsCavity?.profileId).toBe('potero-v1')
   })
 
@@ -48,7 +48,7 @@ describe('English interface and unchanged user content', () => {
     expect(() => parseProject('{')).toThrow('not valid GTRfactory JSON')
     const document = { ...createStarterDocument(), version: 8 }
     expect(() => parseProject(JSON.stringify(document))).toThrow(
-      'supported versions are 10, 11 and 12',
+      'supported versions are 10, 11, 12 and 13',
     )
   })
 
@@ -58,12 +58,14 @@ describe('English interface and unchanged user content', () => {
       'three-three-2',
       'three-three-3',
       'bass-4-inline',
+      'headless',
     ])
     expect(HEADSTOCK_TEMPLATE_DEFINITIONS.map((template) => template.name)).toEqual([
       'Inline',
       '3+3 — Headstock 2',
       '3+3 — Headstock 3',
       'Bass — 4 strings',
+      'Headless',
     ])
     expect(PART_NAMES.front).toBe('Body - front')
     expect(PART_NAMES.headstock).toBe('Headstock')

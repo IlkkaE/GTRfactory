@@ -19,7 +19,7 @@ export interface OutlineNode {
 }
 export interface ProjectDocument {
   format: 'gtrfactory-project'
-  version: 12
+  version: 13
   handedness: Handedness
   units: 'mm'
   name: string
@@ -131,7 +131,7 @@ export const starterBodyOutline = (): OutlineNode[] =>
 export function createStarterDocument(): ProjectDocument {
   return {
     format: 'gtrfactory-project',
-    version: 12,
+    version: 13,
     handedness: 'right',
     units: 'mm',
     name: '',

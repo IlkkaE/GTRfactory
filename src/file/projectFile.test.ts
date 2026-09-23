@@ -20,14 +20,14 @@ describe('project file', () => {
     const unsupported = structuredClone(current) as any
     unsupported.version = 5
     expect(() => parseProject(JSON.stringify(unsupported))).toThrow(
-      'supported versions are 10, 11 and 12',
+      'supported versions are 10, 11, 12 and 13',
     )
     const equal = structuredClone(current)
     equal.neck = null
     const withNeck = structuredClone(createStarterDocument())
     expect(() => parseProject(JSON.stringify(equal))).not.toThrow()
     const state = parseProject(serializeProject(withNeck))
-    expect(state.version).toBe(12)
+    expect(state.version).toBe(13)
   })
   it('accepts and removes an inactive legacy bass-5 variant, but rejects active or foreign variants', () => {
     const current = createStarterDocument()
@@ -54,6 +54,7 @@ describe('project file', () => {
       'three-three-2',
       'three-three-3',
       'bass-4-inline',
+      'headless',
     ])
     expect(JSON.parse(serializeProject(loaded)).neck.headstock.variants).not.toHaveProperty(
       'bass-5-inline',
@@ -201,7 +202,7 @@ it('reads v10 as right-handed, requires v11 handedness, and rejects v10 left', (
     delete cavity.widthMm
     delete cavity.lengthMm
   }
-  expect(parseProject(JSON.stringify(v10))).toMatchObject({ version: 12, handedness: 'right' })
+  expect(parseProject(JSON.stringify(v10))).toMatchObject({ version: 13, handedness: 'right' })
   v10.handedness = 'left'
   expect(() => parseProject(JSON.stringify(v10))).toThrow('cannot declare left-handedness')
   const v11 = JSON.parse(serializeProject(current))
@@ -220,7 +221,7 @@ it('migrates v10/v11 pickup defaults and rejects transform fields in old version
     delete cavity.lengthMm
   }
   const migrated = parseProject(JSON.stringify(old))
-  expect(migrated.version).toBe(12)
+  expect(migrated.version).toBe(13)
   expect(migrated.pickupCavities[0]).toMatchObject({ angleDeg: 0 })
   const invalid = structuredClone(old)
   invalid.pickupCavities[0].widthMm = 45

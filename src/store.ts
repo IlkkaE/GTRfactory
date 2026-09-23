@@ -50,6 +50,7 @@ import {
   isProtectedHeadstockNode,
   supportsHeadstock,
   validateHeadstock,
+  isHeadless,
 } from './headstock/template'
 
 export type ViewId = 'front' | 'back' | 'pocket'
@@ -837,7 +838,7 @@ export const useAppStore = create<EditorState>()((set) => {
             if (!derived?.neck) throw new Error('The bass neck cannot be fitted to this body.')
             return derived
           }
-          if (currentBass) {
+          if (currentBass || (isHeadless(currentId) && !isHeadless(id))) {
             d.neck!.headstock = createHeadstock()
             d.neck!.headstock.activeTemplateId = id
             d.neck!.physicalProfile = null

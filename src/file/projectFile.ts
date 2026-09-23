@@ -302,6 +302,7 @@ function neck(value: unknown, allowLegacyBass5 = false): NeckDocument | null {
     }
   const rawHeadstock = object(raw.headstock),
     rawVariants = object(rawHeadstock.variants)
+  if (!('headless' in rawVariants)) rawVariants['headless'] = { version: 1, nodes: [] }
   const variantKeys = Object.keys(rawVariants),
     legacyBass5Key = 'bass-5-inline',
     activeTemplateId = rawHeadstock.activeTemplateId as string,
@@ -325,6 +326,11 @@ function neck(value: unknown, allowLegacyBass5 = false): NeckDocument | null {
   const variants = Object.fromEntries(
     HEADSTOCK_TEMPLATE_IDS.map((id) => {
       const variant = object(rawVariants[id])
+      if (id === 'headless') {
+        if (variant.version !== 1 || !Array.isArray(variant.nodes) || variant.nodes.length !== 0)
+          throw new Error('The headstock structure or profile version is invalid.')
+        return [id, { version: 1 as const, nodes: [] }]
+      }
       if (variant.version !== 1 || !Array.isArray(variant.nodes) || variant.nodes.length > 128)
         throw new Error('The headstock structure or profile version is invalid.')
       const nodes = variant.nodes.map((v) => {
@@ -356,7 +362,9 @@ function neck(value: unknown, allowLegacyBass5 = false): NeckDocument | null {
     variants,
   }
   if (
-    ([7, 8].includes(params.strings) && headstock.activeTemplateId !== 'inline') ||
+    ([7, 8].includes(params.strings) &&
+      headstock.activeTemplateId !== 'inline' &&
+      headstock.activeTemplateId !== 'headless') ||
     (isBassTemplate(headstock.activeTemplateId) && params.strings !== 4)
   )
     throw new Error('The active headstock template does not match the neck string count.')
@@ -390,9 +398,9 @@ export function parseProject(text: string): ProjectDocument {
   const d = object(raw)
   if (d.format !== 'gtrfactory-project')
     throw new Error('The file format, unit, or coordinate system is invalid.')
-  if (d.version !== 10 && d.version !== 11 && d.version !== 12)
+  if (d.version !== 10 && d.version !== 11 && d.version !== 12 && d.version !== 13)
     throw new Error(
-      'This project version is not supported. The supported versions are 10, 11 and 12.',
+      'This project version is not supported. The supported versions are 10, 11, 12 and 13.',
     )
   const importedVersion = d.version
   const handedness: Handedness =
@@ -516,10 +524,10 @@ export function parseProject(text: string): ProjectDocument {
     const profile = pickupProfile(p.profileId, profileVersion)!
     const hasTransform =
       Object.hasOwn(p, 'angleDeg') || Object.hasOwn(p, 'widthMm') || Object.hasOwn(p, 'lengthMm')
-    if (importedVersion !== 12 && hasTransform)
+    if (importedVersion < 12 && hasTransform)
       throw new Error('Older project versions cannot contain pickup-cavity transform values.')
     const transform =
-      importedVersion === 12
+      importedVersion >= 12
         ? (() => {
             if (
               !Object.hasOwn(p, 'angleDeg') ||
@@ -556,7 +564,7 @@ export function parseProject(text: string): ProjectDocument {
   })
   const result: ProjectDocument = {
     format: 'gtrfactory-project',
-    version: 12,
+    version: 13,
     handedness,
     units: 'mm',
     name: d.name,

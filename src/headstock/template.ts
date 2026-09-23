@@ -52,6 +52,7 @@ export type { HeadstockDocument, HeadstockTemplateId }
 export function createHeadstock(): HeadstockDocument {
   return createHeadstockVariants()
 }
+export const isHeadless = (id: HeadstockTemplateId) => id === 'headless'
 export const activeHeadstockNodes = (document: ProjectDocument | HeadstockDocument) =>
   activeNodes(document)
 export const isProtectedHeadstockNode = (id: string, headstock?: HeadstockDocument) =>
@@ -65,12 +66,15 @@ export const isProtectedHeadstockHandle = (
 export const supportsHeadstock = (document: ProjectDocument) =>
   !!document.neck &&
   ([6, 7, 8].includes(document.neck.params.strings) ||
-    isBassTemplate(document.neck.headstock.activeTemplateId))
+    isBassTemplate(document.neck.headstock.activeTemplateId) ||
+    isHeadless(document.neck.headstock.activeTemplateId))
 export const canSplitHeadstockSegment = (document: ProjectDocument, id: string) =>
   coreCanSplit(document, id)
 export const canDeleteHeadstockNode = (document: ProjectDocument, id: string) =>
   coreCanDelete(document, id)
 export function splitHeadstockNodes(document: ProjectDocument, id: string, t = 0.5): OutlineNode[] {
+  if (document.neck && isHeadless(document.neck.headstock.activeTemplateId))
+    throw new Error('A headless guitar has no headstock nodes.')
   if (!canSplitHeadstockSegment(document, id))
     throw new Error("Only a segment of the headstock's free curve can be split.")
   const before = activeNodes(document),
@@ -152,6 +156,7 @@ export function headstockWorldNodes(
   document: ProjectDocument,
   nodes = activeNodes(document),
 ): OutlineNode[] {
+  if (document.neck && isHeadless(document.neck.headstock.activeTemplateId)) return []
   const f = frame(document)
   const affine = isBassTemplate(f.definition.id) ? bassOutlineTransform(document) : null
   const toHandle = (h: OutlineNode['inHandle']) => {
@@ -198,6 +203,7 @@ function contour(document: ProjectDocument, nodes: OutlineNode[]) {
   return { path: `M ${pair(nodes[0])} ${parts.join(' ')} Z`, polygon }
 }
 export function headstockPath(document: ProjectDocument) {
+  if (document.neck && isHeadless(document.neck.headstock.activeTemplateId)) return ''
   return contour(document, headstockWorldNodes(document)).path
 }
 function contourBounds(nodes: OutlineNode[], polygon: Point[]) {
@@ -214,6 +220,7 @@ function contourBounds(nodes: OutlineNode[], polygon: Point[]) {
   }
 }
 export function headstockBounds(document: ProjectDocument) {
+  if (document.neck && isHeadless(document.neck.headstock.activeTemplateId)) return null
   const nodes = headstockWorldNodes(document),
     shape = contour(document, nodes)
   return contourBounds(nodes, shape.polygon)
@@ -227,7 +234,8 @@ type TunerHole = Point & {
   tangent?: Point
 }
 export function tunerHoles(document: ProjectDocument): TunerHole[] {
-  if (!supportsHeadstock(document)) return []
+  if (!supportsHeadstock(document) || isHeadless(document.neck!.headstock.activeTemplateId))
+    return []
   const f = frame(document),
     posts = f.definition.posts
   if (document.neck && isBassTemplate(document.neck.headstock.activeTemplateId))
@@ -287,7 +295,8 @@ function tangentFor(S: Point, C: Point, branch: 1 | -1, r = 3) {
   )
 }
 export function headstockGeometry(document: ProjectDocument) {
-  if (!supportsHeadstock(document)) return null
+  if (!supportsHeadstock(document) || isHeadless(document.neck!.headstock.activeTemplateId))
+    return null
   const f = frame(document)
   if (!supportsHeadstockTemplate(f.definition, document.neck!.params.strings)) return null
   const nodes = headstockWorldNodes(document),
@@ -338,6 +347,15 @@ export function headstockGeometry(document: ProjectDocument) {
   }
 }
 export function headstockFit(document: ProjectDocument) {
+  if (document.neck && isHeadless(document.neck.headstock.activeTemplateId))
+    return {
+      supported: true,
+      valid: true,
+      errors: [],
+      maxAngleDeg: null,
+      minBodyGapMm: null,
+      minButtonGapMm: null,
+    }
   const geometry = headstockGeometry(document)
   if (!geometry)
     return {
@@ -420,6 +438,11 @@ export function validateHeadstock(document: ProjectDocument, headstock: Headstoc
   validateHeadstockVariants(headstock)
   if (!supportsHeadstock(document)) return
   validateBassPolicy(document)
+  if (isHeadless(headstock.activeTemplateId)) {
+    if (document.neck!.physicalProfile !== null)
+      throw new Error('A headless guitar cannot be a bass.')
+    return
+  }
   const d = headstockTemplate(headstock.activeTemplateId)
   if (!supportsHeadstockTemplate(d, document.neck!.params.strings))
     throw new Error('The active headstock template does not match the neck string count.')

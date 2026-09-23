@@ -9,9 +9,9 @@ import { PickupMenu } from './editor/PickupMenu'
 import { ReferenceControls } from './editor/ReferenceControls'
 import { NeckWorkspace, type NeckFocusRequest } from './editor/NeckWorkspace'
 import { automaticPocket } from './neck/automaticPocket'
-import { headstockFit, headstockWorldNodes } from './headstock/template'
+import { headstockFit, headstockWorldNodes, isHeadless } from './headstock/template'
 import { isBassTemplate } from './headstock/bass'
-import { frontBounds, neckView } from './neck/neckView'
+import { frontBounds, neckView, pointBounds } from './neck/neckView'
 import type { ReferenceOverlay } from './file/referenceOverlay'
 import { nextGridSize, type GridSizeMm } from './editor/grid'
 import { presentation, screenDeltaToWorld } from './editor/viewport'
@@ -111,7 +111,11 @@ export function App() {
       state.setMessage('The headstock becomes available once the neck is accepted.')
       return
     }
-    const box = neckView(state.document)?.headstock?.bounds ?? frontBounds(state.document)
+    const view = neckView(state.document)
+    const box =
+      isHeadless(state.document.neck.headstock.activeTemplateId) && view?.nut
+        ? pointBounds(view.nut)
+        : (view?.headstock?.bounds ?? frontBounds(state.document))
     state.setView('front')
     state.setEditingTarget('headstock')
     fits.current.boxes.front = box
@@ -435,9 +439,11 @@ export function App() {
         )}
         {headstockStatus?.supported && s.editingTarget === 'headstock' && (
           <p className="notice headstock-status" role="status">
-            Headstock: maximum nut angle {headstockStatus.maxAngleDeg?.toFixed(2)}° ·{' '}
-            {doc.neck && isBassTemplate(doc.neck.headstock.activeTemplateId) ? 'GB2' : 'M6'}:
-            nominal 2D fit {headstockStatus.valid ? 'verified' : 'invalid'}
+            {doc.neck && isHeadless(doc.neck.headstock.activeTemplateId)
+              ? 'Headless guitar'
+              : `Headstock: maximum nut angle ${headstockStatus.maxAngleDeg?.toFixed(2)}° · ${
+                  doc.neck && isBassTemplate(doc.neck.headstock.activeTemplateId) ? 'GB2' : 'M6'
+                }: nominal 2D fit ${headstockStatus.valid ? 'verified' : 'invalid'}`}
           </p>
         )}
         {pocketWarning && (

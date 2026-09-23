@@ -10,6 +10,7 @@ import {
   type ExportPart,
 } from '../export/model'
 import { useAppStore } from '../store'
+import { isHeadless } from '../headstock/template'
 import './exportDialog.css'
 type Format = 'pdf' | 'svg' | 'dxf'
 let session: { options: ExportOptions; format: Format; paper: Paper } | null = null
@@ -55,7 +56,12 @@ export function ExportDialog({ onClose }: { onClose: () => void }) {
   }, [options, format, paper])
   const result = useMemo(() => {
     try {
-      const drawing = buildExportDrawing(snapshot, options)
+      const headless = !!snapshot.neck && isHeadless(snapshot.neck.headstock.activeTemplateId)
+      const activeOptions = {
+        ...options,
+        parts: options.parts.filter((id) => id !== 'headstock' || !headless),
+      }
+      const drawing = buildExportDrawing(snapshot, activeOptions)
       return {
         drawing,
         plan: format === 'pdf' ? planPdfPages(drawing, paper, options.marginMm) : null,
@@ -178,16 +184,22 @@ export function ExportDialog({ onClose }: { onClose: () => void }) {
         <section className="export-settings">
           <fieldset>
             <legend>Parts</legend>
-            {partOrder.map((id) => (
-              <label key={id}>
-                <input
-                  type="checkbox"
-                  checked={options.parts.includes(id)}
-                  onChange={() => toggle(id)}
-                />
-                {PART_NAMES[id]}
-              </label>
-            ))}
+            {partOrder
+              .filter(
+                (id) =>
+                  id !== 'headstock' ||
+                  !(snapshot.neck && isHeadless(snapshot.neck.headstock.activeTemplateId)),
+              )
+              .map((id) => (
+                <label key={id}>
+                  <input
+                    type="checkbox"
+                    checked={options.parts.includes(id)}
+                    onChange={() => toggle(id)}
+                  />
+                  {PART_NAMES[id]}
+                </label>
+              ))}
           </fieldset>
           <fieldset>
             <legend>File format</legend>

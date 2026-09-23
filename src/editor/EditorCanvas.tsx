@@ -28,6 +28,7 @@ import {
   canSplitHeadstockSegment,
   isProtectedHeadstockHandle,
   isProtectedHeadstockNode,
+  isHeadless,
 } from '../headstock/template'
 import { useCanvasInteractions } from './useCanvasInteractions'
 import { gridPath, type GridSizeMm } from './grid'
@@ -350,6 +351,24 @@ export function EditorCanvas({
                         )}
                     </g>
                   )}
+                  {view === 'front' &&
+                    neckDrawing?.nutPath &&
+                    doc.neck &&
+                    isHeadless(doc.neck.headstock.activeTemplateId) && (
+                      <path
+                        className={`headless-nut-target ${s.editingTarget === 'headstock' ? 'editing' : ''}`}
+                        d={neckDrawing.nutPath}
+                        fill="none"
+                        stroke="transparent"
+                        strokeWidth={20 / t.scale}
+                        style={{ cursor: 'pointer' }}
+                        tabIndex={!small && onSelectHeadstock ? 0 : undefined}
+                        role={!small && onSelectHeadstock ? 'button' : undefined}
+                        aria-label="Edit headstock"
+                        onPointerDown={interactions.headstock.onPointerDown}
+                        onKeyDown={interactions.headstock.onKeyboardSelect}
+                      />
+                    )}
                   {view === 'front' && neckDrawing && (
                     <>
                       {showNeckGuides && (

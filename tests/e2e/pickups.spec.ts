@@ -213,7 +213,7 @@ test('real v12 download and reopen retain profiles, empty stays empty and unsupp
   await page.getByRole('button', { name: '+ Pickup cavity' }).click()
   await page.getByRole('menuitem', { name: /SSL/ }).click()
   const saved = await download(page, info.outputPath('pickup-v5.gtrfactory'))
-  expect(saved.version).toBe(12)
+  expect(saved.version).toBe(13)
   expect(saved.pickupCavities).toHaveLength(2)
   await load(page, saved)
   await expect(cavities(page)).toHaveCount(2)
@@ -242,7 +242,7 @@ test('real v12 download and reopen retain profiles, empty stays empty and unsupp
     mimeType: 'application/json',
     buffer: Buffer.from(JSON.stringify(unsupported)),
   })
-  await expect(page.getByRole('status')).toContainText('supported versions are 10, 11 and 12')
+  await expect(page.getByRole('status')).toContainText('supported versions are 10, 11, 12 and 13')
   await expect(cavities(page)).toHaveCount(0)
 })
 

@@ -6,9 +6,11 @@ Käyttäjä valtuutti tässä tehtävässä GTRFactoryn nykyisen lähdepuun julk
 
 Tämä nykytilamerkintä korvaa aiemmat nykytilan väitteet siitä, ettei lähderepoa julkaista. Vanhat ominaisuuskohtaiset "ei commitia/pushia" -rajaukset säilyvät oman historiallisensa toteutuskierroksen lupahistoriassa; ne eivät kumoa tämän pyynnön nimenomaista Git-julkaisulupaa.
 
-## Paikallinen nykytila — 14.9.2026
+## Paikallinen nykytila — 23.9.2026
 
-Kätisyysvalinta on toteutettu editoriin, tallennukseen ja SVG/DXF/PDF-vientiin. Oikeakätisen kaula osoittaa oikealle ja vasenkätisen vasemmalle; tiedoston lopun suuntakorjausosio omistaa tämän tarkennuksen. Nykyinen formaatti on projektiv11 / headstockv3; oikeakätinen v10 voidaan lukea v11:ksi. Tuettuina ovat kolme kitaralapaa ja nelikielinen bassolapa. Tämän tiedoston lopun kätisyysosio ja sen lopullinen ledger omistavat nykyisen muutoksen paikallisen varmennuksen. Aiemmat päivätyt suunnitelmat ja tulokset säilyvät historiallisina. Tätä päivitystä ei ole julkaistu eikä FretFactory-työtilaa muutettu tällä kierroksella.
+Headless-kitara on toteutettu: uusi "Headless" (id: 'headless') headstock-template valittavissa 6-, 7- ja 8-kielisille kitaroille. Headless-valinnassa ei ole lavan muokkauspisteitä (nodes: []), mutta se tuottaa lavattoman kaulan ja satulan. Headless-kitara tallentuu uuteen v13-formaattiin. Kun vaihdetaan headlessistä normaaliin lapaan, 6-kieliset oletukset palautetaan turvallisesti. Käyttöliittymään on lisätty satulan kohdalle piilotettu .headless-nut-target, joka avaa lapavalikon headless-kitaroissa. Vientilogiikka suodattaa lavan pois headless-vienneissä. 
+
+Kätisyysvalinta on toteutettu editoriin, tallennukseen ja SVG/DXF/PDF-vientiin. Oikeakätisen kaula osoittaa oikealle ja vasenkätisen vasemmalle; tiedoston lopun suuntakorjausosio omistaa tämän tarkennuksen. Nykyinen formaatti on projektiv13 / headstockv3; oikeakätinen v10 ja v11-v12 voidaan lukea v13:ksi. Tuettuina ovat kolme kitaralapaa, headless ja nelikielinen bassolapa. Tämän tiedoston lopun kätisyysosio ja sen lopullinen ledger omistavat aiemman muutoksen paikallisen varmennuksen. Aiemmat päivätyt suunnitelmat ja tulokset säilyvät historiallisina. Tätä päivitystä ei ole julkaistu eikä FretFactory-työtilaa muutettu tällä kierroksella.
 
 ## Nykyinen tausta- ja julkaisutila — 12.9.2026
 

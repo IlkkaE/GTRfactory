@@ -5,7 +5,7 @@ import { transformPoint } from './fretfactoryGeometry'
 import { pchipToBezierPath, pchipToBezierSegments } from './vendor/pchip'
 import { headstockGeometry } from '../headstock/template'
 
-function pointBounds(points: NeckPoint[]): Bounds {
+export function pointBounds(points: NeckPoint[]): Bounds {
   const minX = Math.min(...points.map((p) => p.x)),
     maxX = Math.max(...points.map((p) => p.x))
   const minY = Math.min(...points.map((p) => p.y)),
@@ -47,6 +47,7 @@ export function neckView(document: ProjectDocument) {
   return {
     outlinePath,
     heelPath: heel.pathD,
+    nut,
     nutPath: pchipToBezierPath(nut),
     bridgePath: pchipToBezierPath(bridge),
     frets,

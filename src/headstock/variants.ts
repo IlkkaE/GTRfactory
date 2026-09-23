@@ -3,7 +3,8 @@ import type { OutlineNode } from '../model/project'
 import inlineReference from './reference.json' with { type: 'json' }
 import threeThree from './three-three.json' with { type: 'json' }
 
-export type HeadstockTemplateId = 'inline' | 'three-three-2' | 'three-three-3' | 'bass-4-inline'
+export type HeadstockTemplateId =
+  'inline' | 'three-three-2' | 'three-three-3' | 'bass-4-inline' | 'headless'
 export interface TunerPost {
   C: { x: number; y: number }
   e: { x: number; y: number }
@@ -60,7 +61,16 @@ const bass = (): HeadstockTemplateDefinition => ({
   editableArc: { startId: 'bass-4-inline-tuner-end', endId: 'bass-4-inline-seam-right' },
 })
 const bass4 = bass()
-export const HEADSTOCK_TEMPLATE_DEFINITIONS = [inline, ...variants, bass4] as const
+const headless: HeadstockTemplateDefinition = {
+  id: 'headless',
+  name: 'Headless',
+  version: 1,
+  supportedStrings: [6, 7, 8],
+  nodes: [],
+  protectedPositionIds: [],
+  editableArc: { startId: '', endId: '' },
+}
+export const HEADSTOCK_TEMPLATE_DEFINITIONS = [inline, ...variants, bass4, headless] as const
 export const HEADSTOCK_TEMPLATE_IDS = HEADSTOCK_TEMPLATE_DEFINITIONS.map(
   (v) => v.id,
 ) as HeadstockTemplateId[]

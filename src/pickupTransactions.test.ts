@@ -21,7 +21,7 @@ describe('pickup document and editor transactions', () => {
     const unsupported = structuredClone(initial) as any
     unsupported.version = 5
     expect(() => parseProject(JSON.stringify(unsupported))).toThrow(
-      'supported versions are 10, 11 and 12',
+      'supported versions are 10, 11, 12 and 13',
     )
     expect(state().document).toEqual(initial)
     expect(
