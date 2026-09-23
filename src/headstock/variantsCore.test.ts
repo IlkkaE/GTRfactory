@@ -45,13 +45,16 @@ describe('versioned headstock variant topology', () => {
       'three-three-2',
       'three-three-3',
       'bass-4-inline',
+      'headless',
     ])
     validateHeadstockVariants(h)
     for (const id of HEADSTOCK_TEMPLATE_IDS) {
       h.activeTemplateId = id
       const nodes = activeHeadstockNodes(h)
-      expect(nodes).toHaveLength(id.startsWith('bass-') ? 8 : 9)
-      expect(new Set(nodes.map((n) => n.id)).size).toBe(id.startsWith('bass-') ? 8 : 9)
+      expect(nodes).toHaveLength(id === 'headless' ? 0 : id.startsWith('bass-') ? 8 : 9)
+      expect(new Set(nodes.map((n) => n.id)).size).toBe(
+        id === 'headless' ? 0 : id.startsWith('bass-') ? 8 : 9,
+      )
     }
   })
   it('splits only the free arc with exact De Casteljau geometry', () => {

@@ -76,6 +76,16 @@ export function isProtectedHeadstockHandle(
   return isProtectedHeadstockNode(id, headstock)
 }
 function validateVariant(templateId: HeadstockTemplateId, variant: HeadstockVariant) {
+  if (templateId === 'headless') {
+    if (
+      !variant ||
+      variant.version !== 1 ||
+      !Array.isArray(variant.nodes) ||
+      variant.nodes.length !== 0
+    )
+      throw new Error('The headstock structure or profile version is invalid.')
+    return
+  }
   const d = headstockTemplate(templateId),
     base = d.nodes,
     nodes = variant?.nodes
@@ -191,6 +201,7 @@ export function validateHeadstockVariants(headstock: HeadstockDocument) {
 function canEdit(document: Pick<ProjectDocument, 'neck'>, id: string, remove: boolean) {
   try {
     const h = active(document)
+    if (h?.activeTemplateId === 'headless') return false
     validateHeadstockVariants(h)
     const d = definition(h),
       nodes = activeHeadstockNodes(document),

@@ -82,7 +82,7 @@ test('node and handle drag preserve the camera, undo, redo and project round tri
   await drag(page, handle, 0, 3)
   await expect(lap(page)).not.toHaveAttribute('d', prior!)
   const after = await save(page, info.outputPath('after.gtrfactory'))
-  expect(after.version).toBe(12)
+  expect(after.version).toBe(13)
   expect(after.neck.headstock).not.toEqual(before.neck.headstock)
   expect(after.neck.snapshot).toEqual(before.neck.snapshot)
   expect(after.body).toEqual(before.body)
@@ -159,7 +159,7 @@ test('6 7 8 and unsupported necks retain real counts and version rejection is at
     buffer: Buffer.from(JSON.stringify(accepted)),
   })
   await expect(
-    page.locator('.notice').filter({ hasText: 'supported versions are 10, 11 and 12' }),
+    page.locator('.notice').filter({ hasText: 'supported versions are 10, 11, 12 and 13' }),
   ).toBeVisible()
   await expect(lap(page)).toHaveAttribute('d', old!)
 })

@@ -69,7 +69,7 @@ describe('editor store transactions', () => {
       before = structuredClone(st.document.body.outline.nodes.find((n) => n.id === datum)!)
     st.createNeck()
     const after = useAppStore.getState().document
-    expect(after.version).toBe(12)
+    expect(after.version).toBe(13)
     expect(after.neck?.end.radiusMm, useAppStore.getState().message ?? 'ei virhettä').toBe(6)
     expect(after.body.outline.nodes.find((n) => n.id === datum)?.x).toBe(before.x)
     expect(parseProject(serializeProject(after))).toEqual(after)

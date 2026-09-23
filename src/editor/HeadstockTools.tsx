@@ -6,6 +6,7 @@ import {
   headstockWorldNodes,
   isProtectedHeadstockNode,
   HEADSTOCK_TEMPLATE_IDS,
+  isHeadless,
   type HeadstockTemplateId,
 } from '../headstock/template'
 import { headstockTemplate } from '../headstock/variants'
@@ -42,7 +43,13 @@ export function HeadstockTools() {
         ' mm nut settings.'
       )
     }
-    return 'Switch to guitar? This replaces bass neck, fretboard, pocket fit, bridge line, and headstock settings with the 6-string / 647.7 mm / 22-fret guitar template.'
+    if (
+      isBassTemplate(h.activeTemplateId) ||
+      (isHeadless(h.activeTemplateId) && !isHeadless(next))
+    ) {
+      return 'Switch to headed guitar? This replaces current neck, fretboard, pocket fit, bridge line, and headstock settings with the 6-string / 647.7 mm / 22-fret guitar template.'
+    }
+    return null
   }
   const bassRow = isBassTemplate(h.activeTemplateId) ? bassDerivedLayout(doc) : null
   const freeCount = nodes.filter((n) => !isProtectedHeadstockNode(n.id, h)).length
@@ -60,11 +67,9 @@ export function HeadstockTools() {
           disabled={locked}
           onChange={(e) => {
             const next = e.target.value as HeadstockTemplateId
-            if (
-              isBassTemplate(next) !== isBassTemplate(h.activeTemplateId) ||
-              (isBassTemplate(next) && next !== h.activeTemplateId)
-            ) {
-              if (!window.confirm(confirmation(next))) return
+            const message = confirmation(next)
+            if (message) {
+              if (!window.confirm(message)) return
             }
             s.switchHeadstockTemplate(next)
           }}
@@ -116,15 +121,19 @@ export function HeadstockTools() {
           Add point
         </button>
       )}
-      <span className="context-hint">
-        {segment
-          ? canAdd
-            ? 'The marker shows where the point will be added.'
-            : "Choose a position inside the headstock's free tip edge."
-          : s.selectedHeadstock.size
-            ? 'Drag a free point or handle. Delete point: Delete.'
-            : 'Select a tip node or edge. Fit to view restores the whole guitar.'}
-      </span>
+      {isHeadless(h.activeTemplateId) ? (
+        <span className="context-hint">Headless guitars have no headstock outline to edit.</span>
+      ) : (
+        <span className="context-hint">
+          {segment
+            ? canAdd
+              ? 'The marker shows where the point will be added.'
+              : "Choose a position inside the headstock's free tip edge."
+            : s.selectedHeadstock.size
+              ? 'Drag a free point or handle. Delete point: Delete.'
+              : 'Select a tip node or edge. Fit to view restores the whole guitar.'}
+        </span>
+      )}
     </>
   )
 }

@@ -6,7 +6,7 @@ import type { Point } from '../geometry/neckPocket'
 import { automaticPocket, physicalFretboard, physicalHeel } from '../neck/automaticPocket'
 import { transformPoint } from '../neck/fretfactoryGeometry'
 import { pchipToBezierSegments } from '../neck/vendor/pchip'
-import { headstockGeometry, headstockFit, tunerHoles } from '../headstock/template'
+import { headstockGeometry, headstockFit, tunerHoles, isHeadless } from '../headstock/template'
 import { bassDerivedLayout, isBassTemplate } from '../headstock/bass'
 import type { ProjectDocument } from '../model/project'
 import {
@@ -327,7 +327,7 @@ function makePart(document: ProjectDocument, id: ExportPart, o: ExportOptions): 
     }
     if (id === 'overview') {
       requireNeck()
-      add(neckContour(document, false, true))
+      add(neckContour(document, false, !isHeadless(document.neck!.headstock.activeTemplateId)))
       add(neckContour(document, true))
       holes()
     }
@@ -356,10 +356,12 @@ function makePart(document: ProjectDocument, id: ExportPart, o: ExportOptions): 
     if (id === 'neck') {
       const fit = headstockFit(document)
       if (!fit.valid) throw new Error(fit.errors.join(' '))
-      add(neckContour(document, false, true))
+      add(neckContour(document, false, !isHeadless(document.neck!.headstock.activeTemplateId)))
       holes()
     }
     if (id === 'headstock') {
+      if (isHeadless(document.neck!.headstock.activeTemplateId))
+        throw new Error('A headless guitar has no headstock to export.')
       const fit = headstockFit(document)
       if (!fit.valid) throw new Error(fit.errors.join(' '))
       add(headstockContour(document))
@@ -438,7 +440,13 @@ function measurements(
         if (p && profile) {
           const b = boundsOf([p]),
             g = board ? 'Fretboard' : 'Neck'
-          add(g, board ? 'Length' : 'Length including headstock', b.height)
+          add(
+            g,
+            board || isHeadless(n.headstock.activeTemplateId)
+              ? 'Length'
+              : 'Length including headstock',
+            b.height,
+          )
           add(g, 'Width at nut', n.snapshot.nut.at(-1)!.x - n.snapshot.nut[0].x)
           add(g, 'End width (before rounding)', profile.rightCorner.x - profile.leftCorner.x)
           add(

@@ -1018,6 +1018,17 @@ dialog p {
   fill: #d9b27a99;
   stroke: #fff1bc;
 }
+.headless-nut-target {
+  cursor: pointer;
+  pointer-events: visibleStroke;
+}
+.headless-nut-target:focus-visible {
+  stroke: #fff1bc88;
+  outline: none;
+}
+.headless-nut-target.editing {
+  stroke: #fff1bc88;
+}
 .tuner-hole {
   fill: #101b21;
   stroke: #e7eeed;

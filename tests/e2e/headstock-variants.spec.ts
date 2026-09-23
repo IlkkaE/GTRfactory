@@ -43,7 +43,7 @@ test('headstock context hides pickup actions and each 3+3 model supports insert 
   await open(page)
   await expect(page.getByRole('button', { name: '+ Pickup cavity', exact: true })).toHaveCount(0)
   await expect(page.locator('.pickup-profile-popup')).toHaveCount(0)
-  await expect(model(page).locator('option')).toHaveCount(4)
+  await expect(model(page).locator('option')).toHaveCount(5)
   for (const id of ['three-three-2', 'three-three-3']) {
     await choose(page, id)
     await expect(nodes(page)).toHaveCount(9)
@@ -85,7 +85,7 @@ test('headstock context hides pickup actions and each 3+3 model supports insert 
   await expect(model(page)).toHaveCount(0)
   await expect(page.getByRole('button', { name: '+ Pickup cavity', exact: true })).toBeVisible()
 })
-test('model-specific tip edits survive switching and a real v9 download/reopen', async ({
+test('model-specific tip edits survive switching and a real v13 download/reopen', async ({
   page,
 }, info) => {
   await open(page)
@@ -111,14 +111,15 @@ test('model-specific tip edits survive switching and a real v9 download/reopen',
   await expect(lap(page)).toHaveAttribute('d', shapes['three-three-2'])
   await choose(page, 'three-three-3')
   await expect(lap(page)).toHaveAttribute('d', shapes['three-three-3'])
-  const saved = await save(page, info.outputPath('three-models-v9.gtrfactory'))
-  expect(saved.version).toBe(12)
+  const saved = await save(page, info.outputPath('three-models-v13.gtrfactory'))
+  expect(saved.version).toBe(13)
   expect(saved.neck.headstock.version).toBe(3)
   expect(Object.keys(saved.neck.headstock.variants)).toEqual([
     'inline',
     'three-three-2',
     'three-three-3',
     'bass-4-inline',
+    'headless',
   ])
   await page.getByTestId('project-file').setInputFiles({
     name: 'reopen.gtrfactory',
@@ -137,7 +138,7 @@ test('model-specific tip edits survive switching and a real v9 download/reopen',
     buffer: Buffer.from(JSON.stringify(saved)),
   })
   await expect(
-    page.locator('.notice').filter({ hasText: 'supported versions are 10, 11 and 12' }),
+    page.locator('.notice').filter({ hasText: 'supported versions are 10, 11, 12 and 13' }),
   ).toBeVisible()
   await expect(lap(page)).toHaveAttribute('d', before!)
 })

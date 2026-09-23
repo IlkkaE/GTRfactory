@@ -92,7 +92,7 @@ test('separate end margins preview independently, reject unsupported frets and p
   ).toContainText('13.275 mm')
   await apply(page).click()
   const saved = await download(page, info.outputPath('separate-ends.gtrfactory'))
-  expect(saved.version).toBe(12)
+  expect(saved.version).toBe(13)
   expect(saved.neck.end.endMarginMm).toBeCloseTo(12.125, 9)
   expect(saved.neck.end.fretboardEndMarginMm).toBeCloseTo(25.4, 9)
   expect(saved.neck.placement).toEqual(original.neck.placement)

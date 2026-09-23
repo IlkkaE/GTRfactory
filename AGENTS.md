@@ -1,8 +1,10 @@
 # GTRfactory
 
-## Nykyinen v12-pickup-toteutus — 20.9.2026
+## Nykyinen v13-toteutus — 23.9.2026
 
-Paikallinen nykytila käyttää projektiformaattia v12. Mikrofonikoloissa ovat pakolliset `angleDeg`, `widthMm` ja `lengthMm`; kulma on −180…180° ja paikalliset leveys- ja pituusmitat 1–1000 mm. Keskipiste pysyy rungon keskiviivalla, mitat tarkoittavat koko profiilin ulkomittoja ennen kiertoa, ja affiinisesti skaalattu profiili merkitään custom-muodoksi. Editorin törmäystarkistus, SVG/DXF/PDF-vienti ja valinnainen mittataulukko käyttävät samaa transformoitua geometriaa. Oikeakätinen v10 sekä molempien kätisyyksien v11 muunnetaan v12:ksi profiilin oletuskulmalla ja -mitoilla vanha geometria säilyttäen; v10:n vasenkätinen tai muu kätisyysarvo sekä v12:n puuttuvat, virheelliset tai vanhoihin versioihin kuulumattomat uudet kentät hylätään atomisesti. Toteutus on paikallisesti riippumattoman QA:n mukaan VERIFIED. Julkinen snapshot on julkaistu Pages-ajossa 35527525349 (site 1ca3a56, GTR-lähde 8199cfd). Julkinen manifesti ja kuusi tiedostohashia sekä desktop/mobile-selainpolut, v12-tallennus ja kuusi SVG/DXF/PDF-latausta varmennettiin 20.9.2026. Etusivun otsikko on Design your guitar; vanha loppuosa poistui myös ladattavasta koodista. Tarkka julkaisukuittaus on FEATURE_BRIEFin lopussa. Alla olevat aiemmat v11-merkinnät ovat historiallisia varmennuslokeja, ellei nykytilaa ole erikseen päivitetty.
+Paikallinen nykytila käyttää projektiformaattia v13, johon kuuluu headless-kitaroiden tuki. Headless on uusi malli (`id: 'headless'`), joka piilottaa lapa-alueen (ei kontrollipisteitä) ja suodattaa sen pois SVG/DXF/PDF-vienneistä. Satulan alueella on näkymätön klikkausalue lavan mallin muuttamiseksi headless-tilassa. Oikeakätinen v10 ja v11-v12 voidaan lukea v13:ksi. Lavan mallin muutos Headlessistä normaaliin lapaan ja 6/7/8 kielen välillä säilyttää kitaraprojektin säännöt.
+
+(Aiempien v12-pickup ja v11 kätisyys-toteutuksien säännöt pätevät edelleen: mikrofonien kierto ja koko säilyvät, kätisyys, yms. V12 on varmentunut; julkinen snapshot on julkaistu 20.9.2026. Nyt olemme paikallisessa v13-kehitysvaiheessa headless-tuen kanssa.)
 
 Projektin juuri on repositorion juuri; päähaara on `main`. Manifestin engines-raja on Node `>=24.15.0 <25` ja npm `>=12.0.1 <13`; käytä Node 24.15.0:tä ja npm 12.0.1:tä (`.nvmrc`).
 

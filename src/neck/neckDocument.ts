@@ -87,7 +87,8 @@ function applyAutomaticMouth(document: ProjectDocument) {
   const neck = document.neck
   const boundary = document.body.neckJointBoundary
   if (!neck || !boundary) throw new Error('The neck pocket requires a locked joint.')
-  if ([7, 8].includes(neck.params.strings)) neck.headstock.activeTemplateId = 'inline'
+  if ([7, 8].includes(neck.params.strings) && neck.headstock.activeTemplateId !== 'headless')
+    neck.headstock.activeTemplateId = 'inline'
   const geometry = automaticPocket(document)
   if (!geometry) throw new Error('Deriving the neck pocket failed.')
   physicalHeel(document)
