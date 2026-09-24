@@ -93,4 +93,48 @@ describe('English interface and unchanged user content', () => {
     expect(labels).toContain('Tuner hole diameter')
     expect(labels.join(' ')).not.toMatch(/Lapa|Kitaran mitat|Viritinrei/)
   })
+
+  it('renders bold guitar name topic on top center of PDF when project name is provided', async () => {
+    const document = deriveNeckDocument(createStarterDocument(), { kind: 'fresh' })!
+    document.name = 'Thunderbird Custom'
+    const drawing = buildExportDrawing(document, {
+      ...DEFAULT_EXPORT_OPTIONS,
+      parts: ['headstock'],
+    })
+    const pdf = await PDFDocument.load(await pdfExport(drawing))
+    expect(pdf.getTitle()).toBe('Thunderbird Custom')
+
+    let foundBoldFont = false
+    let foundTitle = false
+    for (const [, object] of pdf.context.enumerateIndirectObjects()) {
+      if (!(object instanceof PDFRawStream)) continue
+      const stream = Buffer.from(decodePDFRawStream(object).decode()).toString('latin1')
+      if (stream.includes('Helvetica-Bold')) foundBoldFont = true
+      for (const match of stream.matchAll(/<([0-9A-Fa-f]+)>\s*Tj/g)) {
+        if (Buffer.from(match[1], 'hex').toString('latin1') === 'Thunderbird Custom') {
+          foundTitle = true
+        }
+      }
+    }
+    expect(foundBoldFont).toBe(true)
+    expect(foundTitle).toBe(true)
+  })
+
+  it('omits guitar name topic when project name is empty or only whitespace', async () => {
+    const document = deriveNeckDocument(createStarterDocument(), { kind: 'fresh' })!
+    document.name = '   '
+    const drawing = buildExportDrawing(document, {
+      ...DEFAULT_EXPORT_OPTIONS,
+      parts: ['headstock'],
+    })
+    const pdf = await PDFDocument.load(await pdfExport(drawing))
+
+    let foundBoldFont = false
+    for (const [, object] of pdf.context.enumerateIndirectObjects()) {
+      if (!(object instanceof PDFRawStream)) continue
+      const stream = Buffer.from(decodePDFRawStream(object).decode()).toString('latin1')
+      if (stream.includes('Helvetica-Bold')) foundBoldFont = true
+    }
+    expect(foundBoldFont).toBe(false)
+  })
 })

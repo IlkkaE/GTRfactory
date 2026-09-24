@@ -12,17 +12,34 @@ import type { ExportDrawing, ExportPath, ExportText } from './model'
 import { planPdfPages, type Paper } from './pages'
 import { pathData } from './svg'
 import { tablePath } from './layout'
+
 const PT = 72 / 25.4
+
 export async function pdfExport(d: ExportDrawing, paper: Paper = 'custom', margin = 10) {
   const plan = planPdfPages(d, paper, margin),
     doc = await PDFDocument.create(),
-    font = await doc.embedFont(StandardFonts.Courier)
+    font = await doc.embedFont(StandardFonts.Courier),
+    titleFont = await doc.embedFont(StandardFonts.HelveticaBold)
   doc.setTitle(d.name)
   doc.setCreator('GTRfactory')
+
+  const rawTitle = d.name?.trim() ?? ''
+  const title = [...rawTitle]
+    .filter((c) => {
+      try {
+        titleFont.widthOfTextAtSize(c, 10)
+        return true
+      } catch {
+        return false
+      }
+    })
+    .join('')
+
   for (const [index, tile] of plan.pages.entries()) {
     const page = doc.addPage([tile.width * PT, tile.height * PT]),
       ox = tile.source.minX - margin,
       oy = tile.source.minY - margin
+
     const drawPath = (p: ExportPath) =>
       page.drawSvgPath(pathData(p, true), {
         x: -ox * PT,
@@ -32,6 +49,7 @@ export async function pdfExport(d: ExportDrawing, paper: Paper = 'custom', margi
         borderWidth: 0.2,
         borderDashArray: p.role === 'REFERENCE_CENTERLINE' ? [6, 3] : undefined,
       })
+
     const drawText = (t: ExportText) =>
       page.drawText(t.text, {
         x: (t.x - ox) * PT,
@@ -40,6 +58,7 @@ export async function pdfExport(d: ExportDrawing, paper: Paper = 'custom', margi
         font,
         color: rgb(0, 0, 0),
       })
+
     if (paper !== 'custom')
       page.pushOperators(
         pushGraphicsState(),
@@ -52,6 +71,7 @@ export async function pdfExport(d: ExportDrawing, paper: Paper = 'custom', margi
         clip(),
         endPath(),
       )
+
     if (tile.kind === 'drawing') {
       for (const p of d.paths) drawPath(p)
       for (const c of d.circles)
@@ -64,11 +84,36 @@ export async function pdfExport(d: ExportDrawing, paper: Paper = 'custom', margi
         })
       for (const t of d.texts) drawText(t)
     }
+
     if (tile.table && d.table) {
       drawPath(tablePath(d.table))
       for (const t of d.table.texts) drawText(t)
     }
+
     if (paper !== 'custom') page.pushOperators(popGraphicsState())
+
+    if (title) {
+      const pageWidth = tile.width * PT,
+        maxTitleSize = Math.min(16, Math.max(8, margin * PT * 0.6)),
+        availableWidth = Math.max(50, pageWidth - 2 * margin * PT),
+        unconstrainedWidth = titleFont.widthOfTextAtSize(title, maxTitleSize),
+        titleSize =
+          unconstrainedWidth > availableWidth
+            ? (availableWidth / unconstrainedWidth) * maxTitleSize
+            : maxTitleSize,
+        titleWidth = titleFont.widthOfTextAtSize(title, titleSize),
+        titleX = (pageWidth - titleWidth) / 2,
+        titleY = (tile.height - margin * 0.5) * PT - titleSize * 0.35
+
+      page.drawText(title, {
+        x: titleX,
+        y: titleY,
+        size: titleSize,
+        font: titleFont,
+        color: rgb(0, 0, 0),
+      })
+    }
+
     if (paper !== 'custom') {
       const label =
         index +
@@ -80,6 +125,7 @@ export async function pdfExport(d: ExportDrawing, paper: Paper = 'custom', margi
           : ' - R' + (tile.row + 1) + ' C' + (tile.column + 1)) +
         ' - 100 % / 1:1'
       page.drawText(label, { x: margin * PT, y: 3 * PT, size: 7, font })
+
       if (tile.kind === 'drawing') {
         // Marcas en el borde del área imprimible, fuera del dibujo.
         for (const [x, y] of [
@@ -102,5 +148,6 @@ export async function pdfExport(d: ExportDrawing, paper: Paper = 'custom', margi
       }
     }
   }
+
   return doc.save()
 }
