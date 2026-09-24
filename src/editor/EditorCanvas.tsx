@@ -20,7 +20,7 @@ import {
 } from './viewport'
 import { referenceTransform, sourceBounds, type ReferenceOverlay } from '../file/referenceOverlay'
 import type { ProjectDocument } from '../model/project'
-import { starterBodyOutline } from '../model/project'
+import { starterBodyOutline, BODY_TEXTURE_OPTIONS } from '../model/project'
 import { rearElectronicsCavityGeometry } from '../electronicsCavity'
 import { pickupGeometry } from '../pickup/profiles'
 import { prepareCanvasGeometry } from './canvasGeometry'
@@ -245,6 +245,24 @@ export function EditorCanvas({
               >
                 <path className="dimension-arrow" d="M0 0L8 4L0 8z" />
               </marker>
+              {BODY_TEXTURE_OPTIONS.map((tex) => (
+                <pattern
+                  key={tex.id}
+                  id={`${clip}-pattern-${tex.id}`}
+                  patternUnits="userSpaceOnUse"
+                  width={360}
+                  height={500}
+                  x={-180}
+                  y={0}
+                >
+                  <image
+                    href={tex.image}
+                    width={360}
+                    height={500}
+                    preserveAspectRatio="xMidYMid slice"
+                  />
+                </pattern>
+              ))}
             </defs>
             <g clipPath={`url(#${clip})`}>
               <rect
@@ -284,6 +302,15 @@ export function EditorCanvas({
                   <path
                     className={`body-path ${reference?.visible ? 'with-reference' : ''}`}
                     d={visualPath}
+                    style={
+                      doc.body.color
+                        ? {
+                            fill: doc.body.color.startsWith('texture:')
+                              ? `url(#${clip}-pattern-${doc.body.color.slice(8)})`
+                              : doc.body.color,
+                          }
+                        : undefined
+                    }
                   />
                   {visibleGridPath && (
                     <path

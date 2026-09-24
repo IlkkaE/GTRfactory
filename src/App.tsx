@@ -6,6 +6,7 @@ import { EditorCanvas, isTyping } from './editor/EditorCanvas'
 import { FileActions } from './editor/FileActions'
 import { ContextTools } from './editor/ContextTools'
 import { PickupMenu } from './editor/PickupMenu'
+import { BodyColorPicker } from './editor/BodyColorPicker'
 import { ReferenceControls } from './editor/ReferenceControls'
 import { NeckWorkspace, type NeckFocusRequest } from './editor/NeckWorkspace'
 import { automaticPocket } from './neck/automaticPocket'
@@ -377,6 +378,7 @@ export function App() {
           <button onClick={s.resetBodyOutline} disabled={locked || s.editingTarget === 'headstock'}>
             Reset body
           </button>
+          <BodyColorPicker disabled={locked || s.editingTarget === 'headstock'} />
         </div>
         <ReferenceControls reference={reference} onChange={setReference} />
       </section>

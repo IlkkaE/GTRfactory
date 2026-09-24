@@ -165,6 +165,7 @@ export interface EditorState {
   setSegmentCubic: (cubic: boolean) => void
   setCoordinate: (axis: 'x' | 'y', value: number) => void
   resetBodyOutline: () => void
+  setBodyColor: (color: string) => void
   setHeadstockCoordinate: (axis: 'x' | 'y', value: number) => void
   undo: () => void
   redo: () => void
@@ -1091,6 +1092,14 @@ export const useAppStore = create<EditorState>()((set) => {
         } catch (e) {
           return { message: (e as Error).message }
         }
+      }),
+    setBodyColor: (color: string) =>
+      set((s) => {
+        if (s.drag || s.neckDraft) return {}
+        if (s.document.body.color === color) return {}
+        const next = cloneDocument(s.document)
+        next.body.color = color
+        return commitDocumentTransition(s, next)
       }),
     undo: () => set((s) => undoDocumentTransition(s)),
     redo: () => set((s) => redoDocumentTransition(s)),

@@ -60,6 +60,7 @@
 }
 .body-path.with-reference {
   fill: #254148aa;
+  fill-opacity: 0.67;
 }
 .reference-layer {
   pointer-events: none;

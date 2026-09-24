@@ -1,5 +1,7 @@
 import { deriveNeckPocket } from '../geometry/neckPocket'
 import {
+  BODY_TEXTURE_OPTIONS,
+  DEFAULT_BODY_COLOR,
   MAX_BYTES,
   MAX_NODES,
   MAX_PICKUP_CAVITIES,
@@ -562,6 +564,20 @@ export function parseProject(text: string): ProjectDocument {
       ...transform,
     }
   })
+  const rawColor = body.color
+  let bodyColor: string = DEFAULT_BODY_COLOR
+  if (typeof rawColor === 'string') {
+    const isHex = /^#[0-9a-fA-F]{6}$/.test(rawColor)
+    const isTexture =
+      rawColor.startsWith('texture:') &&
+      BODY_TEXTURE_OPTIONS.some((t) => `texture:${t.id}` === rawColor)
+    if (!isHex && !isTexture) {
+      throw new Error('The body finish must be a valid hex color or wood texture.')
+    }
+    bodyColor = rawColor
+  } else if (rawColor !== undefined) {
+    throw new Error('The body finish must be a valid hex color or wood texture.')
+  }
   const result: ProjectDocument = {
     format: 'gtrfactory-project',
     version: 13,
@@ -575,6 +591,7 @@ export function parseProject(text: string): ProjectDocument {
       neckJointBoundary,
       neckPocket,
       rearElectronicsCavity,
+      color: bodyColor,
     },
     neck: importedNeck,
     pickupCavities,

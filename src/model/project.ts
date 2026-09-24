@@ -17,6 +17,47 @@ export interface OutlineNode {
   outHandle: Vec | null
   outgoing: Outgoing
 }
+
+export interface BodyColorOption {
+  id: string
+  name: string
+  hex: string
+}
+
+export const BODY_COLOR_OPTIONS: BodyColorOption[] = [
+  { id: 'classic-slate', name: 'Classic Slate', hex: '#254148' },
+  { id: 'olympic-white', name: 'Olympic White', hex: '#f2f0e6' },
+  { id: 'onyx-black', name: 'Onyx Black', hex: '#1b1e20' },
+  { id: 'fiesta-red', name: 'Fiesta Red', hex: '#bd332a' },
+  { id: 'candy-apple-red', name: 'Candy Apple Red', hex: '#7d181c' },
+  { id: 'butterscotch-blonde', name: 'Butterscotch Blonde', hex: '#deb258' },
+  { id: 'surf-green', name: 'Surf Green', hex: '#6da894' },
+  { id: 'lake-placid-blue', name: 'Lake Placid Blue', hex: '#2d677e' },
+  { id: 'sunburst-amber', name: 'Sunburst Amber', hex: '#a65922' },
+  { id: 'sherwood-green', name: 'Sherwood Green', hex: '#204537' },
+]
+
+export interface BodyTextureOption {
+  id: string
+  name: string
+  image: string
+  previewColor: string
+}
+
+export const BODY_TEXTURE_OPTIONS: BodyTextureOption[] = [
+  { id: 'walnut', name: 'Walnut', image: '/textures/walnut.jpg', previewColor: '#4a3324' },
+  { id: 'swamp-ash', name: 'Swamp Ash', image: '/textures/swamp-ash.jpg', previewColor: '#d6b88d' },
+  { id: 'maple', name: 'Maple', image: '/textures/maple.jpg', previewColor: '#eed7b5' },
+  {
+    id: 'figured-maple',
+    name: 'Figured Maple',
+    image: '/textures/figured-maple.jpg',
+    previewColor: '#cc8e41',
+  },
+]
+
+export const DEFAULT_BODY_COLOR = '#254148'
+
 export interface ProjectDocument {
   format: 'gtrfactory-project'
   version: 13
@@ -30,6 +71,7 @@ export interface ProjectDocument {
     neckJointBoundary: NeckJointBoundary | null
     neckPocket: NeckPocketParams | null
     rearElectronicsCavity: RearElectronicsCavity | null
+    color?: string
   }
   /** v4 owns one calculated neck. A v3 pocket remains a clearly labelled legacy draft. */
   neck: NeckDocument | null
@@ -152,6 +194,7 @@ export function createStarterDocument(): ProjectDocument {
         horizontalMm: 176.06686788504933,
         verticalMm: 81.36283544639431,
       },
+      color: DEFAULT_BODY_COLOR,
     },
     neck: null,
     pickupCavities: [],
