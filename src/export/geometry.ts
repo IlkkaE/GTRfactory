@@ -8,7 +8,8 @@ import { transformPoint } from '../neck/fretfactoryGeometry'
 import { pchipToBezierSegments } from '../neck/vendor/pchip'
 import { headstockGeometry, headstockFit, tunerHoles, isHeadless } from '../headstock/template'
 import { bassDerivedLayout, isBassTemplate } from '../headstock/bass'
-import type { ProjectDocument } from '../model/project'
+import type { ProjectDocument, OutlineNode } from '../model/project'
+import { computeInlays } from '../inlays/inlayGeometry'
 import {
   isPickupCustomized,
   pickupDistanceToBridge,
@@ -57,6 +58,28 @@ const path = (
   closed = false,
   name?: string,
 ): ExportPath => ({ role, segments, closed, name })
+
+function outlineNodesToSegments(nodes: OutlineNode[], closed = true): ExportSegment[] {
+  const segments: ExportSegment[] = []
+  const count = closed ? nodes.length : nodes.length - 1
+  for (let i = 0; i < count; i++) {
+    const a = nodes[i]
+    const b = nodes[(i + 1) % nodes.length]
+    segments.push(
+      a.outgoing === 'line'
+        ? { type: 'line', from: copy(a), to: copy(b) }
+        : {
+            type: 'cubicBezier',
+            from: copy(a),
+            control1: { x: a.x + (a.outHandle?.dx ?? 0), y: a.y + (a.outHandle?.dy ?? 0) },
+            control2: { x: b.x + (b.inHandle?.dx ?? 0), y: b.y + (b.inHandle?.dy ?? 0) },
+            to: copy(b),
+          },
+    )
+  }
+  return segments
+}
+
 function neckContour(
   document: ProjectDocument,
   fretboard: boolean,
@@ -276,6 +299,35 @@ function makePart(document: ProjectDocument, id: ExportPart, o: ExportOptions): 
       false,
       name,
     )
+  const inlays = () => {
+    if (!document.neck || !document.fretboardInlays?.enabled) return
+    if (o.includeInlays === false) return
+    const placed = computeInlays(document.neck, document.fretboardInlays)
+    const isCircle =
+      document.fretboardInlays.shape.presetId === 'circle' &&
+      document.fretboardInlays.scalingMode !== 'stretchBlock'
+
+    for (const item of placed) {
+      if (isCircle) {
+        circles.push({
+          role: 'ROUTE_INLAY',
+          center: copy(item.centerMm),
+          radiusMm: item.widthMm / 2,
+          name: `Inlay fret ${item.fretIndex}`,
+        })
+      } else {
+        paths.push(
+          path(
+            'ROUTE_INLAY',
+            outlineNodesToSegments(item.nodes, true),
+            true,
+            `Inlay fret ${item.fretIndex}`,
+          ),
+        )
+      }
+    }
+  }
+
   const neckPoints = () => {
     requireNeck()
     const n = document.neck!,
@@ -330,6 +382,7 @@ function makePart(document: ProjectDocument, id: ExportPart, o: ExportOptions): 
       add(neckContour(document, false, !isHeadless(document.neck!.headstock.activeTemplateId)))
       add(neckContour(document, true))
       holes()
+      inlays()
     }
     if (id !== 'back' && o.includeReferences && document.neck) {
       const { n, move } = neckPoints()
@@ -374,6 +427,7 @@ function makePart(document: ProjectDocument, id: ExportPart, o: ExportOptions): 
         for (const fret of n.snapshot.frets)
           paths.push(curve(fret.points.map(move), 'Fret ' + fret.n, 'FRET_GUIDE'))
       }
+      inlays()
     }
     if (o.includeCenterlines && (id === 'neck' || id === 'fretboard'))
       paths.push(neckCenterline(document, id === 'fretboard'))

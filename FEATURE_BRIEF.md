@@ -1,10 +1,35 @@
-# GTRfactory — FEATURE BRIEF v1, suunnittelutarkennus 9
+# GTRfactory — FEATURE BRIEF v1, suunnittelutarkennus 10
 
 ## Julkinen lähdejulkaisu — 15.9.2026
 
 Käyttäjä valtuutti tässä tehtävässä GTRFactoryn nykyisen lähdepuun julkisen GitHub-repositorion, commitin ja pushin. Julkinen repo sisältää sovelluslähteet, testit ja anonymisoidun/repo-relative reference-analysis-provenienssin; CDR-alkuperäiset, buildit, riippuvuudet ja paikalliset testiartefaktit säilyvät .gitignoressa.
 
 Tämä nykytilamerkintä korvaa aiemmat nykytilan väitteet siitä, ettei lähderepoa julkaista. Vanhat ominaisuuskohtaiset "ei commitia/pushia" -rajaukset säilyvät oman historiallisensa toteutuskierroksen lupahistoriassa; ne eivät kumoa tämän pyynnön nimenomaista Git-julkaisulupaa.
+
+## Paikallinen nykytila — 25.9.2026: Fretboard Inlays ja Inlay Designer (v14)
+
+Otelautamerkkien (fretboard inlays) kattava suunnittelu-, esikatselu- ja valmistusvientikokonaisuus on toteutettu ja läpäissyt täyden testisarjan (281/281 testiä):
+
+1. **Projektiformaatti v14**:
+   - Lisätty `fretboardInlays: InlayDocument | null` juuritasolle.
+   - V10–v13 vanhat projektit parsitaan automaattisesti v14-muotoon ilman tietojen menetystä.
+   - Nauhakarsintainvariantti karsii `markedFrets` ja `doubleInlayFrets` aina tilaan $\le \text{frets}$ kaulamallin vaihtuessa.
+
+2. **Inlay Designer -työtila (`activeWorkspace === 'inlays'`)**:
+   - Erillinen suunnittelutyötila yhden otelautamerkin vapaaseen muotoiluun normalisoidussa $[0, 1] \times [0, 1]$ B\u00e9zier-avaruudessa.
+   - Pääohjelman ja rungon suojaukset: näppäinkuuntelijan suojaportti estää kitaran päänäkymien vaihdot (`1/2/3`), rungon pisteiden poistot (`Delete`) tai siirrot inlay-editorissa ollessa.
+   - Päänäkymien kamerat, sovitukset ja piirtoalueet pysyvät 100 % koskemattomina.
+
+3. **Otelautanäkymä ja kaulan ohjaus**:
+   - Kaulaeditorissa uusi **Inlays**-välilehti kaikkien nauhavälien ($1 \dots \text{frets}$) valitsimella, pikanäppäimillä (Classic, All, Clear), tuplanauhoilla ja skaalausmoodeilla.
+   - Geometriamoottori (`computeInlays`) laskee merkit kanonisessa mm-koordinaatistossa tarkan bisektion avulla myös kaarevilla nauhoilla ja satuloilla.
+   - Merkit piirretään otelaudan leikkausmaskin alle omalle tasolleen `pointerEvents="none"` -suojattuna.
+
+4. **Valmistusvienti (DXF, PDF, SVG)**:
+   - Uusi valmistusrooli `ROUTE_INLAY`.
+   - DXF vie ympyrämerkit aitoina `CIRCLE`-entiteetteinä ja monikulmiot/käyrät `SPLINE`/`LINE`-muodossa omalle `ROUTE_INLAY`-tasolleen.
+   - Tavuvertailutakuu: tiedostot ilman merkkejä tuottavat 100 % identtisen vientisisällön.
+   - Täysi vasenkätisyystuki (`handedness: 'left'`).
 
 ## Paikallinen nykytila — 23.9.2026
 

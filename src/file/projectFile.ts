@@ -16,6 +16,9 @@ import {
   type ProjectDocument,
   type Handedness,
   type Vec,
+  type InlayDocument,
+  type InlayScalingMode,
+  type InlayShapePresetId,
 } from '../model/project'
 import { calculateNeck, validateNeckParams } from '../neck/fretfactoryGeometry'
 import { automaticPocket, physicalFretboard, physicalHeel } from '../neck/automaticPocket'
@@ -388,6 +391,206 @@ function neck(value: unknown, allowLegacyBass5 = false): NeckDocument | null {
   validateInstrumentPolicy({ neck: result } as ProjectDocument)
   return result
 }
+function inlaySmoothValid(n: OutlineNode): boolean {
+  if (n.kind !== 'smooth') return true
+  if (!n.inHandle && !n.outHandle) return true
+  if (!n.inHandle || !n.outHandle) return false
+  const cross = n.inHandle.dx * n.outHandle.dy - n.inHandle.dy * n.outHandle.dx
+  const dot = n.inHandle.dx * n.outHandle.dx + n.inHandle.dy * n.outHandle.dy
+  return Math.abs(cross) < 1e-4 && dot < 1e-4
+}
+
+function parseInlays(value: unknown): InlayDocument | null {
+  if (value === null) return null
+  const inlays = object(value)
+  if (inlays.version !== 1) {
+    throw new Error('The fretboard inlays version is invalid.')
+  }
+  if (typeof inlays.enabled !== 'boolean') {
+    throw new Error('The fretboard inlays enabled flag is invalid.')
+  }
+  const rawShape = object(inlays.shape)
+  const VALID_PRESETS = ['circle', 'diamond', 'block', 'star', 'trapezoid', 'custom']
+  if (!VALID_PRESETS.includes(rawShape.presetId as string)) {
+    throw new Error('The inlay shape preset is unknown.')
+  }
+  if (!Array.isArray(rawShape.nodes) || rawShape.nodes.length < 3) {
+    throw new Error('The inlay shape must have at least 3 nodes.')
+  }
+  const shapeNodes: OutlineNode[] = (rawShape.nodes as unknown[]).map((rawNode) => {
+    const n = object(rawNode)
+    if (
+      typeof n.id !== 'string' ||
+      !n.id ||
+      typeof n.x !== 'number' ||
+      !Number.isFinite(n.x) ||
+      n.x < 0 ||
+      n.x > 1 ||
+      typeof n.y !== 'number' ||
+      !Number.isFinite(n.y) ||
+      n.y < 0 ||
+      n.y > 1 ||
+      (n.kind !== 'smooth' && n.kind !== 'corner') ||
+      (n.outgoing !== 'line' && n.outgoing !== 'cubicBezier')
+    ) {
+      throw new Error('The inlay node values or identifier are invalid.')
+    }
+    const parseHandle = (h: unknown) => {
+      if (h === null || h === undefined) return null
+      const vec = object(h)
+      if (
+        typeof vec.dx !== 'number' ||
+        !Number.isFinite(vec.dx) ||
+        typeof vec.dy !== 'number' ||
+        !Number.isFinite(vec.dy) ||
+        Math.hypot(vec.dx, vec.dy) > 5
+      ) {
+        throw new Error('The inlay tangent handle values are invalid.')
+      }
+      return { dx: vec.dx, dy: vec.dy }
+    }
+    const inHandle = parseHandle(n.inHandle)
+    const outHandle = parseHandle(n.outHandle)
+    const nodeObj: OutlineNode = {
+      id: n.id as string,
+      x: n.x as number,
+      y: n.y as number,
+      kind: n.kind as 'smooth' | 'corner',
+      inHandle,
+      outHandle,
+      outgoing: n.outgoing as 'line' | 'cubicBezier',
+    }
+    if (!inlaySmoothValid(nodeObj)) {
+      throw new Error('Smooth inlay nodes must have collinear opposing handles.')
+    }
+    return nodeObj
+  })
+  if (!Array.isArray(inlays.markedFrets)) {
+    throw new Error('The marked frets list is invalid.')
+  }
+  const markedFrets = inlays.markedFrets.map((f) => {
+    if (typeof f !== 'number' || !Number.isInteger(f) || f < 1) {
+      throw new Error('Marked frets must be positive integers.')
+    }
+    return f
+  })
+  const uniqueMarkedFrets = Array.from(new Set(markedFrets)).sort((a, b) => a - b)
+  if (!Array.isArray(inlays.doubleInlayFrets)) {
+    throw new Error('The double inlay frets list is invalid.')
+  }
+  const doubleInlayFrets = inlays.doubleInlayFrets.map((f) => {
+    if (typeof f !== 'number' || !Number.isInteger(f) || f < 1) {
+      throw new Error('Double inlay frets must be positive integers.')
+    }
+    return f
+  })
+  const uniqueDoubleFrets = Array.from(new Set(doubleInlayFrets)).sort((a, b) => a - b)
+  if (!uniqueDoubleFrets.every((f) => uniqueMarkedFrets.includes(f))) {
+    throw new Error('Double inlay frets must be a subset of marked frets.')
+  }
+  const VALID_SCALING = ['fixedMm', 'proportionalPercent', 'stretchBlock']
+  if (!VALID_SCALING.includes(inlays.scalingMode as string)) {
+    throw new Error('The inlay scaling mode is invalid.')
+  }
+  if (
+    typeof inlays.doubleInlaySpacingMm !== 'number' ||
+    !Number.isFinite(inlays.doubleInlaySpacingMm) ||
+    inlays.doubleInlaySpacingMm < 1 ||
+    inlays.doubleInlaySpacingMm > 100
+  ) {
+    throw new Error('The double inlay spacing is invalid.')
+  }
+  if (
+    typeof inlays.fixedDiameterMm !== 'number' ||
+    !Number.isFinite(inlays.fixedDiameterMm) ||
+    inlays.fixedDiameterMm < 0.5 ||
+    inlays.fixedDiameterMm > 50
+  ) {
+    throw new Error('The fixed diameter is invalid.')
+  }
+  if (
+    typeof inlays.fillPercentage !== 'number' ||
+    !Number.isFinite(inlays.fillPercentage) ||
+    inlays.fillPercentage < 5 ||
+    inlays.fillPercentage > 100
+  ) {
+    throw new Error('The fill percentage is invalid.')
+  }
+  let widthPercentage = inlays.fillPercentage as number
+  if (inlays.widthPercentage !== undefined) {
+    if (
+      typeof inlays.widthPercentage !== 'number' ||
+      !Number.isFinite(inlays.widthPercentage) ||
+      inlays.widthPercentage < 5 ||
+      inlays.widthPercentage > 100
+    ) {
+      throw new Error('The width percentage is invalid.')
+    }
+    widthPercentage = inlays.widthPercentage
+  }
+  let heightPercentage = inlays.fillPercentage as number
+  if (inlays.heightPercentage !== undefined) {
+    if (
+      typeof inlays.heightPercentage !== 'number' ||
+      !Number.isFinite(inlays.heightPercentage) ||
+      inlays.heightPercentage < 5 ||
+      inlays.heightPercentage > 100
+    ) {
+      throw new Error('The height percentage is invalid.')
+    }
+    heightPercentage = inlays.heightPercentage
+  }
+  const rawMargins = object(inlays.blockMargins)
+  if (
+    typeof rawMargins.fretMm !== 'number' ||
+    !Number.isFinite(rawMargins.fretMm) ||
+    rawMargins.fretMm < 0 ||
+    typeof rawMargins.edgeMm !== 'number' ||
+    !Number.isFinite(rawMargins.edgeMm) ||
+    rawMargins.edgeMm < 0
+  ) {
+    throw new Error('The block margins are invalid.')
+  }
+  const rawStyle = object(inlays.style)
+  const validColor = (c: unknown) => typeof c === 'string' && /^#[0-9a-fA-F]{6}$/.test(c)
+  if (!validColor(rawStyle.fillColor) || !validColor(rawStyle.strokeColor)) {
+    throw new Error('The inlay colors must be valid hex colors.')
+  }
+  if (
+    typeof rawStyle.strokeWidthMm !== 'number' ||
+    !Number.isFinite(rawStyle.strokeWidthMm) ||
+    rawStyle.strokeWidthMm < 0 ||
+    rawStyle.strokeWidthMm > 10
+  ) {
+    throw new Error('The inlay stroke width is invalid.')
+  }
+  return {
+    version: 1,
+    enabled: inlays.enabled as boolean,
+    shape: {
+      presetId: rawShape.presetId as InlayShapePresetId,
+      nodes: shapeNodes,
+    },
+    markedFrets: uniqueMarkedFrets,
+    doubleInlayFrets: uniqueDoubleFrets,
+    doubleInlaySpacingMm: inlays.doubleInlaySpacingMm as number,
+    scalingMode: inlays.scalingMode as InlayScalingMode,
+    fixedDiameterMm: inlays.fixedDiameterMm as number,
+    fillPercentage: inlays.fillPercentage as number,
+    widthPercentage,
+    heightPercentage,
+    blockMargins: {
+      fretMm: rawMargins.fretMm as number,
+      edgeMm: rawMargins.edgeMm as number,
+    },
+    style: {
+      fillColor: rawStyle.fillColor as string,
+      strokeColor: rawStyle.strokeColor as string,
+      strokeWidthMm: rawStyle.strokeWidthMm as number,
+    },
+  }
+}
+
 export function parseProject(text: string): ProjectDocument {
   if (new TextEncoder().encode(text).byteLength > MAX_BYTES)
     throw new Error('The file exceeds the 2 MiB technical limit.')
@@ -400,9 +603,15 @@ export function parseProject(text: string): ProjectDocument {
   const d = object(raw)
   if (d.format !== 'gtrfactory-project')
     throw new Error('The file format, unit, or coordinate system is invalid.')
-  if (d.version !== 10 && d.version !== 11 && d.version !== 12 && d.version !== 13)
+  if (
+    d.version !== 10 &&
+    d.version !== 11 &&
+    d.version !== 12 &&
+    d.version !== 13 &&
+    d.version !== 14
+  )
     throw new Error(
-      'This project version is not supported. The supported versions are 10, 11, 12 and 13.',
+      'This project version is not supported. The supported versions are 10, 11, 12, 13 and 14.',
     )
   const importedVersion = d.version
   const handedness: Handedness =
@@ -578,9 +787,24 @@ export function parseProject(text: string): ProjectDocument {
   } else if (rawColor !== undefined) {
     throw new Error('The body finish must be a valid hex color or wood texture.')
   }
+  if (importedVersion === 14 && !Object.hasOwn(d, 'fretboardInlays')) {
+    throw new Error('Version 14 projects require the fretboardInlays field.')
+  }
+  if (importedVersion < 14 && d.fretboardInlays != null) {
+    throw new Error('Older project versions cannot declare fretboard inlays.')
+  }
+  const importedInlays = importedVersion === 14 ? parseInlays(d.fretboardInlays) : null
+  if (importedNeck && importedInlays) {
+    const maxFrets = importedNeck.params.frets
+    importedInlays.markedFrets = importedInlays.markedFrets.filter((f: number) => f <= maxFrets)
+    importedInlays.doubleInlayFrets = importedInlays.doubleInlayFrets.filter(
+      (f: number) => f <= maxFrets && importedInlays.markedFrets.includes(f),
+    )
+  }
+
   const result: ProjectDocument = {
     format: 'gtrfactory-project',
-    version: 13,
+    version: 14,
     handedness,
     units: 'mm',
     name: d.name,
@@ -594,6 +818,7 @@ export function parseProject(text: string): ProjectDocument {
       color: bodyColor,
     },
     neck: importedNeck,
+    fretboardInlays: importedInlays,
     pickupCavities,
   }
   if (importedNeck) {

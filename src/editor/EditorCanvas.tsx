@@ -24,6 +24,7 @@ import { starterBodyOutline, BODY_TEXTURE_OPTIONS } from '../model/project'
 import { rearElectronicsCavityGeometry } from '../electronicsCavity'
 import { pickupGeometry } from '../pickup/profiles'
 import { prepareCanvasGeometry } from './canvasGeometry'
+import { computeInlays } from '../inlays/inlayGeometry'
 import {
   canSplitHeadstockSegment,
   isProtectedHeadstockHandle,
@@ -141,6 +142,11 @@ export function EditorCanvas({
     right = pxToWorld({ x: size.width, y: size.height }, t).y
   const xTicks = ticks(t, size, s.unit, 'x'),
     yTicks = ticks(t, size, s.unit, 'y')
+  const effectiveNeck = template?.neck ?? doc.neck
+  const placedInlays = useMemo(() => {
+    if (!effectiveNeck || !doc.fretboardInlays?.enabled) return []
+    return computeInlays(effectiveNeck, doc.fretboardInlays)
+  }, [effectiveNeck, doc.fretboardInlays])
   const originalBodyPath = useMemo(() => pathD(starterBodyOutline()), [])
   const visibleGridPath = useMemo(() => {
     const corners = [
@@ -396,6 +402,24 @@ export function EditorCanvas({
                         onKeyDown={interactions.headstock.onKeyboardSelect}
                       />
                     )}
+                  {view === 'front' && neckDrawing && placedInlays.length > 0 && (
+                    <g
+                      className="fretboard-inlays"
+                      clipPath={`url(#${clip}-neck)`}
+                      pointerEvents="none"
+                    >
+                      {placedInlays.map((inlay, i) => (
+                        <path
+                          key={i}
+                          className="fretboard-inlay-marker"
+                          d={pathD(inlay.nodes)}
+                          fill={doc.fretboardInlays?.style.fillColor ?? '#ffffff'}
+                          stroke={doc.fretboardInlays?.style.strokeColor ?? '#000000'}
+                          strokeWidth={doc.fretboardInlays?.style.strokeWidthMm ?? 0.2}
+                        />
+                      ))}
+                    </g>
+                  )}
                   {view === 'front' && neckDrawing && (
                     <>
                       {showNeckGuides && (

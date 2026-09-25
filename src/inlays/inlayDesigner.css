@@ -1,0 +1,390 @@
+.inlay-designer-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: #0b1519;
+  color: #e7eeed;
+  overflow: hidden;
+  outline: none;
+}
+
+.inlay-designer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #142228;
+  border-bottom: 1px solid #233a44;
+  height: 52px;
+  box-sizing: border-box;
+}
+
+.inlay-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.inlay-header-left h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff1bc;
+}
+
+.inlay-back-btn {
+  background: #1e333c;
+  color: #b8f1e5;
+  border: 1px solid #3d6370;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.inlay-back-btn:hover {
+  background: #27434f;
+}
+
+.inlay-header-center {
+  display: flex;
+  align-items: center;
+}
+
+.inlay-preset-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inlay-group-label {
+  font-size: 13px;
+  color: #8caaa7;
+}
+
+.inlay-preset-group button {
+  padding: 5px 12px;
+  font-size: 12px;
+  background: #17282f;
+  color: #8caaa7;
+  border: 1px solid #365058;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.inlay-preset-group button.active {
+  background: #2b5d67;
+  color: #ffffff;
+  border-color: #55919e;
+  font-weight: 600;
+}
+
+.inlay-custom-badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  background: #463b27;
+  color: #ffc175;
+  border-radius: 3px;
+  border: 1px solid #7c6439;
+}
+
+.inlay-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inlay-header-right button {
+  padding: 6px 14px;
+  font-size: 13px;
+  background: #1e333c;
+  color: #e7eeed;
+  border: 1px solid #3d6370;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.inlay-header-right button.accent {
+  background: #2b706c;
+  border-color: #4da69f;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.inlay-designer-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.inlay-canvas-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0e1a1f;
+  position: relative;
+  overflow: auto;
+}
+
+.inlay-canvas-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.inlay-editor-svg {
+  width: 550px;
+  height: 550px;
+  background: #112027;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  touch-action: none;
+  user-select: none;
+}
+
+.inlay-box-bg {
+  fill: #14252e;
+  cursor: default;
+}
+
+.inlay-box-border {
+  fill: none;
+  stroke: #33505c;
+  stroke-width: 2;
+  pointer-events: none;
+}
+
+.inlay-grid-line {
+  stroke: #1d3642;
+  stroke-width: 1;
+  pointer-events: none;
+}
+
+.inlay-grid-line.centerline {
+  stroke: #2e5568;
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+
+.inlay-axis-text {
+  fill: #6d8d9b;
+  font-size: 11px;
+  font-family: inherit;
+  user-select: none;
+  pointer-events: none;
+}
+
+.inlay-shape-preview {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.inlay-handle-line {
+  stroke: #ffb86c;
+  stroke-width: 1.5;
+}
+
+.inlay-handle-dot {
+  fill: #ffb86c;
+  stroke: #14252e;
+  stroke-width: 2;
+}
+
+.inlay-handle-wrapper:hover .inlay-handle-dot {
+  fill: #fff1bc;
+  r: 8;
+}
+
+.inlay-node-point {
+  fill: #e7eeed;
+  stroke: #14252e;
+  stroke-width: 2;
+}
+
+.inlay-node-group:hover .inlay-node-point {
+  fill: #fff1bc;
+  r: 8;
+}
+
+.inlay-node-point.selected {
+  fill: #ffb86c;
+  stroke: #ffffff;
+  stroke-width: 3;
+}
+
+.inlay-designer-sidebar {
+  width: 320px;
+  background: #142228;
+  border-left: 1px solid #233a44;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.inlay-sidebar-card {
+  background: #182b33;
+  border: 1px solid #284451;
+  border-radius: 6px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inlay-sidebar-card h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff1bc;
+}
+
+.inlay-node-properties {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inlay-prop-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.inlay-prop-row label {
+  display: flex;
+  flex-direction: column;
+  font-size: 11px;
+  color: #8caaa7;
+  gap: 4px;
+  flex: 1;
+}
+
+.inlay-prop-row input {
+  background: #0e1b20;
+  color: #e7eeed;
+  border: 1px solid #365058;
+  border-radius: 3px;
+  padding: 4px 6px;
+  font-size: 13px;
+}
+
+.inlay-btn-toggle {
+  display: flex;
+  gap: 4px;
+}
+
+.inlay-btn-toggle button {
+  padding: 3px 8px;
+  font-size: 11px;
+  background: #17282f;
+  color: #8caaa7;
+  border: 1px solid #365058;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.inlay-btn-toggle button.active {
+  background: #2b5d67;
+  color: #ffffff;
+  border-color: #55919e;
+}
+
+.inlay-node-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.inlay-add-node-btn {
+  flex: 1;
+  padding: 6px 10px;
+  font-size: 12px;
+  background: #1e333c;
+  color: #b8f1e5;
+  border: 1px solid #3d6370;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.inlay-add-node-btn:hover {
+  background: #27434f;
+  color: #ffffff;
+}
+
+.inlay-delete-node-btn {
+  padding: 6px 12px;
+  font-size: 12px;
+  background: #3e2222;
+  color: #ff9d9d;
+  border: 1px solid #6b3333;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.inlay-delete-node-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.inlay-delete-node-btn:not(:disabled):hover {
+  background: #552727;
+  color: #ffffff;
+}
+
+.inlay-style-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inlay-style-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  color: #8caaa7;
+}
+
+.inlay-color-input-wrapper {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.inlay-color-input-wrapper input[type='color'] {
+  width: 32px;
+  height: 28px;
+  border: 1px solid #365058;
+  border-radius: 3px;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.inlay-color-input-wrapper input[type='text'] {
+  flex: 1;
+  background: #0e1b20;
+  color: #e7eeed;
+  border: 1px solid #365058;
+  border-radius: 3px;
+  padding: 4px 6px;
+  font-size: 13px;
+}
+
+.inlay-style-fields input[type='number'] {
+  background: #0e1b20;
+  color: #e7eeed;
+  border: 1px solid #365058;
+  border-radius: 3px;
+  padding: 4px 6px;
+  font-size: 13px;
+}

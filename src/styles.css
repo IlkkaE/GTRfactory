@@ -1172,3 +1172,198 @@ dialog p {
 .electronics-cavity-handle.bottom {
   cursor: ns-resize;
 }
+
+/* Fretboard Inlays */
+.neck-inlays {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.inlay-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* Inlays Multi-Column Layout */
+.inlay-controls-columns {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.inlay-column.inlay-fret-column {
+  flex: 1 1 56%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inlay-column.inlay-settings-column {
+  flex: 1 1 44%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-left: 1px solid #273e46;
+  padding-left: 16px;
+}
+
+.inlay-subpanel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.inlay-subpanel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.inlay-subpanel-header h4 {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: #c9dbd8;
+  white-space: nowrap;
+}
+
+.inlay-fret-quick-actions {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.inlay-fret-quick-actions button {
+  padding: 2px 7px;
+  font-size: 10px;
+}
+
+.inlay-fret-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.inlay-fret-toggle {
+  min-width: 27px;
+  height: 23px;
+  padding: 1px 4px;
+  font-size: 10px;
+  background: #17282f;
+  color: #8caaa7;
+  border: 1px solid #365058;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.inlay-fret-toggle.active {
+  background: #2b5d67;
+  color: #ffffff;
+  border-color: #55919e;
+  font-weight: bold;
+}
+.inlay-fret-toggle.double {
+  border-bottom: 2px solid #ffb86c;
+}
+
+.inlay-settings-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.inlay-settings-actions button {
+  padding: 3px 9px;
+  font-size: 11px;
+}
+
+.inlay-preset-buttons {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.inlay-preset-buttons button {
+  padding: 3px 8px;
+  font-size: 11px;
+  background: #17282f;
+  color: #8caaa7;
+  border: 1px solid #365058;
+  border-radius: 3px;
+}
+.inlay-preset-buttons button.active {
+  background: #2b5d67;
+  color: #ffffff;
+  border-color: #55919e;
+}
+
+.inlay-scaling-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.inlay-inline-spacing {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10.5px;
+  color: #b9ceca;
+}
+.inlay-inline-spacing input {
+  width: 58px;
+  padding: 2px 4px;
+  background: #0e1b20;
+  border: 1px solid #46636c;
+  color: inherit;
+  border-radius: 3px;
+  font-size: 11px;
+}
+
+.inlay-inline-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inlay-compact-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  color: #b9ceca;
+}
+.inlay-compact-label input {
+  width: 50px;
+  padding: 2px 4px;
+  background: #0e1b20;
+  border: 1px solid #46636c;
+  color: inherit;
+  border-radius: 3px;
+  font-size: 11px;
+}
+
+.fretboard-inlay-marker {
+  vector-effect: non-scaling-stroke;
+}
+
+@media (max-width: 900px) {
+  .inlay-controls-columns {
+    flex-direction: column;
+  }
+  .inlay-column.inlay-settings-column {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid #273e46;
+    padding-top: 8px;
+  }
+}

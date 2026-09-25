@@ -5,6 +5,7 @@ export type ExportRole =
   | 'ROUTE_NECK_POCKET'
   | 'ROUTE_REAR_INNER'
   | 'ROUTE_REAR_RECESS'
+  | 'ROUTE_INLAY'
   | 'DRILL_TUNER'
   | 'FRET_GUIDE'
   | 'REFERENCE'
@@ -74,6 +75,7 @@ export type ExportOptions = {
   includeCenterlines: boolean
   includeReferences: boolean
   includeFretGuides: boolean
+  includeInlays?: boolean
   includeMeasurements: boolean
   allMeasurements: boolean
   includeNames: boolean
@@ -97,6 +99,7 @@ export const DEFAULT_EXPORT_OPTIONS: ExportOptions = {
   includeCenterlines: true,
   includeReferences: true,
   includeFretGuides: true,
+  includeInlays: true,
   includeMeasurements: true,
   allMeasurements: false,
   includeNames: true,

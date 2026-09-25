@@ -148,7 +148,8 @@ export function ExportDialog({ onClose }: { onClose: () => void }) {
       | 'includeMeasurements'
       | 'allMeasurements'
       | 'includeNames'
-      | 'includeCalibration',
+      | 'includeCalibration'
+      | 'includeInlays',
     label: string,
   ) => (
     <label>
@@ -239,6 +240,7 @@ export function ExportDialog({ onClose }: { onClose: () => void }) {
             {checkbox('includeCenterlines', 'Centerlines')}
             {checkbox('includeReferences', 'Nut/bridge references')}
             {checkbox('includeFretGuides', 'Fret lines on the fretboard')}
+            {checkbox('includeInlays', 'Inlays on the fretboard')}
             {checkbox('includeNames', 'Part names')}
             {checkbox('includeCalibration', '100 mm calibration check')}
           </fieldset>

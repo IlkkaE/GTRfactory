@@ -58,9 +58,45 @@ export const BODY_TEXTURE_OPTIONS: BodyTextureOption[] = [
 
 export const DEFAULT_BODY_COLOR = '#254148'
 
+export type InlayShapePresetId = 'circle' | 'diamond' | 'block' | 'trapezoid' | 'star' | 'custom'
+
+export type InlayScalingMode = 'fixedMm' | 'proportionalPercent' | 'stretchBlock'
+
+export interface InlayShape {
+  presetId: InlayShapePresetId
+  nodes: OutlineNode[]
+}
+
+export interface InlayDocument {
+  version: 1
+  enabled: boolean
+  shape: InlayShape
+  /** 1-based index of frets where inlays appear (1 = between nut and 1st fret). */
+  markedFrets: number[]
+  /** Subset of markedFrets that have a double inlay (typically [12, 24]). */
+  doubleInlayFrets: number[]
+  doubleInlaySpacingMm: number
+  scalingMode: InlayScalingMode
+  /** Bounding box dimension in mm for fixedMm mode (default 6.0 mm). */
+  fixedDiameterMm: number
+  /** Fill percentage 5..100% for proportionalPercent mode (default 60%). */
+  fillPercentage: number
+  /** Width percentage 5..100% of fretboard width (default 70%). */
+  widthPercentage?: number
+  /** Height percentage 5..100% of fret height (default 70%). */
+  heightPercentage?: number
+  /** Margin clearances in mm for stretchBlock mode. */
+  blockMargins: { fretMm: number; edgeMm: number }
+  style: {
+    fillColor: string
+    strokeColor: string
+    strokeWidthMm: number
+  }
+}
+
 export interface ProjectDocument {
   format: 'gtrfactory-project'
-  version: 13
+  version: 14
   handedness: Handedness
   units: 'mm'
   name: string
@@ -75,6 +111,7 @@ export interface ProjectDocument {
   }
   /** v4 owns one calculated neck. A v3 pocket remains a clearly labelled legacy draft. */
   neck: NeckDocument | null
+  fretboardInlays: InlayDocument | null
   pickupCavities: PickupCavity[]
 }
 export interface RearElectronicsCavity {
@@ -173,7 +210,7 @@ export const starterBodyOutline = (): OutlineNode[] =>
 export function createStarterDocument(): ProjectDocument {
   return {
     format: 'gtrfactory-project',
-    version: 13,
+    version: 14,
     handedness: 'right',
     units: 'mm',
     name: '',
@@ -197,6 +234,7 @@ export function createStarterDocument(): ProjectDocument {
       color: DEFAULT_BODY_COLOR,
     },
     neck: null,
+    fretboardInlays: null,
     pickupCavities: [],
   }
 }

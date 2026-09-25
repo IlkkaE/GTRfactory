@@ -196,6 +196,13 @@ export function deriveNeckDocument(
   if (!neck) return null
   next.neck = neck
   validateInstrumentPolicy(next)
+  if (next.fretboardInlays) {
+    const maxFrets = neck.params.frets
+    next.fretboardInlays.markedFrets = next.fretboardInlays.markedFrets.filter((f) => f <= maxFrets)
+    next.fretboardInlays.doubleInlayFrets = next.fretboardInlays.doubleInlayFrets.filter(
+      (f) => f <= maxFrets && next.fretboardInlays!.markedFrets.includes(f),
+    )
+  }
   if (clearPocket) next.body.neckPocket = null
   applyAutomaticMouth(next)
   return next

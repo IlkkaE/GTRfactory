@@ -8,6 +8,7 @@ import { ContextTools } from './editor/ContextTools'
 import { PickupMenu } from './editor/PickupMenu'
 import { BodyColorPicker } from './editor/BodyColorPicker'
 import { ReferenceControls } from './editor/ReferenceControls'
+import { InlayDesignerWorkspace } from './inlays/InlayDesignerWorkspace'
 import { NeckWorkspace, type NeckFocusRequest } from './editor/NeckWorkspace'
 import { automaticPocket } from './neck/automaticPocket'
 import { headstockFit, headstockWorldNodes, isHeadless } from './headstock/template'
@@ -179,6 +180,13 @@ export function App() {
         k === 'y' || e.shiftKey ? state.redo() : state.undo()
         return
       }
+      if (state.activeWorkspace !== 'guitar') {
+        if (e.key === 'Escape') {
+          e.preventDefault()
+          state.setActiveWorkspace('guitar')
+        }
+        return
+      }
       if (e.key === 'Escape') {
         state.neckDraft ? state.cancelNeckDraft() : state.cancel()
         return
@@ -279,6 +287,10 @@ export function App() {
   }
   const locked = !!s.drag || !!s.neckDraft
   const measure = (n: number) => (s.unit === 'mm' ? n : n / 25.4).toFixed(s.unit === 'mm' ? 1 : 3)
+  if (s.activeWorkspace === 'inlays') {
+    return <InlayDesignerWorkspace />
+  }
+
   return (
     <main className={`editor ${s.neckDraft ? 'neck-editing' : ''}`}>
       <header>

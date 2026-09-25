@@ -77,6 +77,42 @@ Koodin ja testien sovittu aktiivinen muotoilu tehdään Prettierillä komennoill
 
 Tuotantobuildin voi tarkistaa erikseen komennolla `npm run preview` osoitteessa `http://127.0.0.1:4174`. `test:port-conflict` tarkistaa, että varattu dev- tai preview-portti aiheuttaa virheen eikä palvelin vaihda porttia. `test:e2e` tekee aina uuden tuotantobuildin ja tarkistaa sen asennetulla Microsoft Edgellä; leveän työpöytäkokeen lisäksi kapea koe on iPhone 13 -kokoinen Chromium-simulaatio. Jos Microsoft Edgeä ei ole asennettu, testiä ei voi pitää tehtynä. Testit käyttävät projektin omaa Playwright-riippuvuutta eivätkä tarvitse Codexin mukana toimitettuja kirjastoja.
 
+## Fretboard Inlays ja Inlay Designer (v14)
+
+Versiossa 14 GTRfactoryyn on lisätty otelautamerkkien kattava suunnittelu-, esikatselu- ja valmistusvientituki:
+
+- **Eristetty Inlay Designer -työtila (`activeWorkspace === 'inlays'`)**:
+  - Yläpalkin **Inlays**-painike avaa erillisen, oman suunnittelutilan yhden otelautamerkin vapaaseen muotoiluun normalisoidussa $[0, 1] \times [0, 1]$ B\u00e9zier-avaruudessa.
+  - Akseleiden suunnat ja opasteet on merkitty soittimen suuntien mukaisesti: *Nut side ($v = 0$)*, *Bridge side ($v = 1$)*, *Bass edge ($u = 0$)* ja *Treble edge ($u = 1$)*.
+  - Valmiit esiasetukset: **Circle**, **Diamond**, **Block**, **Trapezoid** ja **Star**.
+  - Vapaa solmumuokkaus: solmujen siirto, tyyppi (*Corner* / *Smooth*) ja tangenttikahvojen manipulointi tasaisella jatkuvuudella.
+  - Visuaaliset tyyliasetukset: täyttöväri, reunaviivan väri ja reunaviivan paksuus.
+  - **Pääohjelman ja pikanäppäinten suojaus**: Inlay Designerissa painetut numeronäppäimet (`1/2/3`), nuolinäppäimet, `Delete` tai välilyönti eivät koskaan kohdistu kitaran runkoon tai päänäkymiin. `Escape` tai *Done / Back to Guitar* palauttaa turvallisesti kitaranäkymään.
+
+- **Otelautamerkkien hallinta kaulanäkymässä**:
+  - Kaulan kontekstipaneelissa on uusi **Inlays**-ryhmä.
+  - Dynaaminen nauhavälien valitsin $1 \dots \text{frets}$: merkit voi kytkeä päälle tai pois miltä tahansa nauhaväliltä.
+  - Pikanapit: **Classic** (nauhat 3, 5, 7, 9, 12, 15, 17, 19, 21, 24), **All** ja **Clear**.
+  - Tuplanauhamerkkien valinta (esim. 12. ja 24. nauha) ja niiden etäisyyden säätö millimetreinä (`doubleInlaySpacingMm`).
+  - Skaalausmoodit:
+    1. **Fixed diameter / size (mm)**: vakiokokoinen merkki jokaisella nauhalla (oletus ympyrälle: 6,0 mm).
+    2. **Proportional to fret width (%)**: merkin koko skaalautuu automaattisesti nauhavälin koon ja otelaudan kapenemisen mukaan.
+    3. **Full block with margins (mm)**: otelaudan koko leveyden ja nauhavälin täyttävä blokki säädettävillä reuna- ja nauhamarginaaleilla.
+  - **Nauhakarsintainvariantti**: Nauhamäärän pienentäminen (esim. 24 $\rightarrow$ 22) tai soitintyypin vaihto kitara $\leftrightarrow$ basso karsii automaattisesti merkkitaulukot tilaan $\le \text{frets}$, estäen orvot merkit ja mallivirheet.
+
+- **Otelautanäkymän renderöinti**:
+  - Merkit sijoitetaan kanonisen geometriamoottorin (`computeInlays`) kautta tarkkaan bisektioon keskiviivalle $x = 0$ myös kaarevilla nauhoilla ja satuloilla.
+  - Merkit renderöidään `front`-näkymässä otelaudan leikkausmaskin sisälle omalle tasolleen (`fretboard-inlays`) `pointerEvents="none"` -suojauksella.
+  - Päänäkymien kamerat, sovitukset ja rungon/kaulan geometria säilyvät täysin koskemattomina.
+
+- **Valmistusvienti (DXF, PDF, SVG)**:
+  - Uusi vientirooli: **`ROUTE_INLAY`**.
+  - **DXF**: Ympyrämerkit viedään aitoina `CIRCLE`-entiteetteinä CNC-poraukselle, ja monikulmiot/käyrät `SPLINE`- ja `LINE`-entiteetteinä omalle `ROUTE_INLAY`-tasolleen.
+  - **Overview**: Kokoomanäkymässä merkit viedään referenssitasona (`REFERENCE`).
+  - **Export-dialogi**: Sisältää *Inlays on the fretboard* -valintaruudun.
+  - **Tavuvertailutakuu**: Projekteissa, joissa merkkejä ei käytetä (`fretboardInlays === null`), DXF-, SVG- ja PDF-viennit säilyvät 100 % tavutarkasti identtisinä aiempiin versioihin verrattuna.
+  - Täysi vasenkätisyystuki (`handedness: 'left'`) ilman mitta- tai muotovääristymiä.
+
 ## Editorin käyttö
 
 Suuri näkymä on vasemmalla ja kaksi pienempää, samaan malliin sidottua esikatselua oikealla. **Front**-, **Back**- ja **Neck pocket** -näkymän voi nostaa suureksi napsauttamalla pikkukuvan mitä tahansa kohtaa, valitsemalla pikkukuvan näppäimistöllä ja painamalla Enter/välilyönti tai käyttämällä 1/2/3-oikoteitä. Näkymien otsikot ovat tekstejä; erillisiä Runko-, Kaula- tai näkymänvaihtopainikkeita ei ole. Etu- ja takanäkymissä näkyvät rungon ulkoreuna sekä katkoviivainen keskiviiva; taskunäkymässä näkyy rungon yläosa ja automaattisesti johdettu suljettu taskukontuuri, jossa on avoin kaulalovi. Kaikissa näkymissä on leveys- ja pituussuunnan asteikot. Suuressa etu- ja takanäkymässä on lisäksi rungon ulkoreunaan kohdistetut mittaviivat; niitä ei näytetä pikkunäkymissä eikä kaulataskunäkymässä. Mittaviivojen lukemat perustuvat rungon todellisiin Bézier-käyrän ääriarvoihin, eivät piirtoalueen reunaan.

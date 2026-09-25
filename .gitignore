@@ -11,3 +11,4 @@ reference-analysis/**/*.png
 reference-analysis/**/*.svg
 *.log
 .DS_Store
+.idea/

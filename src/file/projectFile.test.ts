@@ -20,14 +20,14 @@ describe('project file', () => {
     const unsupported = structuredClone(current) as any
     unsupported.version = 5
     expect(() => parseProject(JSON.stringify(unsupported))).toThrow(
-      'supported versions are 10, 11, 12 and 13',
+      'supported versions are 10, 11, 12, 13 and 14',
     )
     const equal = structuredClone(current)
     equal.neck = null
     const withNeck = structuredClone(createStarterDocument())
     expect(() => parseProject(JSON.stringify(equal))).not.toThrow()
     const state = parseProject(serializeProject(withNeck))
-    expect(state.version).toBe(13)
+    expect(state.version).toBe(14)
   })
   it('accepts and removes an inactive legacy bass-5 variant, but rejects active or foreign variants', () => {
     const current = createStarterDocument()
@@ -202,7 +202,7 @@ it('reads v10 as right-handed, requires v11 handedness, and rejects v10 left', (
     delete cavity.widthMm
     delete cavity.lengthMm
   }
-  expect(parseProject(JSON.stringify(v10))).toMatchObject({ version: 13, handedness: 'right' })
+  expect(parseProject(JSON.stringify(v10))).toMatchObject({ version: 14, handedness: 'right' })
   v10.handedness = 'left'
   expect(() => parseProject(JSON.stringify(v10))).toThrow('cannot declare left-handedness')
   const v11 = JSON.parse(serializeProject(current))
@@ -221,7 +221,7 @@ it('migrates v10/v11 pickup defaults and rejects transform fields in old version
     delete cavity.lengthMm
   }
   const migrated = parseProject(JSON.stringify(old))
-  expect(migrated.version).toBe(13)
+  expect(migrated.version).toBe(14)
   expect(migrated.pickupCavities[0]).toMatchObject({ angleDeg: 0 })
   const invalid = structuredClone(old)
   invalid.pickupCavities[0].widthMm = 45
@@ -229,4 +229,74 @@ it('migrates v10/v11 pickup defaults and rejects transform fields in old version
   const v12 = structuredClone(current)
   delete v12.pickupCavities[0].angleDeg
   expect(() => parseProject(JSON.stringify(v12))).toThrow('require angle and dimensions')
+})
+
+it('validates v14 fretboard inlays schema and pruning atomically', () => {
+  const current = createStarterDocument()
+
+  // v14 requires fretboardInlays field
+  const missingInlays = structuredClone(current) as any
+  delete missingInlays.fretboardInlays
+  expect(() => parseProject(JSON.stringify(missingInlays))).toThrow(
+    'Version 14 projects require the fretboardInlays field.',
+  )
+
+  // v10-13 cannot declare fretboard inlays
+  const v13WithInlays = structuredClone(current) as any
+  v13WithInlays.version = 13
+  v13WithInlays.fretboardInlays = {
+    version: 1,
+    enabled: true,
+    shape: {
+      presetId: 'circle',
+      nodes: [
+        {
+          id: '1',
+          x: 0.5,
+          y: 0.5,
+          kind: 'corner',
+          inHandle: null,
+          outHandle: null,
+          outgoing: 'line',
+        },
+      ],
+    },
+    markedFrets: [3, 5, 7],
+    doubleInlayFrets: [12],
+    doubleInlaySpacingMm: 15,
+    scalingMode: 'fixedMm',
+    fixedDiameterMm: 6,
+    fillPercentage: 60,
+    blockMargins: { fretMm: 2, edgeMm: 3.5 },
+    style: { fillColor: '#ffffff', strokeColor: '#000000', strokeWidthMm: 0.2 },
+  }
+  expect(() => parseProject(JSON.stringify(v13WithInlays))).toThrow(
+    'Older project versions cannot declare fretboard inlays.',
+  )
+
+  // Inlay node coordinates must be within [0, 1]
+  const invalidNodeCoords = structuredClone(current) as any
+  invalidNodeCoords.fretboardInlays = structuredClone(v13WithInlays.fretboardInlays)
+  invalidNodeCoords.fretboardInlays.shape.nodes = [
+    { id: '1', x: 1.5, y: 0.5, kind: 'corner', inHandle: null, outHandle: null, outgoing: 'line' },
+    { id: '2', x: 0.5, y: 1.0, kind: 'corner', inHandle: null, outHandle: null, outgoing: 'line' },
+    { id: '3', x: 0.0, y: 0.5, kind: 'corner', inHandle: null, outHandle: null, outgoing: 'line' },
+  ]
+  expect(() => parseProject(JSON.stringify(invalidNodeCoords))).toThrow(
+    'The inlay node values or identifier are invalid.',
+  )
+
+  // Double inlays must be a subset of marked frets
+  const invalidDouble = structuredClone(current) as any
+  invalidDouble.fretboardInlays = structuredClone(v13WithInlays.fretboardInlays)
+  invalidDouble.fretboardInlays.shape.nodes = [
+    { id: '1', x: 0.5, y: 0.0, kind: 'corner', inHandle: null, outHandle: null, outgoing: 'line' },
+    { id: '2', x: 1.0, y: 0.5, kind: 'corner', inHandle: null, outHandle: null, outgoing: 'line' },
+    { id: '3', x: 0.0, y: 0.5, kind: 'corner', inHandle: null, outHandle: null, outgoing: 'line' },
+  ]
+  invalidDouble.fretboardInlays.markedFrets = [3, 5, 7]
+  invalidDouble.fretboardInlays.doubleInlayFrets = [12]
+  expect(() => parseProject(JSON.stringify(invalidDouble))).toThrow(
+    'Double inlay frets must be a subset of marked frets.',
+  )
 })

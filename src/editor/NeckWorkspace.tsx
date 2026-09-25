@@ -45,6 +45,7 @@ const groups = {
   ],
   Fit: ['endMarginMm', 'fretboardEndMarginMm', 'radiusMm', 'fitAllowanceMm'],
   'Advanced settings': ['anchorFret', 'curvedExponent'],
+  Inlays: [],
   Import: [],
 }
 const isLength = (key: string) =>
@@ -73,7 +74,11 @@ const lockedBassFields = new Set([
 const draftFor = (numbers: Record<string, number>, unit: Unit) =>
   Object.fromEntries(Object.entries(numbers).map(([key, n]) => [key, display(n, unit, key)]))
 
-export type NeckFocusRequest = { group: 'Fit'; field: 'radiusMm' | null; token: number }
+export type NeckFocusRequest = {
+  group: keyof typeof groups
+  field?: 'radiusMm' | null
+  token: number
+}
 export function NeckWorkspace({
   focusRequest = null,
   onRadiusActive,
@@ -231,7 +236,304 @@ export function NeckWorkspace({
             Accepting replaces the existing pocket draft with a pocket derived from the neck.
           </p>
         )}
-        {group === 'Import' ? (
+        {group === 'Inlays' ? (
+          <div className="neck-inlays">
+            {(() => {
+              const inlays = draft.document.fretboardInlays ?? s.document.fretboardInlays
+              if (!inlays || !inlays.enabled) {
+                return (
+                  <div className="inlay-empty-state">
+                    <button
+                      type="button"
+                      className="accent"
+                      onClick={() => s.setInlayEnabled(true)}
+                    >
+                      Enable fretboard inlays
+                    </button>
+                    <p className="field-hint">
+                      Add fretboard position markers (dots, blocks, trapezoids, diamonds or custom
+                      shapes).
+                    </p>
+                  </div>
+                )
+              }
+              const fretCount = draft.change.params.frets
+              return (
+                <div className="inlay-controls-columns">
+                  {/* Left Column: Marked frets & Double inlays */}
+                  <div className="inlay-column inlay-fret-column">
+                    <div className="inlay-subpanel">
+                      <div className="inlay-subpanel-header">
+                        <h4>Marked frets ({inlays.markedFrets.length} active)</h4>
+                        <div className="inlay-fret-quick-actions">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const std = [3, 5, 7, 9, 12, 15, 17, 19, 21, 24].filter(
+                                (f) => f <= fretCount,
+                              )
+                              std.forEach((f) => {
+                                if (!inlays.markedFrets.includes(f)) s.toggleInlayFret(f)
+                              })
+                              inlays.markedFrets.forEach((f) => {
+                                if (!std.includes(f)) s.toggleInlayFret(f)
+                              })
+                            }}
+                          >
+                            Standard (3, 5, 7, 9, 12...)
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              for (let f = 1; f <= fretCount; f++) {
+                                if (!inlays.markedFrets.includes(f)) s.toggleInlayFret(f)
+                              }
+                            }}
+                          >
+                            All frets
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              ;[...inlays.markedFrets].forEach((f) => s.toggleInlayFret(f))
+                            }}
+                          >
+                            Clear all
+                          </button>
+                        </div>
+                      </div>
+                      <div className="inlay-fret-row">
+                        {Array.from({ length: fretCount }, (_, i) => i + 1).map((fret) => {
+                          const isMarked = inlays.markedFrets.includes(fret)
+                          const isDouble = inlays.doubleInlayFrets.includes(fret)
+                          return (
+                            <button
+                              key={fret}
+                              type="button"
+                              aria-pressed={isMarked}
+                              className={`inlay-fret-toggle ${isMarked ? 'active' : ''} ${isDouble ? 'double' : ''}`}
+                              onClick={() => s.toggleInlayFret(fret)}
+                            >
+                              {fret}
+                              {isDouble ? ' ×2' : ''}
+                            </button>
+                          )
+                        })}
+                      </div>
+                    </div>
+
+                    <div className="inlay-subpanel">
+                      <div className="inlay-subpanel-header">
+                        <h4>Double inlays (e.g. 12th, 24th fret)</h4>
+                        <div className="inlay-inline-spacing">
+                          <span>Double marker spacing ({form.unit}):</span>
+                          <input
+                            type="number"
+                            min="0"
+                            step="0.5"
+                            value={display(inlays.doubleInlaySpacingMm, form.unit, 'stringSpanNut')}
+                            onChange={(e) => {
+                              const val = number(e.target.value)
+                              if (Number.isFinite(val) && val >= 0) {
+                                s.setInlayDoubleSpacing(form.unit === 'in' ? val * 25.4 : val)
+                              }
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <div className="inlay-fret-row">
+                        {Array.from({ length: fretCount }, (_, i) => i + 1).map((fret) => {
+                          const isDouble = inlays.doubleInlayFrets.includes(fret)
+                          return (
+                            <button
+                              key={fret}
+                              type="button"
+                              aria-pressed={isDouble}
+                              className={`inlay-fret-toggle ${isDouble ? 'active double' : ''}`}
+                              onClick={() => s.toggleDoubleInlayFret(fret)}
+                            >
+                              {fret}
+                            </button>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Inlay actions, Preset shapes and Size/scaling */}
+                  <div className="inlay-column inlay-settings-column">
+                    <div className="inlay-settings-actions">
+                      <button
+                        type="button"
+                        className="accent"
+                        onClick={() => s.setActiveWorkspace('inlays')}
+                      >
+                        Open Inlay Designer
+                      </button>
+                      <button type="button" onClick={() => s.setInlayEnabled(false)}>
+                        Disable inlays
+                      </button>
+                    </div>
+
+                    <div className="inlay-subpanel">
+                      <div className="inlay-subpanel-header">
+                        <h4>Shape preset</h4>
+                      </div>
+                      <div className="inlay-preset-buttons">
+                        {(['circle', 'diamond', 'block', 'trapezoid', 'star'] as const).map(
+                          (preset) => (
+                            <button
+                              key={preset}
+                              type="button"
+                              aria-pressed={inlays.shape.presetId === preset}
+                              className={inlays.shape.presetId === preset ? 'active' : ''}
+                              onClick={() => s.setInlayPreset(preset)}
+                            >
+                              {preset.charAt(0).toUpperCase() + preset.slice(1)}
+                            </button>
+                          ),
+                        )}
+                        {inlays.shape.presetId === 'custom' && (
+                          <button type="button" aria-pressed={true} className="active" disabled>
+                            Custom
+                          </button>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="inlay-subpanel">
+                      <div className="inlay-subpanel-header">
+                        <h4>Scaling mode & size</h4>
+                      </div>
+                      <div className="inlay-scaling-row">
+                        <div className="inlay-preset-buttons">
+                          {(['fixedMm', 'proportionalPercent', 'stretchBlock'] as const).map(
+                            (mode) => (
+                              <button
+                                key={mode}
+                                type="button"
+                                aria-pressed={inlays.scalingMode === mode}
+                                className={inlays.scalingMode === mode ? 'active' : ''}
+                                onClick={() => s.setInlayScalingMode(mode)}
+                              >
+                                {mode === 'fixedMm'
+                                  ? 'Fixed mm'
+                                  : mode === 'proportionalPercent'
+                                    ? 'Proportional %'
+                                    : 'Stretch to fret'}
+                              </button>
+                            ),
+                          )}
+                        </div>
+                        {inlays.scalingMode === 'fixedMm' && (
+                          <div className="inlay-inline-spacing">
+                            <span>Diameter ({form.unit}):</span>
+                            <input
+                              type="number"
+                              min="1"
+                              step="0.5"
+                              value={display(inlays.fixedDiameterMm, form.unit, 'stringSpanNut')}
+                              onChange={(e) => {
+                                const val = number(e.target.value)
+                                if (Number.isFinite(val) && val > 0) {
+                                  s.setInlayFixedDiameter(form.unit === 'in' ? val * 25.4 : val)
+                                }
+                              }}
+                            />
+                          </div>
+                        )}
+                        {inlays.scalingMode === 'proportionalPercent' && (
+                          <div className="inlay-inline-inputs">
+                            <label className="inlay-compact-label">
+                              Width %:
+                              <input
+                                type="number"
+                                min="5"
+                                max="100"
+                                step="5"
+                                value={inlays.widthPercentage ?? inlays.fillPercentage}
+                                onChange={(e) => {
+                                  const val = number(e.target.value)
+                                  if (Number.isFinite(val) && val >= 5 && val <= 100) {
+                                    s.setInlayWidthPercentage(val)
+                                  }
+                                }}
+                              />
+                            </label>
+                            <label className="inlay-compact-label">
+                              Height %:
+                              <input
+                                type="number"
+                                min="5"
+                                max="100"
+                                step="5"
+                                value={inlays.heightPercentage ?? inlays.fillPercentage}
+                                onChange={(e) => {
+                                  const val = number(e.target.value)
+                                  if (Number.isFinite(val) && val >= 5 && val <= 100) {
+                                    s.setInlayHeightPercentage(val)
+                                  }
+                                }}
+                              />
+                            </label>
+                          </div>
+                        )}
+                        {inlays.scalingMode === 'stretchBlock' && (
+                          <div className="inlay-inline-inputs">
+                            <label className="inlay-compact-label">
+                              Fret ({form.unit}):
+                              <input
+                                type="number"
+                                min="0"
+                                step="0.5"
+                                value={display(
+                                  inlays.blockMargins.fretMm,
+                                  form.unit,
+                                  'stringSpanNut',
+                                )}
+                                onChange={(e) => {
+                                  const val = number(e.target.value)
+                                  if (Number.isFinite(val) && val >= 0) {
+                                    s.setInlayBlockMargins({
+                                      ...inlays.blockMargins,
+                                      fretMm: form.unit === 'in' ? val * 25.4 : val,
+                                    })
+                                  }
+                                }}
+                              />
+                            </label>
+                            <label className="inlay-compact-label">
+                              Edge ({form.unit}):
+                              <input
+                                type="number"
+                                min="0"
+                                step="0.5"
+                                value={display(
+                                  inlays.blockMargins.edgeMm,
+                                  form.unit,
+                                  'stringSpanNut',
+                                )}
+                                onChange={(e) => {
+                                  const val = number(e.target.value)
+                                  if (Number.isFinite(val) && val >= 0) {
+                                    s.setInlayBlockMargins({
+                                      ...inlays.blockMargins,
+                                      edgeMm: form.unit === 'in' ? val * 25.4 : val,
+                                    })
+                                  }
+                                }}
+                              />
+                            </label>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )
+            })()}
+          </div>
+        ) : group === 'Import' ? (
           <div className="neck-import">
             <label>
               FretFactory URL or #state

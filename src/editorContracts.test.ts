@@ -112,7 +112,7 @@ describe('geometry and document contracts', () => {
     legacy.starter.version = 1
     delete legacy.body.neckJointBoundary
     expect(() => parseProject(JSON.stringify(legacy))).toThrow(
-      'supported versions are 10, 11, 12 and 13',
+      'supported versions are 10, 11, 12, 13 and 14',
     )
     for (const mutate of [
       (d: any) => delete d.body.neckJointBoundary,

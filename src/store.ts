@@ -1,3 +1,11 @@
+import { createDefaultInlayDocument, createPresetShape } from './inlays/inlayPresets'
+import type {
+  InlayDocument,
+  InlayScalingMode,
+  InlayShape,
+  InlayShapePresetId,
+  OutlineNode,
+} from './model/project'
 import { create } from 'zustand'
 import { rearElectronicsCavityGeometry, movedCavity, resizedCavity } from './electronicsCavity'
 import { canSplitSegmentAt } from './editor/segmentSelection'
@@ -101,6 +109,40 @@ export const isProtectedHandle = (
 const protectedSelection = (d: ProjectDocument, ids: Iterable<string>) =>
   [...ids].some((id) => isProtectedAnchor(d, id))
 export interface EditorState {
+  activeWorkspace: 'guitar' | 'inlays'
+  inlaySelectedNodeId: string | null
+  inlayHoveredNodeId: string | null
+  setActiveWorkspace: (workspace: 'guitar' | 'inlays') => void
+  setInlaySelectedNodeId: (id: string | null) => void
+  setInlayHoveredNodeId: (id: string | null) => void
+  setFretboardInlays: (inlays: InlayDocument | null) => void
+  setInlayEnabled: (enabled: boolean) => void
+  setInlayPreset: (presetId: InlayShapePresetId) => void
+  setInlayScalingMode: (mode: InlayScalingMode) => void
+  setInlayFixedDiameter: (diameterMm: number) => void
+  setInlayFillPercentage: (percent: number) => void
+  setInlayWidthPercentage: (percent: number) => void
+  setInlayHeightPercentage: (percent: number) => void
+  setInlayBlockMargins: (margins: { fretMm: number; edgeMm: number }) => void
+  setInlayStyle: (style: {
+    fillColor?: string
+    strokeColor?: string
+    strokeWidthMm?: number
+  }) => void
+  setInlayDoubleSpacing: (spacingMm: number) => void
+  toggleInlayFret: (fretIndex: number) => void
+  toggleDoubleInlayFret: (fretIndex: number) => void
+  moveInlayNode: (nodeId: string, x: number, y: number) => void
+  setInlayNodeHandle: (
+    nodeId: string,
+    handleKey: 'inHandle' | 'outHandle',
+    dx: number,
+    dy: number,
+  ) => void
+  setInlayNodeKind: (nodeId: string, kind: 'smooth' | 'corner') => void
+  setInlayShape: (shape: InlayShape) => void
+  addInlayNode: (node: OutlineNode, insertAtIndex?: number) => void
+  deleteInlayNode: (nodeId: string) => void
   document: ProjectDocument
   baseline: ProjectDocument
   preview: ProjectDocument | null
@@ -206,6 +248,52 @@ export interface EditorState {
   setMessage: (message: string | null) => void
   newProject: () => void
 }
+function updateInlays(s: EditorState, fn: (inlays: InlayDocument) => void): Partial<EditorState> {
+  if (s.drag) return {}
+  try {
+    if (s.neckDraft) {
+      const nextDraftDoc = cloneDocument(s.neckDraft.document)
+      if (!nextDraftDoc.fretboardInlays) {
+        nextDraftDoc.fretboardInlays = createDefaultInlayDocument()
+      }
+      fn(nextDraftDoc.fretboardInlays)
+      const frets = nextDraftDoc.neck?.params.frets ?? 24
+      nextDraftDoc.fretboardInlays.markedFrets = nextDraftDoc.fretboardInlays.markedFrets.filter(
+        (f) => f <= frets,
+      )
+      nextDraftDoc.fretboardInlays.doubleInlayFrets =
+        nextDraftDoc.fretboardInlays.doubleInlayFrets.filter((f) => f <= frets)
+
+      return {
+        neckDraft: {
+          ...s.neckDraft,
+          document: nextDraftDoc,
+          revision: s.neckDraftRevision + 1,
+        },
+        preview: nextDraftDoc,
+        neckDraftRevision: s.neckDraftRevision + 1,
+        message: null,
+      }
+    }
+
+    const d = cloneDocument(s.document)
+    if (!d.fretboardInlays) {
+      d.fretboardInlays = createDefaultInlayDocument()
+    }
+    fn(d.fretboardInlays)
+    if (d.neck) {
+      const frets = d.neck.params.frets
+      d.fretboardInlays.markedFrets = d.fretboardInlays.markedFrets.filter((f) => f <= frets)
+      d.fretboardInlays.doubleInlayFrets = d.fretboardInlays.doubleInlayFrets.filter(
+        (f) => f <= frets,
+      )
+    }
+    return commitDocumentTransition(s, d)
+  } catch (e) {
+    return { message: (e as Error).message }
+  }
+}
+
 function changeNodes(
   s: EditorState,
   fn: (d: ProjectDocument) => ProjectDocument | void,
@@ -378,6 +466,9 @@ export const useAppStore = create<EditorState>()((set) => {
     baseline: cloneDocument(initial),
     preview: null,
     neckDraft: null,
+    activeWorkspace: 'guitar',
+    inlaySelectedNodeId: null,
+    inlayHoveredNodeId: null,
     history: [],
     future: [],
     selected: new Set(),
@@ -1329,7 +1420,13 @@ export const useAppStore = create<EditorState>()((set) => {
         if (!s.neckDraft) return {}
         if (s.neckDraft.error) return { message: 'Correct the neck-draft error before accepting.' }
         try {
-          const result = commitDocumentTransition(s, changedNeck(s.document, s.neckDraft.change))
+          const base = cloneDocument(s.document)
+          if (s.neckDraft.document.fretboardInlays !== undefined) {
+            base.fretboardInlays = s.neckDraft.document.fretboardInlays
+              ? structuredClone(s.neckDraft.document.fretboardInlays)
+              : null
+          }
+          const result = commitDocumentTransition(s, changedNeck(base, s.neckDraft.change))
           return result.message
             ? result
             : { ...result, neckDraft: null, neckDraftRevision: s.neckDraftRevision + 1 }
@@ -1370,6 +1467,178 @@ export const useAppStore = create<EditorState>()((set) => {
         return { baseline: cloneDocument(snapshot), dirty: !documentsEqual(snapshot, s.document) }
       }),
     setMessage: (message) => set({ message }),
+    setActiveWorkspace: (activeWorkspace) => set(() => ({ activeWorkspace })),
+    setInlaySelectedNodeId: (inlaySelectedNodeId) => set(() => ({ inlaySelectedNodeId })),
+    setInlayHoveredNodeId: (inlayHoveredNodeId) => set(() => ({ inlayHoveredNodeId })),
+    setFretboardInlays: (inlays) =>
+      set((s) => {
+        if (s.neckDraft) return { message: 'Accept or cancel the neck settings first.' }
+        try {
+          const d = cloneDocument(s.document)
+          d.fretboardInlays = inlays ? structuredClone(inlays) : null
+          return commitDocumentTransition(s, d)
+        } catch (e) {
+          return { message: (e as Error).message }
+        }
+      }),
+    setInlayEnabled: (enabled) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          inlays.enabled = enabled
+        }),
+      ),
+    setInlayPreset: (presetId) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          inlays.shape = createPresetShape(presetId)
+        }),
+      ),
+    setInlayScalingMode: (mode) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          inlays.scalingMode = mode
+        }),
+      ),
+    setInlayFixedDiameter: (diameterMm) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          inlays.fixedDiameterMm = Math.max(0.1, diameterMm)
+        }),
+      ),
+    setInlayFillPercentage: (percent) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          const val = Math.max(5, Math.min(100, percent))
+          inlays.fillPercentage = val
+          inlays.widthPercentage = val
+          inlays.heightPercentage = val
+        }),
+      ),
+    setInlayWidthPercentage: (percent) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          inlays.widthPercentage = Math.max(5, Math.min(100, percent))
+        }),
+      ),
+    setInlayHeightPercentage: (percent) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          inlays.heightPercentage = Math.max(5, Math.min(100, percent))
+        }),
+      ),
+    setInlayBlockMargins: (margins) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          inlays.blockMargins = {
+            fretMm: Math.max(0, margins.fretMm),
+            edgeMm: Math.max(0, margins.edgeMm),
+          }
+        }),
+      ),
+    setInlayStyle: (style) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          inlays.style = { ...inlays.style, ...style }
+        }),
+      ),
+    setInlayDoubleSpacing: (spacingMm) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          inlays.doubleInlaySpacingMm = Math.max(0, spacingMm)
+        }),
+      ),
+    toggleInlayFret: (fretIndex) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          const setFrets = new Set(inlays.markedFrets)
+          if (setFrets.has(fretIndex)) {
+            setFrets.delete(fretIndex)
+            inlays.doubleInlayFrets = inlays.doubleInlayFrets.filter((f) => f !== fretIndex)
+          } else {
+            setFrets.add(fretIndex)
+          }
+          inlays.markedFrets = [...setFrets].sort((a, b) => a - b)
+        }),
+      ),
+    toggleDoubleInlayFret: (fretIndex) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          const setDouble = new Set(inlays.doubleInlayFrets)
+          if (setDouble.has(fretIndex)) {
+            setDouble.delete(fretIndex)
+          } else {
+            setDouble.add(fretIndex)
+            if (!inlays.markedFrets.includes(fretIndex)) {
+              inlays.markedFrets = [...inlays.markedFrets, fretIndex].sort((a, b) => a - b)
+            }
+          }
+          inlays.doubleInlayFrets = [...setDouble].sort((a, b) => a - b)
+        }),
+      ),
+    moveInlayNode: (nodeId, x, y) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          const node = inlays.shape.nodes.find((n) => n.id === nodeId)
+          if (!node) return
+          node.x = Math.max(0, Math.min(1, x))
+          node.y = Math.max(0, Math.min(1, y))
+          inlays.shape.presetId = 'custom'
+        }),
+      ),
+    setInlayNodeHandle: (nodeId, handleKey, dx, dy) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          const node = inlays.shape.nodes.find((n) => n.id === nodeId)
+          if (!node) return
+          const clampedDx = Math.max(-1, Math.min(1, dx))
+          const clampedDy = Math.max(-1, Math.min(1, dy))
+          node[handleKey] = { dx: clampedDx, dy: clampedDy }
+          if (node.kind === 'smooth') {
+            const otherKey = handleKey === 'inHandle' ? 'outHandle' : 'inHandle'
+            node[otherKey] = { dx: -clampedDx || 0, dy: -clampedDy || 0 }
+          }
+          inlays.shape.presetId = 'custom'
+        }),
+      ),
+    setInlayNodeKind: (nodeId, kind) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          const node = inlays.shape.nodes.find((n) => n.id === nodeId)
+          if (!node) return
+          node.kind = kind
+          if (kind === 'smooth' && node.inHandle && node.outHandle) {
+            node.outHandle = { dx: -node.inHandle.dx, dy: -node.inHandle.dy }
+          }
+          inlays.shape.presetId = 'custom'
+        }),
+      ),
+    setInlayShape: (shape) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          inlays.shape = structuredClone(shape)
+        }),
+      ),
+    addInlayNode: (node, insertAtIndex) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          const nodes = [...inlays.shape.nodes]
+          if (insertAtIndex !== undefined && insertAtIndex >= 0 && insertAtIndex <= nodes.length) {
+            nodes.splice(insertAtIndex, 0, node)
+          } else {
+            nodes.push(node)
+          }
+          inlays.shape.nodes = nodes
+          inlays.shape.presetId = 'custom'
+        }),
+      ),
+    deleteInlayNode: (nodeId) =>
+      set((s) =>
+        updateInlays(s, (inlays) => {
+          if (inlays.shape.nodes.length <= 3) return
+          inlays.shape.nodes = inlays.shape.nodes.filter((n) => n.id !== nodeId)
+          inlays.shape.presetId = 'custom'
+        }),
+      ),
     newProject: () =>
       set((s) => {
         const d = defaultProject()
@@ -1394,6 +1663,9 @@ export const useAppStore = create<EditorState>()((set) => {
           cameras: cameras(),
           revision: s.revision + 1,
           generation: s.generation + 1,
+          activeWorkspace: 'guitar',
+          inlaySelectedNodeId: null,
+          inlayHoveredNodeId: null,
         }
       }),
   }
