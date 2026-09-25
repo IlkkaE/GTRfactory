@@ -1,10 +1,12 @@
 import { describe, it, expect } from 'vitest'
+import { PDFDocument } from 'pdf-lib'
 import { createStarterDocument } from '../model/project'
 import { deriveNeckDocument } from '../neck/neckDocument'
 import { DEFAULT_EXPORT_OPTIONS, type ExportOptions, type ExportPart } from './model'
 import { buildExportDrawing } from './geometry'
 import { dxfExport } from './dxf'
 import { svgExport } from './svg'
+import { pdfExport } from './pdf'
 import { createDefaultInlayDocument, createPresetShape } from '../inlays/inlayPresets'
 
 const docWithNeck = () => deriveNeckDocument(createStarterDocument(), { kind: 'fresh' })!
@@ -66,9 +68,10 @@ describe('fretboard inlay manufacturing export', () => {
     // Overview has 6 tuner holes + 6 inlays = 12 reference circles
     expect(refCircles.length).toBeGreaterThanOrEqual(6)
 
-    // DXF includes ROUTE_INLAY layer
+    // DXF includes ROUTE_INLAY layer with color 4 (Cyan)
     const dxf = dxfExport(fretboardOnly)
     expect(dxf).toContain('ROUTE_INLAY')
+    expect(dxf).toContain('62\n4\n') // Color 4 = Cyan
     expect(dxf).toContain('AcDbCircle')
   })
 
@@ -157,5 +160,67 @@ describe('fretboard inlay manufacturing export', () => {
       circles[0].center.y - circles[1].center.y,
     )
     expect(dist).toBeCloseTo(16, 1)
+  })
+
+  it('exports SVG with inkscape layer attributes and ROUTE_INLAY ordered on top of fretboard and frets', () => {
+    const doc = docWithNeck()
+    doc.fretboardInlays = {
+      ...createDefaultInlayDocument(),
+      enabled: true,
+      markedFrets: [3, 5, 7],
+    }
+
+    const drawing = buildExportDrawing(
+      doc,
+      exportOpts(['fretboard'], { includeFretGuides: true, includeInlays: true }),
+    )
+    const svg = svgExport(drawing)
+
+    // Contains inkscape namespace and layer attributes
+    expect(svg).toContain('xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"')
+    expect(svg).toContain('inkscape:groupmode="layer"')
+    expect(svg).toContain('inkscape:label="Fretboard inlays"')
+
+    // Verify layer ordering in DOM: CUT_OUTER appears before FRET_GUIDE, which appears before ROUTE_INLAY
+    const cutPos = svg.indexOf('id="CUT_OUTER"')
+    const fretPos = svg.indexOf('id="FRET_GUIDE"')
+    const inlayPos = svg.indexOf('id="ROUTE_INLAY"')
+
+    expect(cutPos).toBeGreaterThan(-1)
+    expect(fretPos).toBeGreaterThan(cutPos)
+    expect(inlayPos).toBeGreaterThan(fretPos)
+  })
+
+  it('exports PDF with Optional Content Group (OCG) for inlays and draws inlays on top of frets', async () => {
+    const doc = docWithNeck()
+    doc.fretboardInlays = {
+      ...createDefaultInlayDocument(),
+      enabled: true,
+      markedFrets: [3, 5, 7, 9, 12],
+      doubleInlayFrets: [12],
+    }
+
+    const drawingWithInlays = buildExportDrawing(
+      doc,
+      exportOpts(['fretboard'], { includeFretGuides: true, includeInlays: true }),
+    )
+    const pdfBytes = await pdfExport(drawingWithInlays)
+    const loadedPdf = await PDFDocument.load(pdfBytes)
+
+    // Verify PDF has catalog with OCProperties and OCG entry
+    const ocProperties = loadedPdf.catalog.get(loadedPdf.context.obj('OCProperties') as any)
+    expect(ocProperties).toBeDefined()
+
+    // When inlays are disabled, PDF should not contain OCG
+    const drawingWithoutInlays = buildExportDrawing(
+      doc,
+      exportOpts(['fretboard'], { includeFretGuides: true, includeInlays: false }),
+    )
+    const pdfBytesNoInlays = await pdfExport(drawingWithoutInlays)
+    const loadedNoInlays = await PDFDocument.load(pdfBytesNoInlays)
+    const noOcProperties = loadedNoInlays.catalog.get(
+      loadedNoInlays.context.obj('OCProperties') as any,
+    )
+    expect(noOcProperties).toBeUndefined()
   })
 })

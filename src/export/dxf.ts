@@ -1,7 +1,7 @@
 import type { ExportDrawing, ExportSegment, ExportRole } from './model'
 import { arcData } from './math'
 import { tablePath } from './layout'
-import { num } from './svg'
+import { num, LAYER_ORDER } from './svg'
 const p = (code: number, value: string | number) => code + '\n' + value + '\n'
 export function dxfExport(d: ExportDrawing) {
   let handle = 256
@@ -10,6 +10,10 @@ export function dxfExport(d: ExportDrawing) {
     p(code, num(q.x)) + p(code + 10, num(-q.y)) + p(code + 20, 0)
   const paths = [...d.paths, ...(d.table ? [tablePath(d.table)] : [])],
     texts = [...d.texts, ...(d.table?.texts ?? [])]
+  const roleRank = (r: string) => {
+    const idx = LAYER_ORDER.indexOf(r as ExportRole)
+    return idx === -1 ? 999 : idx
+  }
   const roles = [
     ...new Set([
       '0',
@@ -17,7 +21,7 @@ export function dxfExport(d: ExportDrawing) {
       ...d.circles.map((c) => c.role),
       ...texts.map((t) => t.role),
     ]),
-  ]
+  ].sort((a, b) => roleRank(a) - roleRank(b))
   const b = d.bounds
   let out =
     p(0, 'SECTION') +
@@ -74,7 +78,7 @@ export function dxfExport(d: ExportDrawing) {
       p(100, 'AcDbLayerTableRecord') +
       p(2, role) +
       p(70, 0) +
-      p(62, 7) +
+      p(62, role === 'ROUTE_INLAY' ? 4 : 7) +
       p(6, role === 'REFERENCE_CENTERLINE' ? 'GTR_CENTERLINE' : 'CONTINUOUS')
   out +=
     p(0, 'ENDTAB') +

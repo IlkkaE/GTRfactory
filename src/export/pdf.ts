@@ -7,6 +7,11 @@ import {
   rectangle,
   clip,
   endPath,
+  PDFName,
+  PDFDict,
+  PDFString,
+  PDFOperator,
+  PDFOperatorNames,
 } from 'pdf-lib'
 import type { ExportDrawing, ExportPath, ExportText } from './model'
 import { planPdfPages, type Paper } from './pages'
@@ -34,6 +39,29 @@ export async function pdfExport(d: ExportDrawing, paper: Paper = 'custom', margi
       }
     })
     .join('')
+
+  const hasInlays =
+    d.paths.some((p) => p.role === 'ROUTE_INLAY') || d.circles.some((c) => c.role === 'ROUTE_INLAY')
+
+  let ocgRef: any = null
+  if (hasInlays) {
+    const ocgDict = doc.context.obj({
+      Type: 'OCG',
+      Name: PDFString.of('Fretboard inlays'),
+    })
+    ocgRef = doc.context.register(ocgDict)
+    const ocgArray = doc.context.obj([ocgRef])
+    const defaultView = doc.context.obj({
+      BaseState: 'ON',
+      ON: [ocgRef],
+      Order: [ocgRef],
+    })
+    const ocProperties = doc.context.obj({
+      OCGs: ocgArray,
+      D: defaultView,
+    })
+    doc.catalog.set(PDFName.of('OCProperties'), ocProperties)
+  }
 
   for (const [index, tile] of plan.pages.entries()) {
     const page = doc.addPage([tile.width * PT, tile.height * PT]),
@@ -73,8 +101,13 @@ export async function pdfExport(d: ExportDrawing, paper: Paper = 'custom', margi
       )
 
     if (tile.kind === 'drawing') {
-      for (const p of d.paths) drawPath(p)
-      for (const c of d.circles)
+      const nonInlayPaths = d.paths.filter((p) => p.role !== 'ROUTE_INLAY')
+      const inlayPaths = d.paths.filter((p) => p.role === 'ROUTE_INLAY')
+      const nonInlayCircles = d.circles.filter((c) => c.role !== 'ROUTE_INLAY')
+      const inlayCircles = d.circles.filter((c) => c.role === 'ROUTE_INLAY')
+
+      for (const p of nonInlayPaths) drawPath(p)
+      for (const c of nonInlayCircles)
         page.drawCircle({
           x: (c.center.x - ox) * PT,
           y: (tile.height - (c.center.y - oy)) * PT,
@@ -82,6 +115,39 @@ export async function pdfExport(d: ExportDrawing, paper: Paper = 'custom', margi
           borderColor: rgb(0, 0, 0),
           borderWidth: 0.2 * PT,
         })
+
+      if (inlayPaths.length > 0 || inlayCircles.length > 0) {
+        if (ocgRef) {
+          const res = page.node.Resources() || doc.context.obj({})
+          let props = res.get(PDFName.of('Properties'))
+          if (!props || !(props instanceof PDFDict)) {
+            props = doc.context.obj({})
+            res.set(PDFName.of('Properties'), props)
+          }
+          ;(props as PDFDict).set(PDFName.of('InlaysOC'), ocgRef)
+          page.pushOperators(
+            PDFOperator.of(PDFOperatorNames.BeginMarkedContentSequence, [
+              PDFName.of('OC'),
+              PDFName.of('InlaysOC'),
+            ]),
+          )
+        }
+
+        for (const p of inlayPaths) drawPath(p)
+        for (const c of inlayCircles)
+          page.drawCircle({
+            x: (c.center.x - ox) * PT,
+            y: (tile.height - (c.center.y - oy)) * PT,
+            size: c.radiusMm * PT,
+            borderColor: rgb(0, 0, 0),
+            borderWidth: 0.2 * PT,
+          })
+
+        if (ocgRef) {
+          page.pushOperators(PDFOperator.of(PDFOperatorNames.EndMarkedContent))
+        }
+      }
+
       for (const t of d.texts) drawText(t)
     }
 
