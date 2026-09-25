@@ -32,7 +32,7 @@ describe('BodyColorPicker and body finish feature', () => {
     expect(BODY_TEXTURE_OPTIONS.map((t) => t.id)).toEqual(expectedTextures)
 
     for (const tex of BODY_TEXTURE_OPTIONS) {
-      expect(tex.image).toMatch(/^\/textures\/[a-z-]+\.jpg$/)
+      expect(tex.image).toMatch(/(?:^\/gtrfactory)?\/textures\/[a-z-]+\.jpg$/)
       expect(tex.name.trim().length).toBeGreaterThan(0)
     }
 

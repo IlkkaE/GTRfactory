@@ -44,14 +44,23 @@ export interface BodyTextureOption {
   previewColor: string
 }
 
+const base = import.meta.env.BASE_URL ?? '/'
+const textureUrl = (filename: string) =>
+  `${base.endsWith('/') ? base : base + '/'}textures/${filename}`
+
 export const BODY_TEXTURE_OPTIONS: BodyTextureOption[] = [
-  { id: 'walnut', name: 'Walnut', image: '/textures/walnut.jpg', previewColor: '#4a3324' },
-  { id: 'swamp-ash', name: 'Swamp Ash', image: '/textures/swamp-ash.jpg', previewColor: '#d6b88d' },
-  { id: 'maple', name: 'Maple', image: '/textures/maple.jpg', previewColor: '#eed7b5' },
+  { id: 'walnut', name: 'Walnut', image: textureUrl('walnut.jpg'), previewColor: '#4a3324' },
+  {
+    id: 'swamp-ash',
+    name: 'Swamp Ash',
+    image: textureUrl('swamp-ash.jpg'),
+    previewColor: '#d6b88d',
+  },
+  { id: 'maple', name: 'Maple', image: textureUrl('maple.jpg'), previewColor: '#eed7b5' },
   {
     id: 'figured-maple',
     name: 'Figured Maple',
-    image: '/textures/figured-maple.jpg',
+    image: textureUrl('figured-maple.jpg'),
     previewColor: '#cc8e41',
   },
 ]
