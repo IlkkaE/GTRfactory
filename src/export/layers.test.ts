@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { PDFDocument, PDFDict, PDFName, PDFString } from 'pdf-lib'
+import { PDFDocument, PDFDict, PDFName, PDFString, PDFRawStream, decodePDFRawStream } from 'pdf-lib'
 import { createStarterDocument } from '../model/project'
 import { deriveNeckDocument } from '../neck/neckDocument'
 import { DEFAULT_EXPORT_OPTIONS, type ExportOptions } from './model'
@@ -80,5 +80,38 @@ describe('Per-part export layering across SVG, DXF, and PDF', () => {
     // Mittataulukko ja kalibrointi
     expect(ocgNames).toContain('Dimensions')
     expect(ocgNames).toContain('Calibration reference')
+
+    // Tekninen kehys ja nimiö
+    expect(ocgNames).toContain('Technical frame & title block')
+  })
+
+  it('includes technical drawing frame, title block, and 1:1 verification scale in PDF', async () => {
+    const doc = starterDoc()
+    doc.name = 'Pro Custom 2026'
+    const drawing = buildExportDrawing(doc, allPartsOpts)
+    const pdfBytes = await pdfExport(drawing, 'a3')
+    const loadedPdf = await PDFDocument.load(pdfBytes)
+
+    const textChunks: string[] = []
+    for (const [, object] of loadedPdf.context.enumerateIndirectObjects()) {
+      if (!(object instanceof PDFRawStream)) continue
+      const stream = Buffer.from(decodePDFRawStream(object).decode()).toString('latin1')
+      for (const match of stream.matchAll(/<([0-9A-Fa-f]+)>\s*Tj/g)) {
+        textChunks.push(Buffer.from(match[1], 'hex').toString('latin1'))
+      }
+      for (const match of stream.matchAll(/\(([^)]+)\)\s*Tj/g)) {
+        textChunks.push(match[1])
+      }
+    }
+    const combined = textChunks.join(' ')
+
+    // Nimiö ja tekniset tiedot
+    expect(combined).toContain('SCALE: 1:1 (100 %)')
+    expect(combined).toContain('UNITS: mm')
+    expect(combined).toContain('GTRfactory CAD/CAM')
+    expect(combined).toContain('PROJECT: Pro Custom 2026')
+
+    // Tarkistusviivain
+    expect(combined).toContain('VERIFICATION SCALE (1:1 ACCURACY CHECK)')
   })
 })
