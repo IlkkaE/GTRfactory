@@ -271,8 +271,16 @@ export function ExportDialog({ onClose }: { onClose: () => void }) {
           {result.drawing && (
             <>
               <p data-testid="export-size">
-                {(result.plan ? result.plan.pages[0].width : result.drawing.bounds.width + 2 * options.marginMm).toFixed(1)} ×{' '}
-                {(result.plan ? result.plan.pages[0].height : result.drawing.bounds.height + 2 * options.marginMm).toFixed(1)} mm
+                {(result.plan
+                  ? result.plan.pages[0].width
+                  : result.drawing.bounds.width + 2 * options.marginMm
+                ).toFixed(1)}{' '}
+                ×{' '}
+                {(result.plan
+                  ? result.plan.pages[0].height
+                  : result.drawing.bounds.height + 2 * options.marginMm
+                ).toFixed(1)}{' '}
+                mm
                 {result.plan ? ' · ' + result.plan.pages.length + ' pages' : ''}
               </p>
               <div className="export-preview" dangerouslySetInnerHTML={{ __html: preview }} />

@@ -1,4 +1,11 @@
-import type { ExportDrawing, ExportSegment, ExportRole, ExportPath, ExportCircle, ExportText } from './model'
+import type {
+  ExportDrawing,
+  ExportSegment,
+  ExportRole,
+  ExportPath,
+  ExportCircle,
+  ExportText,
+} from './model'
 import { arcData } from './math'
 import { tablePath } from './layout'
 import { num, LAYER_ORDER } from './svg'
@@ -231,8 +238,7 @@ export function dxfExport(d: ExportDrawing) {
     )
   }
 
-  for (const item of sourcedPaths)
-    for (const s of item.path.segments) out += segment(s, item.layer)
+  for (const item of sourcedPaths) for (const s of item.path.segments) out += segment(s, item.layer)
 
   for (const item of sourcedCircles)
     out +=

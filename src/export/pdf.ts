@@ -335,12 +335,7 @@ export async function pdfExport(d: ExportDrawing, paper: Paper = 'custom', margi
 /**
  * Piirtää ISO 5457 -standardia noudattavan sisäkehyksen, keskitysmerkit ja vyöhykekoordinaatiston.
  */
-function drawTechnicalFrameAndGrid(
-  page: PdfLibPage,
-  tile: PdfPage,
-  margin: number,
-  font: PDFFont,
-) {
+function drawTechnicalFrameAndGrid(page: PdfLibPage, tile: PdfPage, margin: number, font: PDFFont) {
   const fx = margin * PT
   const fy = margin * PT
   const fw = (tile.width - 2 * margin) * PT

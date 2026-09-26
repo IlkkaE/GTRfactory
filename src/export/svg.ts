@@ -1,4 +1,11 @@
-import type { ExportDrawing, ExportPath, ExportSegment, ExportRole, ExportCircle, ExportText } from './model'
+import type {
+  ExportDrawing,
+  ExportPath,
+  ExportSegment,
+  ExportRole,
+  ExportCircle,
+  ExportText,
+} from './model'
 import { tablePath } from './layout'
 import { arcCubics } from './math'
 export const num = (v: number) => Number(v.toFixed(6)).toString()
