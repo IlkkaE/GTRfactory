@@ -7,6 +7,7 @@ import { buildExportDrawing } from './geometry'
 import { dxfExport } from './dxf'
 import { svgExport } from './svg'
 import { pdfExport } from './pdf'
+import { planPdfPages } from './pages'
 
 const starterDoc = () => deriveNeckDocument(createStarterDocument(), { kind: 'fresh' })!
 
@@ -47,7 +48,7 @@ describe('Per-part export layering across SVG, DXF, and PDF', () => {
 
     // Jokaisen piirtyvän osan nimen tulee esiintyä osana DXF-tasonimeä
     for (const part of drawing.parts) {
-      const partPrefix = part.name.replace(/[<>/\":;?*|=]/g, '').trim()
+      const partPrefix = part.name.replace(/[<>/\\":;?*|=]/g, '').trim()
       expect(dxf).toContain(`${partPrefix} - `)
     }
 
@@ -113,5 +114,44 @@ describe('Per-part export layering across SVG, DXF, and PDF', () => {
 
     // Tarkistusviivain
     expect(combined).toContain('VERIFICATION SCALE (1:1 ACCURACY CHECK)')
+  })
+
+  it('guarantees guitar parts do not hit the margins and leave at least 20 mm clearance to frame', () => {
+    const doc = starterDoc()
+    const drawing = buildExportDrawing(doc, allPartsOpts)
+    const margin = 10
+    const plan = planPdfPages(drawing, 'custom', margin)
+    expect(plan.pages).toHaveLength(1)
+
+    const page = plan.pages[0]
+    // Sivun sisäkehys sijaitsee kohdassa:
+    // vasen: margin, oikea: page.width - margin
+    // ala: margin, ylä: page.height - margin
+    const frameLeft = margin
+    const frameRight = page.width - margin
+    const frameBottom = margin
+    const frameTop = page.height - margin
+
+    // Lasketaan kitaran osien sijainnit sivulla
+    const ox = page.source.minX - margin
+    const oy = page.source.minY - margin
+
+    for (const part of drawing.parts) {
+      const partLeftOnPage = part.bounds.minX - ox
+      const partRightOnPage = part.bounds.maxX - ox
+      const partBottomOnPage = part.bounds.minY - oy
+      const partTopOnPage = part.bounds.maxY - oy
+
+      // Väli kehyksen ja osan välillä joka suunnassa
+      const clearanceLeft = partLeftOnPage - frameLeft
+      const clearanceRight = frameRight - partRightOnPage
+      const clearanceBottom = partBottomOnPage - frameBottom
+      const clearanceTop = frameTop - partTopOnPage
+
+      expect(clearanceLeft).toBeGreaterThanOrEqual(20)
+      expect(clearanceRight).toBeGreaterThanOrEqual(20)
+      expect(clearanceBottom).toBeGreaterThanOrEqual(20)
+      expect(clearanceTop).toBeGreaterThanOrEqual(20)
+    }
   })
 })

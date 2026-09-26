@@ -34,23 +34,43 @@ function hasInk(d: ExportDrawing, b: Rect) {
     return near <= c.radiusMm + 0.15 && far >= c.radiusMm - 0.15
   })
 }
-export function planPdfPages(d: ExportDrawing, paper: Paper, margin = 10, overlap = 10): PdfPlan {
-  if (paper === 'custom')
+export function planPdfPages(
+  d: ExportDrawing,
+  paper: Paper,
+  margin = 10,
+  overlap = 10,
+  padding = 20,
+): PdfPlan {
+  // Kitaran osien ja marginaalikehyksen väliin jätetään vähintään 20 mm (pari senttiä)
+  // Alareunassa huomioidaan lisäksi nimiö (korkeus 20 mm)
+  const padX = padding
+  const padTop = padding
+  const padBottom = Math.max(padding, 25)
+
+  if (paper === 'custom') {
+    const source = rect(
+      d.bounds.minX - padX,
+      d.bounds.minY - padBottom,
+      d.bounds.maxX + padX,
+      d.bounds.maxY + padTop,
+    )
     return {
       margin,
       overlap: 0,
       pages: [
         {
           kind: 'drawing',
-          width: d.bounds.width + 2 * margin,
-          height: d.bounds.height + 2 * margin,
-          source: d.bounds,
+          width: source.width + 2 * margin,
+          height: source.height + 2 * margin,
+          source,
           row: 0,
           column: 0,
           table: !!d.table,
         },
       ],
     }
+  }
+
   const base = paper === 'a4' ? [210, 297] : [297, 420]
   function candidate(width: number, height: number): PdfPage[] {
     const pw = width - 2 * margin,
@@ -83,9 +103,21 @@ export function planPdfPages(d: ExportDrawing, paper: Paper, margin = 10, overla
         }
       return { result, tableUsed }
     }
-    let { result, tableUsed } = grid(d.bounds, !!d.table)
+    const paddedBounds = rect(
+      d.bounds.minX - padX,
+      d.bounds.minY - padBottom,
+      d.bounds.maxX + padX,
+      d.bounds.maxY + padTop,
+    )
+    let { result, tableUsed } = grid(paddedBounds, !!d.table)
     if (d.table && !tableUsed) {
-      result = grid(d.geometryBounds, false).result
+      const paddedGeomBounds = rect(
+        d.geometryBounds.minX - padX,
+        d.geometryBounds.minY - padBottom,
+        d.geometryBounds.maxX + padX,
+        d.geometryBounds.maxY + padTop,
+      )
+      result = grid(paddedGeomBounds, false).result
       const b = d.table.bounds
       if (b.width > pw || b.height > ph) return []
       result.push({

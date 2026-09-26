@@ -328,8 +328,8 @@ describe('manufacturing exports', () => {
       writeFileSync('tmp/export-v1/artifacts/' + name + '.pdf', data)
       const pdf = await PDFDocument.load(data),
         size = pdf.getPage(0).getSize()
-      expect((size.width * 25.4) / 72).toBeCloseTo(d.bounds.width + 20, 7)
-      expect((size.height * 25.4) / 72).toBeCloseTo(d.bounds.height + 20, 7)
+      expect((size.width * 25.4) / 72).toBeCloseTo(d.bounds.width + 60, 7)
+      expect((size.height * 25.4) / 72).toBeCloseTo(d.bounds.height + 65, 7)
       if (name === 'all') {
         writeFileSync('tmp/export-v1/artifacts/all-a4.pdf', await pdfExport(d, 'a4'))
         writeFileSync('tmp/export-v1/artifacts/all-a3.pdf', await pdfExport(d, 'a3'))
