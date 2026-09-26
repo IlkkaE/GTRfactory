@@ -12,8 +12,9 @@ import {
   PDFString,
   PDFOperator,
   PDFOperatorNames,
+  type PDFRef,
 } from 'pdf-lib'
-import type { ExportDrawing, ExportPath, ExportText } from './model'
+import type { ExportDrawing, ExportPath, ExportText, ExportCircle } from './model'
 import { planPdfPages, type Paper } from './pages'
 import { pathData } from './svg'
 import { tablePath } from './layout'
@@ -40,21 +41,75 @@ export async function pdfExport(d: ExportDrawing, paper: Paper = 'custom', margi
     })
     .join('')
 
+  const parts = d.parts ?? []
+  const partPathSet = new Set(parts.flatMap((p) => p.paths))
+  const partCircleSet = new Set(parts.flatMap((p) => p.circles))
+
+  const calPaths = d.paths.filter((p) => !partPathSet.has(p))
+  const calCircles = d.circles.filter((c) => !partCircleSet.has(c))
+  const calTexts = d.texts.filter(
+    (t) => !parts.some((pt) => pt.name === t.text) && t.text.includes('calibration'),
+  )
+
   const hasInlays =
     d.paths.some((p) => p.role === 'ROUTE_INLAY') || d.circles.some((c) => c.role === 'ROUTE_INLAY')
+  const hasCalibration = calPaths.length > 0 || calCircles.length > 0 || calTexts.length > 0
+  const hasTable = !!d.table
 
-  let ocgRef: any = null
+  // Luodaan OCG-tasot jokaiselle kitaran osalle
+  const partOcgMap = new Map<string, PDFRef>()
+  const partOcgRefs: PDFRef[] = []
+
+  for (const part of parts) {
+    const partOcgDict = doc.context.obj({
+      Type: 'OCG',
+      Name: PDFString.of(part.name),
+    })
+    const ref = doc.context.register(partOcgDict)
+    partOcgMap.set(part.id, ref)
+    partOcgRefs.push(ref)
+  }
+
+  let inlaysOcgRef: PDFRef | null = null
   if (hasInlays) {
     const ocgDict = doc.context.obj({
       Type: 'OCG',
       Name: PDFString.of('Fretboard inlays'),
     })
-    ocgRef = doc.context.register(ocgDict)
-    const ocgArray = doc.context.obj([ocgRef])
+    inlaysOcgRef = doc.context.register(ocgDict)
+  }
+
+  let tableOcgRef: PDFRef | null = null
+  if (hasTable) {
+    const ocgDict = doc.context.obj({
+      Type: 'OCG',
+      Name: PDFString.of('Dimensions'),
+    })
+    tableOcgRef = doc.context.register(ocgDict)
+  }
+
+  let calOcgRef: PDFRef | null = null
+  if (hasCalibration) {
+    const ocgDict = doc.context.obj({
+      Type: 'OCG',
+      Name: PDFString.of('Calibration reference'),
+    })
+    calOcgRef = doc.context.register(ocgDict)
+  }
+
+  const allOcgRefs: PDFRef[] = [
+    ...partOcgRefs,
+    ...(inlaysOcgRef ? [inlaysOcgRef] : []),
+    ...(tableOcgRef ? [tableOcgRef] : []),
+    ...(calOcgRef ? [calOcgRef] : []),
+  ]
+
+  if (allOcgRefs.length > 0) {
+    const ocgArray = doc.context.obj(allOcgRefs)
     const defaultView = doc.context.obj({
       BaseState: 'ON',
-      ON: [ocgRef],
-      Order: [ocgRef],
+      ON: allOcgRefs,
+      Order: allOcgRefs,
     })
     const ocProperties = doc.context.obj({
       OCGs: ocgArray,
@@ -78,6 +133,15 @@ export async function pdfExport(d: ExportDrawing, paper: Paper = 'custom', margi
         borderDashArray: p.role === 'REFERENCE_CENTERLINE' ? [6, 3] : undefined,
       })
 
+    const drawCircle = (c: ExportCircle) =>
+      page.drawCircle({
+        x: (c.center.x - ox) * PT,
+        y: (tile.height - (c.center.y - oy)) * PT,
+        size: c.radiusMm * PT,
+        borderColor: rgb(0, 0, 0),
+        borderWidth: 0.2 * PT,
+      })
+
     const drawText = (t: ExportText) =>
       page.drawText(t.text, {
         x: (t.x - ox) * PT,
@@ -86,6 +150,23 @@ export async function pdfExport(d: ExportDrawing, paper: Paper = 'custom', margi
         font,
         color: rgb(0, 0, 0),
       })
+
+    // Rekisteröidään OCG-ominaisuudet sivun Resources-sanakirjaan
+    if (allOcgRefs.length > 0) {
+      const res = page.node.Resources() || doc.context.obj({})
+      let props = res.get(PDFName.of('Properties'))
+      if (!props || !(props instanceof PDFDict)) {
+        props = doc.context.obj({})
+        res.set(PDFName.of('Properties'), props)
+      }
+      const propsDict = props as PDFDict
+      for (const [partId, ref] of partOcgMap.entries()) {
+        propsDict.set(PDFName.of('PartOC_' + partId), ref)
+      }
+      if (inlaysOcgRef) propsDict.set(PDFName.of('InlaysOC'), inlaysOcgRef)
+      if (tableOcgRef) propsDict.set(PDFName.of('TableOC'), tableOcgRef)
+      if (calOcgRef) propsDict.set(PDFName.of('CalOC'), calOcgRef)
+    }
 
     if (paper !== 'custom')
       page.pushOperators(
@@ -101,59 +182,98 @@ export async function pdfExport(d: ExportDrawing, paper: Paper = 'custom', margi
       )
 
     if (tile.kind === 'drawing') {
-      const nonInlayPaths = d.paths.filter((p) => p.role !== 'ROUTE_INLAY')
-      const inlayPaths = d.paths.filter((p) => p.role === 'ROUTE_INLAY')
-      const nonInlayCircles = d.circles.filter((c) => c.role !== 'ROUTE_INLAY')
-      const inlayCircles = d.circles.filter((c) => c.role === 'ROUTE_INLAY')
+      const handledTexts = new Set<ExportText>()
 
-      for (const p of nonInlayPaths) drawPath(p)
-      for (const c of nonInlayCircles)
-        page.drawCircle({
-          x: (c.center.x - ox) * PT,
-          y: (tile.height - (c.center.y - oy)) * PT,
-          size: c.radiusMm * PT,
-          borderColor: rgb(0, 0, 0),
-          borderWidth: 0.2 * PT,
-        })
-
-      if (inlayPaths.length > 0 || inlayCircles.length > 0) {
-        if (ocgRef) {
-          const res = page.node.Resources() || doc.context.obj({})
-          let props = res.get(PDFName.of('Properties'))
-          if (!props || !(props instanceof PDFDict)) {
-            props = doc.context.obj({})
-            res.set(PDFName.of('Properties'), props)
-          }
-          ;(props as PDFDict).set(PDFName.of('InlaysOC'), ocgRef)
+      // Piirretään jokainen kitaran osa omalle tasolleen
+      for (const part of parts) {
+        const partOcgRef = partOcgMap.get(part.id)
+        if (partOcgRef) {
           page.pushOperators(
             PDFOperator.of(PDFOperatorNames.BeginMarkedContentSequence, [
               PDFName.of('OC'),
-              PDFName.of('InlaysOC'),
+              PDFName.of('PartOC_' + part.id),
             ]),
           )
         }
 
-        for (const p of inlayPaths) drawPath(p)
-        for (const c of inlayCircles)
-          page.drawCircle({
-            x: (c.center.x - ox) * PT,
-            y: (tile.height - (c.center.y - oy)) * PT,
-            size: c.radiusMm * PT,
-            borderColor: rgb(0, 0, 0),
-            borderWidth: 0.2 * PT,
-          })
+        const nonInlayPaths = part.paths.filter((p) => p.role !== 'ROUTE_INLAY')
+        const inlayPaths = part.paths.filter((p) => p.role === 'ROUTE_INLAY')
+        const nonInlayCircles = part.circles.filter((c) => c.role !== 'ROUTE_INLAY')
+        const inlayCircles = part.circles.filter((c) => c.role === 'ROUTE_INLAY')
 
-        if (ocgRef) {
+        for (const p of nonInlayPaths) drawPath(p)
+        for (const c of nonInlayCircles) drawCircle(c)
+
+        if (inlayPaths.length > 0 || inlayCircles.length > 0) {
+          if (inlaysOcgRef) {
+            page.pushOperators(
+              PDFOperator.of(PDFOperatorNames.BeginMarkedContentSequence, [
+                PDFName.of('OC'),
+                PDFName.of('InlaysOC'),
+              ]),
+            )
+          }
+
+          for (const p of inlayPaths) drawPath(p)
+          for (const c of inlayCircles) drawCircle(c)
+
+          if (inlaysOcgRef) {
+            page.pushOperators(PDFOperator.of(PDFOperatorNames.EndMarkedContent))
+          }
+        }
+
+        const nameText = d.texts.find((t) => t.text === part.name)
+        if (nameText) {
+          drawText(nameText)
+          handledTexts.add(nameText)
+        }
+
+        if (partOcgRef) {
           page.pushOperators(PDFOperator.of(PDFOperatorNames.EndMarkedContent))
         }
       }
 
-      for (const t of d.texts) drawText(t)
+      // Kalibrointiviivain
+      if (hasCalibration) {
+        if (calOcgRef) {
+          page.pushOperators(
+            PDFOperator.of(PDFOperatorNames.BeginMarkedContentSequence, [
+              PDFName.of('OC'),
+              PDFName.of('CalOC'),
+            ]),
+          )
+        }
+        for (const p of calPaths) drawPath(p)
+        for (const c of calCircles) drawCircle(c)
+        for (const t of calTexts) {
+          drawText(t)
+          handledTexts.add(t)
+        }
+        if (calOcgRef) {
+          page.pushOperators(PDFOperator.of(PDFOperatorNames.EndMarkedContent))
+        }
+      }
+
+      // Muut mahdolliset tekstit
+      for (const t of d.texts) {
+        if (!handledTexts.has(t)) drawText(t)
+      }
     }
 
     if (tile.table && d.table) {
+      if (tableOcgRef) {
+        page.pushOperators(
+          PDFOperator.of(PDFOperatorNames.BeginMarkedContentSequence, [
+            PDFName.of('OC'),
+            PDFName.of('TableOC'),
+          ]),
+        )
+      }
       drawPath(tablePath(d.table))
       for (const t of d.table.texts) drawText(t)
+      if (tableOcgRef) {
+        page.pushOperators(PDFOperator.of(PDFOperatorNames.EndMarkedContent))
+      }
     }
 
     if (paper !== 'custom') page.pushOperators(popGraphicsState())

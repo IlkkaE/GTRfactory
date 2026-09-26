@@ -1,27 +1,109 @@
-import type { ExportDrawing, ExportSegment, ExportRole } from './model'
+import type { ExportDrawing, ExportSegment, ExportRole, ExportPath, ExportCircle, ExportText } from './model'
 import { arcData } from './math'
 import { tablePath } from './layout'
 import { num, LAYER_ORDER } from './svg'
 const p = (code: number, value: string | number) => code + '\n' + value + '\n'
+
+function cleanLayerName(name: string): string {
+  return name.replace(/[<>/\":;?*|=]/g, '').trim()
+}
+
+export function dxfLayerName(prefix: string, role: ExportRole): string {
+  return `${cleanLayerName(prefix)} - ${role}`
+}
+
 export function dxfExport(d: ExportDrawing) {
   let handle = 256
   const h = () => p(5, (handle++).toString(16).toUpperCase())
   const point = (code: number, q: { x: number; y: number }) =>
     p(code, num(q.x)) + p(code + 10, num(-q.y)) + p(code + 20, 0)
-  const paths = [...d.paths, ...(d.table ? [tablePath(d.table)] : [])],
-    texts = [...d.texts, ...(d.table?.texts ?? [])]
-  const roleRank = (r: string) => {
-    const idx = LAYER_ORDER.indexOf(r as ExportRole)
+
+  const parts = d.parts ?? []
+  const partPathSet = new Set(parts.flatMap((pt) => pt.paths))
+  const partCircleSet = new Set(parts.flatMap((pt) => pt.circles))
+
+  type LayerItem = { name: string; role: ExportRole }
+  const layerMap = new Map<string, ExportRole>()
+
+  // Kerätään elementit ja niiden tasot
+  type SourcedPath = { path: ExportPath; layer: string }
+  type SourcedCircle = { circle: ExportCircle; layer: string }
+  type SourcedText = { text: ExportText; layer: string }
+
+  const sourcedPaths: SourcedPath[] = []
+  const sourcedCircles: SourcedCircle[] = []
+  const sourcedTexts: SourcedText[] = []
+
+  for (const part of parts) {
+    for (const path of part.paths) {
+      const layer = dxfLayerName(part.name, path.role)
+      layerMap.set(layer, path.role)
+      sourcedPaths.push({ path, layer })
+    }
+    for (const circle of part.circles) {
+      const layer = dxfLayerName(part.name, circle.role)
+      layerMap.set(layer, circle.role)
+      sourcedCircles.push({ circle, layer })
+    }
+    const nameText = d.texts.find((t) => t.text === part.name)
+    if (nameText) {
+      const layer = dxfLayerName(part.name, nameText.role)
+      layerMap.set(layer, nameText.role)
+      sourcedTexts.push({ text: nameText, layer })
+    }
+  }
+
+  // Kalibrointi
+  const calPaths = d.paths.filter((p) => !partPathSet.has(p))
+  const calCircles = d.circles.filter((c) => !partCircleSet.has(c))
+  const calTexts = d.texts.filter(
+    (t) => !parts.some((pt) => pt.name === t.text) && t.text.includes('calibration'),
+  )
+  for (const path of calPaths) {
+    const layer = dxfLayerName('Calibration', path.role)
+    layerMap.set(layer, path.role)
+    sourcedPaths.push({ path, layer })
+  }
+  for (const circle of calCircles) {
+    const layer = dxfLayerName('Calibration', circle.role)
+    layerMap.set(layer, circle.role)
+    sourcedCircles.push({ circle, layer })
+  }
+  for (const text of calTexts) {
+    const layer = dxfLayerName('Calibration', text.role)
+    layerMap.set(layer, text.role)
+    sourcedTexts.push({ text, layer })
+  }
+
+  // Mittataulukko
+  if (d.table) {
+    const tableLayer = dxfLayerName('Dimensions', 'REFERENCE_DIMENSIONS')
+    layerMap.set(tableLayer, 'REFERENCE_DIMENSIONS')
+    sourcedPaths.push({ path: tablePath(d.table), layer: tableLayer })
+    for (const t of d.table.texts) {
+      sourcedTexts.push({ text: t, layer: tableLayer })
+    }
+  }
+
+  // Mahdolliset muut tekstit
+  const handledTexts = new Set(sourcedTexts.map((s) => s.text))
+  for (const t of d.texts) {
+    if (!handledTexts.has(t)) {
+      const layer = dxfLayerName('General', t.role)
+      layerMap.set(layer, t.role)
+      sourcedTexts.push({ text: t, layer })
+    }
+  }
+
+  const roleRank = (r: ExportRole) => {
+    const idx = LAYER_ORDER.indexOf(r)
     return idx === -1 ? 999 : idx
   }
-  const roles = [
-    ...new Set([
-      '0',
-      ...paths.map((p) => p.role),
-      ...d.circles.map((c) => c.role),
-      ...texts.map((t) => t.role),
-    ]),
-  ].sort((a, b) => roleRank(a) - roleRank(b))
+
+  const layers: LayerItem[] = Array.from(layerMap.entries())
+    .map(([name, role]) => ({ name, role }))
+    .sort((a, b) => roleRank(a.role) - roleRank(b.role) || a.name.localeCompare(b.name))
+
   const b = d.bounds
   let out =
     p(0, 'SECTION') +
@@ -69,17 +151,29 @@ export function dxfExport(d: ExportDrawing) {
     p(49, -3) +
     p(74, 0) +
     p(0, 'ENDTAB')
-  out += p(0, 'TABLE') + p(2, 'LAYER') + h() + p(100, 'AcDbSymbolTable') + p(70, roles.length)
-  for (const role of roles)
+
+  out += p(0, 'TABLE') + p(2, 'LAYER') + h() + p(100, 'AcDbSymbolTable') + p(70, layers.length + 1)
+  out +=
+    p(0, 'LAYER') +
+    h() +
+    p(100, 'AcDbSymbolTableRecord') +
+    p(100, 'AcDbLayerTableRecord') +
+    p(2, '0') +
+    p(70, 0) +
+    p(62, 7) +
+    p(6, 'CONTINUOUS')
+
+  for (const layer of layers)
     out +=
       p(0, 'LAYER') +
       h() +
       p(100, 'AcDbSymbolTableRecord') +
       p(100, 'AcDbLayerTableRecord') +
-      p(2, role) +
+      p(2, layer.name) +
       p(70, 0) +
-      p(62, role === 'ROUTE_INLAY' ? 4 : 7) +
-      p(6, role === 'REFERENCE_CENTERLINE' ? 'GTR_CENTERLINE' : 'CONTINUOUS')
+      p(62, layer.role === 'ROUTE_INLAY' ? 4 : 7) +
+      p(6, layer.role === 'REFERENCE_CENTERLINE' ? 'GTR_CENTERLINE' : 'CONTINUOUS')
+
   out +=
     p(0, 'ENDTAB') +
     p(0, 'TABLE') +
@@ -103,16 +197,18 @@ export function dxfExport(d: ExportDrawing) {
     p(0, 'ENDTAB') +
     p(0, 'ENDSEC')
   out += p(0, 'SECTION') + p(2, 'BLOCKS') + p(0, 'ENDSEC') + p(0, 'SECTION') + p(2, 'ENTITIES')
-  const base = (type: string, role: ExportRole, sub: string) =>
-    p(0, type) + h() + p(100, 'AcDbEntity') + p(8, role) + p(100, sub)
-  function segment(s: ExportSegment, role: ExportRole) {
+
+  const base = (type: string, layer: string, sub: string) =>
+    p(0, type) + h() + p(100, 'AcDbEntity') + p(8, layer) + p(100, sub)
+
+  function segment(s: ExportSegment, layer: string) {
     if (s.type === 'line') {
       if (Math.hypot(s.from.x - s.to.x, s.from.y - s.to.y) < 1e-9) return ''
-      return base('LINE', role, 'AcDbLine') + point(10, s.from) + point(11, s.to)
+      return base('LINE', layer, 'AcDbLine') + point(10, s.from) + point(11, s.to)
     }
     if (s.type === 'cubicBezier')
       return (
-        base('SPLINE', role, 'AcDbSpline') +
+        base('SPLINE', layer, 'AcDbSpline') +
         p(70, 8) +
         p(71, 3) +
         p(72, 8) +
@@ -126,7 +222,7 @@ export function dxfExport(d: ExportDrawing) {
     const start = s.sweep ? angle(a.start + a.delta) : angle(a.start),
       end = s.sweep ? angle(a.start) : angle(a.start + a.delta)
     return (
-      base('ARC', role, 'AcDbCircle') +
+      base('ARC', layer, 'AcDbCircle') +
       point(10, a.center) +
       p(40, num(a.r)) +
       p(100, 'AcDbArc') +
@@ -134,16 +230,24 @@ export function dxfExport(d: ExportDrawing) {
       p(51, num(end))
     )
   }
-  for (const path of paths) for (const s of path.segments) out += segment(s, path.role)
-  for (const c of d.circles)
-    out += base('CIRCLE', c.role, 'AcDbCircle') + point(10, c.center) + p(40, num(c.radiusMm))
-  for (const t of texts)
+
+  for (const item of sourcedPaths)
+    for (const s of item.path.segments) out += segment(s, item.layer)
+
+  for (const item of sourcedCircles)
     out +=
-      base('TEXT', t.role, 'AcDbText') +
-      point(10, t) +
-      p(40, num(t.size)) +
-      p(1, t.text) +
+      base('CIRCLE', item.layer, 'AcDbCircle') +
+      point(10, item.circle.center) +
+      p(40, num(item.circle.radiusMm))
+
+  for (const item of sourcedTexts)
+    out +=
+      base('TEXT', item.layer, 'AcDbText') +
+      point(10, item.text) +
+      p(40, num(item.text.size)) +
+      p(1, item.text.text) +
       p(7, 'STANDARD') +
       p(100, 'AcDbText')
+
   return out + p(0, 'ENDSEC') + p(0, 'EOF')
 }

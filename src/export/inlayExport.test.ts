@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { PDFDocument } from 'pdf-lib'
+import { PDFDocument, PDFDict, PDFName, PDFString } from 'pdf-lib'
 import { createStarterDocument } from '../model/project'
 import { deriveNeckDocument } from '../neck/neckDocument'
 import { DEFAULT_EXPORT_OPTIONS, type ExportOptions, type ExportPart } from './model'
@@ -207,20 +207,33 @@ describe('fretboard inlay manufacturing export', () => {
     const pdfBytes = await pdfExport(drawingWithInlays)
     const loadedPdf = await PDFDocument.load(pdfBytes)
 
-    // Verify PDF has catalog with OCProperties and OCG entry
+    const getOcgNames = (pdfDoc: PDFDocument) => {
+      const names: string[] = []
+      for (const [, obj] of pdfDoc.context.enumerateIndirectObjects()) {
+        if (obj instanceof PDFDict && obj.get(PDFName.of('Type'))?.toString() === '/OCG') {
+          const nameObj = obj.get(PDFName.of('Name'))
+          if (nameObj instanceof PDFString) names.push(nameObj.asString())
+        }
+      }
+      return names
+    }
+
+    // Verify PDF has catalog with OCProperties and OCG entry for Fretboard and Fretboard inlays
     const ocProperties = loadedPdf.catalog.get(loadedPdf.context.obj('OCProperties') as any)
     expect(ocProperties).toBeDefined()
+    const withInlayNames = getOcgNames(loadedPdf)
+    expect(withInlayNames).toContain('Fretboard')
+    expect(withInlayNames).toContain('Fretboard inlays')
 
-    // When inlays are disabled, PDF should not contain OCG
+    // When inlays are disabled, PDF contains the part layer but omits inlays OCG
     const drawingWithoutInlays = buildExportDrawing(
       doc,
       exportOpts(['fretboard'], { includeFretGuides: true, includeInlays: false }),
     )
     const pdfBytesNoInlays = await pdfExport(drawingWithoutInlays)
     const loadedNoInlays = await PDFDocument.load(pdfBytesNoInlays)
-    const noOcProperties = loadedNoInlays.catalog.get(
-      loadedNoInlays.context.obj('OCProperties') as any,
-    )
-    expect(noOcProperties).toBeUndefined()
+    const noInlayNames = getOcgNames(loadedNoInlays)
+    expect(noInlayNames).toContain('Fretboard')
+    expect(noInlayNames).not.toContain('Fretboard inlays')
   })
 })
